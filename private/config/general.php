@@ -8,5 +8,19 @@
  */
 
 return array(
+	'*' => array(
+        'omitScriptNameInUrls' => true,
+        'defaultWeekStartDay' => 1,
+        /** 'cpTrigger' => new-url, **/
+        'sendPoweredByHeader' => false
+    ),
 
+    'koma-katalog.dev' => array(
+        'devMode' => true,
+    ),
+
+    'koma-katalog.cz' => array(
+    	'devMode' => false,
+        'cooldownDuration' => 0,
+    )
 );
