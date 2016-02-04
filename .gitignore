@@ -1,3 +1,4 @@
 private/app
 private/.htaccess
+private/config/db.php
 .DS_Store
