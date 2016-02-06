@@ -12,7 +12,11 @@ return array(
         'omitScriptNameInUrls' => true,
         'defaultWeekStartDay' => 1,
         /** 'cpTrigger' => new-url, **/
-        'sendPoweredByHeader' => false
+        'sendPoweredByHeader' => false,
+        'allowAutoUpdates' => 'minor-only',
+        'defaultCpLanguage' => 'cs',
+        'loginPath' => 'login',
+        'testToEmailAddress' => 'lexislav@gmail.com'
     ),
 
     'koma-katalog.dev' => array(
@@ -21,6 +25,5 @@ return array(
 
     'koma-katalog.cz' => array(
     	'devMode' => false,
-        'cooldownDuration' => 0,
     )
 );
