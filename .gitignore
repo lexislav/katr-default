@@ -3,3 +3,4 @@ private/.htaccess
 private/config/db.php
 private/storage/runtime/ 
 .DS_Store
+public/assets
