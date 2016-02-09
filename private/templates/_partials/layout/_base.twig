@@ -1,5 +1,6 @@
 {# {% if siteUrl != craft.request.getUrl %}{% redirect "admin" 301%}{% endif %} #}
-{# {% if not currentUser %}{% redirect "admin" 301%}{% endif %} #}
+{% if siteUrl != craft.request.getUrl %}{% if not currentUser %}{% redirect "admin" 301%}{% endif %}{% endif %}
+
 
 <!doctype html >
 <html class="no-js" lang="en">
