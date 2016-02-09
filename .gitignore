@@ -1,6 +1,5 @@
 private/app
 private/.htaccess
 private/config/db.php
-private/storage/runtime/ 
+private/storage/runtime/
 .DS_Store
-public/assets
