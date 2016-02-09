@@ -1,21 +1,49 @@
-{#
- # testPage template
- # ---------------
- #
- # šablona pro ukázku sekcí, modulů
- #
- # See this page for more details on how Craft routes requests:
- # http://buildwithcraft.com/docs/routing
- #}
-
 {% extends "/_partials/layout/_base.twig" %}
+
+{% block bars %}
+	{% include "/_partials/base/_top-title-bar.twig" %}
+	{% include "/_partials/base/_top-bar.twig" %}
+{% endblock %}
 
 {% block content %}
 	{{ parent() }}
-	<h1>TEST > {{ entry.title }}{% if entry.title is not defined %}what the fuck?{% endif %}</h1>
-	{{ entry.body }}
 
-	{% include "/_partials/headers/_header_pripravujeme.twig" %}
-	{% include "/_partials/common/_section_info_centered_articles.twig" %}
+	{% include "/_partials/base/_top-breadcrumbs.twig" %}
+
+	<article>
+		{% include "/_partials/obsah/_obsah-header.twig" %}
+		{% include "/_partials/obsah/_obsah-fotogalerie.twig" %}
+
+
+		<div class="row">
+			<div class="column">
+				<h2>Další informace</h2>
+			</div>
+		</div>
+
+
+		{# accordeon for mobile only#}
+		<div class="hide-for-large">
+			{% include "/_partials/obsah/_obsah-dalsi-info-accordeon.twig" %}
+		</div>
+		{# grid for desktop #}
+		<div class="show-for-large">
+			{% include "/_partials/obsah/_obsah-dalsi-info.twig" %}
+		</div>
+
+		<div class="m-section">
+			<div class="row">
+				<div class="column text-center">
+					<a href=""> nahoru</a>
+				</div>
+			</div>
+		</div>
+
+		{% include "/_partials/obsah/_obsah-upozorneni.twig" %}
+
+	</article>
 
 {% endblock %}
+
+{% block scripts %}{% endblock %}
+
