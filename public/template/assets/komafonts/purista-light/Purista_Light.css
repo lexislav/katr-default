@@ -1,0 +1,12 @@
+@font-face {
+  font-family: 'Purista_Light';
+  src:
+    url('Purista_Light.eot');
+  src:
+    url('Purista_Light.eot?#iefix') format('embedded-opentype'),
+    url('Purista_Light.woff') format('woff'),
+    url('Purista_Light.svg') format('svg'),
+    local('☺');
+  font-weight: normal;
+  font-style: normal;
+}

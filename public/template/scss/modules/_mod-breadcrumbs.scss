@@ -1,0 +1,11 @@
+.m-breadcrumbs {
+    background-color: $color-koma-ui-light;
+    max-height: 42px;
+    padding: 13px;
+    padding-left: 22px;
+    padding-right: 22px;
+
+    .breadcrumbs a {
+        text-decoration: underline;
+    }
+}

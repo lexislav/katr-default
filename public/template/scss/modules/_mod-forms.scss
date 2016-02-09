@@ -1,0 +1,51 @@
+
+
+/// forms
+
+input[type="checkbox"] {
+    cursor: pointer;
+    -webkit-appearance: none;
+    appearance: none;
+    background: transparent;
+    border-radius: 3px;
+    border: 1px solid $color-koma-grey;
+
+    position: relative;
+
+    box-sizing: content-box;
+    width: 25px;
+    height: 25px;
+    transition: all .3s linear;
+    display: inline-block;
+    margin-bottom: 0;
+}
+
+input[type="checkbox"]:checked {
+    background-color: $color-koma-grey-dark;
+    background-image: url("/assets/progress-1.png");
+    background-size: cover;
+}
+
+input[type="checkbox"]:focus {
+    outline: 0 none;
+    box-shadow: none;
+}
+
+
+// validation html5
+
+.form-validation {
+    input {
+        &:focus:required:invalid {
+            background-color: lighten($color-koma-primary, 50%);
+            border: 1px solid $color-koma-primary;
+        }
+    }
+}
+
+label {
+    a {
+        color: inherit;
+        text-decoration: underline;
+    }
+}

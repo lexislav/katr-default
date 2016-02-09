@@ -1,0 +1,27 @@
+.m-section_footer,
+.m-section_copyright {
+    a {
+        color: rgba(255,255,255,.8);
+        &:hover {
+            color: white;
+        }
+    }
+}
+
+.m-section_footer {
+    padding: 50px 0;
+    padding-bottom: 30px;
+}
+
+.m-section_copyright {
+    padding: 20px 0 ;
+    color: rgba(255,255,255,.7);
+}
+
+.m-section_footer-first-line {
+    padding-bottom: 60px;
+
+    .fa {
+        padding-left: 14px;
+    }
+}

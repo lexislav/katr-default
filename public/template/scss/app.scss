@@ -1,0 +1,63 @@
+$gSpacing: 100px;
+$color-koma-primary: #c20e1a;
+$color-koma-primary-dark: #960e19;
+$color-koma-grey-light: #f2f2f2;
+$color-koma-grey: #858585;
+$color-koma-grey-medium: #5e5e5e;
+$color-koma-grey-dark: #434343;
+$color-koma-ui-light: #ecf0ec;
+$color-koma-ui: #b5bbb4;
+$color-koma-ui-light: #f8f8f8;
+
+@import "base/fonts";
+@import "module-foundation";
+
+/* custom overrides */
+
+@import "modules/mod-base";
+@import "modules/mod-forms";
+@import "modules/mod-header";
+@import "modules/mod-footer";
+@import "modules/mod-offcanvas";
+@import "modules/mod-topbar";
+@import "modules/mod-breadcrumbs";
+
+.mm-pad-top {
+    padding-top: 50px;
+}
+
+.mm-pad-bottom {
+    padding-bottom: 50px;
+}
+
+.mm-pad-bottom-half {
+    padding-bottom: 30px;
+}
+
+.grow {
+    flex: 2 0 0;
+}
+
+.m-section {
+    padding-top: $gSpacing;
+    padding-bottom: $gSpacing;
+    //border-bottom: 1px solid deeppink;
+}
+
+.button {
+    font-family: Purista;
+    font-weight: 600;
+}
+
+.image-progress {
+    width: 67px;
+    margin-bottom: 50px;
+}
+
+// this need to be fixed, still troubles with offcanvas
+.scroll-lock {
+    overflow: hidden;
+    &.touch {
+        position: fixed;
+    }
+}
