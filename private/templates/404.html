@@ -16,11 +16,12 @@
  # http://craftcms.com/docs/routing
  #}
 
-{% extends "_layout" %}
+{% extends "/_partials/layout/_empty.twig" %}
 {% set title = "404" %}
 
 {% block content %}
-	<h1>Page not found</h1>
+	<h1>Stránka neexistuje nebo je nepřístupná.</h1>
+	<!-- {% redirect "" 301 %} -->
 
-	<p>What’s worse, a hilarious 404 page can’t be found either.</p>
+	<!-- <p>What’s worse, a hilarious 404 page can’t be found either.</p> -->
 {% endblock %}
