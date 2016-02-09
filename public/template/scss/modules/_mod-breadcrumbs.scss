@@ -8,4 +8,14 @@
     .breadcrumbs a {
         text-decoration: underline;
     }
+
+    // modifiers
+
+    &.mm-over {
+        position: absolute;
+        z-index: 1;
+        width: 100%;
+        background-color: rgba($color-koma-ui-light,0.5);
+    }
+
 }
