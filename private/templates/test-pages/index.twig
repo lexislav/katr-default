@@ -8,10 +8,11 @@
 {% block content %}
 	{{ parent() }}
 
-	{% include "/_partials/base/_top-breadcrumbs.twig" %}
+	{% include '/_partials/base/_top-breadcrumbs.twig' with {'class': 'mm-over'} %}
 
 	<article>
 		{% include "/_partials/obsah/_obsah-header.twig" %}
+
 		{% include "/_partials/obsah/_obsah-fotogalerie.twig" %}
 
 
