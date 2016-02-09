@@ -1,0 +1,43 @@
+
+.top-bar {
+    height: 77px;
+    padding: 0;
+    border-bottom: 1px solid $color-koma-ui;
+    overflow: hidden;
+
+    .menu
+    .menu a {
+        color: $color-koma-grey;
+    }
+
+    .menu > li {
+        padding: 21px;
+        height: 76px;
+    }
+
+    .menu > li > a {
+        padding: 0;
+    }
+
+    .menu-icon::after {
+        color: $color-koma-grey;
+        background: orangered;
+    }
+
+    .menu-square {
+        width: 77px;
+    }
+
+    .top-bar-left {
+        height: 76px;
+        .has-border {
+            border-right: 1px solid $color-koma-ui;
+        }
+    }
+    .top-bar-right {
+        height: 76px;
+        .has-border {
+            border-left: 1px solid $color-koma-ui;
+        }
+    }
+}

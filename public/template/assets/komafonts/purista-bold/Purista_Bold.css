@@ -1,0 +1,12 @@
+@font-face {
+  font-family: 'Purista_Bold';
+  src:
+    url('Purista_Bold.eot');
+  src:
+    url('Purista_Bold.eot?#iefix') format('embedded-opentype'),
+    url('Purista_Bold.woff') format('woff'),
+    url('Purista_Bold.svg') format('svg'),
+    local('☺');
+  font-weight: bold;
+  font-style: normal;
+}

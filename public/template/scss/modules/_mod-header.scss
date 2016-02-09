@@ -1,0 +1,43 @@
+
+.m-header {
+
+    height: 900px;
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    justify-content: space-between;
+    color: white;
+    background-position: center center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    .row {
+        width: 100%;
+    }
+
+    a,
+    label {
+        color: white;
+    }
+
+}
+
+.m-header-anchors {
+    display: flex;
+    flex-direction: row;
+    color: white;
+    align-items: center;
+    justify-content: center;
+    align-content: center;
+
+
+
+    .m-item {
+        padding: 0 20px;
+
+        &.mm-button {
+            padding: 0;
+            width: 110px;
+            height: auto;
+        }
+    }
+}

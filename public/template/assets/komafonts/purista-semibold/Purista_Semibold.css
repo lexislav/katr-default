@@ -1,0 +1,12 @@
+@font-face {
+  font-family: 'Purista_Semibold';
+  src:
+    url('Purista_Semibold.eot');
+  src:
+    url('Purista_Semibold.eot?#iefix') format('embedded-opentype'),
+    url('Purista_Semibold.woff') format('woff'),
+    url('Purista_Semibold.svg') format('svg'),
+    local('☺');
+  font-weight: bold;
+  font-style: normal;
+}

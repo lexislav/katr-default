@@ -1,0 +1,106 @@
+
+.s-hollow {
+    display: inline-block;
+    padding: 0.2em 0.7em;
+    border: 2px solid black;
+
+    margin-bottom: $gSpacing;
+}
+
+.bg-primary {
+    background-color: $color-koma-primary;
+}
+
+.bg-primary-dark {
+    background-color: $color-koma-primary-dark;
+}
+
+.bg-white {
+    background-color: white;
+}
+
+.bg-grey-light {
+    background-color: $color-koma-grey-light;
+}
+
+.c-primary {
+    color: $color-koma-primary;
+}
+
+.c-primary-dark {
+    color: $color-koma-primary-dark;
+}
+
+.c-white {
+    color: white;
+}
+
+.c-grey-light {
+    color: $color-koma-grey-light;
+}
+
+.c-grey-mid {
+    color: $color-koma-grey-medium;
+}
+
+
+// font classes
+
+.f-headline {
+    font-family: Purista;
+}
+
+.f-body {
+    font-family: "Helvetica Neue", Helvetica, Roboto, Arial, sans-serif;
+}
+
+.f-up {
+    text-transform: uppercase;
+}
+
+.f-600 {
+    font-weight: 600;
+}
+
+.f-800 {
+    font-weight: 800;
+}
+
+.f-400 {
+    font-weight: 400;
+}
+
+.f-200 {
+    font-weight: 200;
+}
+
+// build font helper classes
+@mixin createBuildFontSizeHelpers($sizeId, $font-size, $font-size-desktoo, $lineheight, $lineheight-desktop, $pad-height, $pad-height-desktop) {
+    $breakpoint: large;
+
+    .f-#{$sizeId} {
+        font-size: $font-size;
+        line-height: $lineheight;
+        @include breakpoint($breakpoint) {
+            font-size: $font-size-desktoo;
+            line-height: $lineheight-desktop;
+        }
+    }
+
+    .f-pad-#{$sizeId} {
+        padding-bottom: $pad-height;
+        @include breakpoint($breakpoint) {
+            padding-bottom: $pad-height-desktop;
+        }
+    }
+}
+
+//@formatter:off
+@include createBuildFontSizeHelpers(xxl,  38px,   38px,  1.32em,  1.32em,     3em,     3em);
+@include createBuildFontSizeHelpers(xl,   28px,   28px,  1.32em,  1.32em,     2em,     2em);
+@include createBuildFontSizeHelpers(l,    24px,   24px,   1.2em,   1.2em,   1.5em,   1.5em);
+@include createBuildFontSizeHelpers(m,    20px,   20px,   1.2em,   1.2em,     1em,     1em);
+@include createBuildFontSizeHelpers(s,    16px,   16px,   1.2em,   1.2em,   0.7em,   0.7em);
+@include createBuildFontSizeHelpers(xs,   14px,   14px,   1.2em,   1.2em,   0.5em,   0.5em);
+@include createBuildFontSizeHelpers(xxs,  12px,   12px,   1.5em,   1.5em,  0.25em,  0.25em);
+//@formatter:on

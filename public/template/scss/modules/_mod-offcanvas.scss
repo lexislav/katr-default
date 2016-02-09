@@ -1,0 +1,128 @@
+.off-canvas {
+
+    * {
+        outline: none;
+        color: $color-koma-grey;
+    }
+
+    border-right: 1px solid darken($color-koma-grey-dark, 3%);
+
+    a {
+        &:hover {
+            color: white;
+            .fa {
+                color: white;
+            }
+        }
+    }
+
+    &.position-left {
+        position: fixed;
+        overflow: hidden;
+        z-index: 10;
+        top: 0;
+        bottom: 0;
+        transform: translateX(0);
+        transition: transform $offcanvas-transition-length $offcanvas-transition-timing;
+        &.is-open {
+            transform: translateX($offcanvas-size);
+            transition: transform $offcanvas-transition-length $offcanvas-transition-timing;
+        }
+
+        //fix flex rows
+        .row {
+            width: 100%;
+        }
+        .row .row {
+            width: auto;
+        }
+    }
+}
+
+.off-canvas-scroll-content {
+    overflow: auto;
+    height: 100%
+}
+
+.off-canvas-item--headline {
+    font-family: $body-font-family;
+    font-size: 18px;
+    line-height: 1em;
+    letter-spacing: 0.13em;
+    color: $color-koma-grey-light;
+
+}
+
+.off-canvas-item--icon {
+    font-size: 32px;
+    color: $color-koma-grey-light;
+    text-align: right;
+    margin-top: -.16em;
+}
+
+.off-canvas-item {
+    font-family: $body-font-family;
+    font-size: 12px;
+    padding: 16px 16px;
+    border-bottom: 1px dotted $color-koma-grey-medium;
+
+    &:last-of-type {
+        border-bottom: none;
+    }
+
+    &:hover:not(.disabled) {
+        background-color: lighten($color-koma-grey-dark, 2%);
+        * {
+            color: white;
+        }
+    }
+
+    &.disabled {
+        pointer-events: none;
+        * {
+            color: lighten($color-koma-grey-dark, 10%);;
+        }
+    }
+}
+
+.off-canvas-header,
+.off-canvas-footer {
+    font-family: $header-font-family;
+    background-color: $offcanvas-background;
+    height: 76px;
+    border-bottom: 1px solid $color-koma-grey-medium;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+.off-canvas-header {
+    font-weight: 600;
+    font-size: rem-calc(24);
+}
+
+.off-canvas-footer {
+    position: fixed;
+    bottom: 0;
+    background-color: $offcanvas-background;
+
+    div:first-of-type {
+        border-right: 1px solid $color-koma-grey-medium;
+    }
+
+    .fa {
+        margin-right: 10px;
+
+    }
+
+    &:before {
+        pointer-events: none;
+        display: block;
+        height: 200px;
+        top: -200px;
+        width: 100%;
+        left: 0;
+        content: "";
+        background: linear-gradient(180deg, transparent, $offcanvas-background);
+        position: absolute;
+    }
+}

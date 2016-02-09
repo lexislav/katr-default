@@ -1,0 +1,77 @@
+{% if not currentUser %}{% redirect "admin" 301%}{% endif %}
+
+<!doctype html >
+<html class="no-js" lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>{% if title is defined %}{{ title }} - {% endif %}{{ siteName }}</title>
+    <link rel="home" href="{{ siteUrl }}" />
+
+    <script src="/template/components/modernizr/modernizr.js"></script>
+    <link rel="stylesheet" href="/template/css/app.css">
+    <link rel="stylesheet" href="/template/components/font-awesome/css/font-awesome.min.css">
+</head>
+<body>
+
+
+<div class="off-canvas-wrapper">
+    <!-- off-canvas left menu -->
+
+    {% include "/_partials/base/_offcanvas-left.twig" %}
+
+    <div class="off-canvas-wrapper-inner" data-off-canvas-wrapper>
+
+        {# blok pro topbary + breadcrumbs etc #}
+        {% block bars %}{% endblock %}
+
+        <!-- original content goes in this container -->
+        <div class="off-canvas-content" data-off-canvas-content>
+            {% block content %}{% endblock %}
+
+            {% include "/_partials/base/_footer.twig" %}
+        </div>
+        <!-- close wrapper, no more content after this -->
+
+    </div>
+</div>
+
+<script src="/template/components/jquery/dist/jquery.js"></script>
+<script src="/template/components/what-input/what-input.js"></script>
+<script src="/template/components/foundation-sites/dist/foundation.js"></script>
+<script src="/template/js/min/app-min.js"></script>
+
+<script>
+
+    // offcanvas
+    $(document)
+            .on('opened.zf.offcanvas', '[data-off-canvas]', function () {
+                $('html').addClass('scroll-lock');
+            })
+            .on('closed.zf.offcanvas', '[data-off-canvas]', function () {
+                $('html').removeClass('scroll-lock');
+            });
+
+    function updateFullscreenElements() {
+        $("[mod-screen-height]").each(function (index) {
+            var el = $(this);
+            el.css('height',$(window).height());
+        });
+    }
+
+    $(function() {
+        console.log( "ready!" );
+        updateFullscreenElements();
+
+        $(window).on('resize', function () {
+            updateFullscreenElements();
+        });
+    });
+
+    {% block scriptsBottom %}{% endblock %}
+</script>
+
+</body>
+</html>

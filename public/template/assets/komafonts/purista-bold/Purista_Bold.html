@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset='UTF-8'>
+    <title>Suitcase Type Foundry / Purista Bold</title>
+    <meta content='Suitcase Type Foundry - new original czech type foundry' lang='en' name='description'>
+    <link href='Purista_Bold.css' rel='stylesheet' type='text/css'>
+    <style>
+      body {
+        margin: 0 auto;
+        padding: 0;
+        width: 744px;
+        font-family: 'Lucida Grande', Helvetica, Arial;
+        font-size: 11px;
+        line-height: 18px;
+      }
+      #container {
+        margin: 0 auto;
+      }
+      #page_head {
+        margin: 0px;
+        padding: 57px 0px 46px 0px;
+        background: url(images/border.gif) repeat-x bottom left;
+      }
+      .logo {
+        margin: 0px;
+        padding: 0px;
+        width: 630px;
+      }
+      .specimen {
+        float: right;
+        margin-top: 11px;
+      }
+      #content h1 {
+        margin-top: 32px;
+        font-size: 18px;
+        font-weight: bold;
+      }
+      .contact a {
+        color: #000;
+      }
+      .copyright {
+        font-size: 9px;
+        width: 400px;
+        margin-top: 104px;
+      }
+      .suitcase {
+        float: right;
+      }
+      .instruction, .charset {
+        clear: both;
+        background: url(images/border.gif) repeat-x top left;
+      }
+      .instruction {
+        padding-bottom: 75px;
+      }
+      .charset {
+        padding-bottom: 40px;
+      }
+      .instruction pre {
+        padding: 1em 1em;
+        background-color: #eee;
+        font-size: 12px;
+      }
+      .footer {
+        background: url(images/border.gif) repeat-x top left;
+        padding: 1px;
+        margin: 0px;
+      }
+      .instruction h2, .charset h2 {
+        padding: 40px 0px 32px 0px;
+        font-size: 18px;
+      }
+      /* ------------------------------------------------------------------------
+       * Webfonts
+      */
+      .webfonts .text, .webfonts .columns p, .charset .reduce {
+        font-family: 'Purista_Bold';
+      }
+      .reduce {
+        font-size: 16px;
+        line-height: 21px;
+      }
+      .webfonts {
+        background: url(images/border.gif) repeat-x bottom left;
+        line-height: 1.12;
+      }
+      .webfonts ul {
+        margin: 0;
+        -webkit-margin-before: 0;
+        -webkit-padding-start: 0;
+      }
+      .waterfall {
+        background: url(images/border.gif) repeat-x bottom left;
+        padding-bottom: 40px;
+        padding-top: 10px;
+      }
+      .waterfall li {
+        overflow-x: hidden;
+        overflow-y: auto;
+      }
+      .waterfall .text {
+        width: 1000000px;
+        height: 1em;
+        line-height: 1em;
+      }
+      .line_72 .text {
+        font-size: 72px;
+      }
+      .line_72 .size {
+        margin-top: -4px;
+      }
+      .line_60 .text {
+        font-size: 60px;
+      }
+      .line_60 .size {
+        margin-top: -4px;
+      }
+      .line_48 .text {
+        font-size: 48px;
+      }
+      .line_48 .size {
+        margin-top: -2px;
+      }
+      .line_36 .text {
+        margin-top: 1px;
+        font-size: 36px;
+      }
+      .line_36 .size {
+        margin-top: -1px;
+      }
+      .line_30 .text {
+        height: 1.1em;
+        line-height: 1.1em;
+        font-size: 30px;
+      }
+      .line_30 .size {
+        margin-top: -1px;
+      }
+      .line_24 .text {
+        height: 1.1em;
+        line-height: 1.1em;
+        font-size: 24px;
+      }
+      .line_24 .size {
+        margin-top:  2px;
+      }
+      .line_18 .text {
+        height: 1.1em;
+        line-height: 1.1em;
+        font-size: 18px;
+      }
+      .line_18 .size {
+        margin-top:  3px;
+      }
+      .line_14 .text {
+        font-size: 14px;
+      }
+      .line_14 .size {
+        margin-top:  5px;
+      }
+      .line_12 .text {
+        margin-top: -3px;
+        font-size: 12px;
+      }
+      .line_12 .size {
+        margin-top:  8px;
+      }
+      .line_11 .text {
+        margin-top: -1px;
+        font-size: 11px;
+      }
+      .line_11 .size {
+        margin-top:  8px;
+      }
+      .line_10 .text {
+        margin-top: -4px;
+        font-size: 10px;
+      }
+      .line_10 .size {
+        margin-top:  8px;
+      }
+      
+      .line_9 .text {
+        margin-top: -3px;
+        font-size: 9px;
+      }
+      .line_9 .size {
+        margin-top:  10px;
+      }
+      .line_8 .text {
+        margin-top: -3px;
+        font-size: 8px;
+      }
+      .line_8 .size {
+        margin-top:  10px;
+      }
+      .try_webfonts {
+        clear: both;
+        background: url(../img/border.gif?2) repeat-x top left;
+        padding: 40px 0px 32px 0px;
+      }
+      pre {
+        background-color: #D6D6D6;
+        padding: 7px 10px;
+        margin: 38px 0;
+      }
+      .size {
+        height: 22px;
+        vertical-align: top;
+        font-size: 10px;
+      }
+      .columns .size {
+        width: 186px;
+        margin: -10px 0 40px 0;
+      }
+      .columns {
+        margin-top: 39px;
+      }
+      .columns p {
+        height: 270px;
+        overflow: hidden;
+      }
+      .columns div {
+        float: right;
+        padding-right: 35px;
+        width: 221px;
+      }
+      .columns div.size_12 {
+        padding-right: 9px;
+      }
+      .columns .size_16 p {
+        font-size: 16px;
+        line-height: 21px;
+      }
+      .columns .size_14 p {
+        font-size: 14px;
+        line-height: 18px;
+      }
+      .columns .size_12 p {
+        font-size: 12px;
+        line-height: 16px;
+      }
+    </style>
+  </head>
+  <body class='page_webfonts'>
+    <div id='container'>
+      <div id='page_head'>
+        <p class='specimen'>
+          <img alt='Webfont Specimen' height='11' src='images/webfont_specimen.png' width='105'>
+        </p>
+        <p class='logo'>
+          <a href='/'>
+            <img alt='Suitcase Type Foundry' height='32' src='images/suitcase_logo.gif' width='231'>
+          </a>
+        </p>
+      </div>
+      <div class='clear-zero'></div>
+      <div id='content'>
+        <h1>Purista Bold</h1>
+        <div class='clear-zero'></div>
+        <div class='webfonts'>
+          <ul class='waterfall'>
+            <li class='line_72'>
+              <div class='text'>William said that everything about his jacket was in quite good condition except for the zipper. The junior office clerks were quite amazed at the extra reward given by their generous employer. The sex life of the woodchuck is a provocative question for most vertebrate zoology majors. You go tell that vapid existentialist quack Freddy Nietzsche that he can just bite me, twice. Jimmy and Zack, the police explained, were last seen diving into a field of buttered quahogs. We quickly chased the zebras to a quiet drinking place just near my five bundles of flax. Ebenezer unexpectedly bagged two tranquil aardvarks with his jiffy vacuum cleaner. Sixty-five wildly panting fruitflies gazed hungrily at the juicy bouncing kumquats. I was temporarily forced to zig-zag and quiver furiously around big junky xylophones. In Boston: Jazzy (but malicious) squeak toy explodes, ending the lives of two children. Fabled reader with jaded, roving eye seized by quickened impulse to expand budget. For only $35, jolly housewives made “inexpensive” meals using quick-frozen vegetables. Travelling beneath the azure sky in our jolly ox-cart, we often hit bumps quite hard. Perhaps President Clinton’s amazing sax skills will be judged quite favorably. Two hardy boxing kangaroos jet from Sydney to Zanzibar on quicksilver pinions. As we explored the gulf of Zanzibar, we quickly moved closer to the jutting rocks. Six javelins thrown by the quick savages whizzed forty paces beyond the mark. The explorer was frozen in his big kayak just after making queer discoveries. Was there a quorum of able whizzkids gravely exciting the jaded fish at ATypI? The July sun caused a fragment of black pine wax to ooze on the velvet quilt. Jolly housewives made inexpensive meals using quick-frozen vegetables. Monique, the buxom coed, likes to fight for Pez with the junior varsity team. Venerable Will played jazz sax until 3 o’clock in the morning before he quit. The public was amazed to view the quickness and dexterity of the juggler. The chancellor of the exchequer embezzled junk from gypsies with vigor. While Suez sailors wax parquet decks, Afghan jews vomit jauntily abaft. Just work for improved basic techniques to maximize your typing skill. Questions of a zealous nature have become by degrees petty waxen jokes. About sixty codfish eggs will make a quarter pound of very fizzy jelly. Verbatim reports were quickly given by Jim Fox to his amazed audience. Barkeep! A flaming tequila swizzle and a vodka and Ajax, hold the cherry. Will Major Douglas be expected to take this true-false quiz very soon? The jukebox music puzzled a gentle visitor from a quaint valley town. You will quite often be amazed by Jock’s very weighty, size six sporran! Wolfing kumquats, jovial Charon poled his boat lazily along the Styx. Six big juicy steaks sizzled in a pan as five workmen left the quarry. While making deep excavations we found some quaint bronze jewelry. Jaded zombies acted quaintly but kept driving their oxen forward. The job requires extra pluck and zeal from every young wage earner. When we go back to Juarez, Mexico, do we fly over picturesque Arizona? On the boardwalk grave playful lizards quickly jump and exercise. Now is the time for all brown dogs to jump quickly over the lazy lynx. My help squeezed in and joined the weavers again before six o’clock. A mad boxer shot a quick, gloved jab to the jaw of his dizzy opponent. Would you please examine both sizes of jade figures very quickly. Back in my quaint garden, jaunty zinnias vie with flaunting phlox. We dislike to exchange job lots of sizes varying from a quarter up. A quart jar of oil mixed with zinc oxide makes a very bright paint. Quixotic knights’ wives are found on jumpy old zebras. Alfredo just must bring very exciting news to the plaza quickly.</div>
+              <div class='size'>72 pt</div>
+            </li>
+            <li class='line_60'>
+              <div class='text'>William said that everything about his jacket was in quite good condition except for the zipper. The junior office clerks were quite amazed at the extra reward given by their generous employer. The sex life of the woodchuck is a provocative question for most vertebrate zoology majors. You go tell that vapid existentialist quack Freddy Nietzsche that he can just bite me, twice. Jimmy and Zack, the police explained, were last seen diving into a field of buttered quahogs. We quickly chased the zebras to a quiet drinking place just near my five bundles of flax. Ebenezer unexpectedly bagged two tranquil aardvarks with his jiffy vacuum cleaner. Sixty-five wildly panting fruitflies gazed hungrily at the juicy bouncing kumquats. I was temporarily forced to zig-zag and quiver furiously around big junky xylophones. In Boston: Jazzy (but malicious) squeak toy explodes, ending the lives of two children. Fabled reader with jaded, roving eye seized by quickened impulse to expand budget. For only $35, jolly housewives made “inexpensive” meals using quick-frozen vegetables. Travelling beneath the azure sky in our jolly ox-cart, we often hit bumps quite hard. Perhaps President Clinton’s amazing sax skills will be judged quite favorably. Two hardy boxing kangaroos jet from Sydney to Zanzibar on quicksilver pinions. As we explored the gulf of Zanzibar, we quickly moved closer to the jutting rocks. Six javelins thrown by the quick savages whizzed forty paces beyond the mark. The explorer was frozen in his big kayak just after making queer discoveries. Was there a quorum of able whizzkids gravely exciting the jaded fish at ATypI? The July sun caused a fragment of black pine wax to ooze on the velvet quilt. Jolly housewives made inexpensive meals using quick-frozen vegetables. Monique, the buxom coed, likes to fight for Pez with the junior varsity team. Venerable Will played jazz sax until 3 o’clock in the morning before he quit. The public was amazed to view the quickness and dexterity of the juggler. The chancellor of the exchequer embezzled junk from gypsies with vigor. While Suez sailors wax parquet decks, Afghan jews vomit jauntily abaft. Just work for improved basic techniques to maximize your typing skill. Questions of a zealous nature have become by degrees petty waxen jokes. About sixty codfish eggs will make a quarter pound of very fizzy jelly. Verbatim reports were quickly given by Jim Fox to his amazed audience. Barkeep! A flaming tequila swizzle and a vodka and Ajax, hold the cherry. Will Major Douglas be expected to take this true-false quiz very soon? The jukebox music puzzled a gentle visitor from a quaint valley town. You will quite often be amazed by Jock’s very weighty, size six sporran! Wolfing kumquats, jovial Charon poled his boat lazily along the Styx. Six big juicy steaks sizzled in a pan as five workmen left the quarry. While making deep excavations we found some quaint bronze jewelry. Jaded zombies acted quaintly but kept driving their oxen forward. The job requires extra pluck and zeal from every young wage earner. When we go back to Juarez, Mexico, do we fly over picturesque Arizona? On the boardwalk grave playful lizards quickly jump and exercise. Now is the time for all brown dogs to jump quickly over the lazy lynx. My help squeezed in and joined the weavers again before six o’clock. A mad boxer shot a quick, gloved jab to the jaw of his dizzy opponent. Would you please examine both sizes of jade figures very quickly. Back in my quaint garden, jaunty zinnias vie with flaunting phlox. We dislike to exchange job lots of sizes varying from a quarter up. A quart jar of oil mixed with zinc oxide makes a very bright paint. Quixotic knights’ wives are found on jumpy old zebras. Alfredo just must bring very exciting news to the plaza quickly.</div>
+              <div class='size'>60 pt</div>
+            </li>
+            <li class='line_48'>
+              <div class='text'>William said that everything about his jacket was in quite good condition except for the zipper. The junior office clerks were quite amazed at the extra reward given by their generous employer. The sex life of the woodchuck is a provocative question for most vertebrate zoology majors. You go tell that vapid existentialist quack Freddy Nietzsche that he can just bite me, twice. Jimmy and Zack, the police explained, were last seen diving into a field of buttered quahogs. We quickly chased the zebras to a quiet drinking place just near my five bundles of flax. Ebenezer unexpectedly bagged two tranquil aardvarks with his jiffy vacuum cleaner. Sixty-five wildly panting fruitflies gazed hungrily at the juicy bouncing kumquats. I was temporarily forced to zig-zag and quiver furiously around big junky xylophones. In Boston: Jazzy (but malicious) squeak toy explodes, ending the lives of two children. Fabled reader with jaded, roving eye seized by quickened impulse to expand budget. For only $35, jolly housewives made “inexpensive” meals using quick-frozen vegetables. Travelling beneath the azure sky in our jolly ox-cart, we often hit bumps quite hard. Perhaps President Clinton’s amazing sax skills will be judged quite favorably. Two hardy boxing kangaroos jet from Sydney to Zanzibar on quicksilver pinions. As we explored the gulf of Zanzibar, we quickly moved closer to the jutting rocks. Six javelins thrown by the quick savages whizzed forty paces beyond the mark. The explorer was frozen in his big kayak just after making queer discoveries. Was there a quorum of able whizzkids gravely exciting the jaded fish at ATypI? The July sun caused a fragment of black pine wax to ooze on the velvet quilt. Jolly housewives made inexpensive meals using quick-frozen vegetables. Monique, the buxom coed, likes to fight for Pez with the junior varsity team. Venerable Will played jazz sax until 3 o’clock in the morning before he quit. The public was amazed to view the quickness and dexterity of the juggler. The chancellor of the exchequer embezzled junk from gypsies with vigor. While Suez sailors wax parquet decks, Afghan jews vomit jauntily abaft. Just work for improved basic techniques to maximize your typing skill. Questions of a zealous nature have become by degrees petty waxen jokes. About sixty codfish eggs will make a quarter pound of very fizzy jelly. Verbatim reports were quickly given by Jim Fox to his amazed audience. Barkeep! A flaming tequila swizzle and a vodka and Ajax, hold the cherry. Will Major Douglas be expected to take this true-false quiz very soon? The jukebox music puzzled a gentle visitor from a quaint valley town. You will quite often be amazed by Jock’s very weighty, size six sporran! Wolfing kumquats, jovial Charon poled his boat lazily along the Styx. Six big juicy steaks sizzled in a pan as five workmen left the quarry. While making deep excavations we found some quaint bronze jewelry. Jaded zombies acted quaintly but kept driving their oxen forward. The job requires extra pluck and zeal from every young wage earner. When we go back to Juarez, Mexico, do we fly over picturesque Arizona? On the boardwalk grave playful lizards quickly jump and exercise. Now is the time for all brown dogs to jump quickly over the lazy lynx. My help squeezed in and joined the weavers again before six o’clock. A mad boxer shot a quick, gloved jab to the jaw of his dizzy opponent. Would you please examine both sizes of jade figures very quickly. Back in my quaint garden, jaunty zinnias vie with flaunting phlox. We dislike to exchange job lots of sizes varying from a quarter up. A quart jar of oil mixed with zinc oxide makes a very bright paint. Quixotic knights’ wives are found on jumpy old zebras. Alfredo just must bring very exciting news to the plaza quickly.</div>
+              <div class='size'>48 pt</div>
+            </li>
+            <li class='line_36'>
+              <div class='text'>William said that everything about his jacket was in quite good condition except for the zipper. The junior office clerks were quite amazed at the extra reward given by their generous employer. The sex life of the woodchuck is a provocative question for most vertebrate zoology majors. You go tell that vapid existentialist quack Freddy Nietzsche that he can just bite me, twice. Jimmy and Zack, the police explained, were last seen diving into a field of buttered quahogs. We quickly chased the zebras to a quiet drinking place just near my five bundles of flax. Ebenezer unexpectedly bagged two tranquil aardvarks with his jiffy vacuum cleaner. Sixty-five wildly panting fruitflies gazed hungrily at the juicy bouncing kumquats. I was temporarily forced to zig-zag and quiver furiously around big junky xylophones. In Boston: Jazzy (but malicious) squeak toy explodes, ending the lives of two children. Fabled reader with jaded, roving eye seized by quickened impulse to expand budget. For only $35, jolly housewives made “inexpensive” meals using quick-frozen vegetables. Travelling beneath the azure sky in our jolly ox-cart, we often hit bumps quite hard. Perhaps President Clinton’s amazing sax skills will be judged quite favorably. Two hardy boxing kangaroos jet from Sydney to Zanzibar on quicksilver pinions. As we explored the gulf of Zanzibar, we quickly moved closer to the jutting rocks. Six javelins thrown by the quick savages whizzed forty paces beyond the mark. The explorer was frozen in his big kayak just after making queer discoveries. Was there a quorum of able whizzkids gravely exciting the jaded fish at ATypI? The July sun caused a fragment of black pine wax to ooze on the velvet quilt. Jolly housewives made inexpensive meals using quick-frozen vegetables. Monique, the buxom coed, likes to fight for Pez with the junior varsity team. Venerable Will played jazz sax until 3 o’clock in the morning before he quit. The public was amazed to view the quickness and dexterity of the juggler. The chancellor of the exchequer embezzled junk from gypsies with vigor. While Suez sailors wax parquet decks, Afghan jews vomit jauntily abaft. Just work for improved basic techniques to maximize your typing skill. Questions of a zealous nature have become by degrees petty waxen jokes. About sixty codfish eggs will make a quarter pound of very fizzy jelly. Verbatim reports were quickly given by Jim Fox to his amazed audience. Barkeep! A flaming tequila swizzle and a vodka and Ajax, hold the cherry. Will Major Douglas be expected to take this true-false quiz very soon? The jukebox music puzzled a gentle visitor from a quaint valley town. You will quite often be amazed by Jock’s very weighty, size six sporran! Wolfing kumquats, jovial Charon poled his boat lazily along the Styx. Six big juicy steaks sizzled in a pan as five workmen left the quarry. While making deep excavations we found some quaint bronze jewelry. Jaded zombies acted quaintly but kept driving their oxen forward. The job requires extra pluck and zeal from every young wage earner. When we go back to Juarez, Mexico, do we fly over picturesque Arizona? On the boardwalk grave playful lizards quickly jump and exercise. Now is the time for all brown dogs to jump quickly over the lazy lynx. My help squeezed in and joined the weavers again before six o’clock. A mad boxer shot a quick, gloved jab to the jaw of his dizzy opponent. Would you please examine both sizes of jade figures very quickly. Back in my quaint garden, jaunty zinnias vie with flaunting phlox. We dislike to exchange job lots of sizes varying from a quarter up. A quart jar of oil mixed with zinc oxide makes a very bright paint. Quixotic knights’ wives are found on jumpy old zebras. Alfredo just must bring very exciting news to the plaza quickly.</div>
+              <div class='size'>36 pt</div>
+            </li>
+            <li class='line_30'>
+              <div class='text'>William said that everything about his jacket was in quite good condition except for the zipper. The junior office clerks were quite amazed at the extra reward given by their generous employer. The sex life of the woodchuck is a provocative question for most vertebrate zoology majors. You go tell that vapid existentialist quack Freddy Nietzsche that he can just bite me, twice. Jimmy and Zack, the police explained, were last seen diving into a field of buttered quahogs. We quickly chased the zebras to a quiet drinking place just near my five bundles of flax. Ebenezer unexpectedly bagged two tranquil aardvarks with his jiffy vacuum cleaner. Sixty-five wildly panting fruitflies gazed hungrily at the juicy bouncing kumquats. I was temporarily forced to zig-zag and quiver furiously around big junky xylophones. In Boston: Jazzy (but malicious) squeak toy explodes, ending the lives of two children. Fabled reader with jaded, roving eye seized by quickened impulse to expand budget. For only $35, jolly housewives made “inexpensive” meals using quick-frozen vegetables. Travelling beneath the azure sky in our jolly ox-cart, we often hit bumps quite hard. Perhaps President Clinton’s amazing sax skills will be judged quite favorably. Two hardy boxing kangaroos jet from Sydney to Zanzibar on quicksilver pinions. As we explored the gulf of Zanzibar, we quickly moved closer to the jutting rocks. Six javelins thrown by the quick savages whizzed forty paces beyond the mark. The explorer was frozen in his big kayak just after making queer discoveries. Was there a quorum of able whizzkids gravely exciting the jaded fish at ATypI? The July sun caused a fragment of black pine wax to ooze on the velvet quilt. Jolly housewives made inexpensive meals using quick-frozen vegetables. Monique, the buxom coed, likes to fight for Pez with the junior varsity team. Venerable Will played jazz sax until 3 o’clock in the morning before he quit. The public was amazed to view the quickness and dexterity of the juggler. The chancellor of the exchequer embezzled junk from gypsies with vigor. While Suez sailors wax parquet decks, Afghan jews vomit jauntily abaft. Just work for improved basic techniques to maximize your typing skill. Questions of a zealous nature have become by degrees petty waxen jokes. About sixty codfish eggs will make a quarter pound of very fizzy jelly. Verbatim reports were quickly given by Jim Fox to his amazed audience. Barkeep! A flaming tequila swizzle and a vodka and Ajax, hold the cherry. Will Major Douglas be expected to take this true-false quiz very soon? The jukebox music puzzled a gentle visitor from a quaint valley town. You will quite often be amazed by Jock’s very weighty, size six sporran! Wolfing kumquats, jovial Charon poled his boat lazily along the Styx. Six big juicy steaks sizzled in a pan as five workmen left the quarry. While making deep excavations we found some quaint bronze jewelry. Jaded zombies acted quaintly but kept driving their oxen forward. The job requires extra pluck and zeal from every young wage earner. When we go back to Juarez, Mexico, do we fly over picturesque Arizona? On the boardwalk grave playful lizards quickly jump and exercise. Now is the time for all brown dogs to jump quickly over the lazy lynx. My help squeezed in and joined the weavers again before six o’clock. A mad boxer shot a quick, gloved jab to the jaw of his dizzy opponent. Would you please examine both sizes of jade figures very quickly. Back in my quaint garden, jaunty zinnias vie with flaunting phlox. We dislike to exchange job lots of sizes varying from a quarter up. A quart jar of oil mixed with zinc oxide makes a very bright paint. Quixotic knights’ wives are found on jumpy old zebras. Alfredo just must bring very exciting news to the plaza quickly.</div>
+              <div class='size'>30 pt</div>
+            </li>
+            <li class='line_24'>
+              <div class='text'>William said that everything about his jacket was in quite good condition except for the zipper. The junior office clerks were quite amazed at the extra reward given by their generous employer. The sex life of the woodchuck is a provocative question for most vertebrate zoology majors. You go tell that vapid existentialist quack Freddy Nietzsche that he can just bite me, twice. Jimmy and Zack, the police explained, were last seen diving into a field of buttered quahogs. We quickly chased the zebras to a quiet drinking place just near my five bundles of flax. Ebenezer unexpectedly bagged two tranquil aardvarks with his jiffy vacuum cleaner. Sixty-five wildly panting fruitflies gazed hungrily at the juicy bouncing kumquats. I was temporarily forced to zig-zag and quiver furiously around big junky xylophones. In Boston: Jazzy (but malicious) squeak toy explodes, ending the lives of two children. Fabled reader with jaded, roving eye seized by quickened impulse to expand budget. For only $35, jolly housewives made “inexpensive” meals using quick-frozen vegetables. Travelling beneath the azure sky in our jolly ox-cart, we often hit bumps quite hard. Perhaps President Clinton’s amazing sax skills will be judged quite favorably. Two hardy boxing kangaroos jet from Sydney to Zanzibar on quicksilver pinions. As we explored the gulf of Zanzibar, we quickly moved closer to the jutting rocks. Six javelins thrown by the quick savages whizzed forty paces beyond the mark. The explorer was frozen in his big kayak just after making queer discoveries. Was there a quorum of able whizzkids gravely exciting the jaded fish at ATypI? The July sun caused a fragment of black pine wax to ooze on the velvet quilt. Jolly housewives made inexpensive meals using quick-frozen vegetables. Monique, the buxom coed, likes to fight for Pez with the junior varsity team. Venerable Will played jazz sax until 3 o’clock in the morning before he quit. The public was amazed to view the quickness and dexterity of the juggler. The chancellor of the exchequer embezzled junk from gypsies with vigor. While Suez sailors wax parquet decks, Afghan jews vomit jauntily abaft. Just work for improved basic techniques to maximize your typing skill. Questions of a zealous nature have become by degrees petty waxen jokes. About sixty codfish eggs will make a quarter pound of very fizzy jelly. Verbatim reports were quickly given by Jim Fox to his amazed audience. Barkeep! A flaming tequila swizzle and a vodka and Ajax, hold the cherry. Will Major Douglas be expected to take this true-false quiz very soon? The jukebox music puzzled a gentle visitor from a quaint valley town. You will quite often be amazed by Jock’s very weighty, size six sporran! Wolfing kumquats, jovial Charon poled his boat lazily along the Styx. Six big juicy steaks sizzled in a pan as five workmen left the quarry. While making deep excavations we found some quaint bronze jewelry. Jaded zombies acted quaintly but kept driving their oxen forward. The job requires extra pluck and zeal from every young wage earner. When we go back to Juarez, Mexico, do we fly over picturesque Arizona? On the boardwalk grave playful lizards quickly jump and exercise. Now is the time for all brown dogs to jump quickly over the lazy lynx. My help squeezed in and joined the weavers again before six o’clock. A mad boxer shot a quick, gloved jab to the jaw of his dizzy opponent. Would you please examine both sizes of jade figures very quickly. Back in my quaint garden, jaunty zinnias vie with flaunting phlox. We dislike to exchange job lots of sizes varying from a quarter up. A quart jar of oil mixed with zinc oxide makes a very bright paint. Quixotic knights’ wives are found on jumpy old zebras. Alfredo just must bring very exciting news to the plaza quickly.</div>
+              <div class='size'>24 pt</div>
+            </li>
+            <li class='line_18'>
+              <div class='text'>William said that everything about his jacket was in quite good condition except for the zipper. The junior office clerks were quite amazed at the extra reward given by their generous employer. The sex life of the woodchuck is a provocative question for most vertebrate zoology majors. You go tell that vapid existentialist quack Freddy Nietzsche that he can just bite me, twice. Jimmy and Zack, the police explained, were last seen diving into a field of buttered quahogs. We quickly chased the zebras to a quiet drinking place just near my five bundles of flax. Ebenezer unexpectedly bagged two tranquil aardvarks with his jiffy vacuum cleaner. Sixty-five wildly panting fruitflies gazed hungrily at the juicy bouncing kumquats. I was temporarily forced to zig-zag and quiver furiously around big junky xylophones. In Boston: Jazzy (but malicious) squeak toy explodes, ending the lives of two children. Fabled reader with jaded, roving eye seized by quickened impulse to expand budget. For only $35, jolly housewives made “inexpensive” meals using quick-frozen vegetables. Travelling beneath the azure sky in our jolly ox-cart, we often hit bumps quite hard. Perhaps President Clinton’s amazing sax skills will be judged quite favorably. Two hardy boxing kangaroos jet from Sydney to Zanzibar on quicksilver pinions. As we explored the gulf of Zanzibar, we quickly moved closer to the jutting rocks. Six javelins thrown by the quick savages whizzed forty paces beyond the mark. The explorer was frozen in his big kayak just after making queer discoveries. Was there a quorum of able whizzkids gravely exciting the jaded fish at ATypI? The July sun caused a fragment of black pine wax to ooze on the velvet quilt. Jolly housewives made inexpensive meals using quick-frozen vegetables. Monique, the buxom coed, likes to fight for Pez with the junior varsity team. Venerable Will played jazz sax until 3 o’clock in the morning before he quit. The public was amazed to view the quickness and dexterity of the juggler. The chancellor of the exchequer embezzled junk from gypsies with vigor. While Suez sailors wax parquet decks, Afghan jews vomit jauntily abaft. Just work for improved basic techniques to maximize your typing skill. Questions of a zealous nature have become by degrees petty waxen jokes. About sixty codfish eggs will make a quarter pound of very fizzy jelly. Verbatim reports were quickly given by Jim Fox to his amazed audience. Barkeep! A flaming tequila swizzle and a vodka and Ajax, hold the cherry. Will Major Douglas be expected to take this true-false quiz very soon? The jukebox music puzzled a gentle visitor from a quaint valley town. You will quite often be amazed by Jock’s very weighty, size six sporran! Wolfing kumquats, jovial Charon poled his boat lazily along the Styx. Six big juicy steaks sizzled in a pan as five workmen left the quarry. While making deep excavations we found some quaint bronze jewelry. Jaded zombies acted quaintly but kept driving their oxen forward. The job requires extra pluck and zeal from every young wage earner. When we go back to Juarez, Mexico, do we fly over picturesque Arizona? On the boardwalk grave playful lizards quickly jump and exercise. Now is the time for all brown dogs to jump quickly over the lazy lynx. My help squeezed in and joined the weavers again before six o’clock. A mad boxer shot a quick, gloved jab to the jaw of his dizzy opponent. Would you please examine both sizes of jade figures very quickly. Back in my quaint garden, jaunty zinnias vie with flaunting phlox. We dislike to exchange job lots of sizes varying from a quarter up. A quart jar of oil mixed with zinc oxide makes a very bright paint. Quixotic knights’ wives are found on jumpy old zebras. Alfredo just must bring very exciting news to the plaza quickly.</div>
+              <div class='size'>18 pt</div>
+            </li>
+            <li class='line_14'>
+              <div class='text'>William said that everything about his jacket was in quite good condition except for the zipper. The junior office clerks were quite amazed at the extra reward given by their generous employer. The sex life of the woodchuck is a provocative question for most vertebrate zoology majors. You go tell that vapid existentialist quack Freddy Nietzsche that he can just bite me, twice. Jimmy and Zack, the police explained, were last seen diving into a field of buttered quahogs. We quickly chased the zebras to a quiet drinking place just near my five bundles of flax. Ebenezer unexpectedly bagged two tranquil aardvarks with his jiffy vacuum cleaner. Sixty-five wildly panting fruitflies gazed hungrily at the juicy bouncing kumquats. I was temporarily forced to zig-zag and quiver furiously around big junky xylophones. In Boston: Jazzy (but malicious) squeak toy explodes, ending the lives of two children. Fabled reader with jaded, roving eye seized by quickened impulse to expand budget. For only $35, jolly housewives made “inexpensive” meals using quick-frozen vegetables. Travelling beneath the azure sky in our jolly ox-cart, we often hit bumps quite hard. Perhaps President Clinton’s amazing sax skills will be judged quite favorably. Two hardy boxing kangaroos jet from Sydney to Zanzibar on quicksilver pinions. As we explored the gulf of Zanzibar, we quickly moved closer to the jutting rocks. Six javelins thrown by the quick savages whizzed forty paces beyond the mark. The explorer was frozen in his big kayak just after making queer discoveries. Was there a quorum of able whizzkids gravely exciting the jaded fish at ATypI? The July sun caused a fragment of black pine wax to ooze on the velvet quilt. Jolly housewives made inexpensive meals using quick-frozen vegetables. Monique, the buxom coed, likes to fight for Pez with the junior varsity team. Venerable Will played jazz sax until 3 o’clock in the morning before he quit. The public was amazed to view the quickness and dexterity of the juggler. The chancellor of the exchequer embezzled junk from gypsies with vigor. While Suez sailors wax parquet decks, Afghan jews vomit jauntily abaft. Just work for improved basic techniques to maximize your typing skill. Questions of a zealous nature have become by degrees petty waxen jokes. About sixty codfish eggs will make a quarter pound of very fizzy jelly. Verbatim reports were quickly given by Jim Fox to his amazed audience. Barkeep! A flaming tequila swizzle and a vodka and Ajax, hold the cherry. Will Major Douglas be expected to take this true-false quiz very soon? The jukebox music puzzled a gentle visitor from a quaint valley town. You will quite often be amazed by Jock’s very weighty, size six sporran! Wolfing kumquats, jovial Charon poled his boat lazily along the Styx. Six big juicy steaks sizzled in a pan as five workmen left the quarry. While making deep excavations we found some quaint bronze jewelry. Jaded zombies acted quaintly but kept driving their oxen forward. The job requires extra pluck and zeal from every young wage earner. When we go back to Juarez, Mexico, do we fly over picturesque Arizona? On the boardwalk grave playful lizards quickly jump and exercise. Now is the time for all brown dogs to jump quickly over the lazy lynx. My help squeezed in and joined the weavers again before six o’clock. A mad boxer shot a quick, gloved jab to the jaw of his dizzy opponent. Would you please examine both sizes of jade figures very quickly. Back in my quaint garden, jaunty zinnias vie with flaunting phlox. We dislike to exchange job lots of sizes varying from a quarter up. A quart jar of oil mixed with zinc oxide makes a very bright paint. Quixotic knights’ wives are found on jumpy old zebras. Alfredo just must bring very exciting news to the plaza quickly.</div>
+              <div class='size'>14 pt</div>
+            </li>
+            <li class='line_12'>
+              <div class='text'>William said that everything about his jacket was in quite good condition except for the zipper. The junior office clerks were quite amazed at the extra reward given by their generous employer. The sex life of the woodchuck is a provocative question for most vertebrate zoology majors. You go tell that vapid existentialist quack Freddy Nietzsche that he can just bite me, twice. Jimmy and Zack, the police explained, were last seen diving into a field of buttered quahogs. We quickly chased the zebras to a quiet drinking place just near my five bundles of flax. Ebenezer unexpectedly bagged two tranquil aardvarks with his jiffy vacuum cleaner. Sixty-five wildly panting fruitflies gazed hungrily at the juicy bouncing kumquats. I was temporarily forced to zig-zag and quiver furiously around big junky xylophones. In Boston: Jazzy (but malicious) squeak toy explodes, ending the lives of two children. Fabled reader with jaded, roving eye seized by quickened impulse to expand budget. For only $35, jolly housewives made “inexpensive” meals using quick-frozen vegetables. Travelling beneath the azure sky in our jolly ox-cart, we often hit bumps quite hard. Perhaps President Clinton’s amazing sax skills will be judged quite favorably. Two hardy boxing kangaroos jet from Sydney to Zanzibar on quicksilver pinions. As we explored the gulf of Zanzibar, we quickly moved closer to the jutting rocks. Six javelins thrown by the quick savages whizzed forty paces beyond the mark. The explorer was frozen in his big kayak just after making queer discoveries. Was there a quorum of able whizzkids gravely exciting the jaded fish at ATypI? The July sun caused a fragment of black pine wax to ooze on the velvet quilt. Jolly housewives made inexpensive meals using quick-frozen vegetables. Monique, the buxom coed, likes to fight for Pez with the junior varsity team. Venerable Will played jazz sax until 3 o’clock in the morning before he quit. The public was amazed to view the quickness and dexterity of the juggler. The chancellor of the exchequer embezzled junk from gypsies with vigor. While Suez sailors wax parquet decks, Afghan jews vomit jauntily abaft. Just work for improved basic techniques to maximize your typing skill. Questions of a zealous nature have become by degrees petty waxen jokes. About sixty codfish eggs will make a quarter pound of very fizzy jelly. Verbatim reports were quickly given by Jim Fox to his amazed audience. Barkeep! A flaming tequila swizzle and a vodka and Ajax, hold the cherry. Will Major Douglas be expected to take this true-false quiz very soon? The jukebox music puzzled a gentle visitor from a quaint valley town. You will quite often be amazed by Jock’s very weighty, size six sporran! Wolfing kumquats, jovial Charon poled his boat lazily along the Styx. Six big juicy steaks sizzled in a pan as five workmen left the quarry. While making deep excavations we found some quaint bronze jewelry. Jaded zombies acted quaintly but kept driving their oxen forward. The job requires extra pluck and zeal from every young wage earner. When we go back to Juarez, Mexico, do we fly over picturesque Arizona? On the boardwalk grave playful lizards quickly jump and exercise. Now is the time for all brown dogs to jump quickly over the lazy lynx. My help squeezed in and joined the weavers again before six o’clock. A mad boxer shot a quick, gloved jab to the jaw of his dizzy opponent. Would you please examine both sizes of jade figures very quickly. Back in my quaint garden, jaunty zinnias vie with flaunting phlox. We dislike to exchange job lots of sizes varying from a quarter up. A quart jar of oil mixed with zinc oxide makes a very bright paint. Quixotic knights’ wives are found on jumpy old zebras. Alfredo just must bring very exciting news to the plaza quickly.</div>
+              <div class='size'>12 pt</div>
+            </li>
+            <li class='line_11'>
+              <div class='text'>William said that everything about his jacket was in quite good condition except for the zipper. The junior office clerks were quite amazed at the extra reward given by their generous employer. The sex life of the woodchuck is a provocative question for most vertebrate zoology majors. You go tell that vapid existentialist quack Freddy Nietzsche that he can just bite me, twice. Jimmy and Zack, the police explained, were last seen diving into a field of buttered quahogs. We quickly chased the zebras to a quiet drinking place just near my five bundles of flax. Ebenezer unexpectedly bagged two tranquil aardvarks with his jiffy vacuum cleaner. Sixty-five wildly panting fruitflies gazed hungrily at the juicy bouncing kumquats. I was temporarily forced to zig-zag and quiver furiously around big junky xylophones. In Boston: Jazzy (but malicious) squeak toy explodes, ending the lives of two children. Fabled reader with jaded, roving eye seized by quickened impulse to expand budget. For only $35, jolly housewives made “inexpensive” meals using quick-frozen vegetables. Travelling beneath the azure sky in our jolly ox-cart, we often hit bumps quite hard. Perhaps President Clinton’s amazing sax skills will be judged quite favorably. Two hardy boxing kangaroos jet from Sydney to Zanzibar on quicksilver pinions. As we explored the gulf of Zanzibar, we quickly moved closer to the jutting rocks. Six javelins thrown by the quick savages whizzed forty paces beyond the mark. The explorer was frozen in his big kayak just after making queer discoveries. Was there a quorum of able whizzkids gravely exciting the jaded fish at ATypI? The July sun caused a fragment of black pine wax to ooze on the velvet quilt. Jolly housewives made inexpensive meals using quick-frozen vegetables. Monique, the buxom coed, likes to fight for Pez with the junior varsity team. Venerable Will played jazz sax until 3 o’clock in the morning before he quit. The public was amazed to view the quickness and dexterity of the juggler. The chancellor of the exchequer embezzled junk from gypsies with vigor. While Suez sailors wax parquet decks, Afghan jews vomit jauntily abaft. Just work for improved basic techniques to maximize your typing skill. Questions of a zealous nature have become by degrees petty waxen jokes. About sixty codfish eggs will make a quarter pound of very fizzy jelly. Verbatim reports were quickly given by Jim Fox to his amazed audience. Barkeep! A flaming tequila swizzle and a vodka and Ajax, hold the cherry. Will Major Douglas be expected to take this true-false quiz very soon? The jukebox music puzzled a gentle visitor from a quaint valley town. You will quite often be amazed by Jock’s very weighty, size six sporran! Wolfing kumquats, jovial Charon poled his boat lazily along the Styx. Six big juicy steaks sizzled in a pan as five workmen left the quarry. While making deep excavations we found some quaint bronze jewelry. Jaded zombies acted quaintly but kept driving their oxen forward. The job requires extra pluck and zeal from every young wage earner. When we go back to Juarez, Mexico, do we fly over picturesque Arizona? On the boardwalk grave playful lizards quickly jump and exercise. Now is the time for all brown dogs to jump quickly over the lazy lynx. My help squeezed in and joined the weavers again before six o’clock. A mad boxer shot a quick, gloved jab to the jaw of his dizzy opponent. Would you please examine both sizes of jade figures very quickly. Back in my quaint garden, jaunty zinnias vie with flaunting phlox. We dislike to exchange job lots of sizes varying from a quarter up. A quart jar of oil mixed with zinc oxide makes a very bright paint. Quixotic knights’ wives are found on jumpy old zebras. Alfredo just must bring very exciting news to the plaza quickly.</div>
+              <div class='size'>11 pt</div>
+            </li>
+            <li class='line_10'>
+              <div class='text'>William said that everything about his jacket was in quite good condition except for the zipper. The junior office clerks were quite amazed at the extra reward given by their generous employer. The sex life of the woodchuck is a provocative question for most vertebrate zoology majors. You go tell that vapid existentialist quack Freddy Nietzsche that he can just bite me, twice. Jimmy and Zack, the police explained, were last seen diving into a field of buttered quahogs. We quickly chased the zebras to a quiet drinking place just near my five bundles of flax. Ebenezer unexpectedly bagged two tranquil aardvarks with his jiffy vacuum cleaner. Sixty-five wildly panting fruitflies gazed hungrily at the juicy bouncing kumquats. I was temporarily forced to zig-zag and quiver furiously around big junky xylophones. In Boston: Jazzy (but malicious) squeak toy explodes, ending the lives of two children. Fabled reader with jaded, roving eye seized by quickened impulse to expand budget. For only $35, jolly housewives made “inexpensive” meals using quick-frozen vegetables. Travelling beneath the azure sky in our jolly ox-cart, we often hit bumps quite hard. Perhaps President Clinton’s amazing sax skills will be judged quite favorably. Two hardy boxing kangaroos jet from Sydney to Zanzibar on quicksilver pinions. As we explored the gulf of Zanzibar, we quickly moved closer to the jutting rocks. Six javelins thrown by the quick savages whizzed forty paces beyond the mark. The explorer was frozen in his big kayak just after making queer discoveries. Was there a quorum of able whizzkids gravely exciting the jaded fish at ATypI? The July sun caused a fragment of black pine wax to ooze on the velvet quilt. Jolly housewives made inexpensive meals using quick-frozen vegetables. Monique, the buxom coed, likes to fight for Pez with the junior varsity team. Venerable Will played jazz sax until 3 o’clock in the morning before he quit. The public was amazed to view the quickness and dexterity of the juggler. The chancellor of the exchequer embezzled junk from gypsies with vigor. While Suez sailors wax parquet decks, Afghan jews vomit jauntily abaft. Just work for improved basic techniques to maximize your typing skill. Questions of a zealous nature have become by degrees petty waxen jokes. About sixty codfish eggs will make a quarter pound of very fizzy jelly. Verbatim reports were quickly given by Jim Fox to his amazed audience. Barkeep! A flaming tequila swizzle and a vodka and Ajax, hold the cherry. Will Major Douglas be expected to take this true-false quiz very soon? The jukebox music puzzled a gentle visitor from a quaint valley town. You will quite often be amazed by Jock’s very weighty, size six sporran! Wolfing kumquats, jovial Charon poled his boat lazily along the Styx. Six big juicy steaks sizzled in a pan as five workmen left the quarry. While making deep excavations we found some quaint bronze jewelry. Jaded zombies acted quaintly but kept driving their oxen forward. The job requires extra pluck and zeal from every young wage earner. When we go back to Juarez, Mexico, do we fly over picturesque Arizona? On the boardwalk grave playful lizards quickly jump and exercise. Now is the time for all brown dogs to jump quickly over the lazy lynx. My help squeezed in and joined the weavers again before six o’clock. A mad boxer shot a quick, gloved jab to the jaw of his dizzy opponent. Would you please examine both sizes of jade figures very quickly. Back in my quaint garden, jaunty zinnias vie with flaunting phlox. We dislike to exchange job lots of sizes varying from a quarter up. A quart jar of oil mixed with zinc oxide makes a very bright paint. Quixotic knights’ wives are found on jumpy old zebras. Alfredo just must bring very exciting news to the plaza quickly.</div>
+              <div class='size'>10 pt</div>
+            </li>
+            <li class='line_9'>
+              <div class='text'>William said that everything about his jacket was in quite good condition except for the zipper. The junior office clerks were quite amazed at the extra reward given by their generous employer. The sex life of the woodchuck is a provocative question for most vertebrate zoology majors. You go tell that vapid existentialist quack Freddy Nietzsche that he can just bite me, twice. Jimmy and Zack, the police explained, were last seen diving into a field of buttered quahogs. We quickly chased the zebras to a quiet drinking place just near my five bundles of flax. Ebenezer unexpectedly bagged two tranquil aardvarks with his jiffy vacuum cleaner. Sixty-five wildly panting fruitflies gazed hungrily at the juicy bouncing kumquats. I was temporarily forced to zig-zag and quiver furiously around big junky xylophones. In Boston: Jazzy (but malicious) squeak toy explodes, ending the lives of two children. Fabled reader with jaded, roving eye seized by quickened impulse to expand budget. For only $35, jolly housewives made “inexpensive” meals using quick-frozen vegetables. Travelling beneath the azure sky in our jolly ox-cart, we often hit bumps quite hard. Perhaps President Clinton’s amazing sax skills will be judged quite favorably. Two hardy boxing kangaroos jet from Sydney to Zanzibar on quicksilver pinions. As we explored the gulf of Zanzibar, we quickly moved closer to the jutting rocks. Six javelins thrown by the quick savages whizzed forty paces beyond the mark. The explorer was frozen in his big kayak just after making queer discoveries. Was there a quorum of able whizzkids gravely exciting the jaded fish at ATypI? The July sun caused a fragment of black pine wax to ooze on the velvet quilt. Jolly housewives made inexpensive meals using quick-frozen vegetables. Monique, the buxom coed, likes to fight for Pez with the junior varsity team. Venerable Will played jazz sax until 3 o’clock in the morning before he quit. The public was amazed to view the quickness and dexterity of the juggler. The chancellor of the exchequer embezzled junk from gypsies with vigor. While Suez sailors wax parquet decks, Afghan jews vomit jauntily abaft. Just work for improved basic techniques to maximize your typing skill. Questions of a zealous nature have become by degrees petty waxen jokes. About sixty codfish eggs will make a quarter pound of very fizzy jelly. Verbatim reports were quickly given by Jim Fox to his amazed audience. Barkeep! A flaming tequila swizzle and a vodka and Ajax, hold the cherry. Will Major Douglas be expected to take this true-false quiz very soon? The jukebox music puzzled a gentle visitor from a quaint valley town. You will quite often be amazed by Jock’s very weighty, size six sporran! Wolfing kumquats, jovial Charon poled his boat lazily along the Styx. Six big juicy steaks sizzled in a pan as five workmen left the quarry. While making deep excavations we found some quaint bronze jewelry. Jaded zombies acted quaintly but kept driving their oxen forward. The job requires extra pluck and zeal from every young wage earner. When we go back to Juarez, Mexico, do we fly over picturesque Arizona? On the boardwalk grave playful lizards quickly jump and exercise. Now is the time for all brown dogs to jump quickly over the lazy lynx. My help squeezed in and joined the weavers again before six o’clock. A mad boxer shot a quick, gloved jab to the jaw of his dizzy opponent. Would you please examine both sizes of jade figures very quickly. Back in my quaint garden, jaunty zinnias vie with flaunting phlox. We dislike to exchange job lots of sizes varying from a quarter up. A quart jar of oil mixed with zinc oxide makes a very bright paint. Quixotic knights’ wives are found on jumpy old zebras. Alfredo just must bring very exciting news to the plaza quickly.</div>
+              <div class='size'>9 pt</div>
+            </li>
+            <li class='line_8'>
+              <div class='text'>William said that everything about his jacket was in quite good condition except for the zipper. The junior office clerks were quite amazed at the extra reward given by their generous employer. The sex life of the woodchuck is a provocative question for most vertebrate zoology majors. You go tell that vapid existentialist quack Freddy Nietzsche that he can just bite me, twice. Jimmy and Zack, the police explained, were last seen diving into a field of buttered quahogs. We quickly chased the zebras to a quiet drinking place just near my five bundles of flax. Ebenezer unexpectedly bagged two tranquil aardvarks with his jiffy vacuum cleaner. Sixty-five wildly panting fruitflies gazed hungrily at the juicy bouncing kumquats. I was temporarily forced to zig-zag and quiver furiously around big junky xylophones. In Boston: Jazzy (but malicious) squeak toy explodes, ending the lives of two children. Fabled reader with jaded, roving eye seized by quickened impulse to expand budget. For only $35, jolly housewives made “inexpensive” meals using quick-frozen vegetables. Travelling beneath the azure sky in our jolly ox-cart, we often hit bumps quite hard. Perhaps President Clinton’s amazing sax skills will be judged quite favorably. Two hardy boxing kangaroos jet from Sydney to Zanzibar on quicksilver pinions. As we explored the gulf of Zanzibar, we quickly moved closer to the jutting rocks. Six javelins thrown by the quick savages whizzed forty paces beyond the mark. The explorer was frozen in his big kayak just after making queer discoveries. Was there a quorum of able whizzkids gravely exciting the jaded fish at ATypI? The July sun caused a fragment of black pine wax to ooze on the velvet quilt. Jolly housewives made inexpensive meals using quick-frozen vegetables. Monique, the buxom coed, likes to fight for Pez with the junior varsity team. Venerable Will played jazz sax until 3 o’clock in the morning before he quit. The public was amazed to view the quickness and dexterity of the juggler. The chancellor of the exchequer embezzled junk from gypsies with vigor. While Suez sailors wax parquet decks, Afghan jews vomit jauntily abaft. Just work for improved basic techniques to maximize your typing skill. Questions of a zealous nature have become by degrees petty waxen jokes. About sixty codfish eggs will make a quarter pound of very fizzy jelly. Verbatim reports were quickly given by Jim Fox to his amazed audience. Barkeep! A flaming tequila swizzle and a vodka and Ajax, hold the cherry. Will Major Douglas be expected to take this true-false quiz very soon? The jukebox music puzzled a gentle visitor from a quaint valley town. You will quite often be amazed by Jock’s very weighty, size six sporran! Wolfing kumquats, jovial Charon poled his boat lazily along the Styx. Six big juicy steaks sizzled in a pan as five workmen left the quarry. While making deep excavations we found some quaint bronze jewelry. Jaded zombies acted quaintly but kept driving their oxen forward. The job requires extra pluck and zeal from every young wage earner. When we go back to Juarez, Mexico, do we fly over picturesque Arizona? On the boardwalk grave playful lizards quickly jump and exercise. Now is the time for all brown dogs to jump quickly over the lazy lynx. My help squeezed in and joined the weavers again before six o’clock. A mad boxer shot a quick, gloved jab to the jaw of his dizzy opponent. Would you please examine both sizes of jade figures very quickly. Back in my quaint garden, jaunty zinnias vie with flaunting phlox. We dislike to exchange job lots of sizes varying from a quarter up. A quart jar of oil mixed with zinc oxide makes a very bright paint. Quixotic knights’ wives are found on jumpy old zebras. Alfredo just must bring very exciting news to the plaza quickly.</div>
+              <div class='size'>8 pt</div>
+            </li>
+          </ul>
+          <div class='columns'>
+            <div class='size_12'>
+              <p>
+                William said that everything about his jacket was in quite good condition except for the zipper. The junior office clerks were quite amazed at the extra reward given by their generous employer. The sex life of the woodchuck is a provocative question for most vertebrate zoology majors. You go tell that vapid existentialist quack Freddy Nietzsche that he can just bite me, twice. Jimmy and Zack, the police explained, were last seen diving into a field of buttered quahogs. We quickly chased the zebras to a quiet drinking place just near my five bundles of flax. Ebenezer unexpectedly bagged two tranquil aardvarks with his jiffy vacuum cleaner. Sixty-five wildly panting fruitflies gazed hungrily at the juicy bouncing kumquats. I was temporarily forced to zig-zag and quiver furiously around big junky xylophones. In Boston: Jazzy (but malicious) squeak toy explodes, ending the lives of two children. Fabled reader with jaded, roving eye seized by quickened impulse to expand budget. For only $35, jolly housewives made “inexpensive” meals using quick-frozen vegetables. Travelling beneath the azure sky in our jolly ox-cart, we often hit bumps quite hard. Perhaps President Clinton’s amazing sax skills will be judged quite favorably. Two hardy boxing kangaroos jet from Sydney to Zanzibar on quicksilver pinions. As we explored the gulf of Zanzibar, we quickly moved closer to the jutting rocks. Six javelins thrown by the quick savages whizzed forty paces beyond the mark. The explorer was frozen in his big kayak just after making queer discoveries. Was there a quorum of able whizzkids gravely exciting the jaded fish at ATypI? The July sun caused a fragment of black pine wax to ooze on the velvet quilt. Jolly housewives made inexpensive meals using quick-frozen vegetables. Monique, the buxom coed, likes to fight for Pez with the junior varsity team. Venerable Will played jazz sax until 3 o’clock in the morning before he quit. The public was amazed to view the quickness and dexterity of the juggler. The chancellor of the exchequer embezzled junk from gypsies with vigor. While Suez sailors wax parquet decks, Afghan jews vomit jauntily abaft. Just work for improved basic techniques to maximize your typing skill. Questions of a zealous nature have become by degrees petty waxen jokes. About sixty codfish eggs will make a quarter pound of very fizzy jelly. Verbatim reports were quickly given by Jim Fox to his amazed audience. Barkeep! A flaming tequila swizzle and a vodka and Ajax, hold the cherry. Will Major Douglas be expected to take this true-false quiz very soon? The jukebox music puzzled a gentle visitor from a quaint valley town. You will quite often be amazed by Jock’s very weighty, size six sporran! Wolfing kumquats, jovial Charon poled his boat lazily along the Styx. Six big juicy steaks sizzled in a pan as five workmen left the quarry. While making deep excavations we found some quaint bronze jewelry. Jaded zombies acted quaintly but kept driving their oxen forward. The job requires extra pluck and zeal from every young wage earner. When we go back to Juarez, Mexico, do we fly over picturesque Arizona? On the boardwalk grave playful lizards quickly jump and exercise. Now is the time for all brown dogs to jump quickly over the lazy lynx. My help squeezed in and joined the weavers again before six o’clock. A mad boxer shot a quick, gloved jab to the jaw of his dizzy opponent. Would you please examine both sizes of jade figures very quickly. Back in my quaint garden, jaunty zinnias vie with flaunting phlox. We dislike to exchange job lots of sizes varying from a quarter up. A quart jar of oil mixed with zinc oxide makes a very bright paint. Quixotic knights’ wives are found on jumpy old zebras. Alfredo just must bring very exciting news to the plaza quickly.
+              </p>
+              <div class='size'>12 pt</div>
+            </div>
+            <div class='size_14'>
+              <p>
+                William said that everything about his jacket was in quite good condition except for the zipper. The junior office clerks were quite amazed at the extra reward given by their generous employer. The sex life of the woodchuck is a provocative question for most vertebrate zoology majors. You go tell that vapid existentialist quack Freddy Nietzsche that he can just bite me, twice. Jimmy and Zack, the police explained, were last seen diving into a field of buttered quahogs. We quickly chased the zebras to a quiet drinking place just near my five bundles of flax. Ebenezer unexpectedly bagged two tranquil aardvarks with his jiffy vacuum cleaner. Sixty-five wildly panting fruitflies gazed hungrily at the juicy bouncing kumquats. I was temporarily forced to zig-zag and quiver furiously around big junky xylophones. In Boston: Jazzy (but malicious) squeak toy explodes, ending the lives of two children. Fabled reader with jaded, roving eye seized by quickened impulse to expand budget. For only $35, jolly housewives made “inexpensive” meals using quick-frozen vegetables. Travelling beneath the azure sky in our jolly ox-cart, we often hit bumps quite hard. Perhaps President Clinton’s amazing sax skills will be judged quite favorably. Two hardy boxing kangaroos jet from Sydney to Zanzibar on quicksilver pinions. As we explored the gulf of Zanzibar, we quickly moved closer to the jutting rocks. Six javelins thrown by the quick savages whizzed forty paces beyond the mark. The explorer was frozen in his big kayak just after making queer discoveries. Was there a quorum of able whizzkids gravely exciting the jaded fish at ATypI? The July sun caused a fragment of black pine wax to ooze on the velvet quilt. Jolly housewives made inexpensive meals using quick-frozen vegetables. Monique, the buxom coed, likes to fight for Pez with the junior varsity team. Venerable Will played jazz sax until 3 o’clock in the morning before he quit. The public was amazed to view the quickness and dexterity of the juggler. The chancellor of the exchequer embezzled junk from gypsies with vigor. While Suez sailors wax parquet decks, Afghan jews vomit jauntily abaft. Just work for improved basic techniques to maximize your typing skill. Questions of a zealous nature have become by degrees petty waxen jokes. About sixty codfish eggs will make a quarter pound of very fizzy jelly. Verbatim reports were quickly given by Jim Fox to his amazed audience. Barkeep! A flaming tequila swizzle and a vodka and Ajax, hold the cherry. Will Major Douglas be expected to take this true-false quiz very soon? The jukebox music puzzled a gentle visitor from a quaint valley town. You will quite often be amazed by Jock’s very weighty, size six sporran! Wolfing kumquats, jovial Charon poled his boat lazily along the Styx. Six big juicy steaks sizzled in a pan as five workmen left the quarry. While making deep excavations we found some quaint bronze jewelry. Jaded zombies acted quaintly but kept driving their oxen forward. The job requires extra pluck and zeal from every young wage earner. When we go back to Juarez, Mexico, do we fly over picturesque Arizona? On the boardwalk grave playful lizards quickly jump and exercise. Now is the time for all brown dogs to jump quickly over the lazy lynx. My help squeezed in and joined the weavers again before six o’clock. A mad boxer shot a quick, gloved jab to the jaw of his dizzy opponent. Would you please examine both sizes of jade figures very quickly. Back in my quaint garden, jaunty zinnias vie with flaunting phlox. We dislike to exchange job lots of sizes varying from a quarter up. A quart jar of oil mixed with zinc oxide makes a very bright paint. Quixotic knights’ wives are found on jumpy old zebras. Alfredo just must bring very exciting news to the plaza quickly.
+              </p>
+              <div class='size'>14 pt</div>
+            </div>
+            <div class='size_16'>
+              <p>
+                William said that everything about his jacket was in quite good condition except for the zipper. The junior office clerks were quite amazed at the extra reward given by their generous employer. The sex life of the woodchuck is a provocative question for most vertebrate zoology majors. You go tell that vapid existentialist quack Freddy Nietzsche that he can just bite me, twice. Jimmy and Zack, the police explained, were last seen diving into a field of buttered quahogs. We quickly chased the zebras to a quiet drinking place just near my five bundles of flax. Ebenezer unexpectedly bagged two tranquil aardvarks with his jiffy vacuum cleaner. Sixty-five wildly panting fruitflies gazed hungrily at the juicy bouncing kumquats. I was temporarily forced to zig-zag and quiver furiously around big junky xylophones. In Boston: Jazzy (but malicious) squeak toy explodes, ending the lives of two children. Fabled reader with jaded, roving eye seized by quickened impulse to expand budget. For only $35, jolly housewives made “inexpensive” meals using quick-frozen vegetables. Travelling beneath the azure sky in our jolly ox-cart, we often hit bumps quite hard. Perhaps President Clinton’s amazing sax skills will be judged quite favorably. Two hardy boxing kangaroos jet from Sydney to Zanzibar on quicksilver pinions. As we explored the gulf of Zanzibar, we quickly moved closer to the jutting rocks. Six javelins thrown by the quick savages whizzed forty paces beyond the mark. The explorer was frozen in his big kayak just after making queer discoveries. Was there a quorum of able whizzkids gravely exciting the jaded fish at ATypI? The July sun caused a fragment of black pine wax to ooze on the velvet quilt. Jolly housewives made inexpensive meals using quick-frozen vegetables. Monique, the buxom coed, likes to fight for Pez with the junior varsity team. Venerable Will played jazz sax until 3 o’clock in the morning before he quit. The public was amazed to view the quickness and dexterity of the juggler. The chancellor of the exchequer embezzled junk from gypsies with vigor. While Suez sailors wax parquet decks, Afghan jews vomit jauntily abaft. Just work for improved basic techniques to maximize your typing skill. Questions of a zealous nature have become by degrees petty waxen jokes. About sixty codfish eggs will make a quarter pound of very fizzy jelly. Verbatim reports were quickly given by Jim Fox to his amazed audience. Barkeep! A flaming tequila swizzle and a vodka and Ajax, hold the cherry. Will Major Douglas be expected to take this true-false quiz very soon? The jukebox music puzzled a gentle visitor from a quaint valley town. You will quite often be amazed by Jock’s very weighty, size six sporran! Wolfing kumquats, jovial Charon poled his boat lazily along the Styx. Six big juicy steaks sizzled in a pan as five workmen left the quarry. While making deep excavations we found some quaint bronze jewelry. Jaded zombies acted quaintly but kept driving their oxen forward. The job requires extra pluck and zeal from every young wage earner. When we go back to Juarez, Mexico, do we fly over picturesque Arizona? On the boardwalk grave playful lizards quickly jump and exercise. Now is the time for all brown dogs to jump quickly over the lazy lynx. My help squeezed in and joined the weavers again before six o’clock. A mad boxer shot a quick, gloved jab to the jaw of his dizzy opponent. Would you please examine both sizes of jade figures very quickly. Back in my quaint garden, jaunty zinnias vie with flaunting phlox. We dislike to exchange job lots of sizes varying from a quarter up. A quart jar of oil mixed with zinc oxide makes a very bright paint. Quixotic knights’ wives are found on jumpy old zebras. Alfredo just must bring very exciting news to the plaza quickly.
+              </p>
+              <div class='size'>16 pt</div>
+            </div>
+            <div class='clear-zero'></div>
+          </div>
+        </div>
+        <div class='charset'>
+          <h2>Character set</h2>
+          <div class='reduce'>
+            ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789&@€$¢£¥?!¿¡§%‰*†'"“”‘’‹›«»#(/)[]{|}-–—_.,:;©®™ªº^+×=<>• ÄÖÜẞäöüßÁČĎÉĚÍŇÓŘŠŤÚŮÝŽáčďéěíňóřšťúůýžĹĽÔŔĺľôŕ
+          </div>
+        </div>
+        <div class='instruction'>
+          <h2>Instruction for use</h2>
+          <p>Congratulations for creating your webfont bundle!</p>
+          <p>
+            With this package you got everything you need to start using SuitcaseType Foundry's webfonts.
+            There are just two simple steps to get going.
+          </p>
+          <p>
+            All you need is just copy all webfont (eot, woff, svg) files to your project resource folder.
+            Assume its location is&nbsp;<code>/resources</code>.
+          </p>
+          <p>
+            Then add this css snippet to your css file:
+          </p>
+          <pre>@font-face {&#x000A;  font-family: 'Purista_Bold';&#x000A;  src: url('/resources/Purista_Bold.eot?#iefix') format('embedded-opentype'),&#x000A;       url('/resources/Purista_Bold.woff') format('woff'),&#x000A;       url('/resources/Purista_Bold.svg') format('svg'),&#x000A;       local('☺');&#x000A;;&#x000A;}</pre>
+          <p>From this point you can use it as every other font family in your css files like this:</p>
+          <pre>#content h1 {&#x000A;  font-family: 'Purista_Bold';&#x000A;  font-weight: normal;&#x000A;  font-style: normal;&#x000A;}</pre>
+          <p>
+            Remember to assign the weight and style of the font, especially
+            if you don't have the entire family.
+          </p>
+          <p>
+            Or just add our supplied file to your html head:
+            <pre>&lt;link href='Purista_Bold.css' rel='stylesheet' type='text/css' /&gt;</pre>
+          </p>
+          <p>
+            Also look at the source of this file for the further examples of the advanced use.
+          </p>
+        </div>
+        <p class='footer'>
+          <p class='suitcase'>
+            <a href='/'>
+              <img alt='Suitcase' height='98' src='images/suitcase.gif' width='90'>
+            </a>
+          </p>
+          <p class='copyright'>
+            Copyright © 2003 -
+            2015
+            Suitcase Type Foundry.
+            <br>
+            All rights reserved.
+          </p>
+        </p>
+      </div>
+    </div>
+  </body>
+</html>
