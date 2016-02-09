@@ -11,10 +11,11 @@ return array(
 	'*' => array(
         'omitScriptNameInUrls' => true,
         'defaultWeekStartDay' => 1,
+        'defaultCpLanguage' => 'cs',
         /** 'cpTrigger' => new-url, **/
         'sendPoweredByHeader' => false,
         'allowAutoUpdates' => 'minor-only',
-        'defaultCpLanguage' => 'cs',
+        'enableCsrfProtection' => true,
         'loginPath' => 'login',
         'testToEmailAddress' => 'lexislav@gmail.com'
     ),
