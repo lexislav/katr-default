@@ -11,15 +11,15 @@
                 </div>
             </div>
             <div class="medium-4 columns text-right">
-                <a href="" title="facebook"><i class="fa fa-2x fa-facebook"></i></a>
-                <a href="" title="twitter"><i class="fa fa-2x fa-twitter"></i></a>
-                <a href="" title="youtoube"><i class="fa fa-2x fa-youtube-play"></i></a>
+                {% for sm_link in socialniMedia.pevnyOdkaz %}
+                    <a href="{{sm_link.linkUrl}}" title="{{sm_link.linkUrl}}"><i class="{{sm_link.linkClasses}}"></i></a>    
+                {% endfor %}
             </div>
         </div>
 
         <div class="row">
             <div class="medium-6 medium-offset-1 columns">
-                <div>Katalog technických řešení je aplikace pro účely firmy KOMA Modular.<br/>Právní sdělení / ocharana / copyright.</div>
+                <div>{{footer.body}}</div>
             </div>
             <div class="medium-4 columns text-right">
                 <a href="http://www.koma-modular.cz" title="KOMA Modular">KOMA Modular</a>
@@ -34,7 +34,7 @@
                 © KOMA Modular 2016
             </div>
             <div class="small-5 columns text-right">
-                <a href="#" title="">developed by -oo-</a>
+                <a href="http://wwww.odoka.cz" title="">developed by -oo-</a>
             </div>
         </div>
     </div>
