@@ -1,0 +1,18 @@
+# Created by .ignore support plugin (hsz.mobi)
+*
+!.gitignore
+
+!/obrazky
+!/obrazky/fotografie
+!/obrazky/fotografie/01-vyrobkove-rady
+!/obrazky/fotografie/02-ramy
+!/obrazky/fotografie/03-plosne-prvky
+!/obrazky/fotografie/04-vyplne-otvoru
+!/obrazky/fotografie/05-instalace
+!/obrazky/fotografie/06-prislusenstvi
+!/obrazky/schemata
+
+!/soubory
+!/soubory/certifikace
+!/soubory/ostatni
+!/soubory/technicke-listy
