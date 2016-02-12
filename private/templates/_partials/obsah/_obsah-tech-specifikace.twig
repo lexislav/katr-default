@@ -11,13 +11,76 @@
                 </div>
             </div>
 
-            <div class="row">
-                <div class="medium-6 columns">
-                    polozky
-                </div>
-                <div class="medium-6 columns">
-                    polozky
-                </div>
+            <div class="row" style="column-count: 2">
+                    
+                    <div class="medium-6 columns">
+                    {% set categoryGroupNames = {} %}
+                    {% set categoryGroupMasters = { "Materiál" : "je materiál", "Izolace" : "je izolavaná"} %}
+                    {% for category in craft.categories('catLibraries') %}
+
+                        {% set groupName = category.getGroup.name %}
+                        {% set groupHandle = category.getGroup.handle %}
+
+                        {% set groupMaster = { (groupName):groupHandle } %}
+                        
+                        {% if groupHandle not in categoryGroupNames %}
+
+                            {% switch groupHandle %}
+                                {% case "struktura" %}
+                                {% case "vyrobkovarada" %}
+                                {% case "zeme" %}
+                                {% case "catLibraries" %}
+                                {% default %}
+                                    {% set categoryGroupNames = categoryGroupNames|merge([groupHandle]) %}
+                                    {% set categoryGroupMasters = categoryGroupMasters|merge(groupMaster) %}
+
+                            {% endswitch %}
+                        {% endif %}
+
+                    {% endfor %}
+                    {# <strong>tady jedeme pole</strong>
+                    {% for cn in categoryGroupNames %}{{cn}}<br>{% endfor %}
+                    <strong>tady jedeme pole</strong>
+                    {% for key,cn in categoryGroupMasters %}{{key}} {{cn}}<br>{% endfor %} #}
+                    </div>
+
+                    {% set entryChar = [] %}
+
+                    <div class="medium-6 columns">
+                    {% set pocetpolozek = 0 %}
+                    {% for groupName in categoryGroupNames %}
+                        {# <h3>{{ groupName }}</h3> #}
+                        {# Výpis všech hodnot         #}
+                        {# {% nav value in entry.category(groupName) %}
+                            <li>{{ value }}</a></li>
+                        {% endnav %} #}
+
+                        {% set categories = craft.categories({ relatedTo: { sourceElement: entry, field:groupName }, limit: null }) %}
+
+                        {% for value in categories %}
+
+                            {% set entryChar = entryChar|merge([{groupName : value.title}]) %}
+
+                            {% set pocetpolozek = +pocetpolozek %}
+
+                            {% if loop.first %}<div><strong>{{ groupName }}:</strong>&nbsp;{% endif %}
+                            {{ value }}{% if not loop.last %}, {% endif %}
+                            {% if loop.last %}</div>{% endif %}
+                        {% endfor %}
+
+                    {% endfor %}
+
+                    
+                    {# </div> #}
+                    {# <div class="medium-6 columns"> #}
+
+                        {# {% for k in entryChar %}{{k}}{% endfor %} #}
+                        musí se to rozdělit na dva sloupce, jenže mi nejde mergování arraye ve twigu, takže jsem zatím bezmocnej
+
+                        {# <pre>{{ dump(entryChar) }}</pre> #}
+                    </div>
+
+                   
             </div>
 
         </div>
