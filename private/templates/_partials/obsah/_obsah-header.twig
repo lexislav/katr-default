@@ -3,7 +3,7 @@
 
         <div class="small-12 medium-6 columns">
             <h1>{{ entry.title }}</h1>
-            <div>Revize: {{ entry.dateUpdated }}</div>
+            <div>Revize: {{ entry.dateUpdated|date("d.F Y") }}</div>
             {#{% include "/_partials/obsah/_obsah-header-meta.twig" %}#}
         </div>
 
