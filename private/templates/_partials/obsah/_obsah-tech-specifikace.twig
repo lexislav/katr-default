@@ -11,17 +11,14 @@
                 </div>
             </div>
 
-            <div class="row" style="column-count: 2">
-                    
+            <div class="row">
+                    {# ZJIŠTĚNÍ NAPLŇENÝCH KNIHOVEN PRO ENTRY#}
                     {% set activeLibraries = {} %}
                     {% for category in craft.categories('catLibraries') %}
-
                         {% set catGroupName = category.getGroup.name %}
                         {% set catGroupHandle = category.getGroup.handle %}
                         {% set catGroup = { (catGroupName) : catGroupHandle } %}
-                        
                         {% if catGroupHandle not in activeLibraries %}
-
                             {% switch catGroupHandle %}
                                 {% case "struktura" %}
                                 {% case "vyrobkovarada" %}
@@ -31,13 +28,13 @@
                                     {% set activeLibraries = activeLibraries|merge(catGroup) %}
                             {% endswitch %}
                         {% endif %}
-
                     {% endfor %}
                 
 
                     <div class="medium-6 columns">
+                    {# VÝPIS HODNOT POUŽITÝCH SEPCS#}
                     {% set pocetpolozek = activeLibraries|length %}
-                    {{ pocetpolozek }}
+                    {% set colBreakpoint = (pocetpolozek / 2)|round %}
                     {% set entrySpecs = {} %}
 
                     {# <h3>{{ groupName }}</h3> #}
@@ -52,19 +49,17 @@
                         {% set oneSpec = craft.categories({ relatedTo: { sourceElement: entry, field:groupHandle }, limit: null }) %}
 
                         {% for value in oneSpec %}                        
-                            {% if loop.first %}<div><strong>{{ groupName }}:</strong>&nbsp;{% endif %}
+                            {% if loop.first %}<li><strong>{{ groupName }}:</strong>&nbsp;{% endif %}
                             {{ value }}{% if not loop.last %}, {% endif %}
-                            {% if loop.last %}</div>{% endif %}
+                            {% if loop.last %}</li>{% endif %}
                         {% endfor %}
 
-                    {% endfor %}
-
+                    {% if loop.index == colBreakpoint %}
                     </div>
-
-
                     <div class="medium-6 columns">
+                    {% endif %}
 
-
+                    {% endfor %}
                     </div>
                    
             </div>
