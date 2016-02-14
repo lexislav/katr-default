@@ -51,7 +51,7 @@
                 {# CYKLUS PRO VÝPIS HODNOT TECH SPECS #}
                 {% set pocetpolozek = techSpecifikace|length %}
                 {% set colBreakpoint = (pocetpolozek / 2)|round %}
-                    
+
                 {% for groupName,spec in techSpecifikace %}
 
                     <li><strong>{{ groupName }}:</strong>&nbsp;{{ spec.values }}</li>
@@ -62,14 +62,6 @@
                 {% endif %}
 
                 {% endfor %}
-
-                {# VÝPIS VŠECH MOŽNÝCH HODNOT POUŽITÝCH SEPCS#}
-                
-                {# <h3>{{ groupName }}</h3> #}
-                    {# Cyklus pro výpis všech dostupných hodnot #}
-                    {# {% nav value in entry.category(groupName) %}
-                        <li>{{ value }}</a></li>
-                {% endnav %} #}
                 
                 </div>
 

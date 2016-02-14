@@ -15,7 +15,8 @@
 
 		{% include "/_partials/obsah/_obsah-fotogalerie.twig" %}
 
-
+		{# podmínka pro spuštění bloku Doplňkévých informací #}
+		{% if entry.doplnkoveInformace %}
 		<div class="row">
 			<div class="column">
 				<h2>Další informace</h2>
@@ -31,7 +32,8 @@
 		<div class="show-for-large">
 			{% include "/_partials/obsah/_obsah-dalsi-info.twig" %}
 		</div>
-
+		{% endif %}
+		
 		<div class="m-section">
 			<div class="row">
 				<div class="column text-center">
