@@ -1,3 +1,32 @@
+{# Makra z toho zatím nejsou:
+    twig neholduje předávání proměných z/do include a import fajlů
+    zatím jsem nepřišel na to, jak to handlovat.
+
+    Mohl bych tím sice trochu zpřehlednit kód, ale přesunout to celé do nějaké funkce nelze nebo neumím, snad později
+
+    pozn. macro umí v twigu vrátit jen jednoduchý string
+#}
+
+{# ZJIŠTĚNÍ NAPLŇENÝCH KNIHOVEN PRO ENTRY#}
+{% set techSpecifikace = {} %}
+{% for category in craft.categories('catLibraries') %}
+    {% set catGroupName = category.getGroup.name %}
+    {% set catGroupHandle = category.getGroup.handle %}
+    {% set oneSpec = craft.categories({ relatedTo: { sourceElement: entry, field:catGroupHandle }, limit: null }) %}
+    {% if oneSpec|length > 0 %}
+        {% set specValues = "" %}
+        {% for value in oneSpec %}
+            {% set specValues = specValues ~ value %}
+            {% if not loop.last %}{% set specValues = specValues ~ ", " %} {% endif %}
+        {% endfor %}
+        {% set catGroup = { (catGroupName) : { "handle": catGroupHandle, "values": specValues }} %}
+        {% set techSpecifikace = techSpecifikace|merge(catGroup) %}
+    {% endif %}
+{% endfor %}
+
+{# podmínka pro zobrazení bloku:, spustit, až to bude odladěné#}
+{# {% if techSpecifikace|length or entry.sirka or entry.vyska or entry.hloubka %} #}
+
 <div class="row">
     <div class="column">
         <div class="bg-grey-light">
@@ -7,47 +36,25 @@
                     technicka specifikace
                 </div>
                 <div class="medium-6 columns text-right">
-                    meta
+
+                    {% if entry.sirka %}<span>Šířka:</span>{{entry.sirka}}{% endif %}
+                    {% if entry.vyska %}<span>Výška:</span>{{entry.vyska}}{% endif %}
+                    {% if entry.hloubka %}<span>Hloubka:</span>{{entry.hloubka}}{% endif %}
+
                 </div>
             </div>
 
             <div class="row">
 
-                {# Makra z toho zatím nejsou:
-                    twig neholduje předávání proměných z/do include a import fajlů
-                    zatím jsem nepřišel na to, jak to handlovat.
-
-                    Mohl bych tím sice trochu zpřehlednit kód, ale přesunout to celé do nějaké funkce nlze nebo neumím
-                #}
-
-                {# ZJIŠTĚNÍ NAPLŇENÝCH KNIHOVEN PRO ENTRY#}
-                {% set techSpecifikace = {} %}
-                {% for category in craft.categories('catLibraries') %}
-                    {% set catGroupName = category.getGroup.name %}
-                    {% set catGroupHandle = category.getGroup.handle %}
-                    {% set isFull = craft.categories({ relatedTo: { sourceElement: entry, field:catGroupHandle }, limit: null }) %}
-                    {% if isFull|length > 0 %}
-                        {% set catGroup = { (catGroupName) : catGroupHandle } %}
-                        {% set techSpecifikace = techSpecifikace|merge(catGroup) %}
-                    {% endif %}
-                {% endfor %}
-
-                {% set pocetpolozek = techSpecifikace|length %}
-                {% set colBreakpoint = (pocetpolozek / 2)|round %}
-                {% set entrySpecs = {} %}
-
                 <div class="medium-6 columns">
 
-                {# CYKLUS PRO VÝPIS HODNOT POUŽITÝCH SEPCS#}
-                {% for groupName,groupHandle in techSpecifikace %}
+                {# CYKLUS PRO VÝPIS HODNOT TECH SPECS #}
+                {% set pocetpolozek = techSpecifikace|length %}
+                {% set colBreakpoint = (pocetpolozek / 2)|round %}
+                    
+                {% for groupName,spec in techSpecifikace %}
 
-                    {% set oneSpec = craft.categories({ relatedTo: { sourceElement: entry, field:groupHandle }, limit: null }) %}
-
-                    {% for value in oneSpec %}                        
-                        {% if loop.first %}<li><strong>{{ groupName }}:</strong>&nbsp;{% endif %}
-                        {{ value }}{% if not loop.last %}, {% endif %}
-                        {% if loop.last %}</li>{% endif %}
-                    {% endfor %}
+                    <li><strong>{{ groupName }}:</strong>&nbsp;{{ spec.values }}</li>
 
                 {% if loop.index == colBreakpoint %}
                 </div>
@@ -65,7 +72,7 @@
                 {% endnav %} #}
                 
                 </div>
-                   
+
             </div>
 
         </div>
