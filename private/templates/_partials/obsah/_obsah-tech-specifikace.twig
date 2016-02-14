@@ -21,23 +21,25 @@
                 #}
 
                 {# ZJIŠTĚNÍ NAPLŇENÝCH KNIHOVEN PRO ENTRY#}
-                {% set specsLibraries = {} %}
+                {% set techSpecifikace = {} %}
                 {% for category in craft.categories('catLibraries') %}
                     {% set catGroupName = category.getGroup.name %}
                     {% set catGroupHandle = category.getGroup.handle %}
-                    {% set catGroup = { (catGroupName) : catGroupHandle } %}
                     {% set isFull = craft.categories({ relatedTo: { sourceElement: entry, field:catGroupHandle }, limit: null }) %}
-                    {% if isFull|length > 0 %}{% set specsLibraries = specsLibraries|merge(catGroup) %}{% endif %}
+                    {% if isFull|length > 0 %}
+                        {% set catGroup = { (catGroupName) : catGroupHandle } %}
+                        {% set techSpecifikace = techSpecifikace|merge(catGroup) %}
+                    {% endif %}
                 {% endfor %}
 
-                {% set pocetpolozek = specsLibraries|length %}
+                {% set pocetpolozek = techSpecifikace|length %}
                 {% set colBreakpoint = (pocetpolozek / 2)|round %}
                 {% set entrySpecs = {} %}
 
                 <div class="medium-6 columns">
 
                 {# CYKLUS PRO VÝPIS HODNOT POUŽITÝCH SEPCS#}
-                {% for groupName,groupHandle in specsLibraries %}
+                {% for groupName,groupHandle in techSpecifikace %}
 
                     {% set oneSpec = craft.categories({ relatedTo: { sourceElement: entry, field:groupHandle }, limit: null }) %}
 
