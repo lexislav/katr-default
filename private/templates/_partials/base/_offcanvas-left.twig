@@ -1,6 +1,6 @@
 <div class="off-canvas position-left" id="offCanvasLeft" data-off-canvas>
     <div class="row off-canvas-header align-middle">
-        <div class="column">Koma katalog</div>
+        <div class="column">KOMA Katalog</div>
         <div class="column shrink text-right">
             <button class="menu-icon" type="button" data-close="offCanvasLeft"></button>
         </div>
@@ -8,21 +8,13 @@
     <div class="off-canvas-scroll-content">
         <div class="row ">
             <div class="column">
-                {% for i in range(1, 3) %}
-                    <a class="row off-canvas-item" href="#">
+                {% for i in offCanvasMenu.menuItem %}
+                    <a class="row off-canvas-item {% if i.menuLink is empty %}disabled{% endif %}" href="#">
                         <div class="small-2 column off-canvas-item--icon"><i class="fa fa-amazon"></i></div>
 
                         <div class="small-10 column">
-                            <h3 class="off-canvas-item--headline">Katalog - {{ i }} </h3>
-                            <div> Procházení struktury katalogu, obecných informací o skupinách produktů</div>
-                        </div>
-                    </a>
-                    <a class="row off-canvas-item disabled" href="#">
-                        <div class="small-2 column off-canvas-item--icon"><i class="fa fa-youtube"></i></div>
-
-                        <div class="small-10 column">
-                            <h3 class="off-canvas-item--headline">Katalog - {{ i }} </h3>
-                            <div> Procházení struktury katalogu, obecných informací o skupinách produktů</div>
+                            <h3 class="off-canvas-item--headline">{{ i.menuTitle }}</h3>
+                            <div>{{ i.menuDescription}}</div>
                         </div>
                     </a>
                 {% endfor %}
