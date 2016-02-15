@@ -6,14 +6,14 @@
             <div>Revize: {{ entry.dateUpdated|date("d.F Y") }}</div>
             {#{% include "/_partials/obsah/_obsah-header-meta.twig" %}#}
         </div>
-
+        {% if entry.uvodniObrazek %}
         <div class="small-12 medium-6 columns">
             {% for i in entry.uvodniObrazek %}
                 <img src="{{ i.getUrl('headerHalfImage') }}">
             {% endfor %}
-            {# <img src="http://lorempixel.com/900/900/" alt=""> #}
             <div style="background-color: #3c3c3c">gallery popup button</div>
         </div>
+        {% endif %}
 
     </div>
 </header>
