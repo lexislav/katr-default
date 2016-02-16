@@ -9,7 +9,7 @@
         <div class="row ">
             <div class="column">
                 {% for i in offCanvasMenu.menuItem %}
-                    <a class="row off-canvas-item {% if i.menuLink is empty %}disabled{% endif %}" href="#">
+                    <a class="row off-canvas-item {% if i.menuLink is empty %}disabled{% endif %}" href="{% if i.menuLink is empty %}#{% else %}{{ i.menuLink }}{% endif %}">
                         <div class="small-2 column off-canvas-item--icon"><i class="{{i.menuIcon.value}}"></i></div>
 
                         <div class="small-10 column">
