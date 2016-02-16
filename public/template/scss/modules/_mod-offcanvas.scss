@@ -2,10 +2,10 @@
 
     * {
         outline: none;
-        color: $color-koma-grey;
+        color: $color-koma-ui-dark;
     }
 
-    border-right: 1px solid darken($color-koma-grey-dark, 3%);
+    border-right: 1px solid darken($color-koma-ui-darken, 3%);
 
     a {
         &:hover {
@@ -49,13 +49,13 @@
     font-size: 18px;
     line-height: 1em;
     letter-spacing: 0.13em;
-    color: $color-koma-grey-light;
+    color: $color-koma-ui-lighter;
 
 }
 
 .off-canvas-item--icon {
     font-size: 32px;
-    color: $color-koma-grey-light;
+    color: $color-koma-ui-lighter;
     text-align: right;
     margin-top: -.16em;
 }
@@ -64,10 +64,10 @@
     font-family: $body-font-family;
     font-size: 12px;
     padding: 16px 16px;
-    border-top: 1px dotted $color-koma-grey-medium;
+    border-top: 1px dotted $color-koma-ui-dark;
 
     &.is-section {
-        border-top: 1px solid $color-koma-grey-medium;
+        border-top: 1px solid $color-koma-ui-dark;
     }
 
     &:first-of-type {
@@ -75,7 +75,7 @@
     }
 
     &:hover:not(.disabled) {
-        background-color: lighten($color-koma-grey-dark, 2%);
+        background-color: lighten($color-koma-ui-darken, 2%);
         * {
             color: white;
         }
@@ -84,7 +84,7 @@
     &.disabled {
         pointer-events: none;
         * {
-            color: lighten($color-koma-grey-dark, 10%);;
+            color: lighten($color-koma-ui-darken, 10%);;
         }
     }
 }
@@ -94,7 +94,7 @@
     font-family: $header-font-family;
     background-color: $offcanvas-background;
     height: 76px;
-    border-bottom: 1px solid $color-koma-grey-medium;
+    border-bottom: 1px solid $color-koma-ui-darken;
     padding-left: 20px;
     padding-right: 20px;
 }
@@ -110,7 +110,7 @@
     background-color: $offcanvas-background;
 
     div:first-of-type {
-        border-right: 1px solid $color-koma-grey-medium;
+        border-right: 1px solid $color-koma-ui-darken;
     }
 
     .fa {
