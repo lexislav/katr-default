@@ -1,4 +1,6 @@
 {% extends "/_partials/layout/_base.twig" %}
+{% block user_autenth %}
+{% endblock user_autenth %}
 
 {% block bars %}
 	{% include "/_partials/base/_top-title-bar.twig" %}
@@ -33,7 +35,7 @@
 			{% include "/_partials/obsah/_obsah-dalsi-info.twig" %}
 		</div>
 		{% endif %}
-		
+
 		<div class="m-section">
 			<div class="row">
 				<div class="column text-center">
@@ -49,4 +51,3 @@
 {% endblock %}
 
 {% block scripts %}{% endblock %}
-

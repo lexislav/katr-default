@@ -1,6 +1,7 @@
+{% block user_autenth %}
 {# {% if siteUrl != craft.request.getUrl %}{% redirect "admin" 301%}{% endif %} #}
 {% if siteUrl != craft.request.getUrl %}{% if not currentUser %}{% redirect "admin" 301%}{% endif %}{% endif %}
-
+{% endblock user_autenth %}
 
 <!doctype html >
 <html class="no-js" lang="en">
