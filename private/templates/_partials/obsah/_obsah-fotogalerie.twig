@@ -1,3 +1,4 @@
+{% if entry.productPhotogallery|length > 0 %}
 <div class="fotogalerie">
     <div class="row">
         <div class="column">
@@ -17,11 +18,11 @@
                     {% for i in entry.productPhotogallery %}
                     <li class="orbit-slide" style="background-color: lightpink">
                         <div>
-                            <img src="{{ i.getUrl('photoGalleryThumb') }}">
+                            <img src="/{{ i.getUrl('photoGalleryThumb') }}">
                         </div>
                     </li>
                     {% endfor %}
-                    
+
                     {# <li class="orbit-slide" style="background-color: lightpink">
                         <div>
                             <h3 class="text-center">4: You can also throw some text in here!</h3>
@@ -41,3 +42,4 @@
         </div>
     </div>
 </div>
+{% endif %}

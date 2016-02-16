@@ -10,9 +10,11 @@
         {% if entry.uvodniObrazek %}
             <div class="small-12 medium-6 columns">
                 {% for i in entry.uvodniObrazek %}
-                    <img src="{{ i.getUrl('headerHalfImage') }}">
+                    <img src="/{{ i.getUrl('headerHalfImage') }}">
                 {% endfor %}
+                {% if entry.productPhotogallery|length > 0 %}
                 <div class="button secondary big"><i class="fa fa-2x fa-image"></i></div>
+                {% endif %}
             </div>
         {% endif %}
 

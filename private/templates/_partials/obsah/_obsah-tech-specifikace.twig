@@ -25,7 +25,7 @@
 {% endfor %}
 
 {# podmínka pro zobrazení bloku:, spustit, až to bude odladěné#}
-{# {% if techSpecifikace|length or entry.sirka or entry.vyska or entry.hloubka %} #}
+{% if techSpecifikace|length or entry.sirka or entry.vyska or entry.hloubka %}
 
 <div class="row">
     <div class="column">
@@ -62,7 +62,7 @@
                 {% endif %}
 
                 {% endfor %}
-                
+
                 </div>
 
             </div>
@@ -70,3 +70,4 @@
         </div>
     </div>
 </div>
+{% endif %}
