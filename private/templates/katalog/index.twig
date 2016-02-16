@@ -1,0 +1,38 @@
+{% extends "/_partials/layout/_base.twig" %}
+
+{% block bars %}
+	{% include "/_partials/base/_top-title-bar.twig" %}
+	{% include "/_partials/base/_top-bar.twig" %}
+{% endblock %}
+
+{% block content %}
+	{{ parent() }}
+
+	{# {% include '/_partials/base/_top-breadcrumbs.twig' with {'class': 'mm-over'} %} #}
+
+	{% set pages = craft.entries.section('katalog') %}
+
+	{# todo: udělat markup #}
+	<article>
+
+		<nav>
+		    <ul>
+		        {% nav page in pages %}
+		            <li>
+		                {% if page.body %}{{ page.getLink() }}{% else %}{{ page.title }}{% endif %}
+
+		                {% ifchildren %}
+		                    <ul>
+		                        {% children %}
+		                    </ul>
+		                {% endifchildren %}
+		            </li>
+		        {% endnav %}
+		    </ul>
+		</nav>
+
+	</article>
+
+{% endblock %}
+
+{% block scripts %}{% endblock %}
