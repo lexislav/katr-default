@@ -224,9 +224,9 @@ $badge-font-size: 0.6rem;
 
 $breadcrumbs-margin: 0 0 $global-margin 0;
 $breadcrumbs-item-font-size: rem-calc(12);
-$breadcrumbs-item-color: $color-koma-ui-dark;
-$breadcrumbs-item-color-current: $color-koma-ui-dark;
-$breadcrumbs-item-color-disabled: $color-koma-ui-dark;
+$breadcrumbs-item-color: $color-koma-ui-darken;
+$breadcrumbs-item-color-current: $color-koma-ui-darken;
+$breadcrumbs-item-color-disabled: $color-koma-ui-darken;
 $breadcrumbs-item-margin: 0.75rem;
 $breadcrumbs-item-uppercase: false;
 $breadcrumbs-item-slash: true;
@@ -352,8 +352,8 @@ $input-color: $black;
 $input-font-family: $body-font-family;
 $input-font-size: rem-calc(16);
 
-$input-background: $color-koma-ui-midlight;
-$input-background-focus: $color-koma-ui-light;
+$input-background: $color-koma-ui-light;
+$input-background-focus: $color-koma-ui-lighter;
 $input-background-disabled: $light-gray;
 
 $input-border: 1px solid transparent; //1px solid $color-koma-ui;
@@ -396,7 +396,7 @@ $menu-expand-max: 6;
 // --------------
 
 $offcanvas-size: 385px;
-$offcanvas-background: $color-koma-ui-dark;
+$offcanvas-background: $color-koma-ui-darken;
 $offcanvas-zindex: -1;
 $offcanvas-transition-length: 0.5s;
 $offcanvas-transition-timing: ease;
