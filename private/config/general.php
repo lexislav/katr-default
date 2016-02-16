@@ -8,7 +8,7 @@
  */
 
 return array(
-	'*' => array(
+    '*' => array(
         'omitScriptNameInUrls' => true,
         'defaultWeekStartDay' => 1,
         'defaultCpLanguage' => 'cs',
@@ -25,6 +25,6 @@ return array(
     ),
 
     'koma-katalog.cz' => array(
-    	'devMode' => false,
+        'devMode' => false,
     )
 );
