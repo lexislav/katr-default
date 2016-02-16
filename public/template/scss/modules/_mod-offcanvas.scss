@@ -64,9 +64,13 @@
     font-family: $body-font-family;
     font-size: 12px;
     padding: 16px 16px;
-    border-bottom: 1px dotted $color-koma-grey-medium;
+    border-top: 1px dotted $color-koma-grey-medium;
 
-    &:last-of-type {
+    &.is-section {
+        border-top: 1px solid $color-koma-grey-medium;
+    }
+
+    &:first-of-type {
         border-bottom: none;
     }
 
