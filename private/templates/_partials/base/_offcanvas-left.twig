@@ -11,7 +11,6 @@
 
                 {% for i in offCanvasMenu.menuItem %}
 
-                    {# todo: přidej si .is-section pro oddělení sekce plnou čarou #}
                     <a class="row off-canvas-item {% if not i.menuLink %}disabled{% endif %}{% if i.menuDivider %} is-section{% endif %}"
                             href="{% if i.menuLink  %}{{ i.menuLink }}{% else %}#{% endif %}"
                             data-close="offCanvasLeft">

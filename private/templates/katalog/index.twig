@@ -1,3 +1,12 @@
+{#
+ # KATALOG list
+ # -------------------
+ #
+ # Šablona vypisuje strukturu katalogu
+ #
+ # dost možná nebude vůbec potřeba, protože tato data se budou načítat do modalu
+ #}
+
 {% extends "/_partials/layout/_base.twig" %}
 
 {% block bars %}
@@ -12,7 +21,7 @@
 
 	{% set pages = craft.entries.section('katalog') %}
 
-	{# todo: udělat markup #}
+	{# TODO: udělat markup - struktura. #}
 	<article>
 
 		<nav>

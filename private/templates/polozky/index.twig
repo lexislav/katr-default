@@ -10,7 +10,9 @@
 
 	{# {% include '/_partials/base/_top-breadcrumbs.twig' with {'class': 'mm-over'} %} #}
 	{% set entries = craft.entries.section('polozky') %}
-	{# todo: udělat markup - výpis položek#}
+
+	{# TODO: udělat markup - výpis položek #}
+
 	{% for entry in entries %}
 	<article>
 		{% if entry.uvodniObrazek %}
@@ -19,6 +21,8 @@
 		<h1>{{entry.Title}}</h1>
 		<span>{{entry.poznamka}}</span><br>
 		<span>{{entry.katalogoveCislo}}</span><br>
+
+		{# TODO: udělat výpis taxonomie a prioritni taxonomie s rozměry #}
 	</article>
 	{% else %}
 	<span>Tady nejsou žádné položky!</span>
