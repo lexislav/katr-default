@@ -5,9 +5,9 @@
             <li class="menu-square has-border text-center"><button type="button" data-open="offCanvasLeft">
                     <img src="/template/assets/menu-burger.svg" alt=""></button></li>
             <li class="menu-text has-border"><img src="/template/assets/logo-koma.svg" alt=""></li>
-            <li class="menu-text"><a href=""><i class="fa fa-print"></i>Katalog</a></li>
-            <li class="menu-text"><a href=""><i class="fa fa-print"></i>Položky</a></li>
-            <li class="menu-text"><a href=""><i class="fa fa-print"></i>Vyhledat</a></li>
+            {% for i in offCanvasMenu.menuItem|slice(0,3) %}
+                <li class="menu-text"><a href="{% if i.menuLink is empty %}{# clas=="disabled" #}{% else %}{{i.menuLink}}{% endif %}" {% if i.menuLink is empty %}clas=="disabled"{% endif %}><i class="{{i.menuIcon.value}}"></i>{{ i.menuTitle }}</a></li> 
+            {% endfor %}
         </ul>
     </div>
     {# right#}
