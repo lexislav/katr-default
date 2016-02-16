@@ -2,13 +2,30 @@
 
 {% extends "/_partials/layout/_base.twig" %}
 
+{% block bars %}
+    {% if currentUser %}
+    {% include "/_partials/base/_top-title-bar.twig" %}
+    {% include "/_partials/base/_top-bar.twig" %}
+    {% endif %}
+{% endblock bars %}
+
 {% block content %}
-        {{ parent() }}
+    {{ parent() }}
 
-        {% include "/_partials/headers/_header_pripravujeme.twig" %}
-        {% include "/_partials/common/_section_info_centered_articles.twig" %}
+    {# {% include '/_partials/base/_top-breadcrumbs.twig' %} #}
 
-{% endblock %}
+    {% if currentUser %}
+        <article>
+            <h1>Vítejte v katalogu KOMA</h1>
+            {% include "/_partials/obsah/_obsah-upozorneni.twig" %}
+        </article>
+    
+    {% else %}
+    {% include "/_partials/headers/_header_pripravujeme.twig" %}
+    {% include "/_partials/common/_section_info_centered_articles.twig" %}    
+
+    {% endif %}
+{% endblock content %}
 
 {% block scripts %}{% endblock %}
 

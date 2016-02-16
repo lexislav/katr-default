@@ -1,6 +1,10 @@
 {% block user_autenth %}
-{# {% if siteUrl != craft.request.getUrl %}{% redirect "admin" 301%}{% endif %} #}
-{% if siteUrl != craft.request.getUrl %}{% if not currentUser %}{% redirect "admin" 301%}{% endif %}{% endif %}
+{% if siteUrl != craft.request.getUrl %}
+    {# {% if not currentUser %}{% redirect "maintenance" 301%}{% endif %} #}
+    {% requireLogin %}
+{% else %}
+    
+{% endif %}
 {% endblock user_autenth %}
 
 <!doctype html >

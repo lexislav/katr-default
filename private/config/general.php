@@ -16,7 +16,7 @@ return array(
         'sendPoweredByHeader' => false,
         'allowAutoUpdates' => 'minor-only',
         'enableCsrfProtection' => true,
-        'loginPath' => 'login',
+        'loginPath' => 'admin',
         'testToEmailAddress' => 'lexislav@gmail.com'
     ),
 
@@ -26,5 +26,6 @@ return array(
 
     'koma-katalog.cz' => array(
         'devMode' => false,
+        'loginPath' => '',
     )
 );
