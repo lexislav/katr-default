@@ -6,14 +6,14 @@ modifiers:
     mm-over - pruhledne přes obsah (absolutni pozice)
 #}
 
-<nav aria-label="You are here:" role="navigation" class="m-breadcrumbs {{ class }}">
+<nav aria-label="You are here:" role="navigation" class="m-breadcrumbs {{ class|default('') }}">
     <ul class="breadcrumbs">
-    	<li><a href="{{ siteUrl }}">Úvod</a></li>
+        <li><a href="{{ siteUrl }}">Úvod</a></li>
+
         {% for crumb in entry.getAncestors() %}
-        <li>{{ crumb.getLink() }}</li>
+            <li>{{ crumb.getLink() }}</li>
         {% endfor %}
+
         <li>{{ entry.title() }}</li>
-        {# <li class="disabled">Gene Splicing</li>
-        <li><span class="show-for-sr">Current: </span> Cloning</li> #}
     </ul>
 </nav>
