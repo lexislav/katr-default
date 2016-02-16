@@ -1,13 +1,20 @@
 $gSpacing: 100px;
 $color-koma-primary: #c20e1a;
 $color-koma-primary-dark: #960e19;
-$color-koma-grey-light: #f2f2f2;
-$color-koma-grey: #858585;
-$color-koma-grey-medium: #5e5e5e;
-$color-koma-grey-dark: #434343;
-$color-koma-ui-light: #ecf0ec;
-$color-koma-ui: #b5bbb4;
-$color-koma-ui-light: #f8f8f8;
+
+$color-koma-secondary: #b5bbb4;
+
+//UI COLORS
+
+$color-koma-ui-black:       #000000;
+$color-koma-ui-dark:        #434343;
+$color-koma-ui-darken:      #858585;
+$color-koma-ui-mid:         #b5bbb4; // coma secondary
+$color-koma-ui-midlight:    #ecf0ec;
+$color-koma-ui-light:       #f2f2f2;
+$color-koma-ui-bright:      #f8f8f8; //??
+$color-koma-ui-white:       #ffffff;
+
 
 @import "base/fonts";
 @import "module-foundation";

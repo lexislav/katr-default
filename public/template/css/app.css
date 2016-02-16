@@ -1635,7 +1635,7 @@ textarea {
   font-family: "Helvetica Neue", Helvetica, Roboto, Arial, sans-serif;
   font-size: 1.1428571429rem;
   color: #0a0a0a;
-  background-color: #f8f8f8;
+  background-color: #ecf0ec;
   box-shadow: none;
   border-radius: 0;
   transition: box-shadow 0.5s, border-color 0.25s ease-in-out;
@@ -2017,7 +2017,7 @@ select {
     .breadcrumbs a:hover {
       text-decoration: underline; }
   .breadcrumbs .disabled {
-    color: #5e5e5e; }
+    color: #434343; }
 
 .button-group {
   margin-bottom: 1rem;
@@ -3682,7 +3682,7 @@ table.hover tr:nth-of-type(even):hover {
   color: #f2f2f2; }
 
 .c-grey-mid {
-  color: #5e5e5e; }
+  color: #434343; }
 
 .f-headline {
   font-family: Purista; }
@@ -3931,9 +3931,9 @@ label a {
   font-family: "Helvetica Neue", Helvetica, Roboto, Arial, sans-serif;
   font-size: 12px;
   padding: 16px 16px;
-  border-top: 1px dotted #5e5e5e; }
+  border-top: 1px dotted #434343; }
   .off-canvas-item.is-section {
-    border-top: 1px solid #5e5e5e; }
+    border-top: 1px solid #434343; }
   .off-canvas-item:first-of-type {
     border-bottom: none; }
   .off-canvas-item:hover:not(.disabled) {
@@ -3950,7 +3950,7 @@ label a {
   font-family: Purista;
   background-color: #434343;
   height: 76px;
-  border-bottom: 1px solid #5e5e5e;
+  border-bottom: 1px solid #434343;
   padding-left: 20px;
   padding-right: 20px; }
 
@@ -3963,7 +3963,7 @@ label a {
   bottom: 0;
   background-color: #434343; }
   .off-canvas-footer div:first-of-type {
-    border-right: 1px solid #5e5e5e; }
+    border-right: 1px solid #434343; }
   .off-canvas-footer .fa {
     margin-right: 10px; }
   .off-canvas-footer:before {
@@ -4005,7 +4005,7 @@ label a {
       border-left: 1px solid #b5bbb4; }
 
 .m-breadcrumbs {
-  background-color: #f8f8f8;
+  background-color: #ecf0ec;
   max-height: 42px;
   padding: 13px;
   padding-left: 22px;
@@ -4016,7 +4016,7 @@ label a {
     position: absolute;
     z-index: 1;
     width: 100%;
-    background-color: rgba(248, 248, 248, 0.5); }
+    background-color: rgba(236, 240, 236, 0.5); }
 
 .mm-pad-top {
   padding-top: 50px; }

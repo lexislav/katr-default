@@ -1,5 +1,5 @@
 .m-breadcrumbs {
-    background-color: $color-koma-ui-light;
+    background-color: $color-koma-ui-midlight;
     max-height: 42px;
     padding: 13px;
     padding-left: 22px;
@@ -15,7 +15,7 @@
         position: absolute;
         z-index: 1;
         width: 100%;
-        background-color: rgba($color-koma-ui-light,0.5);
+        background-color: rgba($color-koma-ui-midlight,0.5);
     }
 
 }
