@@ -20,8 +20,11 @@
 
 {% block content %}
     {{ parent() }}
-
+    {% if entry.ancestors.first == "Výrobkové řady"%}{# if entry.ancestors.first.id == 5 #}
     {% include '/_partials/base/_top-breadcrumbs.twig' %}
+    {% else %}
+    {% include '/_partials/base/_top-breadcrumbs.twig' with {"class": "mm-over"} %}
+    {% endif %}
 
     <article>
         {% include "/_partials/obsah/_obsah-header.twig" %}
@@ -29,7 +32,7 @@
         {% include "/_partials/obsah/_obsah-fotogalerie.twig" %}
 
         {# podmínka pro spuštění bloku Doplňkévých informací #}
-        {% if entry.doplnkoveInformace %}
+        {% if entry.doplnkoveInformace|length > 0 %}
             <div class="row">
                 <div class="column">
                     <h2>Další informace</h2>

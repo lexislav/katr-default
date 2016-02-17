@@ -9,7 +9,7 @@ modifiers:
 <nav aria-label="Jste zde:" role="navigation" class="m-breadcrumbs {{ class|default('') }}">
     <ul class="breadcrumbs">
         <li><a href="{{ siteUrl }}">Úvod</a></li>
-        <li><a href="{{ siteUrl }}{{entry.section}}">{{entry.section}}</li>
+        <li><a href="{{ siteUrl }}{{entry.section}}">{{entry.section}}</a></li>
         {% for crumb in entry.getAncestors() %}
             <li>{{ crumb.getLink() }}</li>
         {% endfor %}
