@@ -44,7 +44,11 @@
             </div>
             {% endif %}
             <div class="large-12 columns">
-                <button class="button large">zobrazit katalog {{entry}}</button>
+              {% if entry.ancestors.first == "Výrobkové řady" %}
+                <a href="http://www.koma-modular.cz/vyrobkove-rady" target="_blank" class="button large"><i class="fa fa-globe"></i> více web KOMA Modular</a>
+              {% else %}
+                <a href="/polozky" class="button large"><i class="fa fa-bolt"></i> položky: {{entry}}</a>
+              {% endif %}
             </div>
 
         </div>
