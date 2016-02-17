@@ -8,7 +8,7 @@
 
 {% if variations|length > 0 %}
 <div style="background-color: #5f5f5f">
-  <h4>Varianty řady <a href="{{productLine.url}}">{{productLine}}</a></h4>
+  <h4>Varianty řady <a href="{{productLine.url}}">{{productLine.souvisejiciVyrobkoveRady.first}}</a></h4>
 
 	{% for e in variations %}
     <p>{% if e.body %}<a href="{{ e.getUrl }}">{{ e }}</a>{% else %}{{ e }}{% endif %}</p>
