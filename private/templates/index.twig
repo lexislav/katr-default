@@ -10,7 +10,6 @@
 {% endblock bars %}
 
 {% block content %}
-    {{ parent() }}
 
     {# {% include '/_partials/base/_top-breadcrumbs.twig' %} #}
 
@@ -19,13 +18,12 @@
             <h1>Vítejte v katalogu KOMA</h1>
             {% include "/_partials/obsah/_obsah-upozorneni.twig" %}
         </article>
-    
+
     {% else %}
     {% include "/_partials/headers/_header_pripravujeme.twig" %}
-    {% include "/_partials/common/_section_info_centered_articles.twig" %}    
+    {% include "/_partials/common/_section_info_centered_articles.twig" %}
 
     {% endif %}
 {% endblock content %}
 
 {% block scripts %}{% endblock %}
-

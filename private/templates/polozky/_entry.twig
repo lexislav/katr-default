@@ -17,7 +17,6 @@
 {% endblock %}
 
 {% block content %}
-    {{ parent() }}
 
     {% include '/_partials/base/_top-breadcrumbs.twig' %}
 
@@ -53,9 +52,9 @@
             </div>
         </div>
 
-        {% include "/_partials/obsah/_obsah-upozorneni.twig" %}
-
     </article>
+
+    {% include "/_partials/obsah/_obsah-upozorneni.twig" %}
 
 {% endblock %}
 

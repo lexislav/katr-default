@@ -19,7 +19,7 @@
 {% endblock %}
 
 {% block content %}
-    {{ parent() }}
+
     {% if entry.ancestors.first == "Výrobkové řady" %}
     {% include '/_partials/base/_top-breadcrumbs.twig'  with {"class": "mm-over"} %}
     {% else %}
@@ -57,9 +57,9 @@
             </div>
         </div>
 
-        {% include "/_partials/obsah/_obsah-upozorneni.twig" %}
-
     </article>
+
+{% include "/_partials/obsah/_obsah-upozorneni.twig" %}
 
 {% endblock %}
 
