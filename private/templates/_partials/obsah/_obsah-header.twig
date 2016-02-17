@@ -33,6 +33,11 @@
 
     <div class="small-12 large-6 columns">
         <div class="row">
+            {% if entry.ancestors.first == "Výrobkové řady" %}
+            <div class="large-12 columns">
+                {% include "/_partials/obsah/_obsah-variations.twig" %}
+            </div>
+            {% endif %}
 
             <div class="large-12 columns">
                 {% include "/_partials/obsah/_obsah-ke-stazeni.twig" %}

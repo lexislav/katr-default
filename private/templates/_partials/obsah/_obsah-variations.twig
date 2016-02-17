@@ -1,0 +1,17 @@
+{% if entry.ancestors|length == 1 %}
+{% set productLine = entry %}
+{% else %}
+{% set productLine = entry.ancestors[1] %}
+{% endif %}
+{{productLine}}:{{craft.entries.descendantOf(productLine)|length}}
+{% set variations = craft.entries.descendantOf(productLine)%}
+
+{% if variations|length > 0 %}
+<div style="background-color: #5f5f5f">
+  <h4>Varianty řady</h4>
+
+	{% for e in variations %}
+    <p>{% if e.body %}<a href="{{ e.getUrl }}">{{ e }}</a>{% else %}{{ e }}{% endif %}</p>
+	{% endfor %}
+</div>
+{% endif %}
