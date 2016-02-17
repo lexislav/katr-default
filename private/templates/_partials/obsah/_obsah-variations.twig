@@ -3,7 +3,7 @@
 {% else %}
 {% set productLine = entry.ancestors[1] %}
 {% endif %}
-{{productLine}}:{{craft.entries.descendantOf(productLine)|length}}
+
 {% set variations = craft.entries.descendantOf(productLine)%}
 
 {% if variations|length > 0 %}

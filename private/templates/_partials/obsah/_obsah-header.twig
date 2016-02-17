@@ -38,13 +38,13 @@
                 {% include "/_partials/obsah/_obsah-variations.twig" %}
             </div>
             {% endif %}
-
+            {% if entry.downloads| length > 0 %}
             <div class="large-12 columns">
                 {% include "/_partials/obsah/_obsah-ke-stazeni.twig" %}
             </div>
-
+            {% endif %}
             <div class="large-12 columns">
-                <button class="button large">zobrazit katalog stěn</button>
+                <button class="button large">zobrazit katalog {{entry}}</button>
             </div>
 
         </div>
