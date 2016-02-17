@@ -17,11 +17,12 @@ return array(
         'allowAutoUpdates' => 'minor-only',
         'enableCsrfProtection' => true,
         'loginPath' => 'admin',
-        'testToEmailAddress' => 'lexislav@gmail.com'
+        'testToEmailAddress' => 'lexislav@gmail.com',
+        'generateTransformsBeforePageLoad' => true
     ),
 
     'koma-katalog.dev' => array(
-        'devMode' => true,
+        'devMode' => true
     ),
 
     'koma-katalog.cz' => array(
