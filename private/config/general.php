@@ -18,15 +18,18 @@ return array(
         'enableCsrfProtection' => true,
         'loginPath' => 'admin',
         'testToEmailAddress' => 'lexislav@gmail.com',
-        'generateTransformsBeforePageLoad' => true
+        'generateTransformsBeforePageLoad' => true,
+        'siteUrl' => 'http://koma-katalog.cz/'
     ),
 
     'koma-katalog.dev' => array(
-        'devMode' => true
+        'devMode' => true,
+        'siteUrl' => 'http://koma-katalog.dev/'
     ),
 
     'koma-katalog.cz' => array(
         'devMode' => false,
-        'loginPath' => '',
+        'loginPath' => 'homepage',
+        'siteUrl' => 'http://koma-katalog.cz/'
     )
 );
