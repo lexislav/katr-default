@@ -20,10 +20,10 @@
 
 {% block content %}
     {{ parent() }}
-    {% if entry.ancestors.first == "Výrobkové řady"%}{# if entry.ancestors.first.id == 5 #}
-    {% include '/_partials/base/_top-breadcrumbs.twig' %}
+    {% if entry.ancestors.first == "Výrobkové řady" %}
+    {% include '/_partials/base/_top-breadcrumbs.twig'  with {"class": "mm-over"} %}
     {% else %}
-    {% include '/_partials/base/_top-breadcrumbs.twig' with {"class": "mm-over"} %}
+    {% include '/_partials/base/_top-breadcrumbs.twig' %}
     {% endif %}
 
     <article>
