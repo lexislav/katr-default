@@ -53,3 +53,35 @@
         flex: 1;
     }
 }
+
+.menu-download {
+
+    border-top: 2px solid $color-koma-ui-dark;
+    border-bottom: 2px solid $color-koma-ui-dark;
+
+    .header {
+        background-color: $color-koma-ui-light;
+        padding: 10px;
+    }
+
+    li {
+        border-bottom: 1px solid $color-koma-ui-light;
+        &:last-child {
+            border-bottom: none;
+        }
+    }
+
+    li > a {
+        padding-left: 10px;
+        padding-right: 10px;
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+
+    li > a > i {
+        color: $color-koma-ui-dark;
+        margin-right: 8px;
+    }
+
+}

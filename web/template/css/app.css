@@ -4053,6 +4053,25 @@ label a {
   display: block;
   flex: 1; }
 
+.menu-download {
+  border-top: 2px solid #858585;
+  border-bottom: 2px solid #858585; }
+  .menu-download .header {
+    background-color: #ecf0ec;
+    padding: 10px; }
+  .menu-download li {
+    border-bottom: 1px solid #ecf0ec; }
+    .menu-download li:last-child {
+      border-bottom: none; }
+  .menu-download li > a {
+    padding-left: 10px;
+    padding-right: 10px; }
+    .menu-download li > a:hover {
+      text-decoration: underline; }
+  .menu-download li > a > i {
+    color: #858585;
+    margin-right: 8px; }
+
 .mm-pad-top {
   padding-top: 50px; }
 
@@ -4089,8 +4108,8 @@ label a {
   margin-bottom: 30px; }
 
 .mm-no-space {
-  margin: 0;
-  padding: 0; }
+  margin: 0 0;
+  padding: 0 0; }
 
 .grow {
   flex: 2 0 0; }
