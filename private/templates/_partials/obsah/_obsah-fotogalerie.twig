@@ -14,7 +14,7 @@
                     <div class="prev"> <</div>
                     <div class="owl-obsah-owl">
                         {% for i in entry.productPhotogallery %}
-                            <div>
+                            <div class="owl-item">
                                 <img src="/{{ i.getUrl('photoGalleryThumb') }}">
                             </div>
                         {% endfor %}
