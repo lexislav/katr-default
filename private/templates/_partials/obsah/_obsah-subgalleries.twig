@@ -1,20 +1,26 @@
+{# TODO: potřebuju rozlišit glaerii s velkými a malými náhledy, prosím doplnit třídy.
+    dotaz na to je if subgallery.typGalerie == "hugeGallery" / "smallGallery"
+#}
+
+{% for subgallery in entry.doplkoveGalerie %}
     <div class="vzory bg-grey-light mm-pad-top-half mm-pad-bottom-half">
         <div class="row">
             <div class="column small-12">
-                <h2 class="f-xl f-800 mm-pad-bottom-half">{{ "Vzory"|t }}</h2>
+                <h2 class="f-xl f-800 mm-pad-bottom-half">{{ subgallery.galleryTitle }}</h2>
             </div>
         </div>
         <div class="row">
             <div class="columns small-12">
                 {# Na texty těch butonů je nějak vázanej javascript? Potřebuju je překládat: labely a jejich conetent… #}
-
+                {% for i in subgallery.images %}
                 <div class="m-vzor">
-                    <img src="" alt="">
+                    <img src="{{ i.getUrl('thumb')}}" alt="{{i.filename}}">
                     <div class="">
-                        label
+                        {{ i.title }}
                     </div>
                 </div>
-
+                {% endfor %}
             </div>
         </div>
     </div>
+{% endfor %}
