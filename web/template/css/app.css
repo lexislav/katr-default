@@ -4130,6 +4130,38 @@ label a {
   padding-top: .8em;
   margin-bottom: .8em; }
 
+.owl-obsah {
+  position: relative;
+  margin-bottom: 40px; }
+  .owl-obsah .owl-controls {
+    position: absolute;
+    margin: 0;
+    bottom: -40px;
+    height: 20px;
+    left: 50%;
+    transform: translateX(-50%); }
+  .owl-obsah .next,
+  .owl-obsah .prev {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 1000;
+    text-align: center;
+    background-color: rgba(248, 248, 248, 0.6);
+    height: 40px;
+    width: 40px;
+    line-height: 40px;
+    border-radius: 50%;
+    font-weight: 800;
+    cursor: pointer; }
+    .owl-obsah .next:hover,
+    .owl-obsah .prev:hover {
+      background-color: rgba(248, 248, 248, 0.9); }
+  .owl-obsah .next {
+    right: 20px; }
+  .owl-obsah .prev {
+    left: 20px; }
+
 .mm-pad-top {
   padding-top: 50px; }
 
