@@ -18,8 +18,10 @@
     <link rel="home" href="{{ siteUrl }}" />
 
     <script src="/template/components/modernizr/modernizr.js"></script>
-    <link rel="stylesheet" href="/template/css/app.css">
+    <link rel="stylesheet" href="/template/components/owl-carousel/owl-carousel/owl.carousel.css">
+    <link rel="stylesheet" href="/template/components/owl-carousel/owl-carousel/owl.theme.css">
     <link rel="stylesheet" href="/template/components/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/template/css/app.css">
 </head>
 <body>
 
@@ -48,6 +50,7 @@
 <script src="/template/components/jquery/dist/jquery.js"></script>
 <script src="/template/components/what-input/what-input.js"></script>
 <script src="/template/components/foundation-sites/dist/foundation.js"></script>
+<script src="/template/components/owl-carousel/owl-carousel/owl.carousel.js"></script>
 <script src="/template/js/min/app-min.js"></script>
 
 <script>
@@ -75,10 +78,27 @@
         $(window).on('resize', function () {
             updateFullscreenElements();
         });
+
+        // owl
+
+
+        $(".owl-obsah").owlCarousel({
+
+            itemsCustom : [
+                [0, 1],
+                [700, 3]
+            ],
+
+            navigation : true,
+            autoPlay: 3000 //Set AutoPlay to 3 seconds
+        });
+
     });
 
     {% block scriptsBottom %}{% endblock %}
 </script>
+
+
 
 </body>
 </html>
