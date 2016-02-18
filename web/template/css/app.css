@@ -4161,6 +4161,9 @@ label a {
     right: 20px; }
   .owl-obsah .prev {
     left: 20px; }
+  .owl-obsah .owl-obsah-owl img {
+    width: 100%;
+    height: auto; }
 
 .mm-pad-top {
   padding-top: 50px; }
