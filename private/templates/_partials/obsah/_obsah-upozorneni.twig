@@ -1,25 +1,18 @@
 <div class="m-section bg-grey-light">
 
 <div class="row align-center">
-    <div class="column small-12 medium-5">
-        <div class="row">
-            <div class="small-2 column">ikona</div>
-            <h2 class="small-10 column">Upozornění 1</h2>
-            <div class="small-10 small-offset-2 column">
-                <p>Nenašli jste v katalogu, to co hledáte? S jakýmkoliv atypickým řešením se neváhejte obrátit na naše obchodí atechnická oddělení!</p>
-            </div>
-        </div>
-    </div>
 
+    {% for i in footer.shortInfo %}
     <div class="column small-12 medium-5">
         <div class="row">
-            <div class="small-2 column">ikona</div>
-            <h2 class="small-10 column">Upozornění 1</h2>
+            <div class="small-2 column"><i class="{{ i.infoIcon }} fa-3x"></i></div>
+            <h2 class="small-10 column">{{ i.infoTitle }}</h2>
             <div class="small-10 small-offset-2 column">
-                <p>Nenašli jste v katalogu, to co hledáte? S jakýmkoliv atypickým řešením se neváhejte obrátit na naše obchodí atechnická oddělení!</p>
+                {{ i.infoBody }}
             </div>
         </div>
     </div>
+    {% endfor %}
 
 </div>
 </div>

@@ -1,0 +1,48 @@
+{#
+ # KATALOG list
+ # -------------------
+ #
+ # Šablona vypisuje strukturu katalogu
+ #
+ # dost možná nebude vůbec potřeba, protože tato data se budou načítat do modalu
+ #}
+
+{% extends "/_partials/layout/_base.twig" %}
+
+{% block bars %}
+	{% include "/_partials/base/_top-title-bar.twig" %}
+	{% include "/_partials/base/_top-bar.twig" %}
+{% endblock %}
+
+{% block content %}
+
+	{# {% include '/_partials/base/_top-breadcrumbs.twig' with {'class': 'mm-over'} %} #}
+
+	{% set pages = craft.entries.section('katalog') %}
+
+	{# TODO: udělat markup - struktura. #}
+	<article>
+
+		<nav>
+		    <ul>
+		        {% nav page in pages %}
+		            <li>
+		                {% if page.body %}{{ page.getLink() }}{% else %}{{ page.title }}{% endif %}
+
+		                {% ifchildren %}
+		                    <ul>
+		                        {% children %}
+		                    </ul>
+		                {% endifchildren %}
+		            </li>
+		        {% endnav %}
+		    </ul>
+		</nav>
+
+	</article>
+
+	{% include "/_partials/obsah/_obsah-upozorneni.twig" %}
+
+{% endblock %}
+
+{% block scripts %}{% endblock %}

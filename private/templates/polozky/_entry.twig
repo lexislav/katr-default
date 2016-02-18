@@ -1,10 +1,6 @@
 {#
- # News entry template
- # -------------------
- #
- # This template gets loaded whenever a News entry’s URL is
- # requested. That’s because the News section’s Template setting is
- # set to “news/_entry”, the path to this template.
+ # Single položka
+ # --------------
  #
  # When this template is loaded, it will already have an ‘entry’
  # variable, set to the requested News entry.
@@ -15,10 +11,51 @@
 
 {% extends "/_partials/layout/_base.twig" %}
 
-{% block content %}
-	<article>
-		<h1>{{ entry.title }}</h1>
-		<p>Posted on {{ entry.postDate.format('F d, Y') }}</p>
-		{{ entry.body }}
-	</article>
+{% block bars %}
+    {% include "/_partials/base/_top-title-bar.twig" %}
+    {% include "/_partials/base/_top-bar.twig" %}
 {% endblock %}
+
+{% block content %}
+
+    {% include '/_partials/base/_top-breadcrumbs.twig' %}
+
+    <article>
+        {% include "/_partials/obsah/_obsah-header.twig" %}
+
+        {% include "/_partials/obsah/_obsah-fotogalerie.twig" %}
+
+        {# podmínka pro spuštění bloku Doplňkévých informací #}
+        {% if entry.doplnkoveInformace %}
+            <div class="row">
+                <div class="column">
+                    <h2>Další informace</h2>
+                </div>
+            </div>
+
+
+            {# accordeon for mobile only#}
+            <div class="hide-for-large">
+                {% include "/_partials/obsah/_obsah-dalsi-info-accordeon.twig" %}
+            </div>
+            {# grid for desktop #}
+            <div class="show-for-large">
+                {% include "/_partials/obsah/_obsah-dalsi-info.twig" %}
+            </div>
+        {% endif %}
+
+        <div class="m-section">
+            <div class="row">
+                <div class="column text-center">
+                    <a href=""> nahoru</a>
+                </div>
+            </div>
+        </div>
+
+    </article>
+
+    {% include "/_partials/obsah/_obsah-upozorneni.twig" %}
+
+{% endblock %}
+
+{% block scripts %}{% endblock %}

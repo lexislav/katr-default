@@ -2,12 +2,12 @@
 .top-bar {
     height: 77px;
     padding: 0;
-    border-bottom: 1px solid $color-koma-ui;
+    border-bottom: 1px solid $color-koma-ui-mid;
     overflow: hidden;
 
     .menu
     .menu a {
-        color: $color-koma-grey;
+        color: $color-koma-ui-dark;
     }
 
     .menu > li {
@@ -20,7 +20,7 @@
     }
 
     .menu-icon::after {
-        color: $color-koma-grey;
+        color: $color-koma-ui-dark;
         background: orangered;
     }
 
@@ -31,13 +31,13 @@
     .top-bar-left {
         height: 76px;
         .has-border {
-            border-right: 1px solid $color-koma-ui;
+            border-right: 1px solid $color-koma-ui-mid;
         }
     }
     .top-bar-right {
         height: 76px;
         .has-border {
-            border-left: 1px solid $color-koma-ui;
+            border-left: 1px solid $color-koma-ui-mid;
         }
     }
 }

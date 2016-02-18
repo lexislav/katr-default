@@ -1,13 +1,19 @@
 $gSpacing: 100px;
 $color-koma-primary: #c20e1a;
 $color-koma-primary-dark: #960e19;
-$color-koma-grey-light: #f2f2f2;
-$color-koma-grey: #858585;
-$color-koma-grey-medium: #5e5e5e;
-$color-koma-grey-dark: #434343;
+
+$color-koma-secondary: #b5bbb4;
+
+//UI COLORS
+
+$color-koma-ui-black: #000;
+$color-koma-ui-darken: #434343;
+$color-koma-ui-dark: #858585;
+$color-koma-ui-mid: #b5bbb4; // coma secondary
 $color-koma-ui-light: #ecf0ec;
-$color-koma-ui: #b5bbb4;
-$color-koma-ui-light: #f8f8f8;
+$color-koma-ui-lighter: #f2f2f2;
+$color-koma-ui-bright: #f8f8f8; //??
+$color-koma-ui-white: #fff;
 
 @import "base/fonts";
 @import "module-foundation";
@@ -21,6 +27,7 @@ $color-koma-ui-light: #f8f8f8;
 @import "modules/mod-offcanvas";
 @import "modules/mod-topbar";
 @import "modules/mod-breadcrumbs";
+@import "modules/mod-menu";
 
 .mm-pad-top {
     padding-top: 50px;
@@ -30,8 +37,47 @@ $color-koma-ui-light: #f8f8f8;
     padding-bottom: 50px;
 }
 
+.mm-pad-half {
+    padding-top: 25px;
+    padding-bottom: 25px;
+}
+
+.mm-pad-top-half {
+    padding-top: 25px;
+}
 .mm-pad-bottom-half {
-    padding-bottom: 30px;
+    padding-bottom: 25px;
+}
+
+.mm-pad-tiny {
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.mm-pad-top-tiny {
+    padding-top: 10px;
+}
+
+.mm-pad-bottom-tiny {
+    padding-bottom: 10px;
+}
+
+
+.mm-mgr-top {
+    margin-top: 50px;
+}
+
+.mm-mgr-bottom {
+    margin-bottom: 50px;
+}
+
+.mm-mgr-bottom-half {
+    margin-bottom: 30px;
+}
+
+.mm-no-space {
+    margin: 0 0;
+    padding: 0 0;
 }
 
 .grow {
@@ -61,3 +107,10 @@ $color-koma-ui-light: #f8f8f8;
         position: fixed;
     }
 }
+//
+//.row {
+//    width: 98%;
+//}
+//.row > .row {
+//    width: auto;
+//}

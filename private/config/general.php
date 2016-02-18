@@ -8,7 +8,7 @@
  */
 
 return array(
-	'*' => array(
+    '*' => array(
         'omitScriptNameInUrls' => true,
         'defaultWeekStartDay' => 1,
         'defaultCpLanguage' => 'cs',
@@ -16,15 +16,20 @@ return array(
         'sendPoweredByHeader' => false,
         'allowAutoUpdates' => 'minor-only',
         'enableCsrfProtection' => true,
-        'loginPath' => 'login',
-        'testToEmailAddress' => 'lexislav@gmail.com'
+        'loginPath' => 'admin',
+        'testToEmailAddress' => 'lexislav@gmail.com',
+        'generateTransformsBeforePageLoad' => true,
+        'siteUrl' => 'http://koma-katalog.cz/'
     ),
 
     'koma-katalog.dev' => array(
         'devMode' => true,
+        'siteUrl' => 'http://koma-katalog.dev/'
     ),
 
     'koma-katalog.cz' => array(
-    	'devMode' => false,
+        'devMode' => false,
+        'loginPath' => 'homepage',
+        'siteUrl' => 'http://koma-katalog.cz/'
     )
 );

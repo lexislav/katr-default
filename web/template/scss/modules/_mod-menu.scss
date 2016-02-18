@@ -1,0 +1,87 @@
+
+.dot-params {
+
+    li {
+        padding: 0 10px;
+    }
+
+    i {
+        background-color: $color-koma-ui-darken;
+        color: $color-koma-ui-bright;
+        font-size: rem-calc(12);
+        vertical-align: text-bottom;
+        display: inline-block;
+        border-radius: 50%;
+        width: 16px;
+        height: 16px;
+        text-align: center;
+        text-transform: lowercase;
+        line-height: 16px;
+        font-style: normal;
+
+        margin-right: 4px;
+
+        & + span {
+            font-size: rem-calc(16);
+            line-height: 16px;
+        }
+    }
+}
+
+.tech-spec {
+
+    li {
+        padding: 4px;
+        border-top: 1px solid $color-koma-ui-dark;
+
+
+
+        &:last-child {
+            border-bottom: 1px solid $color-koma-ui-dark;
+        }
+
+        & > div {
+            display: flex;
+            flex-direction: row;
+            align-content: space-between;
+        }
+
+    }
+
+    li span {
+        display: block;
+        flex: 1;
+    }
+}
+
+.menu-download {
+
+    border-top: 2px solid $color-koma-ui-dark;
+    border-bottom: 2px solid $color-koma-ui-dark;
+
+    .header {
+        background-color: $color-koma-ui-light;
+        padding: 10px;
+    }
+
+    li {
+        border-bottom: 1px solid $color-koma-ui-light;
+        &:last-child {
+            border-bottom: none;
+        }
+    }
+
+    li > a {
+        padding-left: 10px;
+        padding-right: 10px;
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+
+    li > a > i {
+        color: $color-koma-ui-dark;
+        margin-right: 8px;
+    }
+
+}

@@ -1,16 +1,34 @@
 <header>
-    <div class="row">
+    <div class="row mm-pad-top mm-pad-bottom">
 
         <div class="small-12 medium-6 columns">
-            <h1>Header</h1>
-            <div>Revize: 17. prosince 2015</div>
-            {#{% include "/_partials/obsah/_obsah-header-meta.twig" %}#}
+            <h1 class="f-xxl">{{ entry.title }}
+                {% if entry.isEditable() %}
+                    <a href="{{ entry.cpEditUrl }}" title="Editovat stránku" alt="Editace stránky"><i class="fa f-xl fa-pencil"></i></a>
+                {% endif %}
+            </h1>
+
+            <div><strong>Revize:</strong> {{ entry.dateUpdated|date("d.F Y") }}</div>
+
+            {% if entry.section == "Položky" %}
+                {% include "/_partials/obsah/_obsah-header-meta.twig" %}
+            {% endif %}
+
         </div>
 
-        <div class="small-12 medium-6 columns">
-            <img src="http://lorempixel.com/900/900/" alt="">
-            <div style="background-color: #3c3c3c">gallery popup button</div>
-        </div>
+        {% if entry.uvodniObrazek %}
+            <div class="small-12 medium-6 columns">
+
+                {% for i in entry.uvodniObrazek %}
+                    <img src="/{{ i.getUrl('headerHalfImage') }}">
+                {% endfor %}
+
+                {% if entry.productPhotogallery|length > 0 %}
+                    <div class="button secondary big"><i class="fa fa-2x fa-image"></i></div>
+                {% endif %}
+
+            </div>
+        {% endif %}
 
     </div>
 </header>
@@ -19,20 +37,33 @@
 
 <div class="row">
 
-    <div class="small-12 large-6 columns">
-        <p>So strongly and metaphysically did I conceive of my situation then, that while earnestly watching his motions, I seemed distinctly to perceive that my own individuality was now merged in a joint stock company of two; that my free will had received a mortal wound; and that another's mistake or misfortune might plunge innocent me into unmerited disaster and death. Therefore, I saw that here was a sort of interregnum in Providence; for its even-handed equity never could have so gross an injustice. And yet still further pondering. </p>
-        <p>So strongly and metaphysically did I conceive of my situation then, that while earnestly watching his motions, I seemed distinctly to perceive that my own individuality was now merged in a joint stock company of two; that my free will had received a mortal wound; and that another's mistake or misfortune might plunge innocent me into unmerited disaster and death. Therefore, I saw that here was a sort of interregnum in Providence; for its even-handed equity never could have so gross an injustice. And yet still further pondering. </p>
+    <div class="small-12 large-6 columns mm-pad-bottom">
+        {{ entry.body }}
     </div>
 
-    <div class="small-12 large-6 columns">
-        <div class="row">
+    <div class="small-12 large-6 columns mm-pad-bottom">
+        <div class="row ">
 
-            <div class="large-12 columns">
-                {% include "/_partials/obsah/_obsah-ke-stazeni.twig" %}
-            </div>
+            {% if entry.ancestors.first == "Výrobkové řady" %}
+                <div class="small-12 columns">
+                    {% include "/_partials/obsah/_obsah-variations.twig" %}
+                </div>
+            {% endif %}
 
-            <div class="large-12 columns">
-                <button class="button large">zobrazit katalog stěn</button>
+            {% if entry.downloads| length > 0 %}
+                <div class="small-12 columns">
+                    {% include "/_partials/obsah/_obsah-ke-stazeni.twig" %}
+                </div>
+            {% endif %}
+
+            <div class="small-12 columns">
+                {% if entry.section == "Katalog" and entry.ancestors.first == "Výrobkové řady" %}
+                    <a href="http://www.koma-modular.cz/vyrobkove-rady" target="_blank" class="button large"><i class="fa fa-globe"></i> více web KOMA Modular</a>
+                {% elseif entry.section == "Katalog" %}
+                    <a href="/polozky" class="button large"><i class="fa fa-bolt"></i> položky: {{ entry }}</a>
+                {% else %}
+                    {# <a href="/polozky" class="button large"><i class="fa fa-bolt"></i> položky: {{entry}}</a> #}
+                {% endif %}
             </div>
 
         </div>

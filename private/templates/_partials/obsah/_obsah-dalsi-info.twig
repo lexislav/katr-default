@@ -1,31 +1,21 @@
 <div class="m-info">
     <div class="row">
-        <div class="column small-12 large-6">
-            <div class="m-info--panel">
-                <h2>Provedení exteriéru</h2>
-                <p>Exteriérová strana stěn je opatřena profilovaným pozinkovaným plechem tloušťky 0,55 mm s profilací výšky 9 mm. Tento plech je kotven na podkladový rošt (dřevěný nebo plechový) pomocí zinkovaných vrutů nebo šroubů s půlkulatou hlavou. Okraje fasády jsou zasazené do konstrukce ocelového rovněž pozinkovaného rámu. Společně s tímto rámem je na celý povrch stěny aplikován nástřik 2K akrylátové barvy, tloušťky 40 – 50 μm suché vrstvy v odstínu RAL.</p>
-                <p> U modulárních staveb je nástřik proveden jen na stěnách, tvořících obvod sestavy.</p>
-            </div>
-        </div>
-        <div class="column small-12 large-6">
-            <div class="m-info--panel">
-                <h2>Provedení exteriéru</h2>
-                <p>Exteriérová strana stěn je opatřena profilovaným pozinkovaným plechem tloušťky 0,55 mm s profilací výšky 9 mm. Tento plech je kotven na podkladový rošt (dřevěný nebo plechový) pomocí zinkovaných vrutů nebo šroubů s půlkulatou hlavou. Okraje fasády jsou zasazené do konstrukce ocelového rovněž pozinkovaného rámu. Společně s tímto rámem je na celý povrch stěny aplikován nástřik 2K akrylátové barvy, tloušťky 40 – 50 μm suché vrstvy v odstínu RAL.</p>
-                <p> U modulárních staveb je nástřik proveden jen na stěnách, tvořících obvod sestavy.</p>
-            </div>
-        </div>
+        {% for i in entry.doplnkoveInformace %}
         <div class="column small-12 large-12">
             <div class="row m-info--panel">
+                {% if i.infoImage|length > 0 %}
                 <div class="small-12 large-6 small-order-2 large-order-1 column">
-                    <img src="http://lorempixel.com/400/300/" alt="">
+                    {% for im in i.infoImage %}
+                    <img src="{{ im.getUrl('otherInfoImage') }}">
+                    {% endfor %}
                 </div>
+                {% endif %}
                 <div class="small-12 large-6 small-order-1 large-order-2 column">
-                    <h2>Provedení exteriéru</h2>
-                    <p>Exteriérová strana stěn je opatřena profilovaným pozinkovaným plechem tloušťky 0,55 mm s profilací výšky 9 mm. Tento plech je kotven na podkladový rošt (dřevěný nebo plechový) pomocí zinkovaných vrutů nebo šroubů s půlkulatou hlavou. Okraje fasády jsou zasazené do konstrukce ocelového rovněž pozinkovaného rámu. Společně s tímto rámem je na celý povrch stěny aplikován nástřik 2K akrylátové barvy, tloušťky 40 – 50 μm suché vrstvy v odstínu RAL.</p>
-                    <p> U modulárních staveb je nástřik proveden jen na stěnách, tvořících obvod sestavy.</p>
+                    <h2>{{i.infoTitle}}</h2>
+                    {{i.infoBody}}
                 </div>
             </div>
-
         </div>
+        {% endfor %}
     </div>
 </div>
