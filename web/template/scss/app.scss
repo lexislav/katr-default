@@ -36,12 +36,32 @@ $color-koma-ui-white: #fff;
 .mm-pad-bottom {
     padding-bottom: 50px;
 }
+
+.mm-pad-half {
+    padding-top: 25px;
+    padding-bottom: 25px;
+}
+
 .mm-pad-top-half {
     padding-top: 25px;
 }
 .mm-pad-bottom-half {
     padding-bottom: 25px;
 }
+
+.mm-pad-tiny {
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.mm-pad-top-tiny {
+    padding-top: 10px;
+}
+
+.mm-pad-bottom-tiny {
+    padding-bottom: 10px;
+}
+
 
 .mm-mgr-top {
     margin-top: 50px;
