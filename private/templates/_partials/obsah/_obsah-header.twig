@@ -2,7 +2,12 @@
     <div class="row mm-pad-top mm-pad-bottom">
 
         <div class="small-12 medium-6 columns">
-            <h1>{{ entry.title }}</h1>{% if entry.isEditable() %}<a href="{{ entry.cpEditUrl }}" title="Editovat stránku" alt="Editace stránky"><i class="fa fa-pencil"></i></a>{% endif %}
+            <h1 class="f-xxl">{{ entry.title }}
+                {% if entry.isEditable() %}
+                    <a href="{{ entry.cpEditUrl }}" title="Editovat stránku" alt="Editace stránky"><i class="fa f-xl fa-pencil"></i></a>
+                {% endif %}
+            </h1>
+
             <div><strong>Revize:</strong> {{ entry.dateUpdated|date("d.F Y") }}</div>
 
             {% if entry.section == "Položky" %}
@@ -41,7 +46,7 @@
 
             {% if entry.ancestors.first == "Výrobkové řady" %}
                 <div class="small-12 columns">
-                    {%include "/_partials/obsah/_obsah-variations.twig" %}
+                    {% include "/_partials/obsah/_obsah-variations.twig" %}
                 </div>
             {% endif %}
 

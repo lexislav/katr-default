@@ -3708,10 +3708,16 @@ table.hover tr:nth-of-type(even):hover {
 .f-xxl {
   font-size: 38px;
   line-height: 1.32em; }
+  .f-xxl:after, .f-xxl:before {
+    font-size: 38px;
+    line-height: 1.32em; }
   @media screen and (min-width: 64em) {
     .f-xxl {
       font-size: 50px;
-      line-height: 1.32em; } }
+      line-height: 1.32em; }
+      .f-xxl:after, .f-xxl:before {
+        font-size: 38px;
+        line-height: 1.32em; } }
 
 .f-pad-xxl {
   padding-bottom: 3em; }
@@ -3722,10 +3728,16 @@ table.hover tr:nth-of-type(even):hover {
 .f-xl {
   font-size: 20px;
   line-height: 1.32em; }
+  .f-xl:after, .f-xl:before {
+    font-size: 20px;
+    line-height: 1.32em; }
   @media screen and (min-width: 64em) {
     .f-xl {
       font-size: 20px;
-      line-height: 1.32em; } }
+      line-height: 1.32em; }
+      .f-xl:after, .f-xl:before {
+        font-size: 20px;
+        line-height: 1.32em; } }
 
 .f-pad-xl {
   padding-bottom: 2em; }
@@ -3736,10 +3748,16 @@ table.hover tr:nth-of-type(even):hover {
 .f-l {
   font-size: 18px;
   line-height: 1.2em; }
+  .f-l:after, .f-l:before {
+    font-size: 18px;
+    line-height: 1.2em; }
   @media screen and (min-width: 64em) {
     .f-l {
       font-size: 18px;
-      line-height: 1.2em; } }
+      line-height: 1.2em; }
+      .f-l:after, .f-l:before {
+        font-size: 18px;
+        line-height: 1.2em; } }
 
 .f-pad-l {
   padding-bottom: 1.5em; }
@@ -3750,10 +3768,16 @@ table.hover tr:nth-of-type(even):hover {
 .f-m {
   font-size: 16px;
   line-height: 1.2em; }
+  .f-m:after, .f-m:before {
+    font-size: 16px;
+    line-height: 1.2em; }
   @media screen and (min-width: 64em) {
     .f-m {
       font-size: 16px;
-      line-height: 1.2em; } }
+      line-height: 1.2em; }
+      .f-m:after, .f-m:before {
+        font-size: 16px;
+        line-height: 1.2em; } }
 
 .f-pad-m {
   padding-bottom: 1em; }
@@ -3764,10 +3788,16 @@ table.hover tr:nth-of-type(even):hover {
 .f-s {
   font-size: 14px;
   line-height: 1.2em; }
+  .f-s:after, .f-s:before {
+    font-size: 14px;
+    line-height: 1.2em; }
   @media screen and (min-width: 64em) {
     .f-s {
       font-size: 14px;
-      line-height: 1.2em; } }
+      line-height: 1.2em; }
+      .f-s:after, .f-s:before {
+        font-size: 14px;
+        line-height: 1.2em; } }
 
 .f-pad-s {
   padding-bottom: 0.7em; }
@@ -3778,10 +3808,16 @@ table.hover tr:nth-of-type(even):hover {
 .f-xs {
   font-size: 12px;
   line-height: 1.2em; }
+  .f-xs:after, .f-xs:before {
+    font-size: 12px;
+    line-height: 1.2em; }
   @media screen and (min-width: 64em) {
     .f-xs {
       font-size: 12px;
-      line-height: 1.2em; } }
+      line-height: 1.2em; }
+      .f-xs:after, .f-xs:before {
+        font-size: 12px;
+        line-height: 1.2em; } }
 
 .f-pad-xs {
   padding-bottom: 0.5em; }
@@ -3792,10 +3828,16 @@ table.hover tr:nth-of-type(even):hover {
 .f-xxs {
   font-size: 10px;
   line-height: 1.5em; }
+  .f-xxs:after, .f-xxs:before {
+    font-size: 10px;
+    line-height: 1.5em; }
   @media screen and (min-width: 64em) {
     .f-xxs {
       font-size: 10px;
-      line-height: 1.5em; } }
+      line-height: 1.5em; }
+      .f-xxs:after, .f-xxs:before {
+        font-size: 10px;
+        line-height: 1.5em; } }
 
 .f-pad-xxs {
   padding-bottom: 0.25em; }
