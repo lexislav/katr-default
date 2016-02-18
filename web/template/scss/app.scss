@@ -117,3 +117,14 @@ $color-koma-ui-white: #fff;
 //.row > .row {
 //    width: auto;
 //}
+
+.m-header-image {
+    position: relative;
+}
+.m-header-image--button {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    margin: 0;
+    background-color: rgba($color-koma-ui-black, 0.5);
+}

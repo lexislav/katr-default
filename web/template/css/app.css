@@ -4189,4 +4189,14 @@ label a {
   .scroll-lock.touch {
     position: fixed; }
 
+.m-header-image {
+  position: relative; }
+
+.m-header-image--button {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  margin: 0;
+  background-color: rgba(0, 0, 0, 0.5); }
+
 /*# sourceMappingURL=app.css.map */
