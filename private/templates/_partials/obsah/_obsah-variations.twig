@@ -1,19 +1,20 @@
 {% if entry.ancestors|length == 1 %}
-{% set productLine = entry %}
+    {% set productLine = entry %}
 {% else %}
-{% set productLine = entry.ancestors[1] %}
+    {% set productLine = entry.ancestors[1] %}
 {% endif %}
 
-{% set variations = craft.entries.descendantOf(productLine)%}
+{% set variations = craft.entries.descendantOf(productLine) %}
 
 {% if variations|length > 0 %}
-<div>
-  <ul class="menu vertical menu-download">
-    <li class="header"><h4 class="f-m f-800 mm-no-space">Varianty řady <a href="{{productLine.url}}">{{productLine.souvisejiciVyrobkoveRady.first}}</a></h4></li>
+    <div class="mm-pad-bottom">
+        <ul class="menu vertical menu-download">
+            <li class="header"><h4 class="f-m f-800 mm-no-space">Varianty řady
+                    <a href="{{ productLine.url }}">{{ productLine.souvisejiciVyrobkoveRady.first }}</a></h4></li>
 
-	{% for e in variations %}
-    <li>{% if e.body %}<a href="{{ e.getUrl }}">{{ e }}</a>{% else %}{{ e }}{% endif %}</li>
-	{% endfor %}
-  </ul>
-</div>
+            {% for e in variations %}
+                <li>{% if e.body %}<a href="{{ e.getUrl }}">{{ e }}</a>{% else %}{{ e }}{% endif %}</li>
+            {% endfor %}
+        </ul>
+    </div>
 {% endif %}

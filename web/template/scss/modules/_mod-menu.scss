@@ -66,14 +66,15 @@
 
     li {
         border-bottom: 1px solid $color-koma-ui-light;
+        padding: 10px;
+        line-height: 1;
         &:last-child {
             border-bottom: none;
         }
     }
 
     li > a {
-        padding-left: 10px;
-        padding-right: 10px;
+        padding: 0;
         &:hover {
             text-decoration: underline;
         }

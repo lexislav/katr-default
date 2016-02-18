@@ -1,21 +1,37 @@
 <div class="m-info">
     <div class="row">
+
         {% for i in entry.doplnkoveInformace %}
-        <div class="column small-12 large-12">
-            <div class="row m-info--panel">
-                {% if i.infoImage|length > 0 %}
-                <div class="small-12 large-6 small-order-2 large-order-1 column">
-                    {% for im in i.infoImage %}
-                    <img src="{{ im.getUrl('otherInfoImage') }}">
-                    {% endfor %}
+
+            {% if i.infoImage|length > 0 %}
+
+                {# s obrazky#}
+                <div class="column small-12 large-12">
+                    <div class="row m-info--panel">
+                        <div class="large-6 large-order-1 column">
+                            <img src="{{ i.infoImage.first.getUrl('otherInfoImage') }}">
+                        </div>
+
+                        <div class="large-6 large-order-2 column">
+                            <h2 class="m-info--headline f-xl f-800">{{ i.infoTitle }}</h2>
+                            {{ i.infoBody }}
+                        </div>
+                    </div>
                 </div>
-                {% endif %}
-                <div class="small-12 large-6 small-order-1 large-order-2 column">
-                    <h2>{{i.infoTitle}}</h2>
-                    {{i.infoBody}}
+
+            {% else %}
+
+                {# bez obrazku#}
+                <div class="column small-12 large-6">
+                    <div class=" m-info--panel">
+                        <h2 class="m-info--headline f-xl f-800">{{ i.infoTitle }}x</h2>
+                        {{ i.infoBody }}
+                    </div>
                 </div>
-            </div>
-        </div>
+
+            {% endif %}
+
         {% endfor %}
+
     </div>
 </div>
