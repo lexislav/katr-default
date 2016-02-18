@@ -1,22 +1,27 @@
 <header>
-    <div class="row">
+    <div class="row mm-pad-top mm-pad-bottom">
 
         <div class="small-12 medium-6 columns">
             <h1>{{ entry.title }}</h1>
             <div><strong>Revize:</strong> {{ entry.dateUpdated|date("d.F Y") }}</div>
+
             {% if entry.section == "Položky" %}
-            {% include "/_partials/obsah/_obsah-header-meta.twig" %}
+                {% include "/_partials/obsah/_obsah-header-meta.twig" %}
             {% endif %}
+
         </div>
 
         {% if entry.uvodniObrazek %}
             <div class="small-12 medium-6 columns">
+
                 {% for i in entry.uvodniObrazek %}
                     <img src="/{{ i.getUrl('headerHalfImage') }}">
                 {% endfor %}
+
                 {% if entry.productPhotogallery|length > 0 %}
-                <div class="button secondary big"><i class="fa fa-2x fa-image"></i></div>
+                    <div class="button secondary big"><i class="fa fa-2x fa-image"></i></div>
                 {% endif %}
+
             </div>
         {% endif %}
 
@@ -25,7 +30,7 @@
 
 {% include "/_partials/obsah/_obsah-tech-specifikace.twig" %}
 
-<div class="row">
+<div class="row ">
 
     <div class="small-12 large-6 columns">
         {{ entry.body }}
@@ -33,24 +38,27 @@
 
     <div class="small-12 large-6 columns">
         <div class="row">
+
             {% if entry.ancestors.first == "Výrobkové řady" %}
-            <div class="large-12 columns">
-                {% include "/_partials/obsah/_obsah-variations.twig" %}
-            </div>
+                <div class="large-12 columns">
+                    {% include "/_partials/obsah/_obsah-variations.twig" %}
+                </div>
             {% endif %}
+
             {% if entry.downloads| length > 0 %}
-            <div class="large-12 columns">
-                {% include "/_partials/obsah/_obsah-ke-stazeni.twig" %}
-            </div>
+                <div class="large-12 columns">
+                    {% include "/_partials/obsah/_obsah-ke-stazeni.twig" %}
+                </div>
             {% endif %}
+
             <div class="large-12 columns">
-              {% if entry.section == "Katalog" and entry.ancestors.first == "Výrobkové řady" %}
-                <a href="http://www.koma-modular.cz/vyrobkove-rady" target="_blank" class="button large"><i class="fa fa-globe"></i> více web KOMA Modular</a>
-              {% elseif entry.section == "Katalog" %}
-                <a href="/polozky" class="button large"><i class="fa fa-bolt"></i> položky: {{entry}}</a>
+                {% if entry.section == "Katalog" and entry.ancestors.first == "Výrobkové řady" %}
+                    <a href="http://www.koma-modular.cz/vyrobkove-rady" target="_blank" class="button large"><i class="fa fa-globe"></i> více web KOMA Modular</a>
+                {% elseif entry.section == "Katalog" %}
+                    <a href="/polozky" class="button large"><i class="fa fa-bolt"></i> položky: {{ entry }}</a>
                 {% else %}
-                  {# <a href="/polozky" class="button large"><i class="fa fa-bolt"></i> položky: {{entry}}</a> #}
-              {% endif %}
+                    {# <a href="/polozky" class="button large"><i class="fa fa-bolt"></i> položky: {{entry}}</a> #}
+                {% endif %}
             </div>
 
         </div>
