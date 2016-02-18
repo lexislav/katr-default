@@ -4102,12 +4102,13 @@ label a {
     background-color: #ecf0ec;
     padding: 10px; }
   .menu-download li {
-    border-bottom: 1px solid #ecf0ec; }
+    border-bottom: 1px solid #ecf0ec;
+    padding: 10px;
+    line-height: 1; }
     .menu-download li:last-child {
       border-bottom: none; }
   .menu-download li > a {
-    padding-left: 10px;
-    padding-right: 10px; }
+    padding: 0; }
     .menu-download li > a:hover {
       text-decoration: underline; }
   .menu-download li > a > i {

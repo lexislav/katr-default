@@ -7,7 +7,7 @@
 {% set variations = craft.entries.descendantOf(productLine)%}
 
 {% if variations|length > 0 %}
-<div>
+<div class="mm-pad-bottom">
   <ul class="menu vertical menu-download">
     <li class="header"><h4 class="f-m f-800 mm-no-space">Varianty řady <a href="{{productLine.url}}">{{productLine.souvisejiciVyrobkoveRady.first}}</a></h4></li>
 
