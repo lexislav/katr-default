@@ -4114,6 +4114,11 @@ label a {
     color: #858585;
     margin-right: 8px; }
 
+.m-info .m-info--headline {
+  border-top: 2px solid #858585;
+  padding-top: .8em;
+  margin-bottom: .8em; }
+
 .mm-pad-top {
   padding-top: 50px; }
 
