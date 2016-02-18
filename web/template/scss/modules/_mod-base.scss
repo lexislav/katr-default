@@ -96,11 +96,11 @@
 }
 
 //@formatter:off
-@include createBuildFontSizeHelpers(xxl,  38px,   38px,  1.32em,  1.32em,     3em,     3em);
-@include createBuildFontSizeHelpers(xl,   28px,   28px,  1.32em,  1.32em,     2em,     2em);
-@include createBuildFontSizeHelpers(l,    24px,   24px,   1.2em,   1.2em,   1.5em,   1.5em);
-@include createBuildFontSizeHelpers(m,    20px,   20px,   1.2em,   1.2em,     1em,     1em);
-@include createBuildFontSizeHelpers(s,    16px,   16px,   1.2em,   1.2em,   0.7em,   0.7em);
-@include createBuildFontSizeHelpers(xs,   14px,   14px,   1.2em,   1.2em,   0.5em,   0.5em);
-@include createBuildFontSizeHelpers(xxs,  12px,   12px,   1.5em,   1.5em,  0.25em,  0.25em);
+@include createBuildFontSizeHelpers(xxl,  38px,   50px,  1.32em,  1.32em,     3em,     3em);
+@include createBuildFontSizeHelpers(xl,   20px,   20px,  1.32em,  1.32em,     2em,     2em);
+@include createBuildFontSizeHelpers(l,    18px,   18px,   1.2em,   1.2em,   1.5em,   1.5em);
+@include createBuildFontSizeHelpers(m,    16px,   16px,   1.2em,   1.2em,     1em,     1em);
+@include createBuildFontSizeHelpers(s,    14px,   14px,   1.2em,   1.2em,   0.7em,   0.7em);
+@include createBuildFontSizeHelpers(xs,   12px,   12px,   1.2em,   1.2em,   0.5em,   0.5em);
+@include createBuildFontSizeHelpers(xxs,  10px,   10px,   1.5em,   1.5em,  0.25em,  0.25em);
 //@formatter:on

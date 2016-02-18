@@ -6,15 +6,14 @@ $color-koma-secondary: #b5bbb4;
 
 //UI COLORS
 
-$color-koma-ui-black:       #000000;
-$color-koma-ui-darken:      #434343;
-$color-koma-ui-dark:        #858585;
-$color-koma-ui-mid:         #b5bbb4; // coma secondary
-$color-koma-ui-light:       #ecf0ec;
-$color-koma-ui-lighter:     #f2f2f2;
-$color-koma-ui-bright:      #f8f8f8; //??
-$color-koma-ui-white:       #ffffff;
-
+$color-koma-ui-black: #000;
+$color-koma-ui-darken: #434343;
+$color-koma-ui-dark: #858585;
+$color-koma-ui-mid: #b5bbb4; // coma secondary
+$color-koma-ui-light: #ecf0ec;
+$color-koma-ui-lighter: #f2f2f2;
+$color-koma-ui-bright: #f8f8f8; //??
+$color-koma-ui-white: #fff;
 
 @import "base/fonts";
 @import "module-foundation";
@@ -28,6 +27,7 @@ $color-koma-ui-white:       #ffffff;
 @import "modules/mod-offcanvas";
 @import "modules/mod-topbar";
 @import "modules/mod-breadcrumbs";
+@import "modules/mod-menu";
 
 .mm-pad-top {
     padding-top: 50px;
@@ -36,9 +36,28 @@ $color-koma-ui-white:       #ffffff;
 .mm-pad-bottom {
     padding-bottom: 50px;
 }
-
+.mm-pad-top-half {
+    padding-top: 25px;
+}
 .mm-pad-bottom-half {
-    padding-bottom: 30px;
+    padding-bottom: 25px;
+}
+
+.mm-mgr-top {
+    margin-top: 50px;
+}
+
+.mm-mgr-bottom {
+    margin-bottom: 50px;
+}
+
+.mm-mgr-bottom-half {
+    margin-bottom: 30px;
+}
+
+.mm-no-space {
+    margin: 0;
+    padding: 0;
 }
 
 .grow {
@@ -68,3 +87,4 @@ $color-koma-ui-white:       #ffffff;
         position: fixed;
     }
 }
+
