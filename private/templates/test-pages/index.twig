@@ -14,11 +14,11 @@
 
     <article>
         {% include "/_partials/obsah/_obsah-header.twig" %}
-
         {% include "/_partials/obsah/_obsah-fotogalerie.twig" %}
 
         {# podmínka pro spuštění bloku Doplňkévých informací #}
         {% if entry.doplnkoveInformace %}
+
             <div class="row">
                 <div class="column">
                     <h2>Další informace</h2>
@@ -30,16 +30,18 @@
             <div class="hide-for-large">
                 {% include "/_partials/obsah/_obsah-dalsi-info-accordeon.twig" %}
             </div>
+
             {# grid for desktop #}
             <div class="show-for-large">
                 {% include "/_partials/obsah/_obsah-dalsi-info.twig" %}
             </div>
+
         {% endif %}
 
         <div class="m-section">
             <div class="row">
                 <div class="column text-center">
-                    <a href=""> nahoru</a>
+                    <a href="">nahoru</a>
                 </div>
             </div>
         </div>
