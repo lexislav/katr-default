@@ -8,13 +8,19 @@
         <div class="row">
             <div class="columns small-12">
                 {# Na texty těch butonů je nějak vázanej javascript? Potřebuju je překládat: labely a jejich conetent… #}
+
                 <div class="owl-obsah">
-                    {% for i in entry.productPhotogallery %}
-                        <div>
-                            <img src="/{{ i.getUrl('photoGalleryThumb') }}">
-                        </div>
-                    {% endfor %}
+                    <div class="next"> ></div>
+                    <div class="prev"> <</div>
+                    <div class="owl-obsah-owl">
+                        {% for i in entry.productPhotogallery %}
+                            <div class="owl-item">
+                                <img src="/{{ i.getUrl('photoGalleryThumb') }}">
+                            </div>
+                        {% endfor %}
+                    </div>
                 </div>
+
             </div>
         </div>
     </div>

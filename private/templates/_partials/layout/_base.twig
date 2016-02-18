@@ -82,16 +82,27 @@
         // owl
 
 
-        $(".owl-obsah").owlCarousel({
+        $(".owl-obsah-owl").owlCarousel({
 
             itemsCustom : [
                 [0, 1],
                 [700, 3]
             ],
 
-            navigation : true,
-            autoPlay: 3000 //Set AutoPlay to 3 seconds
+            navigation : false
+            //autoPlay: 3000 //Set AutoPlay to 3 seconds
         });
+
+        var owl = $(".owl-obsah-owl").data('owlCarousel');
+
+        // Custom Navigation Events
+        $(".next").click(function(){
+            owl.next();
+        })
+        $(".prev").click(function(){
+            owl.prev();
+        })
+
 
     });
 
