@@ -7,24 +7,30 @@ malá galerie: ogThumbSmall
 velká galerie: ogThumbLarge
  #}
 
+{% set colSize = 'small-2' %}
+
+{% if entry.doplkoveGalerie.typGalerie == "hugeGallery" %}
+    {% set colSize = 'small-3' %}
+{% endif %}
+
 {% for subgallery in entry.doplkoveGalerie %}
-    <div class="vzory bg-grey-light mm-pad-top-half mm-pad-bottom-half">
+    <div class="bg-grey-light mm-pad-top-half mm-pad-bottom-half">
         <div class="row">
             <div class="column small-12">
                 <h2 class="f-xl f-800 mm-pad-bottom-half">{{ subgallery.galleryTitle }}</h2>
             </div>
         </div>
         <div class="row">
-            <div class="columns small-12">
-                {% for i in subgallery.images %}
-                <div class="m-vzor">
-                    <img src="{{ i.getUrl('thumb')}}" alt="{{i.filename}}">
+            {% for i in subgallery.images %}
+                <div class="columns  mm-pad-bottom-half debug {{ colSize }}">
                     <div class="">
-                        {{ i.title }}
+                        <img src="{{ i.getUrl('thumb') }}" alt="{{ i.filename }}">
+                        <div class="">
+                            {{ i.title }}
+                        </div>
                     </div>
                 </div>
-                {% endfor %}
-            </div>
+            {% endfor %}
         </div>
     </div>
 {% endfor %}
