@@ -4125,6 +4125,10 @@ label a {
   height: 24px;
   margin: auto; }
 
+.m-gallery .m-gallery--image {
+  width: 100%;
+  height: auto; }
+
 .m-info .m-info--headline {
   border-top: 2px solid #858585;
   padding-top: .8em;
