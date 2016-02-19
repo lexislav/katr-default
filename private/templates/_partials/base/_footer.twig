@@ -5,23 +5,23 @@
     <div class="m-section_footer">
 
         <div class="row m-section_footer-first-line">
-            <div class="medium-6 medium-offset-1 columns">
+            <div class="medium-6 columns">
                 <div class="logo">
                     <img src="/template/assets/logo-koma-modular-inline-white.svg" alt="">
                 </div>
             </div>
-            <div class="medium-4 columns text-right">
+            <div class="medium-6 columns text-right">
                 {% for sm_link in socialniMedia.pevnyOdkaz %}
-                    <a href="{{sm_link.linkUrl}}" title="{{sm_link.linkUrl}}"><i class="{{sm_link.linkClasses}}"></i></a>    
+                    <a href="{{sm_link.linkUrl}}" title="{{sm_link.linkUrl}}"><i class="{{sm_link.linkClasses}}"></i></a>
                 {% endfor %}
             </div>
         </div>
 
         <div class="row">
-            <div class="medium-6 medium-offset-1 columns">
+            <div class="medium-6 columns">
                 <div>{{footer.body}}</div>
             </div>
-            <div class="medium-4 columns text-right">
+            <div class="medium-6 columns text-right">
                 <a href="http://www.koma-modular.cz" title="KOMA Modular">KOMA Modular</a>
             </div>
         </div>
@@ -30,10 +30,10 @@
     {# copyrights #}
     <div class="bg-primary-dark c-white m-section_copyright">
         <div class="row">
-            <div class="small-5 medium-offset-1 columns">
+            <div class="small-6  columns">
                 © KOMA Modular 2016
             </div>
-            <div class="small-5 columns text-right">
+            <div class="small-6 columns text-right">
                 <a href="http://wwww.odoka.cz" title="">developed by -oo-</a>
             </div>
         </div>
