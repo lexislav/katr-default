@@ -16,7 +16,6 @@ velká galerie: ogThumbLarge
         </div>
         <div class="row">
             <div class="columns small-12">
-                {# Na texty těch butonů je nějak vázanej javascript? Potřebuju je překládat: labely a jejich conetent… #}
                 {% for i in subgallery.images %}
                 <div class="m-vzor">
                     <img src="{{ i.getUrl('thumb')}}" alt="{{i.filename}}">
