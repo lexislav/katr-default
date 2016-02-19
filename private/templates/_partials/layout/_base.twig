@@ -91,9 +91,9 @@
             item.src = el.data("gallery-src");
             item.w = el.data("gallery-w");
             item.h = el.data("gallery-h");
-            //item.thumb = el.data("gallery-thumb");
-            //item.title = el.data("gallery-title");
-            //item.description = el.data("gallery-description");
+            item.thumb = el.data("gallery-thumb");
+            item.title = el.data("gallery-title");
+            item.description = el.data("gallery-description");
             items.push(item);
 
             el.data("gallery-index", items.length-1);
@@ -109,6 +109,7 @@
 
         return items;
     }
+
 
     function openSubgallery(items, index) {
 

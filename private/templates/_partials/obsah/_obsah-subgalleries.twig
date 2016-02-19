@@ -19,7 +19,13 @@
             {% for i in subgallery.images %}
                 <div class="columns  mm-pad-bottom-half {{ colSize }}">
 
-                    <div class="m-gallery--item" data-gallery-src="{{ siteUrl }}{{ i.getUrl("fullSize") }}" data-gallery-thumb="{{ siteUrl }}{{ i.getUrl("ogThumbSmall") }}" data-gallery-w="{{ i.getWidth("fullSize") }}" data-gallery-h="{{ i.getHeight("fullSize") }}" data-gallery-title="{{ i.title }}" data-gallery-description="Popis fotky">
+                    <div class="m-gallery--item"
+                            data-gallery-src="{{ siteUrl }}{{ i.getUrl("fullSize") }}"
+                            data-gallery-thumb="{{ siteUrl }}{{ i.getUrl("ogThumbSmall") }}"
+                            data-gallery-w="{{ i.getWidth("fullSize") }}"
+                            data-gallery-h="{{ i.getHeight("fullSize") }}"
+                            data-gallery-title="{{ i.title }}"
+                            data-gallery-description="Popis fotky">
 
                         <img src="{{ i.getUrl(thumbSize) }}" alt="{{ i.filename }}" class="m-gallery--image">
                         <div class="m-gallery--headline">{{ i.title }}</div>
