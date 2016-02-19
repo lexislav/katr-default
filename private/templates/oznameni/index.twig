@@ -16,11 +16,9 @@
 	<h1>Oznámení</h1>
 
 	{% for entry in craft.entries.section('oznameni').find() %}
-		<article>
-			<h3><a href="{{ entry.url }}">{{ entry.title }}</a></h3>
-			<p>Posted on {{ entry.postDate.format('F d, Y') }}</p>
-			{{ entry.body.getPage(1) }}
-			<p><a href="{{ entry.url }}">Continue reading</a></p>
+  <hr>
+    <article>
+			<span>{{ entry.postDate.format('F d, Y') }}</span><h1><a href="{{ entry.url }}">{{ entry.title }}</a></h3></a></h1>
 		</article>
 	{% endfor %}
 {% endblock %}

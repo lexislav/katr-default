@@ -6,10 +6,23 @@
 
 {% extends "/_partials/layout/_base.twig" %}
 
+{% block bars %}
+    {% include "/_partials/base/_top-title-bar.twig" %}
+    {% include "/_partials/base/_top-bar.twig" %}
+{% endblock %}
+
 {% block content %}
+
+	{% include '/_partials/base/_top-breadcrumbs.twig' %}
+
 	<article>
-		<h1>{{ entry.title }}</h1>
-		<p>Posted on {{ entry.postDate.format('F d, Y') }}</p>
+		<h1>{{ entry.title }}{% if entry.isEditable() %}
+				<a href="{{ entry.cpEditUrl }}" title="Editovat stránku" alt="Editace stránky"><i class="fa f-xl fa-pencil"></i></a>
+		{% endif %}</h1>
+		<p>Publikováno dne {{ entry.postDate.format('F d, Y') }}</p>
 		{{ entry.body }}
 	</article>
+
+	{% include "/_partials/obsah/_obsah-upozorneni.twig" %}
+
 {% endblock %}
