@@ -1,0 +1,26 @@
+{#
+ # Oznameni listing
+ # ----------------
+ #}
+
+{% extends "/_partials/layout/_base.twig" %}
+
+{% block bars %}
+    {% include "/_partials/base/_top-title-bar.twig" %}
+    {% include "/_partials/base/_top-bar.twig" %}
+{% endblock %}
+
+{% set title = "Oznámení" %}
+
+{% block content %}
+	<h1>Oznámení</h1>
+
+	{% for entry in craft.entries.section('oznameni').find() %}
+		<article>
+			<h3><a href="{{ entry.url }}">{{ entry.title }}</a></h3>
+			<p>Posted on {{ entry.postDate.format('F d, Y') }}</p>
+			{{ entry.body.getPage(1) }}
+			<p><a href="{{ entry.url }}">Continue reading</a></p>
+		</article>
+	{% endfor %}
+{% endblock %}
