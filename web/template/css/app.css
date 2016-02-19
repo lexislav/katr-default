@@ -4130,6 +4130,53 @@ label a {
   padding-top: .8em;
   margin-bottom: .8em; }
 
+.m-schema ol {
+  counter-reset: li;
+  /* Initiate a counter */
+  margin-left: 0;
+  /* Remove the default left margin */
+  padding-left: 0;
+  /* Remove the default left padding */
+  font-size: 16px; }
+
+.m-schema ol > li {
+  position: relative;
+  /* Create a positioning context */
+  margin: 0 0 8px 2.6em;
+  /* Give each list item a left margin to make room for the numbers */
+  padding: 2px 6px;
+  /* Add some spacing around the content */
+  list-style: none;
+  /* Disable the normal item numbering */ }
+  .m-schema ol > li:before {
+    content: counter(li);
+    /* Use the counter as content */
+    counter-increment: li;
+    /* Increment the counter by 1 */
+    /* Position and style the number */
+    position: absolute;
+    top: -2px;
+    left: -2.6em;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    width: 2em;
+    /* Some space between the number and the content in browsers that support
+               generated content but not positioning it (Camino 2 is one example) */
+    margin-right: 10px;
+    padding: 4px;
+    color: #fff;
+    background: #4a90e2;
+    font-weight: bold;
+    text-align: center; }
+
+.m-schema li ol,
+.m-schema li ul {
+  margin-top: 6px; }
+
+.m-schema ol ol li:last-child {
+  margin-bottom: 0; }
+
 .owl-obsah {
   position: relative;
   margin-bottom: 40px; }
@@ -4182,14 +4229,14 @@ label a {
   padding-bottom: 25px; }
 
 .mm-pad-tiny {
-  padding-top: 10px;
-  padding-bottom: 10px; }
+  padding-top: 6px;
+  padding-bottom: 6px; }
 
 .mm-pad-top-tiny {
-  padding-top: 10px; }
+  padding-top: 6px; }
 
 .mm-pad-bottom-tiny {
-  padding-bottom: 10px; }
+  padding-bottom: 6px; }
 
 .mm-mgr-top {
   margin-top: 50px; }
@@ -4198,7 +4245,10 @@ label a {
   margin-bottom: 50px; }
 
 .mm-mgr-bottom-half {
-  margin-bottom: 30px; }
+  margin-bottom: 25px; }
+
+.mm-mgr-bottom-tiny {
+  margin-bottom: 6px; }
 
 .mm-no-space {
   margin: 0 0;
@@ -4233,5 +4283,8 @@ label a {
   right: 0;
   margin: 0;
   background-color: rgba(0, 0, 0, 0.5); }
+
+.debug {
+  outline: 1px solid crimson; }
 
 /*# sourceMappingURL=app.css.map */

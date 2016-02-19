@@ -1,15 +1,17 @@
 {% for schema in entry.schemata %}
-    <div class="schema bg-grey-light mm-pad-top-half mm-pad-bottom-half">
+    <div class="m-schema bg-grey-light mm-pad-top-half mm-pad-bottom-half mm-mgr-bottom-tiny ">
+
         <div class="row">
             <div class="column small-12">
                 <h2 class="f-xl f-800 mm-pad-bottom-half">{{ schema.schemaTitle }}</h2>
             </div>
         </div>
-        <div class="row">
+
+        <div class="row mm-pad-bottom">
             {% if schema.schemaImage|length > 0 %}
                 {% if schema.schemaImage.first.width > schema.schemaImage.first.height %}
-                    <div>
-                        <div class="columns small-12">
+
+                        <div class="columns small-12 mm-pad-bottom text-center">
                             <img src="/{{ schema.schemaImage.first.getUrl() }}">
                         </div>
                         <div class="columns small-6">
@@ -18,20 +20,20 @@
                         <div class="columns small-6">
                             {{ schema.schemaNote }}
                         </div>
-                    </div>
 
                 {% else %}
-                    <div>
+
                         <div class="columns small-6">
                             {{ schema.schemaDescription }}
                             {{ schema.schemaNote }}
                         </div>
-                        <div class="columns small-6">
+                        <div class="columns small-6 text-center">
                             <img src="/{{ schema.schemaImage.first.getUrl() }}">
                         </div>
-                    </div>
+
                 {% endif %}
             {% endif %}
         </div>
+
     </div>
 {% endfor %}

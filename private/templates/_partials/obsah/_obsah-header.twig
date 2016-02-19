@@ -1,4 +1,5 @@
 {# TODO: verze headeru pro výrobkvové řady, tzn. s fotkou přes celé #}
+
 <header>
     <div class="row mm-pad-top mm-pad-bottom">
 
@@ -20,20 +21,21 @@
         {% if entry.uvodniObrazek %}
             <div class="small-12 medium-6 columns">
 
-                    <div class="m-header-image">
-                        <img src="/{{ entry.uvodniObrazek.first.getUrl('headerHalfImage') }}">
+                <div class="m-header-image">
+                    <img src="/{{ entry.uvodniObrazek.first.getUrl('headerHalfImage') }}">
 
-                        {% if entry.productPhotogallery|length > 0 %}
-                            <div class="button big m-header-image--button"><i class="fa fa-2x fa-image"></i></div>
-                        {% endif %}
+                    {% if entry.productPhotogallery|length > 0 %}
+                        <div class="button big m-header-image--button"><i class="fa fa-2x fa-image"></i></div>
+                    {% endif %}
 
-                    </div>
+                </div>
 
             </div>
         {% endif %}
 
     </div>
 </header>
+
 
 {% include "/_partials/obsah/_obsah-tech-specifikace.twig" %}
 
