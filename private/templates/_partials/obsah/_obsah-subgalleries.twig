@@ -1,19 +1,18 @@
-{# TODO: potřebuju rozlišit glaerii s velkými a malými náhledy, prosím doplnit třídy.
-    dotaz na to je if subgallery.typGalerie == "hugeGallery" / "smallGallery"
-#}
-
 {# TODO: nastavit adekvátní verze náhledů pro tyhle galerie, zatím to jede z obecných thumb
 malá galerie: ogThumbSmall
 velká galerie: ogThumbLarge
  #}
 
-{% set colSize = 'small-2' %}
+{% for subgallery in entry.doplkoveGalerie %}
 
-{% if entry.doplkoveGalerie.typGalerie == "hugeGallery" %}
+{% set colSize = 'small-2' %}
+{% set thumbSize = 'ogThumbSmall' %}
+
+{% if subgallery.typGalerie == "hugeGallery" %}
     {% set colSize = 'small-3' %}
+    {% set thumbSize = 'ogThumbLarge' %}
 {% endif %}
 
-{% for subgallery in entry.doplkoveGalerie %}
     <div class="bg-grey-light mm-pad-top-half mm-pad-bottom-half">
         <div class="row">
             <div class="column small-12">
@@ -24,7 +23,7 @@ velká galerie: ogThumbLarge
             {% for i in subgallery.images %}
                 <div class="columns  mm-pad-bottom-half debug {{ colSize }}">
                     <div class="">
-                        <img src="{{ i.getUrl('thumb') }}" alt="{{ i.filename }}">
+                        <img src="{{ i.getUrl(thumbSize) }}" alt="{{ i.filename }}">
                         <div class="">
                             {{ i.title }}
                         </div>
