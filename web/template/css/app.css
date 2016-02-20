@@ -4113,9 +4113,18 @@ label a {
   height: 24px;
   margin: auto; }
 
-.m-gallery .m-gallery--image {
+.m-gallery--item {
+  cursor: pointer;
+  margin-bottom: 24px; }
+
+.m-gallery--image {
   width: 100%;
   height: auto; }
+
+.m-gallery--headline {
+  background-color: #fff;
+  font-weight: 600;
+  padding: 0.3em 0.5em; }
 
 .m-info .m-info--headline {
   border-top: 2px solid #858585;
