@@ -1,37 +1,7 @@
+{# TODO: nastavovat default|hero #}
+{% set headerType = 'default' %}
 
 <header>
-
-    {# default header #}
-    {% if headerType == 'default' %}
-        <div class="row mm-pad-top mm-pad-bottom">
-
-            <div class="small-12 medium-6 columns">
-                <h1 class="f-xxl">{{ entry.title }}
-                    {% if entry.isEditable() %}
-                        <a href="{{ entry.cpEditUrl }}" title="Editovat stránku" alt="Editace stránky"><i class="fa f-xl fa-pencil"></i></a>
-                    {% endif %}
-                </h1>
-                <div><strong>Revize:</strong> {{ entry.dateUpdated|date("d.F Y") }}</div>
-                {% if entry.section == "Položky" %}
-                    {% include "/_partials/obsah/_obsah-header-meta.twig" %}
-                {% endif %}
-            </div>
-
-            {% if entry.uvodniObrazek|length > 0 %}
-                <div class="small-12 medium-6 columns">
-                    <div class="m-header-image">
-                        <img src="/{{ entry.uvodniObrazek.first.getUrl('headerHalfImage') }}">
-                        {% if entry.productPhotogallery|length > 0 %}
-                            <div class="button big m-header-image--button"><i class="fa fa-2x fa-image"></i></div>
-                        {% endif %}
-                    </div>
-                </div>
-            {% endif %}
-
-        </div>
-    {% endif %}
-
-
 
     {# default header #}
     {% if headerType == 'hero' %}
@@ -63,6 +33,42 @@
 
         </div>
     {% endif %}
+
+
+
+    {# default header #}
+
+    {% if headerType == 'default' %}
+        <div class="row mm-pad-top mm-pad-bottom">
+
+            <div class="small-12 medium-6 columns">
+                <h1 class="f-xxl">{{ entry.title }}
+                    {% if entry.isEditable() %}
+                        <a href="{{ entry.cpEditUrl }}" title="Editovat stránku" alt="Editace stránky"><i class="fa f-xl fa-pencil"></i></a>
+                    {% endif %}
+                </h1>
+                <div><strong>Revize:</strong> {{ entry.dateUpdated|date("d.F Y") }}</div>
+                {% if entry.section == "Položky" %}
+                    {% include "/_partials/obsah/_obsah-header-meta.twig" %}
+                {% endif %}
+            </div>
+
+            {% if entry.uvodniObrazek|length > 0 %}
+                <div class="small-12 medium-6 columns">
+                    <div class="m-header-image">
+                        <img src="/{{ entry.uvodniObrazek.first.getUrl('headerHalfImage') }}">
+                        {% if entry.productPhotogallery|length > 0 %}
+                            <div class="button big m-header-image--button"><i class="fa fa-2x fa-image"></i></div>
+                        {% endif %}
+                    </div>
+                </div>
+            {% endif %}
+
+        </div>
+    {% endif %}
+
+
+
 
 
 </header>

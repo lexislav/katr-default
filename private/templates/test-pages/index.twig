@@ -3,10 +3,7 @@
 {# posila se prazdny auth block kuli codekitu#}
 {% block user_autenth %}{% endblock user_autenth %}
 
-{% block bars %}
-    {% include "/_partials/base/_top-title-bar.twig" %}
-    {% include "/_partials/base/_top-bar.twig" %}
-{% endblock %}
+{% block bars %}{{ parent() }}{% endblock %}
 
 {% block content %}
 
@@ -29,23 +26,18 @@
         {# schemata #}
         {% include "/_partials/obsah/_obsah-schema.twig" %}
 
-        {# subgallerie#}
+        {# subgallerie #}
         {% include "/_partials/obsah/_obsah-subgalleries.twig" %}
 
-        {# podmínka pro spuštění bloku Doplňkévých informací #}
-
+        {# doplnkove informace #}
         {% if entry.doplnkoveInformace %}
                 {% include "/_partials/obsah/_obsah-dalsi-info.twig" %}
         {% endif %}
 
-        <div class="m-section">
-            <div class="row">
-                <div class="column text-center">
-                    <a href="">nahoru</a>
-                </div>
-            </div>
-        </div>
+        {# nahoru #}
+        {% include "/_partials/base/_nav-top.twig" %}
 
+        {# upozorněni #}
         {% include "/_partials/obsah/_obsah-upozorneni.twig" %}
 
     </article>

@@ -6,11 +6,10 @@
 
 {% extends "/_partials/layout/_base.twig" %}
 
-{% block bars %}
-    {% include "/_partials/base/_top-title-bar.twig" %}
-    {% include "/_partials/base/_top-bar.twig" %}
-{% endblock %}
+{% block bars %}{{ parent() }}{% endblock %}
+
 {# TODO: detail oznámení #}
+
 {% block content %}
 
 	{% include '/_partials/base/_top-breadcrumbs.twig' %}

@@ -6,18 +6,17 @@
 
 {% extends "/_partials/layout/_base.twig" %}
 
-{% block bars %}
-    {% include "/_partials/base/_top-title-bar.twig" %}
-    {% include "/_partials/base/_top-bar.twig" %}
-{% endblock %}
+{% block bars %}{{ parent() }}{% endblock %}
 
 {% block content %}
 
+
     {% if entry.ancestors.first == "Výrobkové řady" %}
-    {% include '/_partials/base/_top-breadcrumbs.twig'  with {"class": "mm-over"} %}
+        {% include '/_partials/base/_top-breadcrumbs.twig'  with {"class": "mm-over"} %}
     {% else %}
-    {% include '/_partials/base/_top-breadcrumbs.twig' %}
+        {% include '/_partials/base/_top-breadcrumbs.twig' %}
     {% endif %}
+
 
     <article>
         {% include "/_partials/obsah/_obsah-header.twig" %}
@@ -53,7 +52,7 @@
 
     </article>
 
-{% include "/_partials/obsah/_obsah-upozorneni.twig" %}
+    {% include "/_partials/obsah/_obsah-upozorneni.twig" %}
 
 {% endblock %}
 
