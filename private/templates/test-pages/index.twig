@@ -3,8 +3,6 @@
 {# posila se prazdny auth block kuli codekitu#}
 {% block user_autenth %}{% endblock user_autenth %}
 
-{% block bars %}{{ parent() }}{% endblock %}
-
 {% block content %}
 
     {% include '/_partials/base/_top-breadcrumbs.twig' with {class: 'mm-over'} %}
@@ -31,17 +29,16 @@
 
         {# doplnkove informace #}
         {% if entry.doplnkoveInformace %}
-                {% include "/_partials/obsah/_obsah-dalsi-info.twig" %}
+            {% include "/_partials/obsah/_obsah-dalsi-info.twig" %}
         {% endif %}
-
-        {# nahoru #}
-        {% include "/_partials/base/_nav-top.twig" %}
-
-        {# upozorněni #}
-        {% include "/_partials/obsah/_obsah-upozorneni.twig" %}
 
     </article>
 
-{% endblock %}
+    {# nahoru #}
+    {% include "/_partials/base/_nav-top.twig" %}
 
-{% block scripts %}{% endblock %}
+    {# upozorněni #}
+    {% include "/_partials/obsah/_obsah-upozorneni.twig" %}
+
+
+{% endblock %}

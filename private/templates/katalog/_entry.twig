@@ -6,10 +6,7 @@
 
 {% extends "/_partials/layout/_base.twig" %}
 
-{% block bars %}{{ parent() }}{% endblock %}
-
 {% block content %}
-
 
     {% if entry.ancestors.first == "Výrobkové řady" %}
         {% include '/_partials/base/_top-breadcrumbs.twig'  with {"class": "mm-over"} %}
@@ -55,5 +52,3 @@
     {% include "/_partials/obsah/_obsah-upozorneni.twig" %}
 
 {% endblock %}
-
-{% block scripts %}{% endblock %}

@@ -39,8 +39,10 @@
 
         {# blok pro topbary + breadcrumbs etc #}
         {% block bars %}
-            {% include "/_partials/base/_top-title-bar.twig" %}
-            {% include "/_partials/base/_top-bar.twig" %}
+            {% if currentUser %}
+                {% include "/_partials/base/_top-title-bar.twig" %}
+                {% include "/_partials/base/_top-bar.twig" %}
+            {% endif %}
         {% endblock %}
 
         <!-- original content goes in this container -->
