@@ -16,36 +16,36 @@
 
 
     <article>
-    {% if entry.ancestors.first == "Výrobkové řady" %}
-        {% include "/_partials/obsah/_obsah-header.twig" with {"headerType": "hero"} %}
-    {% else %}
-        {% include "/_partials/obsah/_obsah-header.twig" with {"headerType": "default"} %}
-    {% endif %}
 
-    {# body, tabulky, řady#}
-    {% include "/_partials/obsah/_obsah-body.twig" %}
+        {# TODO: tohle je nebezpečné, udělěj tam nějaký modifikátor ať to nezávisí na obsahovém sdělení #}
+        {% if entry.ancestors.first == "Výrobkové řady" %}
+            {% include "/_partials/obsah/_obsah-header.twig" with {"headerType": "hero"} %}
+        {% else %}
+            {% include "/_partials/obsah/_obsah-header.twig" with {"headerType": "default"} %}
+        {% endif %}
 
-    {# default gallery#}
-    {% include "/_partials/obsah/_obsah-fotogalerie.twig" %}
 
-    {# schemata #}
-    {% include "/_partials/obsah/_obsah-schema.twig" %}
+        {# body, tabulky, řady#}
+        {% include "/_partials/obsah/_obsah-body.twig" %}
 
-    {# subgallerie #}
-    {% include "/_partials/obsah/_obsah-subgalleries.twig" %}
+        {# default gallery#}
+        {% include "/_partials/obsah/_obsah-fotogalerie.twig" %}
 
-    {# podmínka pro spuštění bloku Doplňkévých informací #}
-    {% if entry.doplnkoveInformace|length > 0 %}
-        {% include "/_partials/obsah/_obsah-dalsi-info.twig" %}
-    {% endif %}
+        {# schemata #}
+        {% include "/_partials/obsah/_obsah-schema.twig" %}
 
-        <div class="m-section">
-            <div class="row">
-                <div class="column text-center">
-                    <a href="">nahoru</a>
-                </div>
-            </div>
-        </div>
+        {# subgallerie #}
+        {% include "/_partials/obsah/_obsah-subgalleries.twig" %}
+
+        {# podmínka pro spuštění bloku Doplňkévých informací #}
+
+        {% if entry.doplnkoveInformace|length > 0 %}
+            {% include "/_partials/obsah/_obsah-dalsi-info.twig" %}
+        {% endif %}
+
+        {# nahoru #}
+        {% include "/_partials/base/_nav-top.twig" %}
+
 
     </article>
 
