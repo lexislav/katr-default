@@ -1,0 +1,35 @@
+<div class="m-section bg-grey-light mm-mgr-bottom-tiny">
+    <div class="row">
+        <div class="columns small-12">
+            <h3>Související</h3>
+        </div>
+    </div>
+
+    <div class="row">
+        {% for i in 1..6 %}
+            <div class="columns small-6 ">
+
+                {# zacatek elementu#}
+
+                <div class="item debug bg-white">
+                    <a href="">
+                        {# nested grid pro obsah prvku#}
+                        <div class="row">
+                            <div class="columns small-2">
+                                <img src="http://lorempixel.com/300/200/" alt="">
+                            </div>
+                            <div class="columns small-10">
+                                <h3>titulek</h3>
+                            </div>
+                        </div>
+                        {#konec nest gridu#}
+                    </a>
+                </div>
+
+                {# konec elementu#}
+
+            </div>
+        {% endfor %}
+    </div>
+
+</div>
