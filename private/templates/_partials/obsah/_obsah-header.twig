@@ -1,6 +1,3 @@
-{# TODO: nastavovat default|hero #}
-{% set headerType = 'default' %}
-
 <header>
 
     {# default header #}
@@ -8,7 +5,7 @@
 
         {% set entryImage = entry.uvodniObrazek.first %}
 
-        <div class="m-header--bgimage" style="height:500px; background-image: url('/{{ entry.uvodniObrazek.first.getUrl('headerHalfImage') }}')">
+        <div class="m-header--bgimage" style="height:500px; background-image: url('/{{ entry.uvodniObrazek.first.getUrl('fullPage') }}')">
             {% if entry.productPhotogallery|length > 0 %}
                 <div class="button big m-header-image--button"><i class="fa fa-2x fa-image"></i></div>
             {% endif %}
@@ -72,5 +69,3 @@
 
 
 </header>
-
-

@@ -16,27 +16,18 @@
 
 
     <article>
-        {% include "/_partials/obsah/_obsah-header.twig" %}
+    {% if entry.ancestors.first == "Výrobkové řady" %}
+        {% include "/_partials/obsah/_obsah-header.twig" with {"headerType": "hero"} %}
+    {% else %}
+        {% include "/_partials/obsah/_obsah-header.twig" with {"headerType": "default"} %}
+    {% endif %}
         {% include "/_partials/obsah/_obsah-fotogalerie.twig" %}
         {% include "/_partials/obsah/_obsah-schema.twig" %}
         {% include "/_partials/obsah/_obsah-subgalleries.twig" %}
 
         {# podmínka pro spuštění bloku Doplňkévých informací #}
         {% if entry.doplnkoveInformace|length > 0 %}
-            <div class="row">
-                <div class="column">
-                    <h2>Další informace</h2>
-                </div>
-            </div>
-
-            {# accordeon for mobile only#}
-            <div class="hide-for-large">
-                {% include "/_partials/obsah/_obsah-dalsi-info-accordeon.twig" %}
-            </div>
-            {# grid for desktop #}
-            <div class="show-for-large">
-                {% include "/_partials/obsah/_obsah-dalsi-info.twig" %}
-            </div>
+            {% include "/_partials/obsah/_obsah-dalsi-info.twig" %}
         {% endif %}
 
         <div class="m-section">
