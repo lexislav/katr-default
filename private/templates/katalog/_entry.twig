@@ -21,14 +21,28 @@
     {% else %}
         {% include "/_partials/obsah/_obsah-header.twig" with {"headerType": "default"} %}
     {% endif %}
-        {% include "/_partials/obsah/_obsah-fotogalerie.twig" %}
-        {% include "/_partials/obsah/_obsah-schema.twig" %}
-        {% include "/_partials/obsah/_obsah-subgalleries.twig" %}
 
-        {# podmínka pro spuštění bloku Doplňkévých informací #}
-        {% if entry.doplnkoveInformace|length > 0 %}
-            {% include "/_partials/obsah/_obsah-dalsi-info.twig" %}
-        {% endif %}
+    {# body, tabulky, řady#}
+    {% include "/_partials/obsah/_obsah-body.twig" %}
+
+    {# default gallery#}
+    {% include "/_partials/obsah/_obsah-fotogalerie.twig" %}
+
+    {# schemata #}
+    {% include "/_partials/obsah/_obsah-schema.twig" %}
+
+    {# subgallerie #}
+    {% include "/_partials/obsah/_obsah-subgalleries.twig" %}
+
+    {# doplnkove informace #}
+    {% if entry.doplnkoveInformace %}
+        {% include "/_partials/obsah/_obsah-dalsi-info.twig" %}
+    {% endif %}
+
+    {# podmínka pro spuštění bloku Doplňkévých informací #}
+    {% if entry.doplnkoveInformace|length > 0 %}
+        {% include "/_partials/obsah/_obsah-dalsi-info.twig" %}
+    {% endif %}
 
         <div class="m-section">
             <div class="row">

@@ -17,12 +17,24 @@
 
     <article>
         {% include "/_partials/obsah/_obsah-header.twig" with {"headerType": "default"}%}
+
+        {# specifikace #}
+        {% include "/_partials/obsah/_obsah-tech-specifikace.twig" %}
+
+        {# body, tabulky, řady#}
+        {% include "/_partials/obsah/_obsah-body.twig" %}
+
+        {# default gallery#}
         {% include "/_partials/obsah/_obsah-fotogalerie.twig" %}
+
+        {# schemata #}
         {% include "/_partials/obsah/_obsah-schema.twig" %}
+
+        {# subgallerie #}
         {% include "/_partials/obsah/_obsah-subgalleries.twig" %}
 
-        {# podmínka pro spuštění bloku Doplňkévých informací #}
-        {% if entry.doplnkoveInformace|length > 0 %}
+        {# doplnkove informace #}
+        {% if entry.doplnkoveInformace %}
             {% include "/_partials/obsah/_obsah-dalsi-info.twig" %}
         {% endif %}
 
