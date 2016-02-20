@@ -1,0 +1,37 @@
+
+
+<div class="row">
+
+    <div class="small-12 large-6 columns mm-pad-bottom">
+        {{ entry.body }}
+    </div>
+
+    <div class="small-12 large-6 columns mm-pad-bottom">
+        <div class="row ">
+
+            {% if entry.ancestors.first == "Výrobkové řady" %}
+                <div class="small-12 columns">
+                    {% include "/_partials/obsah/_obsah-variations.twig" %}
+                </div>
+            {% endif %}
+
+            {% if entry.downloads| length > 0 %}
+                <div class="small-12 columns">
+                    {% include "/_partials/obsah/_obsah-ke-stazeni.twig" %}
+                </div>
+            {% endif %}
+
+            <div class="small-12 columns">
+                {% if entry.section == "Katalog" and entry.ancestors.first == "Výrobkové řady" %}
+                    <a href="http://www.koma-modular.cz/vyrobkove-rady" target="_blank" class="button large"><i class="fa fa-globe"></i> více web KOMA Modular</a>
+                {% elseif entry.section == "Katalog" %}
+                    <a href="/polozky" class="button large"><i class="fa fa-bolt"></i> položky: {{ entry }}</a>
+                {% else %}
+                    {# <a href="/polozky" class="button large"><i class="fa fa-bolt"></i> položky: {{entry}}</a> #}
+                {% endif %}
+            </div>
+
+        </div>
+    </div>
+
+</div>

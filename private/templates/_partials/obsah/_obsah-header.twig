@@ -1,76 +1,70 @@
-{# TODO: verze headeru pro výrobkvové řady, tzn. s fotkou přes celé #}
 
 <header>
-    <div class="row mm-pad-top mm-pad-bottom">
 
-        <div class="small-12 medium-6 columns">
-            <h1 class="f-xxl">{{ entry.title }}
-                {% if entry.isEditable() %}
-                    <a href="{{ entry.cpEditUrl }}" title="Editovat stránku" alt="Editace stránky"><i class="fa f-xl fa-pencil"></i></a>
+    {# default header #}
+    {% if headerType == 'default' %}
+        <div class="row mm-pad-top mm-pad-bottom">
+
+            <div class="small-12 medium-6 columns">
+                <h1 class="f-xxl">{{ entry.title }}
+                    {% if entry.isEditable() %}
+                        <a href="{{ entry.cpEditUrl }}" title="Editovat stránku" alt="Editace stránky"><i class="fa f-xl fa-pencil"></i></a>
+                    {% endif %}
+                </h1>
+                <div><strong>Revize:</strong> {{ entry.dateUpdated|date("d.F Y") }}</div>
+                {% if entry.section == "Položky" %}
+                    {% include "/_partials/obsah/_obsah-header-meta.twig" %}
                 {% endif %}
-            </h1>
+            </div>
 
-            <div><strong>Revize:</strong> {{ entry.dateUpdated|date("d.F Y") }}</div>
-
-            {% if entry.section == "Položky" %}
-                {% include "/_partials/obsah/_obsah-header-meta.twig" %}
+            {% if entry.uvodniObrazek|length > 0 %}
+                <div class="small-12 medium-6 columns">
+                    <div class="m-header-image">
+                        <img src="/{{ entry.uvodniObrazek.first.getUrl('headerHalfImage') }}">
+                        {% if entry.productPhotogallery|length > 0 %}
+                            <div class="button big m-header-image--button"><i class="fa fa-2x fa-image"></i></div>
+                        {% endif %}
+                    </div>
+                </div>
             {% endif %}
 
         </div>
+    {% endif %}
 
-        {% if entry.uvodniObrazek|length > 0 %}
-            <div class="small-12 medium-6 columns">
 
-                <div class="m-header-image">
-                    <img src="/{{ entry.uvodniObrazek.first.getUrl('headerHalfImage') }}">
 
-                    {% if entry.productPhotogallery|length > 0 %}
-                        <div class="button big m-header-image--button"><i class="fa fa-2x fa-image"></i></div>
+    {# default header #}
+    {% if headerType == 'hero' %}
+
+        {% set entryImage = entry.uvodniObrazek.first %}
+
+        <div class="m-header--bgimage" style="height:500px; background-image: url('/{{ entry.uvodniObrazek.first.getUrl('headerHalfImage') }}')">
+            {% if entry.productPhotogallery|length > 0 %}
+                <div class="button big m-header-image--button"><i class="fa fa-2x fa-image"></i></div>
+            {% endif %}
+        </div>
+
+        <div class="row mm-pad-top mm-pad-bottom">
+
+            <div class="small-12 medium-6 columns mm-negative-offset">
+                <h1 class="f-xxl">{{ entry.title }}
+                    {% if entry.isEditable() %}
+                        <a href="{{ entry.cpEditUrl }}" title="Editovat stránku" alt="Editace stránky"><i class="fa f-xl fa-pencil"></i></a>
                     {% endif %}
-
-                </div>
-
+                </h1>
+                <div><strong>Revize:</strong> {{ entry.dateUpdated|date("d.F Y") }}</div>
+                {% if entry.section == "Položky" %}
+                    {% include "/_partials/obsah/_obsah-header-meta.twig" %}
+                {% endif %}
             </div>
-        {% endif %}
 
-    </div>
+            {# pravy sloupec #}
+            <div class="small-12 medium-6 columns"></div>
+
+        </div>
+    {% endif %}
+
+
 </header>
 
 
-{% include "/_partials/obsah/_obsah-tech-specifikace.twig" %}
-
-<div class="row">
-
-    <div class="small-12 large-6 columns mm-pad-bottom">
-        {{ entry.body }}
-    </div>
-
-    <div class="small-12 large-6 columns mm-pad-bottom">
-        <div class="row ">
-
-            {% if entry.ancestors.first == "Výrobkové řady" %}
-                <div class="small-12 columns">
-                    {% include "/_partials/obsah/_obsah-variations.twig" %}
-                </div>
-            {% endif %}
-
-            {% if entry.downloads| length > 0 %}
-                <div class="small-12 columns">
-                    {% include "/_partials/obsah/_obsah-ke-stazeni.twig" %}
-                </div>
-            {% endif %}
-
-            <div class="small-12 columns">
-                {% if entry.section == "Katalog" and entry.ancestors.first == "Výrobkové řady" %}
-                    <a href="http://www.koma-modular.cz/vyrobkove-rady" target="_blank" class="button large"><i class="fa fa-globe"></i> více web KOMA Modular</a>
-                {% elseif entry.section == "Katalog" %}
-                    <a href="/polozky" class="button large"><i class="fa fa-bolt"></i> položky: {{ entry }}</a>
-                {% else %}
-                    {# <a href="/polozky" class="button large"><i class="fa fa-bolt"></i> položky: {{entry}}</a> #}
-                {% endif %}
-            </div>
-
-        </div>
-    </div>
-
-</div>

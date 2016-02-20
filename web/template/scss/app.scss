@@ -146,3 +146,17 @@ $space-tiny: 6px;
 .debug {
     outline: 1px solid crimson;
 }
+
+
+.m-header--bgimage {
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+    background-size: cover;
+
+}
+
+.mm-negative-offset {
+    margin-top: -100px;
+    background-color: white;
+    padding-top: $space-half;
+}

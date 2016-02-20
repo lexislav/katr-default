@@ -13,32 +13,29 @@
     {% include '/_partials/base/_top-breadcrumbs.twig' %}
 
     <article>
-        {% include "/_partials/obsah/_obsah-header.twig" %}
+
+        {# header #}
+        {% include "/_partials/obsah/_obsah-header.twig" with {headerType: 'hero'} %}
+
+        {# specifikace #}
+        {% include "/_partials/obsah/_obsah-tech-specifikace.twig" %}
+
+        {# body, tabulky, řady#}
+        {% include "/_partials/obsah/_obsah-body.twig" %}
+
+        {# default gallery#}
         {% include "/_partials/obsah/_obsah-fotogalerie.twig" %}
 
+        {# schemata #}
         {% include "/_partials/obsah/_obsah-schema.twig" %}
+
+        {# subgallerie#}
         {% include "/_partials/obsah/_obsah-subgalleries.twig" %}
 
         {# podmínka pro spuštění bloku Doplňkévých informací #}
+
         {% if entry.doplnkoveInformace %}
-
-            <div class="row mm-pad-top">
-                <div class="column">
-                    <h2>Další informace</h2>
-                </div>
-            </div>
-
-
-            {# accordeon for mobile only#}
-            <div class="hide-for-large">
-                {% include "/_partials/obsah/_obsah-dalsi-info-accordeon.twig" %}
-            </div>
-
-            {# grid for desktop #}
-            <div class="show-for-large">
                 {% include "/_partials/obsah/_obsah-dalsi-info.twig" %}
-            </div>
-
         {% endif %}
 
         <div class="m-section">
