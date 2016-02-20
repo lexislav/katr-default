@@ -34,11 +34,6 @@
     {# subgallerie #}
     {% include "/_partials/obsah/_obsah-subgalleries.twig" %}
 
-    {# doplnkove informace #}
-    {% if entry.doplnkoveInformace %}
-        {% include "/_partials/obsah/_obsah-dalsi-info.twig" %}
-    {% endif %}
-
     {# podmínka pro spuštění bloku Doplňkévých informací #}
     {% if entry.doplnkoveInformace|length > 0 %}
         {% include "/_partials/obsah/_obsah-dalsi-info.twig" %}
