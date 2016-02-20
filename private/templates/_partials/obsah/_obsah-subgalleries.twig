@@ -1,0 +1,44 @@
+{% set counter = 1 %}
+{% for subgallery in entry.doplkoveGalerie %}
+
+    {% set colSize = 'small-2' %}
+    {% set thumbSize = 'ogThumbSmall' %}
+
+    {% if subgallery.typGalerie == "hugeGallery" %}
+        {% set colSize = 'small-3' %}
+        {% set thumbSize = 'ogThumbLarge' %}
+    {% endif %}
+
+    <div class="bg-grey-light mm-pad-top-half mm-pad-bottom-half" gallery id="gallery_{{ counter }}">
+        <div class="row">
+            <div class="column small-12">
+                <h2 class="f-xl f-800 mm-pad-bottom-half">{{ subgallery.galleryTitle }}</h2>
+            </div>
+        </div>
+        <div class="row">
+            {% for i in subgallery.images %}
+                <div class="columns  mm-pad-bottom-half {{ colSize }}">
+
+                    <div class="m-gallery--item"
+                            data-gallery-src="{{ siteUrl }}{{ i.getUrl("fullSize") }}"
+                            data-gallery-thumb="{{ siteUrl }}{{ i.getUrl("ogThumbSmall") }}"
+                            data-gallery-w="{{ i.getWidth("fullSize") }}"
+                            data-gallery-h="{{ i.getHeight("fullSize") }}"
+                            data-gallery-title="{{ i.title }}"
+                            data-gallery-description="Popis fotky">
+
+                        <img src="{{ i.getUrl(thumbSize) }}" alt="{{ i.filename }}" class="m-gallery--image">
+                        <div class="m-gallery--headline">{{ i.title }}</div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+
+    </div>
+
+    {# increase counter#}
+    {% set counter = counter + 1 %}
+{% endfor %}
+
+
+

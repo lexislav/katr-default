@@ -1,53 +1,48 @@
 {#
- # KATALOG entry template
- # -------------------
+ # KATALOG detail
+ # --------------
  #
- # Šablona vypisuje detail/single stranu
- #
- # When this template is loaded, it will already have an ‘entry’
- # variable, set to the requested News entry.
- #
- # See this page for more details on how Craft routes requests:
- # http://craftcms.com/docs/routing
  #}
 
 {% extends "/_partials/layout/_base.twig" %}
 
-{% block bars %}
-    {% include "/_partials/base/_top-title-bar.twig" %}
-    {% include "/_partials/base/_top-bar.twig" %}
-{% endblock %}
-
 {% block content %}
 
     {% if entry.ancestors.first == "Výrobkové řady" %}
-    {% include '/_partials/base/_top-breadcrumbs.twig'  with {"class": "mm-over"} %}
+        {% include '/_partials/base/_top-breadcrumbs.twig'  with {"class": "mm-over"} %}
     {% else %}
-    {% include '/_partials/base/_top-breadcrumbs.twig' %}
+        {% include '/_partials/base/_top-breadcrumbs.twig' %}
     {% endif %}
 
+
     <article>
-        {% include "/_partials/obsah/_obsah-header.twig" %}
+    {% if entry.ancestors.first == "Výrobkové řady" %}
+        {% include "/_partials/obsah/_obsah-header.twig" with {"headerType": "hero"} %}
+    {% else %}
+        {% include "/_partials/obsah/_obsah-header.twig" with {"headerType": "default"} %}
+    {% endif %}
 
-        {% include "/_partials/obsah/_obsah-fotogalerie.twig" %}
+    {# body, tabulky, řady#}
+    {% include "/_partials/obsah/_obsah-body.twig" %}
 
-        {# podmínka pro spuštění bloku Doplňkévých informací #}
-        {% if entry.doplnkoveInformace|length > 0 %}
-            <div class="row">
-                <div class="column">
-                    <h2>Další informace</h2>
-                </div>
-            </div>
+    {# default gallery#}
+    {% include "/_partials/obsah/_obsah-fotogalerie.twig" %}
 
-            {# accordeon for mobile only#}
-            <div class="hide-for-large">
-                {% include "/_partials/obsah/_obsah-dalsi-info-accordeon.twig" %}
-            </div>
-            {# grid for desktop #}
-            <div class="show-for-large">
-                {% include "/_partials/obsah/_obsah-dalsi-info.twig" %}
-            </div>
-        {% endif %}
+    {# schemata #}
+    {% include "/_partials/obsah/_obsah-schema.twig" %}
+
+    {# subgallerie #}
+    {% include "/_partials/obsah/_obsah-subgalleries.twig" %}
+
+    {# doplnkove informace #}
+    {% if entry.doplnkoveInformace %}
+        {% include "/_partials/obsah/_obsah-dalsi-info.twig" %}
+    {% endif %}
+
+    {# podmínka pro spuštění bloku Doplňkévých informací #}
+    {% if entry.doplnkoveInformace|length > 0 %}
+        {% include "/_partials/obsah/_obsah-dalsi-info.twig" %}
+    {% endif %}
 
         <div class="m-section">
             <div class="row">
@@ -59,8 +54,6 @@
 
     </article>
 
-{% include "/_partials/obsah/_obsah-upozorneni.twig" %}
+    {% include "/_partials/obsah/_obsah-upozorneni.twig" %}
 
 {% endblock %}
-
-{% block scripts %}{% endblock %}

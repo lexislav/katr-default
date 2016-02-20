@@ -12,6 +12,7 @@
     "foundation-sites": "~6.1.0",
     "motion-ui": "~1.1.0",
     "font-awesome": "~4.5.0",
+    "photoswipe": "*",
     "owl-carousel": "https://github.com/OwlFonk/OwlCarousel.git"
   },
   "ignore": [

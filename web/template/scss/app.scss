@@ -15,6 +15,13 @@ $color-koma-ui-lighter: #f2f2f2;
 $color-koma-ui-bright: #f8f8f8; //??
 $color-koma-ui-white: #fff;
 
+
+$space: 50px;
+$space-half: 25px;
+$space-tiny: 6px;
+
+
+
 @import "base/fonts";
 @import "module-foundation";
 
@@ -30,53 +37,59 @@ $color-koma-ui-white: #fff;
 @import "modules/mod-menu";
 @import "modules/mod-accordion";
 
+@import "modules/mod-gallery";
 @import "modules/mod-info";
+@import "modules/mod-schema";
 @import "modules/mod-owl";
 
 .mm-pad-top {
-    padding-top: 50px;
+    padding-top: $space;
 }
 
 .mm-pad-bottom {
-    padding-bottom: 50px;
+    padding-bottom: $space;
 }
 
 .mm-pad-half {
-    padding-top: 25px;
-    padding-bottom: 25px;
+    padding-top: $space-half;
+    padding-bottom: $space-half;
 }
 
 .mm-pad-top-half {
-    padding-top: 25px;
+    padding-top: $space-half;
 }
 .mm-pad-bottom-half {
-    padding-bottom: 25px;
+    padding-bottom: $space-half;
 }
 
 .mm-pad-tiny {
-    padding-top: 10px;
-    padding-bottom: 10px;
+    padding-top: $space-tiny;
+    padding-bottom: $space-tiny;
 }
 
 .mm-pad-top-tiny {
-    padding-top: 10px;
+    padding-top: $space-tiny;
 }
 
 .mm-pad-bottom-tiny {
-    padding-bottom: 10px;
+    padding-bottom: $space-tiny;
 }
 
 
 .mm-mgr-top {
-    margin-top: 50px;
+    margin-top: $space;
 }
 
 .mm-mgr-bottom {
-    margin-bottom: 50px;
+    margin-bottom: $space;
 }
 
 .mm-mgr-bottom-half {
-    margin-bottom: 30px;
+    margin-bottom: $space-half;
+}
+
+.mm-mgr-bottom-tiny {
+    margin-bottom: $space-tiny;
 }
 
 .mm-no-space {
@@ -128,4 +141,22 @@ $color-koma-ui-white: #fff;
     right: 0;
     margin: 0;
     background-color: rgba($color-koma-ui-black, 0.5);
+}
+
+.debug {
+    outline: 1px solid crimson;
+}
+
+
+.m-header--bgimage {
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+    background-size: cover;
+
+}
+
+.mm-negative-offset {
+    margin-top: -100px;
+    background-color: white;
+    padding-top: $space-half;
 }

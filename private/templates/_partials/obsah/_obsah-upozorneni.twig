@@ -1,18 +1,21 @@
 <div class="m-section bg-grey-light">
+    <div class="row align-center">
 
-<div class="row align-center">
+        {% for i in footer.shortInfo %}
 
-    {% for i in footer.shortInfo %}
-    <div class="column small-12 medium-5">
-        <div class="row">
-            <div class="small-2 column text-right"><i class="{{ i.infoIcon }} fa-2x"></i></div>
-            <h2 class="small-10 column f-xl f-800">{{ i.infoTitle }}</h2>
-            <div class="small-10 small-offset-2 column">
-                {{ i.infoBody }}
+            <div class="column small-12 large-6">
+                <div class="row" style="padding: 0 50px">
+
+                    <div class="small-1 column text-right"><i class="{{ i.infoIcon }} fa-2x"></i></div>
+                    <h2 class="small-10 column f-xl f-800">{{ i.infoTitle }}</h2>
+                    <div class="small-10 small-offset-1 column">
+                        {{ i.infoBody }}
+                    </div>
+
+                </div>
             </div>
-        </div>
-    </div>
-    {% endfor %}
 
-</div>
+        {% endfor %}
+
+    </div>
 </div>

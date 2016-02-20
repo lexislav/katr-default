@@ -1,0 +1,44 @@
+{#
+ # DOKUMENTACE listing
+ # -------------------
+ #
+ # Šablona vypisuje strukturu dokumentace
+ #
+ # dost možná nebude vůbec potřeba, protože tato data se budou načítat do modalu
+ #
+ # TODO: vyřadit kapitolu o správě obsahu pro běžné uživatele
+ #
+ #}
+
+{% extends "/_partials/layout/_base.twig" %}
+
+{% block content %}
+
+	{# {% include '/_partials/base/_top-breadcrumbs.twig' with {'class': 'mm-over'} %} #}
+
+	{% set pages = craft.entries.section('dokumentace') %}
+
+	{# TODO: udělat markup - struktura dokumentace. #}
+	<article>
+
+		<nav>
+		    <ul>
+		        {% nav page in pages %}
+		            <li>
+		                {% if page.body %}{{ page.getLink() }}{% else %}{{ page.title }}{% endif %}
+
+		                {% ifchildren %}
+		                    <ul>
+		                        {% children %}
+		                    </ul>
+		                {% endifchildren %}
+		            </li>
+		        {% endnav %}
+		    </ul>
+		</nav>
+
+	</article>
+
+	{% include "/_partials/obsah/_obsah-upozorneni.twig" %}
+
+{% endblock %}

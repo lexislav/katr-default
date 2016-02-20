@@ -1,5 +1,5 @@
-{% if entry.productPhotogallery|length > 0 %}
-    <div class="fotogalerie bg-grey-light mm-pad-top-half mm-pad-bottom-half mm-mgr-bottom">
+{% if entry.productPhotogallery |length > 0%}
+    <div class="fotogalerie bg-grey-light mm-pad-top-half mm-pad-bottom-half mm-mgr-bottom-tiny" gallery id="gallerybase">
         <div class="row">
             <div class="column small-12">
                 <h2 class="f-xl f-800 mm-pad-bottom-half">{{ "Fotogalerie"|t }}</h2>
@@ -14,7 +14,13 @@
                     <div class="prev"> <</div>
                     <div class="owl-obsah-owl">
                         {% for i in entry.productPhotogallery %}
-                            <div class="owl-item">
+                            <div class="owl-item m-gallery--item"
+                                    data-gallery-src="{{ siteUrl }}{{ i.getUrl("fullSize") }}"
+                                    data-gallery-thumb="{{ siteUrl }}{{ i.getUrl("ogThumbSmall") }}"
+                                    data-gallery-w="{{ i.getWidth("fullSize") }}"
+                                    data-gallery-h="{{ i.getHeight("fullSize") }}"
+                                    data-gallery-title="{{ i.title }}"
+                                    data-gallery-description="Popis fotky">
                                 <img src="/{{ i.getUrl('photoGalleryThumb') }}">
                             </div>
                         {% endfor %}

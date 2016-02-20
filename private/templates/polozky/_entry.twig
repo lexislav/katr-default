@@ -11,37 +11,31 @@
 
 {% extends "/_partials/layout/_base.twig" %}
 
-{% block bars %}
-    {% include "/_partials/base/_top-title-bar.twig" %}
-    {% include "/_partials/base/_top-bar.twig" %}
-{% endblock %}
-
 {% block content %}
 
     {% include '/_partials/base/_top-breadcrumbs.twig' %}
 
     <article>
-        {% include "/_partials/obsah/_obsah-header.twig" %}
+        {% include "/_partials/obsah/_obsah-header.twig" with {"headerType": "default"}%}
 
+        {# specifikace #}
+        {% include "/_partials/obsah/_obsah-tech-specifikace.twig" %}
+
+        {# body, tabulky, řady#}
+        {% include "/_partials/obsah/_obsah-body.twig" %}
+
+        {# default gallery#}
         {% include "/_partials/obsah/_obsah-fotogalerie.twig" %}
 
-        {# podmínka pro spuštění bloku Doplňkévých informací #}
+        {# schemata #}
+        {% include "/_partials/obsah/_obsah-schema.twig" %}
+
+        {# subgallerie #}
+        {% include "/_partials/obsah/_obsah-subgalleries.twig" %}
+
+        {# doplnkove informace #}
         {% if entry.doplnkoveInformace %}
-            <div class="row">
-                <div class="column">
-                    <h2>Další informace</h2>
-                </div>
-            </div>
-
-
-            {# accordeon for mobile only#}
-            <div class="hide-for-large">
-                {% include "/_partials/obsah/_obsah-dalsi-info-accordeon.twig" %}
-            </div>
-            {# grid for desktop #}
-            <div class="show-for-large">
-                {% include "/_partials/obsah/_obsah-dalsi-info.twig" %}
-            </div>
+            {% include "/_partials/obsah/_obsah-dalsi-info.twig" %}
         {% endif %}
 
         <div class="m-section">
@@ -57,5 +51,3 @@
     {% include "/_partials/obsah/_obsah-upozorneni.twig" %}
 
 {% endblock %}
-
-{% block scripts %}{% endblock %}

@@ -1,10 +1,10 @@
 {% block user_autenth %}
-{% if siteUrl != craft.request.getUrl %}
-    {# {% if not currentUser %}{% redirect "maintenance" 301%}{% endif %} #}
-    {% requireLogin %}
-{% else %}
+    {% if siteUrl != craft.request.getUrl %}
+        {# {% if not currentUser %}{% redirect "maintenance" 301%}{% endif %} #}
+        {% requireLogin %}
+    {% else %}
 
-{% endif %}
+    {% endif %}
 {% endblock user_autenth %}
 
 <!doctype html >
@@ -20,6 +20,10 @@
     <script src="/template/components/modernizr/modernizr.js"></script>
     <link rel="stylesheet" href="/template/components/owl-carousel/owl-carousel/owl.carousel.css">
     <link rel="stylesheet" href="/template/components/owl-carousel/owl-carousel/owl.theme.css">
+
+    <link rel="stylesheet" href="/template/components/photoswipe/dist/photoswipe.css">
+    <link rel="stylesheet" href="/template/components/photoswipe/dist/default-skin/default-skin.css">
+
     <link rel="stylesheet" href="/template/components/font-awesome/css/font-awesome.min.css">
     <link rel="stylesheet" href="/template/css/app.css">
 </head>
@@ -34,7 +38,12 @@
     <div class="off-canvas-wrapper-inner" data-off-canvas-wrapper>
 
         {# blok pro topbary + breadcrumbs etc #}
-        {% block bars %}{% endblock %}
+        {% block bars %}
+            {% if currentUser %}
+                {% include "/_partials/base/_top-title-bar.twig" %}
+                {% include "/_partials/base/_top-bar.twig" %}
+            {% endif %}
+        {% endblock %}
 
         <!-- original content goes in this container -->
         <div class="off-canvas-content" data-off-canvas-content>
@@ -47,10 +56,13 @@
     </div>
 </div>
 
+
 <script src="/template/components/jquery/dist/jquery.js"></script>
 <script src="/template/components/what-input/what-input.js"></script>
 <script src="/template/components/foundation-sites/dist/foundation.js"></script>
 <script src="/template/components/owl-carousel/owl-carousel/owl.carousel.js"></script>
+<script src="/template/components/photoswipe/dist/photoswipe.min.js"></script>
+<script src="/template/components/photoswipe/dist/photoswipe-ui-default.min.js"></script>
 <script src="/template/js/min/app-min.js"></script>
 
 <script>
@@ -67,12 +79,63 @@
     function updateFullscreenElements() {
         $("[mod-screen-height]").each(function (index) {
             var el = $(this);
-            el.css('height',$(window).height());
+            el.css('height', $(window).height());
         });
     }
 
-    $(function() {
-        console.log( "ready!" );
+    ///// PSWP
+
+    function parseGallery(selector) {
+        var items = [];
+        var gRoot = $(selector);
+        var domItems = gRoot.find('.m-gallery--item');
+
+        domItems.each(function () {
+            var el = $(this);
+            var item = {};
+            item.src = el.data("gallery-src");
+            item.w = el.data("gallery-w");
+            item.h = el.data("gallery-h");
+            item.thumb = el.data("gallery-thumb");
+            item.title = el.data("gallery-title");
+            item.description = el.data("gallery-description");
+            items.push(item);
+
+            el.data("gallery-index", items.length-1);
+        });
+
+        domItems.each(function() {
+            var el = $(this);
+            el.on("click", function (e) {
+                openSubgallery(items, el.data("gallery-index"));
+            });
+        });
+
+
+        return items;
+    }
+
+
+    function openSubgallery(items, index) {
+
+        var options = {
+            // history & focus options are disabled on CodePen
+            history: false,
+            focus: false,
+            showAnimationDuration: 0,
+            hideAnimationDuration: 0
+
+        };
+        var pswp = document.querySelectorAll('.pswp')[0];
+        options.index = index;
+        var gallery = new PhotoSwipe(pswp, PhotoSwipeUI_Default, items, options);
+        gallery.init();
+    }
+
+    /// PSWP end
+
+    $(function () {
+        console.log("ready!");
         updateFullscreenElements();
 
         $(window).on('resize', function () {
@@ -81,35 +144,44 @@
 
         // owl
 
-
         $(".owl-obsah-owl").owlCarousel({
-
-            itemsCustom : [
+            itemsCustom: [
                 [0, 1],
                 [700, 3]
             ],
-
-            navigation : false
+            navigation: false
             //autoPlay: 3000 //Set AutoPlay to 3 seconds
         });
 
         var owl = $(".owl-obsah-owl").data('owlCarousel');
 
         // Custom Navigation Events
-        $(".next").click(function(){
+        $(".next").click(function () {
             owl.next();
         })
-        $(".prev").click(function(){
+        $(".prev").click(function () {
             owl.prev();
         })
 
 
+
+        // init PSWP
+
+        $('[gallery]').each(function () {
+            $gal = $(this);
+            //console.log($gal.attr('id'));
+            parseGallery("#"+$gal.attr('id'));
+        });
+
+
     });
+
+
+    //document.getElementById('btn').onclick = openPhotoSwipe;
 
     {% block scriptsBottom %}{% endblock %}
 </script>
 
-
-
+{% include "/_partials/base/pswp.twig" %}
 </body>
 </html>

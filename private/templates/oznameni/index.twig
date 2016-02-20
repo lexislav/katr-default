@@ -1,0 +1,21 @@
+{#
+ # Oznameni listing
+ # ----------------
+ #}
+
+{% extends "/_partials/layout/_base.twig" %}
+
+{% set title = "Oznámení" %}
+
+{# TODO: markup výpisu iznámení #}
+
+{% block content %}
+	<h1>Oznámení</h1>
+
+	{% for entry in craft.entries.section('oznameni').find() %}
+  <hr>
+    <article>
+			<span>{{ entry.postDate.format('F d, Y') }}</span><h1><a href="{{ entry.url }}">{{ entry.title }}</a></h3></a></h1>
+		</article>
+	{% endfor %}
+{% endblock %}

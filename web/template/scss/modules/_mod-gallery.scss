@@ -1,0 +1,18 @@
+.m-gallery {
+}
+
+.m-gallery--item {
+    cursor: pointer;
+    margin-bottom: 24px;
+}
+
+.m-gallery--image {
+    width: 100%;
+    height: auto;
+}
+
+.m-gallery--headline {
+    background-color: $color-koma-ui-white;
+    font-weight: 600;
+    padding: 0.3em 0.5em;
+}
