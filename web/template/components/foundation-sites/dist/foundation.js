@@ -2693,14 +2693,22 @@ Foundation.Motion = Motion;
           });
       _this._events($sub);
     });
+
     this.$submenus.each(function(){
       var $menu = $(this),
           $back = $menu.find('.js-drilldown-back');
       if(!$back.length){
-        $menu.prepend(_this.options.backButton);
+
+        // HACK custom button (najdi poslední položku a vem z ní text
+        var $plink = $menu.parent().find('a:first');
+        //console.dir($plink.text());
+        var bck = $('<li class="js-drilldown-back"><a>'+$plink.text()+'</a></li>');
+        $menu.prepend(bck);
+
       }
       _this._back($menu);
     });
+
     if(!this.$element.parent().hasClass('is-drilldown')){
       this.$wrapper = $(this.options.wrapper).addClass('is-drilldown').css(this._getMaxDims());
       this.$element.wrap(this.$wrapper);
@@ -2728,6 +2736,8 @@ Foundation.Motion = Motion;
         e.stopImmediatePropagation();
         e.preventDefault();
       }
+
+      console.dir(this);
 
       // if(e.target !== e.currentTarget.firstElementChild){
       //   return false;
