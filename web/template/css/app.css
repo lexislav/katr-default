@@ -4233,6 +4233,13 @@ label a {
 .m-katalog .menu > li > a {
   padding: 2em; }
 
+.m-katalog .close-button {
+  z-index: 10000; }
+
+.m-katalog .is-drilldown {
+  width: 100% !important;
+  height: 100% !important; }
+
 .m-katalog .m-katalog--item {
   display: flex; }
 
@@ -4249,12 +4256,14 @@ label a {
 .m-katalog .m-katalog--item-next {
   min-width: 100px;
   text-align: center;
-  border-left: 1px solid #ecf0ec;
+  border-left: 1px solid #ecf0ec; }
+
+.m-katalog .m-katalog--item-next {
   display: none; }
 
-.m-katalog .is-drilldown-submenu-parent > .m-katalog--item > .m-katalog--item-content,
 .m-katalog .is-drilldown-submenu-parent > .m-katalog--item > .m-katalog--item-next {
-  display: block; }
+  display: block;
+  cursor: pointer; }
 
 .mm-pad-top {
   padding-top: 50px; }

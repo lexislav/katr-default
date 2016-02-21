@@ -15,6 +15,15 @@
         padding: 2em;
     }
 
+    .close-button {
+        z-index: 10000;
+    }
+
+    .is-drilldown {
+        width: 100% !important;
+        height: 100% !important;
+    }
+
     .is-drilldown-submenu {
 
     }
@@ -41,6 +50,9 @@
         text-align: center;
         border-left: 1px solid $color-koma-ui-light;
 
+    }
+
+    .m-katalog--item-next {
         display: none;
     }
 
@@ -50,9 +62,9 @@
         //background-color: $color-koma-ui-dark;
 
         & > .m-katalog--item {
-            & > .m-katalog--item-content,
             & > .m-katalog--item-next {
                 display: block;
+                cursor: pointer;
             }
         }
 
