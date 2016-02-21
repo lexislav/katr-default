@@ -1037,7 +1037,7 @@ Foundation.Motion = Motion;
         timer;
 
     this.isPaused = false;
-    
+
     this.restart = function(){
       remain = -1;
       clearTimeout(timer);
@@ -2718,6 +2718,12 @@ Foundation.Motion = Motion;
 
     $elem.off('click.zf.drilldown')
     .on('click.zf.drilldown', function(e){
+
+      // HACK: tohle umožnuje mít v drill down také jiné odkazy
+      if($(e.target).parent().hasClass('extra-link')) {
+        return;
+      }
+
       if($(e.target).parentsUntil('ul', 'li').hasClass('is-drilldown-submenu-parent')){
         e.stopImmediatePropagation();
         e.preventDefault();
@@ -2736,6 +2742,7 @@ Foundation.Motion = Motion;
           $body.off('.zf.drilldown');
         });
       }
+
     });
   };
   /**
