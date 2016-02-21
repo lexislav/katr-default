@@ -4225,6 +4225,9 @@ label a {
     width: 100%;
     height: auto; }
 
+#katalogModal .close-button {
+  z-index: 10000; }
+
 .m-katalog li {
   border-bottom: 1px solid #ecf0ec;
   font-family: Purista;
@@ -4232,9 +4235,6 @@ label a {
 
 .m-katalog .menu > li > a {
   padding: 2em; }
-
-.m-katalog .close-button {
-  z-index: 10000; }
 
 .m-katalog .is-drilldown {
   width: 100% !important;

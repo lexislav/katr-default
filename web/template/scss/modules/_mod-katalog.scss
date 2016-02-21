@@ -1,3 +1,9 @@
+#katalogModal {
+    .close-button {
+        z-index: 10000;
+    }
+}
+
 .m-katalog {
 
 //    background-color: $color-koma-ui-dark;
@@ -15,9 +21,7 @@
         padding: 2em;
     }
 
-    .close-button {
-        z-index: 10000;
-    }
+
 
     .is-drilldown {
         width: 100% !important;

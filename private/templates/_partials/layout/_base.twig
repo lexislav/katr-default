@@ -56,6 +56,10 @@
     </div>
 </div>
 
+{# nalinkovat data katalogu do každé stránky, pokud je user zalogován #}
+{% if currentUser %}
+    {% include "/_partials/base/_katalog.twig" %}
+{% endif %}
 
 <script src="/template/components/jquery/dist/jquery.js"></script>
 <script src="/template/components/what-input/what-input.js"></script>
