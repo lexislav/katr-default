@@ -70,7 +70,6 @@
 <script src="/template/js/min/app-min.js"></script>
 
 
-
 <script>
 
     // offcanvas
@@ -107,10 +106,10 @@
             item.description = el.data("gallery-description");
             items.push(item);
 
-            el.data("gallery-index", items.length-1);
+            el.data("gallery-index", items.length - 1);
         });
 
-        domItems.each(function() {
+        domItems.each(function () {
             var el = $(this);
             el.on("click", function (e) {
                 openSubgallery(items, el.data("gallery-index"));
@@ -169,21 +168,33 @@
             owl.prev();
         })
 
-
-
         // init PSWP
 
         $('[gallery]').each(function () {
             $gal = $(this);
             //console.log($gal.attr('id'));
-            parseGallery("#"+$gal.attr('id'));
+            parseGallery("#" + $gal.attr('id'));
         });
+
+        // smooth scroll
+
+        $('[scroll-top]').click(function(e) {
+            e.preventDefault();
+            var tgt = $("body");
+            $('html, body').animate({
+                scrollTop: tgt.offset().top
+            }, 400);
+
+        });
+
 
 
     });
 
 
-    //document.getElementById('btn').onclick = openPhotoSwipe;
+
+
+
 
     {% block scriptsBottom %}{% endblock %}
 </script>
