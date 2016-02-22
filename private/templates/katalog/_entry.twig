@@ -17,13 +17,11 @@
 
     <article>
 
-        {# TODO: tohle je nebezpečné, udělěj tam nějaký modifikátor ať to nezávisí na obsahovém sdělení #}
-        {% if entry.ancestors.first == "Výrobkové řady" %}
+        {% if entry.ancestors.first.id == 5 %}
             {% include "/_partials/obsah/_obsah-header.twig" with {"headerType": "hero"} %}
         {% else %}
             {% include "/_partials/obsah/_obsah-header.twig" with {"headerType": "default"} %}
         {% endif %}
-
 
         {# body, tabulky, řady#}
         {% include "/_partials/obsah/_obsah-body.twig" %}
