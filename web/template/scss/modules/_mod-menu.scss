@@ -28,6 +28,40 @@
     }
 }
 
+.box-params {
+
+    li {
+        border-radius: 2px;
+        background-color: white;
+        margin-right: 4px;
+        display: inline-block;
+        overflow: hidden;
+    }
+
+    i {
+        background-color: $color-koma-ui-darken;
+        color: $color-koma-ui-bright;
+
+        display: inline-block;
+        text-align: center;
+        text-transform: lowercase;
+        font-style: normal;
+
+        padding: 4px;
+        min-width: 24px;
+    }
+
+    span {
+        padding-left: 4px;
+        padding-right: 4px;
+    }
+
+    i,span {
+        font-size: rem-calc(14);
+        line-height: 1em;
+    }
+}
+
 .tech-spec {
 
     li {

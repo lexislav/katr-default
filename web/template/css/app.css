@@ -4121,6 +4121,28 @@ label a {
     font-size: 1.1428571429rem;
     line-height: 16px; }
 
+.box-params li {
+  border-radius: 2px;
+  background-color: white;
+  margin-right: 4px;
+  display: inline-block;
+  overflow: hidden; }
+.box-params i {
+  background-color: #434343;
+  color: #f8f8f8;
+  display: inline-block;
+  text-align: center;
+  text-transform: lowercase;
+  font-style: normal;
+  padding: 4px;
+  min-width: 24px; }
+.box-params span {
+  padding-left: 4px;
+  padding-right: 4px; }
+.box-params i, .box-params span {
+  font-size: 1rem;
+  line-height: 1em; }
+
 .tech-spec li {
   padding: 4px;
   border-top: 1px solid #858585; }
@@ -4491,3 +4513,16 @@ a.button {
   background-color: white; }
 .m-tabs .tabs-content {
   border: none; }
+
+.m-product-list-item {
+  background-color: #ecf0ec;
+  margin-bottom: 4px; }
+  .m-product-list-item h1 {
+    margin-bottom: 0; }
+
+.m-product-list--center-wrapper {
+  padding-top: 10px;
+  padding-bottom: 10px; }
+
+.m-product-list--line-top {
+  min-height: 50px; }
