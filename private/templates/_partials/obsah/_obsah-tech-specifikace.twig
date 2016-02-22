@@ -42,13 +42,9 @@
                         </div>
 
                         <div class="medium-6 columns">
-                            {# až bude html, udělám zo toho makro, toto se může recyklovat i do karet#}
-                            <ul class="menu align-right dot-params">
-                                {% if entry.hloubka %}<li><i title="Hloubka / délka" class="dot">H</i><span>{{ entry.hloubka }} mm</span></li>{% endif %}
-                                {% if entry.innerHeight %}<li><i title="VnitřnívVýška" class="dot">V<sub>v</sub></i><span>{{ entry.innerHeight }}</span></li>{% endif %}
-                                {% if entry.vyska %}<li><i title="Výška" class="dot">V</i><span>{{ entry.vyska }} mm</span></li>{% endif %}
-                                {% if entry.sirka %}<li><i title="Šířka" class="dot">Š</i><span>{{ entry.sirka }} mm</span></li>{% endif %}
-                            </ul>
+                            {# insert macro for dimensions #}
+                            {% import "_partials/macros/_macros.twig" as macros %}
+                            {{ macros.dimensions(entry.hloubka, entry.vnitrniVyska, entry.vyska, entry.sirka) }}
                         </div>
 
                     </div>

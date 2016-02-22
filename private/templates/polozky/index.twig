@@ -12,7 +12,27 @@
 
 	{# TODO: udělat markup - výpis položek :: Michale udělal jsem si takový provizorní pro lepší orientaci, třídy i strukturu samozřejmě ignoruj a udělej podle potřeby#}
 
+	{% import "_partials/macros/_macros.twig" as macros %}
+
 	{% for entry in entries %}
+
+	{# getting the cats and tags and stuff… #}
+	{% set techSpecifikace = {} %}
+	{% for category in craft.categories('catLibraries') %}
+	    {% set catGroupName = category.getGroup.name %}
+	    {% set catGroupHandle = category.getGroup.handle %}
+	    {% set oneSpec = craft.categories({ relatedTo: { sourceElement: entry, field:catGroupHandle }, limit: null }) %}
+	    {% if oneSpec|length > 0 %}
+	        {% set specValues = "" %}
+	        {% for value in oneSpec %}
+	            {% set specValues = specValues ~ value %}
+	            {% if not loop.last %}{% set specValues = specValues ~ ", " %} {% endif %}
+	        {% endfor %}
+	        {% set catGroup = { (catGroupName) : { "handle": catGroupHandle, "values": specValues }} %}
+	        {% set techSpecifikace = techSpecifikace|merge(catGroup) %}
+	    {% endif %}
+	{% endfor %}
+
 	<article>
 		{% if entry.uvodniObrazek %}
 			{% for i in entry.uvodniObrazek %}<img src="{{ i.getUrl('thumb') }}" style="float:left;">{% endfor %}
@@ -23,7 +43,7 @@
 				<span>{{entry.poznamka}}</span><br>
 			</div>
 			<div class="rightpart medium-9 columns">
-				prioriritni tagy + rozmery
+				{{ macros.dimensions(entry.hloubka, entry.vnitrniVyska, entry.vyska, entry.sirka) }}
 			</div>
 		</div>
 		<div class="bottom-row row">
@@ -31,7 +51,11 @@
 				<span>{{entry.katalogoveCislo}}</span><br>
 			</div>
 			<div class="rightpart medium-9 columns">
-				vypsat ostatní tagy, ais jako lička?
+				{% for groupName,spec in techSpecifikace %}
+
+				<li><div><span><strong>{{ groupName }}:</strong></span><span class="align-right">{{ spec.values }}</span></div></li>
+
+				{% endfor %}
 			</div>
 		</div>
 
