@@ -44,60 +44,6 @@ $space-tiny: 6px;
 @import "modules/mod-katalog";
 @import "modules/mod-body-copy";
 
-.mm-pad-top {
-    padding-top: $space;
-}
-
-.mm-pad-bottom {
-    padding-bottom: $space;
-}
-
-.mm-pad-half {
-    padding-top: $space-half;
-    padding-bottom: $space-half;
-}
-
-.mm-pad-top-half {
-    padding-top: $space-half;
-}
-.mm-pad-bottom-half {
-    padding-bottom: $space-half;
-}
-
-.mm-pad-tiny {
-    padding-top: $space-tiny;
-    padding-bottom: $space-tiny;
-}
-
-.mm-pad-top-tiny {
-    padding-top: $space-tiny;
-}
-
-.mm-pad-bottom-tiny {
-    padding-bottom: $space-tiny;
-}
-
-
-.mm-mgr-top {
-    margin-top: $space;
-}
-
-.mm-mgr-bottom {
-    margin-bottom: $space;
-}
-
-.mm-mgr-bottom-half {
-    margin-bottom: $space-half;
-}
-
-.mm-mgr-bottom-tiny {
-    margin-bottom: $space-tiny;
-}
-
-.mm-no-space {
-    margin: 0 0;
-    padding: 0 0;
-}
 
 .grow {
     flex: 2 0 0;
@@ -126,13 +72,8 @@ $space-tiny: 6px;
         position: fixed;
     }
 }
-//
-//.row {
-//    width: 98%;
-//}
-//.row > .row {
-//    width: auto;
-//}
+
+// refactor
 
 .m-header-image {
     position: relative;
@@ -143,10 +84,6 @@ $space-tiny: 6px;
     right: 0;
     margin: 0;
     background-color: rgba($color-koma-ui-black, 0.5);
-}
-
-.debug {
-    outline: 1px solid crimson;
 }
 
 
@@ -162,6 +99,7 @@ $space-tiny: 6px;
     background-color: white;
     padding-top: $space-half;
 }
+
 
 
 .m-souvisejici-item {
