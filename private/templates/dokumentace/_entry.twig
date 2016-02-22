@@ -4,15 +4,11 @@
  #
  #}
 
-{% set pageNav = true %}
-
 {% extends "/_partials/layout/_base.twig" %}
-
-{# posila se prazdny auth block kuli codekitu#}
-{% block user_autenth %}{% endblock user_autenth %}
 
 {% block content %}
 
+	{% include '/_partials/base/_top-breadcrumbs.twig' %}
 
     <article>
         <header class="mm-mgr-bottom">
@@ -23,7 +19,6 @@
                 </div>
 
                 <div class="columns small-3 small-offset-1">
-                    {% if pageNav %}
                         <nav class="row">
                             <div class="columns small-4 text-right">
                                 {% if entry.prevSibling %}<a href="{{ entry.prevSibling.url }}"><i class="fa fa-2x fa-arrow-left"></i></a>{% endif %}
@@ -37,7 +32,6 @@
                                 {% if entry.nextSibling %}<a href="{{ entry.nextSibling.url }}"><i class="fa fa-2x fa-arrow-right"></i></a>{% endif %}
                             </div>
                         </nav>
-                    {% endif %}
 
                 </div>
             </div>
