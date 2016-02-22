@@ -19,15 +19,23 @@
         margin-bottom: 30px;
         margin-top: 2.1em;
         font-weight: 800;
-
         font-size: 32px;
     }
+
+    // TODO: nadefinovat typografii obsahu
+    h1, h2 {}
+    h3 {}
+    h4 {}
+    h5 {}
+    h6 {}
 
 
     p, ul, ol, img {
         margin-top: 1.4em;
     }
 
+
+    // TODO: nadefinovat list style, používá se default
     ul, ol {
         & > li {
             margin-left: 24px;
@@ -49,7 +57,7 @@
         max-width: calc(100% - 16.6% - 40px);
     }
 
-
+    > table,
     > blockquote,
     > figure {
         margin-left: 0;
