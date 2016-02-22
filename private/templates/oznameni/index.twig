@@ -13,11 +13,17 @@
     <h1>Oznámení</h1>
 
     {% for entry in craft.entries.section('oznameni').find() %}
-        <hr>
-
         <article>
-            <span>{{ entry.postDate.format('F d, Y') }}</span>
-            <h1><a href="{{ entry.url }}">{{ entry.title }}</a></h1>
+            <div class="row">
+                <div class="column small-3">
+                    {{ entry.postDate.format('F d, Y') }}
+                </div>
+
+                <div class="">
+
+                <h1><a href="{{ entry.url }}">{{ entry.title }}</a></h1>
+                </div>
+            </div>
         </article>
 
     {% endfor %}

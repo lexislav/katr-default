@@ -15,12 +15,9 @@ $color-koma-ui-lighter: #f2f2f2;
 $color-koma-ui-bright: #f8f8f8; //??
 $color-koma-ui-white: #fff;
 
-
 $space: 50px;
 $space-half: 25px;
 $space-tiny: 6px;
-
-
 
 @import "base/fonts";
 @import "module-foundation";
@@ -43,7 +40,6 @@ $space-tiny: 6px;
 @import "modules/mod-owl";
 @import "modules/mod-katalog";
 @import "modules/mod-body-copy";
-
 
 .grow {
     flex: 2 0 0;
@@ -78,6 +74,7 @@ $space-tiny: 6px;
 .m-header-image {
     position: relative;
 }
+
 .m-header-image--button {
     position: absolute;
     bottom: 0;
@@ -85,7 +82,6 @@ $space-tiny: 6px;
     margin: 0;
     background-color: rgba($color-koma-ui-black, 0.5);
 }
-
 
 .m-header--bgimage {
     background-repeat: no-repeat;
@@ -99,8 +95,6 @@ $space-tiny: 6px;
     background-color: white;
     padding-top: $space-half;
 }
-
-
 
 .m-souvisejici-item {
     margin-bottom: $space-half;
@@ -117,12 +111,30 @@ $space-tiny: 6px;
     }
 }
 
-
 .mm-inverted-link-colors {
     a {
         color: $color-koma-ui-darken;
         &:hover {
             color: $color-koma-primary;
+        }
+    }
+}
+
+.mm-link-notunderline {
+    a {
+        text-decoration: none;
+        &:hover {
+            text-decoration: none;
+        }
+    }
+}
+
+.m-oznameni {
+
+    article {
+        border-top: 1px solid $color-koma-ui-light;
+        &:last-child {
+            border-bottom: 1px solid $color-koma-ui-light;
         }
     }
 }

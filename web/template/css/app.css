@@ -1324,11 +1324,11 @@ h6 {
     font-size: 1.1428571429rem; } }
 a {
   color: #c20e1a;
-  text-decoration: none;
+  text-decoration: underline;
   line-height: inherit;
   cursor: pointer; }
   a:hover, a:focus {
-    color: #a70c16; }
+    color: #000; }
   a img {
     border: 0; }
 
@@ -4401,3 +4401,13 @@ label a {
   color: #434343; }
   .mm-inverted-link-colors a:hover {
     color: #c20e1a; }
+
+.mm-link-notunderline a {
+  text-decoration: none; }
+  .mm-link-notunderline a:hover {
+    text-decoration: none; }
+
+.m-oznameni article {
+  border-top: 1px solid #ecf0ec; }
+  .m-oznameni article:last-child {
+    border-bottom: 1px solid #ecf0ec; }
