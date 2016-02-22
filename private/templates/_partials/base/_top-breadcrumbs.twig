@@ -6,7 +6,7 @@ modifiers:
     mm-over - pruhledne přes obsah (absolutni pozice)
 #}
 
-<nav aria-label="Jste zde:" role="navigation" class="m-breadcrumbs {{ class|default('') }}">
+<nav aria-label="Jste zde:" role="navigation" class="m-breadcrumbs mm-link-notunderline {{ class|default('') }}">
     <ul class="breadcrumbs">
         <li><a href="{{ siteUrl }}">Úvod</a></li>
         <li><a href="{{ siteUrl }}{{entry.section.handle}}">{{entry.section}}</a></li>

@@ -4410,6 +4410,9 @@ label a {
   .mm-link-notunderline a:hover {
     text-decoration: none; }
 
+a.button {
+  text-decoration: none; }
+
 .m-oznameni article {
   border-top: 1px solid #ecf0ec; }
   .m-oznameni article:last-child {
