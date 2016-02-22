@@ -116,3 +116,13 @@ $space-tiny: 6px;
         }
     }
 }
+
+
+.mm-inverted-link-colors {
+    a {
+        color: $color-koma-ui-darken;
+        &:hover {
+            color: $color-koma-primary;
+        }
+    }
+}

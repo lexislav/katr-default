@@ -4396,3 +4396,8 @@ label a {
     color: #000; }
     .m-souvisejici-item a:hover {
       color: #c20e1a; }
+
+.mm-inverted-link-colors a {
+  color: #434343; }
+  .mm-inverted-link-colors a:hover {
+    color: #c20e1a; }
