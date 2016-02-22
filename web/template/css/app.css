@@ -3987,6 +3987,9 @@ label a {
     .off-canvas.position-left .row .row {
       width: auto; }
 
+.off-canvas-content {
+  box-shadow: none; }
+
 .off-canvas-scroll-content {
   overflow: auto;
   height: 100%; }
