@@ -4417,3 +4417,16 @@ a.button {
   border-top: 1px solid #ecf0ec; }
   .m-oznameni article:last-child {
     border-bottom: 1px solid #ecf0ec; }
+
+.m-block.mm-side {
+  padding: 20px; }
+  .m-block.mm-side h2 {
+    padding-bottom: .4em; }
+  .m-block.mm-side ul {
+    margin-left: 0; }
+  .m-block.mm-side li {
+    list-style: none; }
+.m-block.mm-bottom {
+  font-size: 20px; }
+.m-block li {
+  margin-bottom: .8em; }
