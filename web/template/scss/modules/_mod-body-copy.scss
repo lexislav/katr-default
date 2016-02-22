@@ -13,8 +13,6 @@
         }
     }
 
-
-
     h2, h3, h4, h5, h6 {
         margin-bottom: 30px;
         margin-top: 2.1em;
@@ -23,17 +21,20 @@
     }
 
     // TODO: nadefinovat typografii obsahu
-    h1, h2 {}
-    h3 {}
-    h4 {}
-    h5 {}
-    h6 {}
-
+    h1, h2 {
+    }
+    h3 {
+    }
+    h4 {
+    }
+    h5 {
+    }
+    h6 {
+    }
 
     p, ul, ol, img {
         margin-top: 1.4em;
     }
-
 
     // TODO: nadefinovat list style, používá se default
     ul, ol {
@@ -51,7 +52,6 @@
             }
         }
     }
-
 
     img {
         max-width: calc(100% - 16.6% - 40px);
@@ -72,6 +72,22 @@
         }
     }
 
+    figure {
+        figcaption {
+            color: $color-koma-ui-dark;
+            padding-top: 0.8em;
+            font-size: 14px;
+            font-style: italic;
+
+            a {
+                color: $color-koma-ui-darken;
+                text-decoration: underline;
+            }
+            strong {
+                color: $color-koma-ui-darken;
+            }
+        }
+    }
 
     > blockquote {
         font-family: Purista;
@@ -81,8 +97,8 @@
         background-color: $color-koma-ui-light;
 
         font-size: 24px;
-
         border-left: 5px solid $color-koma-primary;
+
     }
 
 }

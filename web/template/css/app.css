@@ -4327,6 +4327,16 @@ label a {
     width: 100%;
     max-width: none;
     margin: 0; }
+.m-body-copy figure figcaption {
+  color: #858585;
+  padding-top: 0.8em;
+  font-size: 14px;
+  font-style: italic; }
+  .m-body-copy figure figcaption a {
+    color: #434343;
+    text-decoration: underline; }
+  .m-body-copy figure figcaption strong {
+    color: #434343; }
 .m-body-copy > blockquote {
   font-family: Purista;
   font-style: italic;
