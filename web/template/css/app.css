@@ -4268,6 +4268,58 @@ label a {
   display: block;
   cursor: pointer; }
 
+.m-body-copy > * {
+  margin-left: calc(8.3% + 20px);
+  margin-right: calc(8.3% + 20px);
+  margin-top: 0;
+  margin-bottom: 0;
+  font-size: 16px; }
+  .m-body-copy > *:first-child {
+    margin-top: 0; }
+
+.m-body-copy h2, .m-body-copy h3, .m-body-copy h4, .m-body-copy h5, .m-body-copy h6 {
+  margin-bottom: 30px;
+  margin-top: 2.1em;
+  font-weight: 800;
+  font-size: 32px; }
+
+.m-body-copy p, .m-body-copy ul, .m-body-copy ol, .m-body-copy img {
+  margin-top: 1.4em; }
+
+.m-body-copy ul > li, .m-body-copy ol > li {
+  margin-left: 24px;
+  padding: 0; }
+  .m-body-copy ul > li li, .m-body-copy ol > li li {
+    margin-left: 0px; }
+  .m-body-copy ul > li ul,
+  .m-body-copy ul > li ol, .m-body-copy ol > li ul,
+  .m-body-copy ol > li ol {
+    margin-top: 0; }
+
+.m-body-copy img {
+  max-width: calc(100% - 16.6% - 40px); }
+
+.m-body-copy > blockquote,
+.m-body-copy > figure {
+  margin-left: 0;
+  margin-right: 0;
+  margin-bottom: 50px;
+  margin-top: 50px; }
+  .m-body-copy > blockquote img,
+  .m-body-copy > figure img {
+    width: 100%;
+    max-width: none;
+    margin: 0; }
+
+.m-body-copy > blockquote {
+  font-family: Purista;
+  font-style: italic;
+  padding: 20px 28px;
+  color: #c20e1a;
+  background-color: #ecf0ec;
+  font-size: 24px;
+  border-left: 5px solid #c20e1a; }
+
 .mm-pad-top {
   padding-top: 50px; }
 
