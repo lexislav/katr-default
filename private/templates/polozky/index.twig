@@ -36,13 +36,12 @@
 			</div>
 			<div class="rightpart medium-9 columns">
 				{# výpis prioritních tagů - cyklus adept na makro #}
-				{% for pc in priorityCats %}
+				{% for pc in priorityCats %}{% set catValues = craft.categories({ relatedTo: { sourceElement: entry, field:pc.libraryHandle }, limit: null }) %}
 					<li>
 						<div>
 							{% if pc.shortTitle %}
 								<span><strong>{{ pc.shortTitle }}</strong></span>
 							{% endif %}
-							{% set catValues = craft.categories({ relatedTo: { sourceElement: entry, field:pc.libraryHandle }, limit: null }) %}
 							<span class="align-right">{{ catValues.first }}</span>
 						</div>
 					</li>
@@ -58,13 +57,12 @@
 			</div>
 			<div class="rightpart medium-9 columns">
 				{# výpis ostatních kategorií # - cyklus adept na makro #}
-				{% for pc in cats %}
+				{% for pc in cats %}{% set catValues = craft.categories({ relatedTo: { sourceElement: entry, field:pc.libraryHandle }, limit: null }) %}
 				<li>
 					<div>
 						{% if pc.shortTitle %}
 							<span><strong>{{ pc.shortTitle }}</strong></span>
 						{% endif %}
-							{% set catValues = craft.categories({ relatedTo: { sourceElement: entry, field:pc.libraryHandle }, limit: null }) %}
 							<span class="align-right">{{ catValues.first }}</span>
 						</div>
 					</li>
