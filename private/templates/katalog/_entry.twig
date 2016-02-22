@@ -8,8 +8,12 @@
 
 {% block content %}
 
-    {% if entry.ancestors.first == "Výrobkové řady" %}
-        {% include '/_partials/base/_top-breadcrumbs.twig'  with {"class": "mm-over"} %}
+    {% if entry.ancestors|length>0 %}
+        {% if entry.ancestors.first.id == 5 %}
+            {% include '/_partials/base/_top-breadcrumbs.twig'  with {"class": "mm-over"} %}
+        {% else %}
+            {% include '/_partials/base/_top-breadcrumbs.twig' %}
+        {% endif %}
     {% else %}
         {% include '/_partials/base/_top-breadcrumbs.twig' %}
     {% endif %}
@@ -17,11 +21,15 @@
 
     <article>
 
+    {% if entry.ancestors|length>0 %}
         {% if entry.ancestors.first.id == 5 %}
             {% include "/_partials/obsah/_obsah-header.twig" with {"headerType": "hero"} %}
         {% else %}
             {% include "/_partials/obsah/_obsah-header.twig" with {"headerType": "default"} %}
         {% endif %}
+    {% else %}
+        {% include "/_partials/obsah/_obsah-header.twig" with {"headerType": "default"} %}
+    {% endif %}
 
         {# body, tabulky, řady#}
         {% include "/_partials/obsah/_obsah-body.twig" %}
