@@ -70,6 +70,30 @@
             max-width: none;
             margin: 0;
         }
+
+        @media #{$small-only} {
+            // @todo: dát sem reálný gutter z gridu
+            margin-left: -20px;
+            margin-right: -20px;
+        }
+
+        @media #{$medium-only} {
+            // @todo: dát sem reálný gutter z gridu
+            margin-left: -20px;
+            margin-right: -20px;
+        }
+    }
+
+    @media #{$small-only} {
+        > table {
+            width: calc(100% + 40px);
+        }
+    }
+
+    @media #{$medium-only} {
+        > table {
+            width: calc(100% + 40px);
+        }
     }
 
     figure {
@@ -78,6 +102,16 @@
             padding-top: 0.8em;
             font-size: 14px;
             font-style: italic;
+
+            @media #{$small-only} {
+                padding-left: 20px;
+                padding-right: 20px;
+            }
+
+            @media #{$medium-only} {
+                padding-left: 20px;
+                padding-right: 20px;
+            }
 
             a {
                 color: $color-koma-ui-darken;

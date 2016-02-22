@@ -4330,11 +4330,37 @@ label a {
     width: 100%;
     max-width: none;
     margin: 0; }
+  @media screen and (min-width: 0em) and (max-width: 39.9375em) {
+    .m-body-copy > table,
+    .m-body-copy > blockquote,
+    .m-body-copy > figure {
+      margin-left: -20px;
+      margin-right: -20px; } }
+  @media screen and (min-width: 40em) and (max-width: 63.9375em) {
+    .m-body-copy > table,
+    .m-body-copy > blockquote,
+    .m-body-copy > figure {
+      margin-left: -20px;
+      margin-right: -20px; } }
+@media screen and (min-width: 0em) and (max-width: 39.9375em) {
+  .m-body-copy > table {
+    width: calc(100% + 40px); } }
+@media screen and (min-width: 40em) and (max-width: 63.9375em) {
+  .m-body-copy > table {
+    width: calc(100% + 40px); } }
 .m-body-copy figure figcaption {
   color: #858585;
   padding-top: 0.8em;
   font-size: 14px;
   font-style: italic; }
+  @media screen and (min-width: 0em) and (max-width: 39.9375em) {
+    .m-body-copy figure figcaption {
+      padding-left: 20px;
+      padding-right: 20px; } }
+  @media screen and (min-width: 40em) and (max-width: 63.9375em) {
+    .m-body-copy figure figcaption {
+      padding-left: 20px;
+      padding-right: 20px; } }
   .m-body-copy figure figcaption a {
     color: #434343;
     text-decoration: underline; }
