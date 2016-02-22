@@ -4456,3 +4456,38 @@ a.button {
   font-size: 20px; }
 .m-block li {
   margin-bottom: .8em; }
+
+.m-tabs .tabs {
+  padding-left: 20px;
+  padding-right: 20px;
+  display: flex;
+  justify-content: center;
+  border: none;
+  border-bottom: 1px solid black; }
+.m-tabs .tabs-title,
+.m-tabs .tabs-title a {
+  font-family: Purista;
+  font-size: 20px;
+  text-decoration: none;
+  background-color: #ecf0ec; }
+.m-tabs .tabs-title {
+  max-width: 480px;
+  float: none;
+  flex: 1;
+  text-align: center;
+  border-bottom: transparent;
+  border-top: 1px solid black;
+  border-left: 1px solid black; }
+  .m-tabs .tabs-title:last-of-type {
+    border-right: 1px solid black; }
+  .m-tabs .tabs-title a {
+    padding: 30px;
+    color: #000; }
+  .m-tabs .tabs-title .fa {
+    color: #c20e1a; }
+.m-tabs .tabs-title.is-active a {
+  border-bottom: 1px solid white;
+  margin-bottom: -1px;
+  background-color: white; }
+.m-tabs .tabs-content {
+  border: none; }
