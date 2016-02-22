@@ -4051,14 +4051,17 @@ label a {
   max-height: 42px;
   padding: 13px;
   padding-left: 22px;
-  padding-right: 22px; }
+  padding-right: 22px;
+  color: #434343; }
+  .m-breadcrumbs .breadcrumbs li:not(:last-child)::after {
+    color: #434343; }
   .m-breadcrumbs .breadcrumbs a {
     text-decoration: underline; }
   .m-breadcrumbs.mm-over {
     position: absolute;
     z-index: 1;
     width: 100%;
-    background-color: rgba(236, 240, 236, 0.5); }
+    background-color: rgba(0, 0, 0, 0.1); }
 
 .dot-params li {
   padding: 0 10px; }
