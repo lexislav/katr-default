@@ -4,14 +4,129 @@
  #
  #}
 
+{% set pageNav = true %}
+
 {% extends "/_partials/layout/_base.twig" %}
 
-{# TODO: detail dokumentace #}
+{# posila se prazdny auth block kuli codekitu#}
+{% block user_autenth %}{% endblock user_autenth %}
 
 {% block content %}
-	<article>
-		<h1>{{ entry.title }}</h1>
-		<p>Posted on {{ entry.postDate.format('F d, Y') }}</p>
-		{{ entry.body }}
-	</article>
+
+
+    <article>
+        <header class="mm-mgr-bottom">
+            <div class="row align-bottom">
+
+                <div class="columns small-8">
+                    <h1 class="xxl">{{ entry.title }}</h1>
+                </div>
+
+                <div class="columns small-3 small-offset-1">
+                    {% if pageNav %}
+                        <nav class="row">
+                            <div class="columns small-4 text-right">
+                                {% if entry.prevSibling %}<a href="{{ entry.prevSibling.url }}"><i class="fa fa-2x fa-arrow-left"></i></a>{% endif %}
+                            </div>
+
+                            <div class="columns small-4 text-center">
+                                {% if entry.getAncestors(1)|length>0 %}<a href="{{entry.getAncestors(1).first.url}}"><i class="fa fa-2x fa-arrow-up"></i></a>{% endif %}
+                            </div>
+
+                            <div class="columns small-4 text-left">
+                                {% if entry.nextSibling %}<a href="{{ entry.nextSibling.url }}"><i class="fa fa-2x fa-arrow-right"></i></a>{% endif %}
+                            </div>
+                        </nav>
+                    {% endif %}
+
+                </div>
+            </div>
+        </header>
+
+
+        <div class="row">
+            <div class="columns small-12 large-9">
+                <div class="row">
+                    <div class="columns small-12">
+                        <div class="m-body-copy"> {# tenhle wrapper sebou nese definici typografie pro detail#}
+
+                            {# obsah - text #}
+
+							{{ entry.docsBody }}
+
+                            {# obsah - text - konec #}
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            {# prava strana pouze pro large#}
+            <div class="columns large-3  hide-for-small-only hide-for-medium-only">
+                {# prava strana obsah #}
+
+
+                {# tohle je stejný blok jako vespod#}
+                {# dát do samostatné podšablony #}
+                <div class="m-dalsi  bg-grey-light">
+                    <h2 class="f-xl f-800 mm-pad-bottom-half">Další články v Nápověda / FAQ:</h2>
+                    <ul>
+                        <li><a href="">clanek</a></li>
+                        <li><a href="">clanek</a></li>
+                        <li><a href="">clanek</a></li>
+                        <li><a href="">clanek</a></li>
+                        <li><a href="">clanek</a></li>
+                    </ul>
+                </div>
+
+                {# prava strana obsah - konec#}
+            </div>
+        </div>
+
+    </article>
+
+
+    {# sekce související #}
+
+    <div class="m-section bg-grey-light mm-mgr-top mm-mgr-bottom-tiny">
+        <div class="row">
+            <div class="columns small-7 small-offset-1">
+
+
+                {# tohle je stejný blok jako v pravé straně#}
+                {# dát do samostatné podšablony #}
+                <div class="m-dalsi">
+                    <h2 class="f-xl f-800 mm-pad-bottom-half">Další články v Nápověda / FAQ:</h2>
+                    <ul>
+                        <li><a href="">clanek</a></li>
+                        <li><a href="">clanek</a></li>
+                        <li><a href="">clanek</a></li>
+                        <li><a href="">clanek</a></li>
+                        <li><a href="">clanek</a></li>
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+
+    {# navigace další předchozí #}
+    {# dát do samostatné podšablony, pokud se bude používat na více místech #}
+    <div class="bg-grey-light mm-pad-top mm-pad-bottom">
+        <nav class="row">
+            <div class="columns small-4 text-left">
+                <a href=""><i class="fa fa-arrow-left"></i> Předchozí</a>
+            </div>
+
+            <div class="columns small-4 text-center">
+                <a href=""><i class="fa fa-arrow-up"></i> FAQ</a>
+            </div>
+
+            <div class="columns small-4 text-right">
+                <a href=""><i class="fa fa-arrow-right"></i> Další</a>
+            </div>
+        </nav>
+    </div>
+
 {% endblock %}
