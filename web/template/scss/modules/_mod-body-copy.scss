@@ -1,0 +1,80 @@
+.m-body-copy {
+
+    > * {
+        margin-left: calc(8.3% + 20px);
+        margin-right: calc(8.3% + 20px);
+        margin-top: 0;
+        margin-bottom: 0;
+
+        font-size: 16px;
+
+        &:first-child {
+            margin-top: 0;
+        }
+    }
+
+
+
+    h2, h3, h4, h5, h6 {
+        margin-bottom: 30px;
+        margin-top: 2.1em;
+        font-weight: 800;
+
+        font-size: 32px;
+    }
+
+
+    p, ul, ol, img {
+        margin-top: 1.4em;
+    }
+
+    ul, ol {
+        & > li {
+            margin-left: 24px;
+            padding: 0;
+
+            li {
+                margin-left: 0px;
+            }
+
+            & ul,
+            & ol {
+                margin-top: 0;
+            }
+        }
+    }
+
+
+    img {
+        max-width: calc(100% - 16.6% - 40px);
+    }
+
+
+    > blockquote,
+    > figure {
+        margin-left: 0;
+        margin-right: 0;
+        margin-bottom: $space;
+        margin-top: $space;
+
+        img {
+            width: 100%;
+            max-width: none;
+            margin: 0;
+        }
+    }
+
+
+    > blockquote {
+        font-family: Purista;
+        font-style: italic;
+        padding: 20px 28px;
+        color: $color-koma-primary;
+        background-color: $color-koma-ui-light;
+
+        font-size: 24px;
+
+        border-left: 5px solid $color-koma-primary;
+    }
+
+}
