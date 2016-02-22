@@ -161,3 +161,19 @@ $space-tiny: 6px;
     background-color: white;
     padding-top: $space-half;
 }
+
+
+.m-souvisejici-item {
+    margin-bottom: $space-half;
+    font-size: 18px;
+    img {
+        width: 100%;
+        height: auto;
+    }
+    a {
+        color: $color-koma-ui-black;
+        &:hover {
+            color: $color-koma-primary;
+        }
+    }
+}

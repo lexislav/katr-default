@@ -4350,4 +4350,15 @@ label a {
   background-color: white;
   padding-top: 25px; }
 
+.m-souvisejici-item {
+  margin-bottom: 25px;
+  font-size: 18px; }
+  .m-souvisejici-item img {
+    width: 100%;
+    height: auto; }
+  .m-souvisejici-item a {
+    color: #000; }
+    .m-souvisejici-item a:hover {
+      color: #c20e1a; }
+
 /*# sourceMappingURL=app.css.map */
