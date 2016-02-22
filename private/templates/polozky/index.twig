@@ -10,16 +10,30 @@
 	{# {% include '/_partials/base/_top-breadcrumbs.twig' with {'class': 'mm-over'} %} #}
 	{% set entries = craft.entries.section('polozky') %}
 
-	{# TODO: udělat markup - výpis položek #}
+	{# TODO: udělat markup - výpis položek :: Michale udělal jsem si takový provizorní pro lepší orientaci, třídy i strukturu samozřejmě ignoruj a udělej podle potřeby#}
 
 	{% for entry in entries %}
 	<article>
 		{% if entry.uvodniObrazek %}
 			{% for i in entry.uvodniObrazek %}<img src="{{ i.getUrl('thumb') }}" style="float:left;">{% endfor %}
 		{% endif %}
-		<h1><a href="{{entry.url}}">{{entry.Title}}</a></h1>
-		<span>{{entry.poznamka}}</span><br>
-		<span>{{entry.katalogoveCislo}}</span><br>
+		<div class="first-header-row row">
+			<div class="leftpart medium-3 columns">
+				<h1><a href="{{entry.url}}">{{entry.Title}}</a></h1>
+				<span>{{entry.poznamka}}</span><br>
+			</div>
+			<div class="rightpart medium-9 columns">
+				prioriritni tagy + rozmery
+			</div>
+		</div>
+		<div class="bottom-row row">
+			<div class="leftpart medium-3 columns">
+				<span>{{entry.katalogoveCislo}}</span><br>
+			</div>
+			<div class="rightpart medium-9 columns">
+				vypsat ostatní tagy, ais jako lička?
+			</div>
+		</div>
 
 		{# TODO: udělat výpis taxonomie a prioritni taxonomie s rozměry #}
 	</article>
