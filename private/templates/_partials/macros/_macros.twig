@@ -6,3 +6,11 @@
     {% if sirka %}<li><i title="Šířka" class="dot">Š</i><span>{{ sirka }} mm</span></li>{% endif %}
 </ul>
 {% endmacro %}
+
+{% macro listRelated( related ) %}
+<ul>
+    {% for clanek in related %}
+    <li><a href="{{clanek.url}}">{{clanek.title}}</a></li>
+    {% endfor %}
+</ul>
+{% endmacro %}

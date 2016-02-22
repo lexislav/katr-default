@@ -22,22 +22,10 @@
 					</h1>
                 </div>
 
-                <div class="columns small-3 small-offset-1">
-                        <nav class="row">
-                            <div class="columns small-4 text-right">
-                                {% if entry.prevSibling %}<a href="{{ entry.prevSibling.url }}"><i class="fa fa-2x fa-arrow-left"></i></a>{% endif %}
-                            </div>
+				<div class="columns small-3 small-offset-1">
+					{% include '/_partials/common/_prevnext-nav.twig' with { "navPosition" : "top" } %}
+				</div>
 
-                            <div class="columns small-4 text-center">
-                                {% if entry.getAncestors(1)|length>0 %}<a href="{{entry.getAncestors(1).first.url}}"><i class="fa fa-2x fa-arrow-up"></i></a>{% endif %}
-                            </div>
-
-                            <div class="columns small-4 text-left">
-                                {% if entry.nextSibling %}<a href="{{ entry.nextSibling.url }}"><i class="fa fa-2x fa-arrow-right"></i></a>{% endif %}
-                            </div>
-                        </nav>
-
-                </div>
             </div>
         </header>
 
@@ -64,17 +52,16 @@
                 {# prava strana obsah #}
 
 
-                {# tohle je stejný blok jako vespod#}
+                {% import "_partials/macros/_macros.twig" as macros %}
+
                 {# dát do samostatné podšablony #}
                 <div class="m-dalsi  bg-grey-light">
-                    <h2 class="f-xl f-800 mm-pad-bottom-half">Další články v Nápověda / FAQ:</h2>
-                    <ul>
-                        <li><a href="">clanek</a></li>
-                        <li><a href="">clanek</a></li>
-                        <li><a href="">clanek</a></li>
-                        <li><a href="">clanek</a></li>
-                        <li><a href="">clanek</a></li>
-                    </ul>
+                    <h2 class="f-xl f-800 mm-pad-bottom-half">Související články:</h2>
+					{% if entry.getChildren|length > 0 %}
+					{{ macros.listRelated( entry.getChildren(1) ) }}
+					{% else %}
+					{{ macros.listRelated( entry.getSiblings() ) }}
+					{% endif %}
                 </div>
 
                 {# prava strana obsah - konec#}
@@ -92,39 +79,24 @@
 
 
                 {# tohle je stejný blok jako v pravé straně#}
+				{# TODO: stejný blok jako napravo, měl by být vždy vidět ale jen jeden. na desktopu ten vpravo, na iPadu portrait jen ten dole, asi jasný, jen pro jistotu uvádím #}
                 {# dát do samostatné podšablony #}
+				{# NOTE: hodil jsem to do makra, wrappery jsou zde, neví, zda je to dle tebe dostačující #}
                 <div class="m-dalsi">
-                    <h2 class="f-xl f-800 mm-pad-bottom-half">Další články v Nápověda / FAQ:</h2>
-                    <ul>
-                        <li><a href="">clanek</a></li>
-                        <li><a href="">clanek</a></li>
-                        <li><a href="">clanek</a></li>
-                        <li><a href="">clanek</a></li>
-                        <li><a href="">clanek</a></li>
-                    </ul>
+                    <h2 class="f-xl f-800 mm-pad-bottom-half">Související články:</h2>
+					{% if entry.getChildren|length > 0 %}
+					{{ macros.listRelated( entry.getChildren(1) ) }}
+					{% else %}
+					{{ macros.listRelated( entry.getSiblings() ) }}
+					{% endif %}
                 </div>
 
             </div>
         </div>
     </div>
 
-
-    {# navigace další předchozí #}
-    {# dát do samostatné podšablony, pokud se bude používat na více místech #}
-    <div class="bg-grey-light mm-pad-top mm-pad-bottom">
-        <nav class="row">
-            <div class="columns small-4 text-left">
-                <a href=""><i class="fa fa-arrow-left"></i> Předchozí</a>
-            </div>
-
-            <div class="columns small-4 text-center">
-                <a href=""><i class="fa fa-arrow-up"></i> FAQ</a>
-            </div>
-
-            <div class="columns small-4 text-right">
-                <a href=""><i class="fa fa-arrow-right"></i> Další</a>
-            </div>
-        </nav>
-    </div>
+	<div class="bg-grey-light mm-pad-top mm-pad-bottom">
+		{% include '/_partials/common/_prevnext-nav.twig' with { "navPosition" : "bottom" } %}
+	</div>
 
 {% endblock %}
