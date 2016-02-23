@@ -27,48 +27,6 @@
 
     </article>
 
-
-    {# sekce související #}
-
-    <div class="m-section bg-grey-light mm-mgr-top mm-mgr-bottom-tiny">
-        <div class="row">
-            <div class="columns small-7 small-offset-1">
-
-
-                {# tohle je stejný blok jako v pravé straně#}
-                {# dát do samostatné podšablony #}
-                <div class="m-block mm-bottom">
-                    <h2 class="f-xl f-800">Další články v Nápověda / FAQ:</h2>
-                    <ul>
-                        <li><a href="">clanek</a></li>
-                        <li><a href="">clanek</a></li>
-                        <li><a href="">clanek</a></li>
-                        <li><a href="">clanek</a></li>
-                        <li><a href="">clanek</a></li>
-                    </ul>
-                </div>
-
-            </div>
-        </div>
-    </div>
-
-
-    {# navigace další předchozí #}
-    {# dát do samostatné podšablony, pokud se bude používat na více místech #}
-    <div class="bg-grey-light mm-pad-top mm-pad-bottom">
-        <nav class="row mm-inverted-link-colors">
-            <div class="columns small-4 text-left f-800 f-l">
-                <a href=""><i class="fa fa-arrow-left"></i> Předchozí</a>
-            </div>
-
-            <div class="columns small-4 text-center f-800 f-l">
-                <a href=""><i class="fa fa-arrow-up"></i> FAQ</a>
-            </div>
-
-            <div class="columns small-4 text-right f-800 f-l">
-                <a href=""><i class="fa fa-arrow-right"></i> Další</a>
-            </div>
-        </nav>
-    </div>
+    {% include "/_partials/obsah/_obsah-upozorneni.twig" %}
 
 {% endblock %}
