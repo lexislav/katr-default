@@ -16,7 +16,12 @@
             {# horni linka#}
             <div class="row align-top m-product-list--line-top">
                 <div class="columns shrink">
-                    <h1 class="f-xl f-600"><a href="{{ entry.url }}" title="">{{entry.Title}}</a></h1>
+                    <h1 class="f-xl f-600"><a href="{{ entry.url }}" title="">{{entry.Title}}</a>
+                        {# TODO: Michale,prosím drobe tzmenšit tu tužtičku tady #}
+                        {% if entry.isEditable() %}
+                            <a href="{{ entry.cpEditUrl }}" title="Editovat stránku" alt="Editace stránky"><i class="fa f-xl fa-pencil"></i></a>
+                        {% endif %}
+                    </h1>
                     <div class="f-xxs c-grey-mid">{{entry.poznamka}}</div>
                 </div>
 
