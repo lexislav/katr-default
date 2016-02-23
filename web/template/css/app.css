@@ -4388,6 +4388,12 @@ label a {
     text-decoration: none; }
     .m-product-list-item a:hover {
       color: #c20e1a; }
+  @media screen and (min-width: 0em) and (max-width: 39.9375em) {
+    .m-product-list-item .ignore-gutter {
+      padding-left: 0; } }
+  @media screen and (min-width: 40em) and (max-width: 63.9375em) {
+    .m-product-list-item .ignore-gutter {
+      padding-left: 0; } }
 
 .m-product-list--center-wrapper {
   padding-top: 10px;

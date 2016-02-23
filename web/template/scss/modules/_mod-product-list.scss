@@ -18,6 +18,16 @@
             color: $color-koma-primary;
         }
     }
+
+    .ignore-gutter {
+        @media #{$small-only} {
+            padding-left: 0;
+        }
+        @media #{$medium-only} {
+            padding-left: 0;
+        }
+    }
+
 }
 
 .m-product-list--center-wrapper {
