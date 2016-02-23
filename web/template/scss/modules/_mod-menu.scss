@@ -31,11 +31,15 @@
 .box-params {
 
     li {
-        border-radius: 2px;
-        background-color: white;
-        margin-right: 4px;
+        margin-right: 8px;
+        border-radius: 4px;
+
         display: inline-block;
         overflow: hidden;
+        height: 20px;
+        line-height: 20px;
+        margin-bottom: 6px;
+        background-color: white;
     }
 
     i {
@@ -47,18 +51,26 @@
         text-transform: lowercase;
         font-style: normal;
 
-        padding: 4px;
+        //padding: 6px 4px;
         min-width: 24px;
+        padding-left: 4px;
+        padding-right: 4px;
     }
 
     span {
         padding-left: 4px;
         padding-right: 4px;
+
     }
 
-    i,span {
-        font-size: rem-calc(14);
-        line-height: 1em;
+    i, span {
+        font-size: 12px;
+        line-height: 22px;
+    }
+
+    .tag {
+
+        background-color: transparent;
     }
 }
 
@@ -67,8 +79,6 @@
     li {
         padding: 4px;
         border-top: 1px solid $color-koma-ui-dark;
-
-
 
         &:last-child {
             border-bottom: 1px solid $color-koma-ui-dark;

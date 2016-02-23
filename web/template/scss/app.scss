@@ -148,3 +148,12 @@ a.button {
 }
 
 
+.tag {
+    display: inline-block;
+    border-radius: 4px;
+    padding: 2px 8px;
+    line-height: 1em;
+    border: 2px solid $color-koma-ui-darken;
+    color: $color-koma-ui-darken;
+    font-size: 12px;
+}

@@ -15,21 +15,27 @@
 
             <article class="m-product-list-item">
                 <div class="row align-middle">
+
+                    {# obrazek #}
                     <div class="columns small-2">
-                        <div><img src="http://lorempixel.com/150/100/" alt=""></div>
+                        <div class="m-product-list-item--image" style="background-image: url(http://lorempixel.com/150/100/)">
+                            <a href="#"></a>
+                        </div>
                     </div>
 
+                    {# stredni sloupec #}
                     <div class="columns m-product-list--center-wrapper">
 
                         {# horni linka#}
                         <div class="row align-top m-product-list--line-top">
                             <div class="columns shrink">
-                                <h1 class="f-xl f-600">Rám C3</h1>
-                                <div class="f-xxs">description</div>
+                                <h1 class="f-xl f-600"><a href="" title="">Rám C3</a></h1>
+                                <div class="f-xxs c-grey-mid">description</div>
                             </div>
 
                             <div class="columns">
                                 <ul class="menu align-right dot-params">
+                                    <li><span class="tag">MujTag</span></li>
                                     <li><i title="Hloubka / délka" class="dot">H</i><span>200 mm</span></li>
                                     <li><i title="Hloubka / délka" class="dot">H</i><span>200 mm</span></li>
                                     <li><i title="Hloubka / délka" class="dot">H</i><span>200 mm</span></li>
@@ -41,24 +47,25 @@
                         {# dolni linka #}
                         <div class="row align-middle m-product-list--line-bottom">
                             <div class="columns shrink">
-                                <div class="f-m">0900808080</div>
+                                <div class="f-m c-grey-mid">0900808080</div>
                             </div>
 
                             <div class="columns">
                                 <ul class="menu align-right box-params">
+                                    <li><i title="Hloubka / délka" class="dot">SVH</i><span>200 mm</span></li>
+                                    <li><i title="Hloubka / délka" class="dot">H</i></li>
+                                    <li><span>200 mm</span></li>
                                     <li><i title="Hloubka / délka" class="dot">H</i><span>200 mm</span></li>
-                                    <li><i title="Hloubka / délka" class="dot">H</i><span>200 mm</span></li>
-                                    <li><i title="Hloubka / délka" class="dot">H</i><span>200 mm</span></li>
-                                    <li><i title="Hloubka / délka" class="dot">H</i><span>200 mm</span></li>
+
                                 </ul>
                             </div>
 
                         </div>
 
+                    </div>{# konec stredniho sloupce #}
 
-                    </div>
 
-                    {# opt button pro košík#}
+                    {#  opt button pro košík, stačí dát clé do podmínky #}
                     <div class="columns small-1">
                         <div><a href=""> <i class="fa fa-4x fa-pause-circle-o"></i></a></div>
                     </div>
