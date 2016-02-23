@@ -4448,41 +4448,55 @@ label a {
 
 .drill-down {
   position: relative;
-  height: 100%; }
+  height: 100%;
+  background-color: #858585;
+  color: white; }
 
 .drill-level {
-  background-color: white;
+  background-color: #858585;
+  color: white;
   position: fixed;
   left: 0;
   width: 100%;
   height: 100%;
   margin: auto;
   transition: all 0.3s ease-out;
-  border-top: 1px solid black; }
+  border-top: 1px solid #b5bbb4; }
+  .drill-level a {
+    display: block;
+    width: 100%;
+    padding: 20px 20px;
+    color: black;
+    text-decoration: none; }
+    .drill-level a:hover {
+      color: white; }
 
 .drill-hidden {
   transition: all 0.3s ease-out;
   transform: translateX(100%); }
 
 .drill-next {
-  display: none; }
+  display: none;
+  padding: 20px 20px;
+  color: black; }
+  .drill-next:hover {
+    color: white; }
 
 .drill-title {
-  flex-grow: 5;
-  padding: 30px;
-  cursor: pointer; }
+  flex-grow: 5; }
 
 .drill-next,
 .drill-icon {
   min-width: 100px;
   text-align: center;
-  border-left: 1px solid black;
-  padding: 30px;
+  border-left: 1px solid #b5bbb4;
   cursor: pointer; }
 
 .drill-item {
-  border-bottom: 1px solid black;
-  display: flex; }
+  border-bottom: 1px solid #b5bbb4;
+  display: flex;
+  font-size: 30px;
+  font-family: "Purista"; }
   .drill-item.drill-has-childs .drill-next {
     display: block; }
 

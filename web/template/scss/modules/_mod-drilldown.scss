@@ -1,13 +1,24 @@
 /// my drilldown
 
+$drill-border-color: $color-koma-ui-mid;
+$drill-color: white;
+$drill-bg-color: $color-koma-ui-dark;
+$drill-link-color: black;
+$drill-link-hover-color: white;
+$drill-font-size: 30px;
+$drill-font-family: 'Purista';
+$drill-padding: 20px 20px;
+
 .drill-down {
     position: relative;
     height: 100%;
-
+    background-color: $drill-bg-color;
+    color: $drill-color;
 }
 
 .drill-level {
-    background-color: white;
+    background-color: $drill-bg-color;
+    color: $drill-color;
     position: fixed;
     left: 0;
     width: 100%;
@@ -15,7 +26,20 @@
     margin: auto;
     transition: all 0.3s ease-out;
 
-    border-top: 1px solid black;
+    border-top: 1px solid $drill-border-color;
+
+    a {
+        display: block;
+        width: 100%;
+        padding: $drill-padding;
+
+        color: $drill-link-color;
+        text-decoration: none;
+
+        &:hover {
+            color: $drill-link-hover-color;
+        }
+    }
 }
 
 .drill-hidden {
@@ -28,27 +52,33 @@
 
 .drill-next {
     display: none;
+    padding: $drill-padding;
+    color: $drill-link-color;
+    &:hover {
+        color: $drill-link-hover-color;
+    }
 }
 
 .drill-title {
     flex-grow: 5;
-    padding: 30px;
-    cursor: pointer;
+    //padding: $drill-padding;
+    //cursor: pointer;
 }
 
 .drill-next,
 .drill-icon {
     min-width: 100px;
     text-align: center;
-    border-left: 1px solid black;
-    padding: 30px;
+    border-left: 1px solid $drill-border-color;
+    //padding: $drill-padding;
     cursor: pointer;
 }
 
 .drill-item {
-    border-bottom: 1px solid black;
-
+    border-bottom: 1px solid $drill-border-color;
     display: flex;
+    font-size: $drill-font-size;
+    font-family: $drill-font-family;
 
     &.drill-has-childs {
         .drill-next {
