@@ -1,0 +1,62 @@
+{% extends "/_partials/layout/_base.twig" %}
+
+{# posila se prazdny auth block kuli codekitu#}
+{% block user_autenth %}{% endblock user_autenth %}
+
+{% block content %}
+
+    <div class="button" drill-back>Back</div>
+
+    <div id="drill-down">
+        <div drill-history></div>
+
+    </div>
+
+{% endblock %}
+
+ {% block pageScripts %}
+     {% set pages = craft.entries.section('katalog') %}
+
+     <script src="/template/js/koma-drill-down.js"></script>
+
+     <script>
+
+         {# build drilldown js inline config by twig #}
+         /* ********************************************* */
+         var drillDownData = [];
+         drillDownData = [
+             {% nav page in pages %}
+             {
+                 title: '{{ page.title }}',
+                 url: '{{ page.url }}',
+                 childs: [
+                     {% ifchildren %}
+                     {% children %}
+                     {% endifchildren %}
+                 ]
+             },
+             {% endnav %}
+         ];
+         /* ********************************************* */
+         {# drilldown config end #}
+
+         $(function () {
+
+             var drill = new DrillDown(drillDownData);
+
+//             $('[drill-back]').each(function () {
+//                 $(this).on('click', historyGoBack);
+//             });
+//
+//             $('[drill-level]').each(function () {
+//                 $(this).on('click', function () {
+//                     var goToLevel = $(this).data('drill-hist-level');
+//                     histBackLevel(goToLevel);
+//                 });
+//             });
+         });
+
+
+     </script>
+
+ {% endblock %}
