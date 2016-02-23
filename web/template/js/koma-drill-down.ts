@@ -6,11 +6,13 @@
 
 class DrillDown {
 
-    public ddSelector = '#drill-down';
-    public ddHistorySelector = '[drill-history]';
-    public ddRootName = 'Home';
+    public options = {
 
-    //
+        selector: '#drill-down',
+        historySelector: '.drill-history',
+        rootLevelName: 'Home'
+
+    };
 
     public root = null;
     public historyElement = null;
@@ -19,43 +21,59 @@ class DrillDown {
     private history = [];
 
 
-    constructor(drillDownData) {
+    constructor(drillDownData, opts?) {
 
         if (drillDownData == null) {
             console.error('Missing drilldown data');
             return;
         }
 
+        // parse config (optional)
+        if (opts) {
+            if (opts.selector) {
+                this.options.selector = opts.selector;
+            }
+
+            if (opts.historySelector) {
+                this.options.historySelector = opts.historySelector;
+            }
+
+            if (opts.rootLevelName) {
+                this.options.rootLevelName = opts.rootLevelName;
+            }
+        }
+
         // pass data localy
         this.data = drillDownData;
-        this.root = $(this.ddSelector);
+        this.root = $(this.options.selector);
 
-        this.historyElement = this.root.find(this.ddHistorySelector);
+        this.historyElement = this.root.find(this.options.historySelector);
         console.dir(this.historyElement);
 
         console.log("Koma Drill Down init");
         console.dir(this.data);
 
         // start building levels
-        this.buildLevel(this.data, this.ddRootName);
+        this.buildLevel(this.data, this.options.rootLevelName);
+        this.buildBackButtons();
 
     }
 
     private buildLevel(childs, historyName) {
-        var level = $('<div class="drl-level"></div>');
+        var level = $('<div class="drill-level"></div>');
 
         // if this is first element
         if (this.history.length > 0) {
-            level.addClass('drl-hidden');
+            level.addClass('drill-hidden');
         }
 
         childs.forEach((entry) => {
             // build items
-            var levelItem = $('<div drill-item><div drill-title><a href="' + entry.url + '">' + entry.title + '</a></div> <div drill-next> > </div> <div drill-icon><a href="' + entry.url + '"><i class="fa fa-pause"></i></a></div> </divdrill>');
-            var clickTarget = levelItem.find('[drill-next]');
+            var levelItem = $('<div class="drill-item"><div class="drill-title"><a href="' + entry.url + '">' + entry.title + '</a></div> <div class="drill-next"> > </div> <div class="drill-icon"><a href="' + entry.url + '"><i class="fa fa-pause"></i></a></div> </div>');
+            var clickTarget = levelItem.find('.drill-next');
 
             if (entry.childs.length > 0) {
-                levelItem.addClass('drl-has-childs');
+                levelItem.addClass('drill-has-childs');
 
                 // click on cell
                 clickTarget.on('click', (event) => {
@@ -71,7 +89,7 @@ class DrillDown {
         this.root.append(level);
 
         var myShowTimeOut = setTimeout((t) => {
-            level.removeClass('drl-hidden');
+            level.removeClass('drill-hidden');
             clearTimeout(myShowTimeOut);
         }, 20);
 
@@ -91,7 +109,7 @@ class DrillDown {
 
     private removeLevel(level) {
         var myTimeout = setTimeout(function () {
-            level.addClass('drl-hidden');
+            level.addClass('drill-hidden');
             clearTimeout(myTimeout);
         }, 20);
     }
@@ -101,7 +119,7 @@ class DrillDown {
         this.historyElement.empty();
         this.history.forEach((entry, index) => {
 
-            var drillElement = $('<div drill-hist-button></div>');
+            var drillElement = $('<div class="drill-hist-button"></div>');
             drillElement.text(entry.title);
 
             drillElement.on('click', (event) => {
@@ -131,6 +149,32 @@ class DrillDown {
             }
         }
         this.historyShow();
+    }
+
+    private buildBackButtons() {
+        // build back buttons for drill-down instance
+        $('[drill-back]').each((index, elem) => {
+            var el = $(elem);
+            if (el.attr('drill-back') == this.options.selector) {
+                console.log('back');
+
+                el.on('click', (event) => {
+                    this.historyGoBack();
+                });
+            }
+        });
+
+        // build home buttons for drill-down instance
+        $('[drill-home]').each((index, elem) => {
+            var el = $(elem);
+            if (el.attr('drill-home') == this.options.selector) {
+                console.log('home');
+
+                el.on('click', (event) => {
+                    this.histBackLevel(1);
+                });
+            }
+        });
     }
 
 }

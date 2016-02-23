@@ -1,0 +1,77 @@
+/// my drilldown
+
+.drill-down {
+    position: relative;
+    height: 100%;
+
+}
+
+.drill-level {
+    background-color: white;
+    position: fixed;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    margin: auto;
+    transition: all 0.3s ease-out;
+
+    border-top: 1px solid black;
+}
+
+.drill-hidden {
+    transition: all 0.3s ease-out;
+    transform: translateX(100%);
+}
+
+.drill-history {
+}
+
+.drill-next {
+    display: none;
+}
+
+.drill-title {
+    flex-grow: 5;
+    padding: 30px;
+    cursor: pointer;
+}
+
+.drill-next,
+.drill-icon {
+    min-width: 100px;
+    text-align: center;
+    border-left: 1px solid black;
+    padding: 30px;
+    cursor: pointer;
+}
+
+.drill-item {
+    border-bottom: 1px solid black;
+
+    display: flex;
+
+    &.drill-has-childs {
+        .drill-next {
+            display: block;
+        }
+    }
+
+}
+
+.drill-hist-button {
+    display: inline-block;
+    margin-right: 10px;
+    cursor: pointer;
+
+    &:after {
+        content: ">";
+        display: inline-block;
+        margin-left: 10px;
+    }
+
+    &:last-of-type {
+        &:after {
+            display: none;
+        }
+    }
+}

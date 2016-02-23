@@ -5,10 +5,11 @@
 
 {% block content %}
 
-    <div class="button" drill-back>Back</div>
+    <div class="button" drill-back="#drill-down">Back</div>
+    <div class="button" drill-home="#drill-down">Home</div>
 
-    <div id="drill-down">
-        <div drill-history></div>
+    <div id="drill-down" class="drill-down">
+        <div class="drill-history"></div>
 
     </div>
 
@@ -42,18 +43,14 @@
 
          $(function () {
 
-             var drill = new DrillDown(drillDownData);
+             var opt = {
+                 selector: '#drill-down',
+                 rootLevelName: 'Houmer'
+             };
 
-//             $('[drill-back]').each(function () {
-//                 $(this).on('click', historyGoBack);
-//             });
-//
-//             $('[drill-level]').each(function () {
-//                 $(this).on('click', function () {
-//                     var goToLevel = $(this).data('drill-hist-level');
-//                     histBackLevel(goToLevel);
-//                 });
-//             });
+             var drill = new DrillDown(drillDownData, opt);
+
+
          });
 
 
