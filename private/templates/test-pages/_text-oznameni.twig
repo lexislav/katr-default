@@ -20,23 +20,7 @@
         </header>
     </article>
 
-
-    <div class="m-oznameni">
-    {% for i in 1..8 %}
-        <article class=" mm-pad-bottom-half mm-pad-top-half">
-            <div class="row">
-                <div class="column small-2 small-offset-1">
-                    <div class="f-400 f-xs">February 01, 2016</div>
-                </div>
-                <div class="columns small-8">
-                    <h1 class="f-400 f-m"><a href="#">Byla přidána nová skupina produktů v kategorii Okna a dveře, celkem se jedná o 15 položek.</a></h1>
-                </div>
-            </div>
-        </article>
-
-    {% endfor %}
-    </div>
-
+    {% include "/_partials/obsah/_vypis-oznameni.twig" %}
 
     {% include "/_partials/base/_nav-top.twig" %}
 

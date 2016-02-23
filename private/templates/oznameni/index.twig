@@ -5,26 +5,40 @@
 
 {% extends "/_partials/layout/_base.twig" %}
 
-{% set title = "Oznámení" %}
-
-{# TODO: markup výpisu iznámení #}
-
 {% block content %}
-    <h1>Oznámení</h1>
+    <article>
+        <header class="mm-mgr-bottom">
+            <div class="row align-bottom">
 
-    {% for entry in craft.entries.section('oznameni').find() %}
-        <article>
-            <div class="row">
-                <div class="column small-3">
-                    {{ entry.postDate.format('F d, Y') }}
+                <div class="columns small-8">
+                    <h1 class="xxl">Oznámení</h1>
                 </div>
 
-                <div class="">
-
-                <h1><a href="{{ entry.url }}">{{ entry.title }}</a></h1>
-                </div>
             </div>
-        </article>
+        </header>
+    </article>
 
-    {% endfor %}
+    {% include "/_partials/obsah/_vypis-oznameni.twig" %}
+
+    {% include "/_partials/base/_nav-top.twig" %}
+
+    {# TODO: napojit navigaci #}
+    {# navigace další předchozí #}
+    {# dát do samostatné podšablony, pokud se bude používat na více místech #}
+    <div class="bg-grey-light mm-pad-top mm-pad-bottom">
+        <nav class="row mm-inverted-link-colors mm-link-notunderline">
+            <div class="columns small-4 text-left f-800 f-l">
+                <a href=""><i class="fa fa-arrow-left"></i> Starší</a>
+            </div>
+
+            <div class="columns small-4 text-center f-800 f-l">
+                5 / 8
+            </div>
+
+            <div class="columns small-4 text-right f-800 f-l">
+                <a href=""><i class="fa fa-arrow-right"></i> Novější</a>
+            </div>
+        </nav>
+    </div>
+
 {% endblock %}

@@ -1,0 +1,17 @@
+<header class="mm-mgr-bottom">
+    <div class="row align-bottom">
+
+        <div class="columns small-8">
+            <h1 class="xxl">{{ entry.title }}
+                {% if entry.isEditable() %}
+                    <a href="{{ entry.cpEditUrl }}" title="Editovat stránku" alt="Editace stránky"><i class="fa f-xl fa-pencil"></i></a>
+                {% endif %}
+            </h1>
+        </div>
+
+        <div class="columns small-3 small-offset-1">
+            {% include '/_partials/common/_prevnext-nav.twig' with { "navPosition" : "top" } %}
+        </div>
+
+    </div>
+</header>

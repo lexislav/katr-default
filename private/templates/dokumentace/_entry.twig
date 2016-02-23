@@ -11,49 +11,18 @@
 	{% include '/_partials/base/_top-breadcrumbs.twig' %}
 
     <article>
-        <header class="mm-mgr-bottom">
-            <div class="row align-bottom">
-
-                <div class="columns small-8">
-                    <h1 class="xxl">{{ entry.title }}
-						{% if entry.isEditable() %}
-	                        <a href="{{ entry.cpEditUrl }}" title="Editovat stránku" alt="Editace stránky"><i class="fa f-xl fa-pencil"></i></a>
-	                    {% endif %}
-					</h1>
-                </div>
-
-				<div class="columns small-3 small-offset-1">
-					{% include '/_partials/common/_prevnext-nav.twig' with { "navPosition" : "top" } %}
-				</div>
-
-            </div>
-        </header>
+		{% include "/_partials/obsah/_obsah-textpage-header.twig" %}
 
 
         <div class="row">
-            <div class="columns small-12 large-9">
-                <div class="row">
-                    <div class="columns small-12">
-                        <div class="m-body-copy"> {# tenhle wrapper sebou nese definici typografie pro detail#}
 
-                            {# obsah - text #}
-
-							{{ entry.docsBody }}
-
-                            {# obsah - text - konec #}
-
-                        </div>
-                    </div>
-                </div>
-            </div>
+            {% include "/_partials/obsah/_obsah-textpage-body.twig" %}
 
             {# prava strana pouze pro large#}
             <div class="columns large-3  hide-for-small-only hide-for-medium-only">
+
                 {# prava strana obsah #}
-
-
                 {% import "_partials/macros/_macros.twig" as macros %}
-
                 {# dát do samostatné podšablony #}
                 <div class="m-dalsi  bg-grey-light">
                     <h2 class="f-xl f-800 mm-pad-bottom-half">Související články:</h2>
@@ -63,8 +32,8 @@
 					{{ macros.listRelated( entry.getSiblings() ) }}
 					{% endif %}
                 </div>
-
                 {# prava strana obsah - konec#}
+				
             </div>
         </div>
 
