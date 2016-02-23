@@ -8,7 +8,21 @@
 
     {% if currentUser %}
         <article>
-            <h1>Vítejte v katalogu KOMA</h1>
+            <div class="m-section">
+                <div class="row">
+                    <div class="small-12 column text-center">
+                        <h1 class="s-hollow f-xxl" style="margin-bottom: 30px;">Vítejte v KATALOGu</h1>
+                        <h2 class="f-xl">KATALOG – Katalog technických řešení KOMA</h2>
+                    </div>
+                </div>
+            </div>
+
+            {# úvodní nabídka na wellcome straně #}
+            {% include "/_partials/obsah/_wellcome-shorts.twig"%}
+
+            {# taby na rozcestníku (úvodní stránce) #}
+            {% include "/_partials/obsah/_wellcome-tabs.twig"%}
+
             {% include "/_partials/obsah/_obsah-upozorneni.twig" %}
         </article>
     {% else %}
