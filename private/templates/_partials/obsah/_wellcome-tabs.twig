@@ -13,12 +13,23 @@
         <div class="tabs-panel mm-pad-bottom mm-pad-top is-active" id="panel1">
             <div class="row align-center">
                 <div class="columns small-5">
-                    <h3 class="f-xl f-800">Hello</h3>
+                    <h3 class="f-xl f-800">Oznámení</h3>
                 </div>
                 <div class="columns small-5">
-                    <p>Vivamus hendrerit arcu sed erat molestie vehicula. Sed auctor neque eu tellus rhoncus ut eleifend nibh porttitor. Ut in nulla enim. Phasellus molestie magna non est bibendum non venenatis nisl tempor. Suspendisse dictum feugiat nisl ut dapibus.</p>
-                    <p>Vivamus hendrerit arcu sed erat molestie vehicula. Sed auctor neque eu tellus rhoncus ut eleifend nibh porttitor. Ut in nulla enim. Phasellus molestie magna non est bibendum non venenatis nisl tempor. Suspendisse dictum feugiat nisl ut dapibus.</p>
+                    {% for entry in craft.entries.section('oznameni').limit(10) %}
+                    <article>
+                        <div class="row">
+                            <div class="column small-3">
+                                {{ entry.postDate.format('F d, Y') }}
+                            </div>
 
+                            <div class="">
+
+                            <h1><a href="{{ entry.url }}">{{ entry.title }}</a></h1>
+                            </div>
+                        </div>
+                    </article>
+                    {% endfor %}
                 </div>
             </div>
 
@@ -30,9 +41,7 @@
                     <h3 class="f-xl f-800">FAQ</h3>
                 </div>
                 <div class="columns small-5">
-                    <p>Vivamus hendrerit arcu sed erat molestie vehicula. Sed auctor neque eu tellus rhoncus ut eleifend nibh porttitor. Ut in nulla enim. Phasellus molestie magna non est bibendum non venenatis nisl tempor. Suspendisse dictum feugiat nisl ut dapibus.</p>
-                    <p>Vivamus hendrerit arcu sed erat molestie vehicula. Sed auctor neque eu tellus rhoncus ut eleifend nibh porttitor. Ut in nulla enim. Phasellus molestie magna non est bibendum non venenatis nisl tempor. Suspendisse dictum feugiat nisl ut dapibus.</p>
-
+                    <p>Sekce FAQ je zatím prázdná.</p>
                 </div>
             </div>
 
