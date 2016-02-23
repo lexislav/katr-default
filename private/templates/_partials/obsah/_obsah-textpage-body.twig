@@ -4,8 +4,16 @@
             <div class="m-body-copy"> {# tenhle wrapper sebou nese definici typografie pro detail#}
 
                 {# obsah - text #}
-
-                {{ entry.docsBody }}
+                {% for block in entry.docsBody %}
+                    {% if block.type == "docsBody" %}
+                        {{ block.text }}
+                    {% else %}
+                        <figure>
+                            <img src="{{block.figureImage.getUrl('fullSize')}}" alt="{{block.figureImage.title}}">
+                            <figcaption><strong>{{block.figureTitle}}:</strong> {{ block.figureDescription }}</figcaption>
+                        </figure>
+                    {% endif %}
+                {% endfor %}
 
                 {# obsah - text - konec #}
 
