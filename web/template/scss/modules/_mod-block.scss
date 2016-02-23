@@ -1,0 +1,22 @@
+
+.m-block {
+    &.mm-side {
+        padding: 20px;
+        h2 {
+            padding-bottom: .4em;
+        }
+        ul {
+            margin-left: 0;
+        }
+        li {
+            list-style: none;
+        }
+    }
+    &.mm-bottom {
+        font-size: 20px;
+    }
+
+    li {
+        margin-bottom: .8em;
+    }
+}

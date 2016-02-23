@@ -1,0 +1,24 @@
+
+// produkt list
+
+.m-product-list-item {
+    background-color: $color-koma-ui-light;
+    margin-bottom: 4px;
+
+    h1 {
+        margin-bottom: 0;
+    }
+}
+.m-product-list--center-wrapper {
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.m-product-list--line-top,
+.m-product-list--line-bottom {
+    //border-bottom: 1px solid blue;
+}
+
+.m-product-list--line-top {
+    min-height: 50px;
+}
