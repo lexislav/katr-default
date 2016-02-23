@@ -9,7 +9,7 @@
                         {{ block.text }}
                     {% else %}
                         <figure>
-                            <img src="{{block.figureImage.getUrl('fullSize')}}" alt="{{block.figureImage.title}}">
+                            <img src="/{{block.figureImage.first.getUrl('fullfigure')}}" alt="">
                             <figcaption><strong>{{block.figureTitle}}:</strong> {{ block.figureDescription }}</figcaption>
                         </figure>
                     {% endif %}
