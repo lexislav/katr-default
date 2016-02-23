@@ -7,12 +7,11 @@
 
 {% block content %}
 
-	{# {% include '/_partials/base/_top-breadcrumbs.twig' with {'class': 'mm-over'} %} #}
 	{% set entries = craft.entries.section('polozky') %}
 
-	{# TODO: udělat markup - výpis položek :: Michale udělal jsem si takový provizorní pro lepší orientaci, třídy i strukturu samozřejmě ignoruj a udělej podle potřeby#}
-
 	{% import "_partials/macros/_macros.twig" as macros %}
+
+	<div class="m-product-list">
 
 	{% for entry in entries %}
 
@@ -25,56 +24,13 @@
 	{# získání ostatních taxonomií pro danou položku #}
 	{% set cats = structureHandle.ostatniKat %}
 
-	<article>
-		{% if entry.uvodniObrazek %}
-			{% for i in entry.uvodniObrazek %}<img src="{{ i.getUrl('thumb') }}" style="float:left;">{% endfor %}
-		{% endif %}
-		<div class="first-header-row row">
-			<div class="leftpart medium-3 columns">
-				<h1><a href="{{entry.url}}">{{entry.Title}}</a></h1>
-				<span>{{entry.poznamka}}</span><br>
-			</div>
-			<div class="rightpart medium-9 columns">
-				{# výpis prioritních tagů - cyklus adept na makro #}
-				{% for pc in priorityCats %}{% set catValues = craft.categories({ relatedTo: { sourceElement: entry, field:pc.libraryHandle }, limit: null }) %}
-					<li>
-						<div>
-							{% if pc.shortTitle %}
-								<span><strong>{{ pc.shortTitle }}</strong></span>
-							{% endif %}
-							<span class="align-right">{{ catValues.first }}</span>
-						</div>
-					</li>
-				{% endfor %}
+	{% include "_partials/common/_product-card.twig" %}
 
-				{# výpis rozměrů #}
-				{{ macros.dimensions(entry.hloubka, entry.vnitrniVyska, entry.vyska, entry.sirka) }}
-			</div>
-		</div>
-		
-		<div class="bottom-row row">
-			<div class="leftpart medium-3 columns">
-				<span>{{entry.katalogoveCislo}}</span><br>
-			</div>
-			<div class="rightpart medium-9 columns">
-				{# výpis ostatních kategorií # - cyklus adept na makro #}
-				{% for pc in cats %}{% set catValues = craft.categories({ relatedTo: { sourceElement: entry, field:pc.libraryHandle }, limit: null }) %}
-				<li>
-					<div>
-						{% if pc.shortTitle %}
-							<span><strong>{{ pc.shortTitle }}</strong></span>
-						{% endif %}
-							<span class="align-right">{{ catValues.first }}</span>
-						</div>
-					</li>
-				{% endfor %}
-			</div>
-		</div>
-
-	</article>
 	{% else %}
-	<span>Tady nejsou žádné položky!</span>
+		<span>Tady nejsou žádné položky!</span>
 	{% endfor %}
+
+	</div>
 
 	{% include "/_partials/obsah/_obsah-upozorneni.twig" %}
 
