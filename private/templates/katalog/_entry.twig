@@ -7,45 +7,53 @@
 {% extends "/_partials/layout/_base.twig" %}
 
 {% block content %}
-
-    {% if entry.ancestors.first == "Výrobkové řady" %}
-        {% include '/_partials/base/_top-breadcrumbs.twig'  with {"class": "mm-over"} %}
+    {# TODO: vyčistit tyhle šílené podmínky na jednu
+    případně celek předělat ten header ať se zbytečně nevolá s tou proměnou, páč je to zbytečné
+    #}
+    {% if entry.ancestors|length>0 %}
+        {% if entry.ancestors.first.id == 5 %}
+            {% include '/_partials/base/_top-breadcrumbs.twig'  with {"class": "mm-over"} %}
+        {% else %}
+            {% include '/_partials/base/_top-breadcrumbs.twig' %}
+        {% endif %}
     {% else %}
         {% include '/_partials/base/_top-breadcrumbs.twig' %}
     {% endif %}
 
 
     <article>
-    {% if entry.ancestors.first == "Výrobkové řady" %}
-        {% include "/_partials/obsah/_obsah-header.twig" with {"headerType": "hero"} %}
+
+    {% if entry.ancestors|length>0 %}
+        {% if entry.ancestors.first.id == 5 %}
+            {% include "/_partials/obsah/_obsah-header.twig" with {"headerType": "hero"} %}
+        {% else %}
+            {% include "/_partials/obsah/_obsah-header.twig" with {"headerType": "default"} %}
+        {% endif %}
     {% else %}
         {% include "/_partials/obsah/_obsah-header.twig" with {"headerType": "default"} %}
     {% endif %}
 
-    {# body, tabulky, řady#}
-    {% include "/_partials/obsah/_obsah-body.twig" %}
+        {# body, tabulky, řady#}
+        {% include "/_partials/obsah/_obsah-body.twig" %}
 
-    {# default gallery#}
-    {% include "/_partials/obsah/_obsah-fotogalerie.twig" %}
+        {# default gallery#}
+        {% include "/_partials/obsah/_obsah-fotogalerie.twig" %}
 
-    {# schemata #}
-    {% include "/_partials/obsah/_obsah-schema.twig" %}
+        {# schemata #}
+        {% include "/_partials/obsah/_obsah-schema.twig" %}
 
-    {# subgallerie #}
-    {% include "/_partials/obsah/_obsah-subgalleries.twig" %}
+        {# subgallerie #}
+        {% include "/_partials/obsah/_obsah-subgalleries.twig" %}
 
-    {# podmínka pro spuštění bloku Doplňkévých informací #}
-    {% if entry.doplnkoveInformace|length > 0 %}
-        {% include "/_partials/obsah/_obsah-dalsi-info.twig" %}
-    {% endif %}
+        {# podmínka pro spuštění bloku Doplňkévých informací #}
 
-        <div class="m-section">
-            <div class="row">
-                <div class="column text-center">
-                    <a href="">nahoru</a>
-                </div>
-            </div>
-        </div>
+        {% if entry.doplnkoveInformace|length > 0 %}
+            {% include "/_partials/obsah/_obsah-dalsi-info.twig" %}
+        {% endif %}
+
+        {# nahoru #}
+        {% include "/_partials/base/_nav-top.twig" %}
+
 
     </article>
 

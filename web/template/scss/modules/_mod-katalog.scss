@@ -1,0 +1,77 @@
+#katalogModal {
+    .close-button {
+        z-index: 10000;
+    }
+}
+
+.m-katalog {
+
+//    background-color: $color-koma-ui-dark;
+//    color: white;
+
+    li {
+        border-bottom: 1px solid $color-koma-ui-light;
+        font-family: Purista;
+        font-weight: 600;
+    }
+
+    .menu > li > a {
+
+//        color: white;
+        padding: 2em;
+    }
+
+
+
+    .is-drilldown {
+        width: 100% !important;
+        height: 100% !important;
+    }
+
+    .is-drilldown-submenu {
+
+    }
+
+
+    .m-katalog--item {
+        display: flex;
+    }
+
+    .m-katalog--item-link,
+    .m-katalog--item-content,
+    .m-katalog--item-next {
+        padding: 1em;
+        font-size: 18px;
+    }
+
+    .m-katalog--item-link {
+        flex-grow: 10;
+    }
+
+    .m-katalog--item-content,
+    .m-katalog--item-next {
+        min-width: 100px;
+        text-align: center;
+        border-left: 1px solid $color-koma-ui-light;
+
+    }
+
+    .m-katalog--item-next {
+        display: none;
+    }
+
+    // pokud obsahuje podmenu
+    .is-drilldown-submenu-parent {
+
+        //background-color: $color-koma-ui-dark;
+
+        & > .m-katalog--item {
+            & > .m-katalog--item-next {
+                display: block;
+                cursor: pointer;
+            }
+        }
+
+    }
+
+}

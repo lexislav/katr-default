@@ -28,13 +28,57 @@
     }
 }
 
+.box-params {
+
+    li {
+        margin-right: 8px;
+        border-radius: 4px;
+
+        display: inline-block;
+        overflow: hidden;
+        height: 20px;
+        line-height: 20px;
+        margin-bottom: 6px;
+        background-color: white;
+    }
+
+    i {
+        background-color: $color-koma-ui-darken;
+        color: $color-koma-ui-bright;
+
+        display: inline-block;
+        text-align: center;
+        text-transform: lowercase;
+        font-style: normal;
+
+        //padding: 6px 4px;
+        min-width: 24px;
+        padding-left: 4px;
+        padding-right: 4px;
+    }
+
+    span {
+        padding-left: 4px;
+        padding-right: 4px;
+
+    }
+
+    i, span {
+        font-size: 12px;
+        line-height: 22px;
+    }
+
+    .tag {
+
+        background-color: transparent;
+    }
+}
+
 .tech-spec {
 
     li {
         padding: 4px;
         border-top: 1px solid $color-koma-ui-dark;
-
-
 
         &:last-child {
             border-bottom: 1px solid $color-koma-ui-dark;

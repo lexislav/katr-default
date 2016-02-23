@@ -1,0 +1,32 @@
+{% set pageNav = true %}
+
+{% extends "/_partials/layout/_base.twig" %}
+
+{# posila se prazdny auth block kuli codekitu#}
+{% block user_autenth %}{% endblock user_autenth %}
+
+{% block content %}
+
+    <article>
+
+        <div class="m-section">
+            <div class="row">
+                <div class="small-12 column text-center">
+                    <h1 class="s-hollow f-xxl" style="margin-bottom: 30px;">Vítejte v katru</h1>
+                    <h2 class="f-xl">KATR – Katalog technických řešení KOMA</h2>
+                </div>
+            </div>
+        </div>
+
+        {# seda sekce s ikonkama #}
+        {# úvodní nabídka na wellcome straně #}
+        {% include "/_partials/obsah/_wellcome-shorts.twig"%}
+
+        {# taby #}
+        {% include "/_partials/obsah/_wellcome-tabs.twig"%}
+
+    </article>
+
+    {% include "/_partials/obsah/_obsah-upozorneni.twig" %}
+
+{% endblock %}

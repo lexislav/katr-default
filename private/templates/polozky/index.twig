@@ -7,25 +7,30 @@
 
 {% block content %}
 
-	{# {% include '/_partials/base/_top-breadcrumbs.twig' with {'class': 'mm-over'} %} #}
 	{% set entries = craft.entries.section('polozky') %}
 
-	{# TODO: udělat markup - výpis položek #}
+	{% import "_partials/macros/_macros.twig" as macros %}
+
+	<div class="m-product-list">
 
 	{% for entry in entries %}
-	<article>
-		{% if entry.uvodniObrazek %}
-			{% for i in entry.uvodniObrazek %}<img src="{{ i.getUrl('thumb') }}" style="float:left;">{% endfor %}
-		{% endif %}
-		<h1><a href="{{entry.url}}">{{entry.Title}}</a></h1>
-		<span>{{entry.poznamka}}</span><br>
-		<span>{{entry.katalogoveCislo}}</span><br>
 
-		{# TODO: udělat výpis taxonomie a prioritni taxonomie s rozměry #}
-	</article>
+	{# getting the cats and tags and stuff… #}
+	{% set highSpecs = {} %}
+	{% set lowSpecs = {} %}
+	{% set structureHandle = entry.catalogueStruct.last %}
+	{# získání zvýrazněných taxonomií pro danou položku #}
+	{% set priorityCats = structureHandle.zvyrazneneKat %}
+	{# získání ostatních taxonomií pro danou položku #}
+	{% set cats = structureHandle.ostatniKat %}
+
+	{% include "_partials/common/_product-card.twig" %}
+
 	{% else %}
-	<span>Tady nejsou žádné položky!</span>
+		<span>Tady nejsou žádné položky!</span>
 	{% endfor %}
+
+	</div>
 
 	{% include "/_partials/obsah/_obsah-upozorneni.twig" %}
 

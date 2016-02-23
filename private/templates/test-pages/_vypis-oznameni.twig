@@ -1,11 +1,13 @@
-{#
- # Oznameni listing
- # ----------------
- #}
+{% set pageNav = true %}
 
 {% extends "/_partials/layout/_base.twig" %}
 
+{# posila se prazdny auth block kuli codekitu#}
+{% block user_autenth %}{% endblock user_autenth %}
+
 {% block content %}
+
+
     <article>
         <header class="mm-mgr-bottom">
             <div class="row align-bottom">
@@ -22,7 +24,7 @@
 
     {% include "/_partials/base/_nav-top.twig" %}
 
-    {# TODO: napojit navigaci #}
+
     {# navigace další předchozí #}
     {# dát do samostatné podšablony, pokud se bude používat na více místech #}
     <div class="bg-grey-light mm-pad-top mm-pad-bottom">

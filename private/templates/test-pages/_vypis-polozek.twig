@@ -1,0 +1,33 @@
+{% set pageNav = true %}
+
+{# posila se prazdny auth block kuli codekitu#}
+{% block user_autenth %}{% endblock user_autenth %}
+
+{% extends "/_partials/layout/_base.twig" %}
+
+{% block content %}
+
+    {% set entries = craft.entries.section('polozky') %}
+
+    {% import "_partials/macros/_macros.twig" as macros %}
+
+    <div class="m-product-list">
+
+        {% for entry in entries %}
+
+        {# getting the cats and tags and stuff… #}
+        {% set highSpecs = {} %}
+        {% set lowSpecs = {} %}
+        {% set structureHandle = entry.catalogueStruct.last %}
+        {# získání zvýrazněných taxonomií pro danou položku #}
+        {% set priorityCats = structureHandle.zvyrazneneKat %}
+        {# získání ostatních taxonomií pro danou položku #}
+        {% set cats = structureHandle.ostatniKat %}
+
+        {% include "_partials/common/_product-card.twig" %}
+
+        {% endfor %}
+
+    </div>
+
+{% endblock %}

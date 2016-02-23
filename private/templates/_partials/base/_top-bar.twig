@@ -1,19 +1,25 @@
-<div id="widemenu" class="top-bar">
+<div id="widemenu" class="top-bar mm-link-notunderline">
     {# left #}
     <div class="top-bar-left">
         <ul class="dropdown menu" data-dropdown-menu>
             <li class="menu-square has-border text-center"><button type="button" data-open="offCanvasLeft">
                     <img src="/template/assets/menu-burger.svg" alt=""></button></li>
             <li class="menu-text has-border"><img src="/template/assets/logo-koma.svg" alt=""></li>
+
+            {# položka katalog potřebuje attribut na JS otevírání modalu#}
+            <li class="menu-text">
+                <a data-open="katalogModal">JS Katalog</a>
+            </li>
+            {# TODO: Michale, tady nehoře nefunguje classa disabled, tudíž nemůže zešedivět položku vyhledat, což je matoucí #}
             {% for i in offCanvasMenu.menuItem|slice(0,3) %}
-                <li class="menu-text"><a href="{% if i.menuLink is empty %}{# clas=="disabled" #}{% else %}{{i.menuLink}}{% endif %}" {% if i.menuLink is empty %}clas=="disabled"{% endif %}><i class="{{i.menuIcon.value}}"></i>{{ i.menuTitle }}</a></li> 
+                <li class="menu-text{% if i.menuLink is empty %} disabled{% endif %}"><a href="{% if i.menuLink is empty %}#{% else %}{{i.menuLink}}{% endif %}" {% if i.menuLink is empty %}class="disabled"{% endif %}><i class="{{i.menuIcon.value}}"></i>{{ i.menuTitle }}</a></li>
             {% endfor %}
         </ul>
     </div>
     {# right#}
     <div class="top-bar-right">
         <ul class="menu">
-            <li class="menu-square has-border text-center"><i class="fa fa-2x fa-user"></i></li>
+            <li class="menu-square has-border text-center"><a href="/admin"><i class="fa fa-2x fa-user"></i></a></li>
         </ul>
     </div>
 </div>

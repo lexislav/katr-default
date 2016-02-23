@@ -5,8 +5,16 @@
     padding-left: 22px;
     padding-right: 22px;
 
+    color: $color-koma-ui-darken;
+
+    .breadcrumbs li:not(:last-child)::after {
+        color: $color-koma-ui-darken;
+    }
+
     .breadcrumbs a {
         text-decoration: underline;
+
+
     }
 
     // modifiers
@@ -15,7 +23,9 @@
         position: absolute;
         z-index: 1;
         width: 100%;
-        background-color: rgba($color-koma-ui-light, 0.5);
+        background-color: rgba($color-koma-ui-black, 0.1);
+
+
     }
 
 }

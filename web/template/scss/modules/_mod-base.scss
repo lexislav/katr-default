@@ -1,3 +1,67 @@
+// debug
+
+.debug {
+    outline: 1px solid crimson;
+}
+
+// spacing modifiers
+
+.mm-pad-top {
+    padding-top: $space;
+}
+
+.mm-pad-bottom {
+    padding-bottom: $space;
+}
+
+.mm-pad-half {
+    padding-top: $space-half;
+    padding-bottom: $space-half;
+}
+
+.mm-pad-top-half {
+    padding-top: $space-half;
+}
+
+.mm-pad-bottom-half {
+    padding-bottom: $space-half;
+}
+
+.mm-pad-tiny {
+    padding-top: $space-tiny;
+    padding-bottom: $space-tiny;
+}
+
+.mm-pad-top-tiny {
+    padding-top: $space-tiny;
+}
+
+.mm-pad-bottom-tiny {
+    padding-bottom: $space-tiny;
+}
+
+.mm-mgr-top {
+    margin-top: $space;
+}
+
+.mm-mgr-bottom {
+    margin-bottom: $space;
+}
+
+.mm-mgr-bottom-half {
+    margin-bottom: $space-half;
+}
+
+.mm-mgr-bottom-tiny {
+    margin-bottom: $space-tiny;
+}
+
+.mm-no-space {
+    margin: 0 0;
+    padding: 0 0;
+}
+
+//
 
 .s-hollow {
     display: inline-block;
@@ -42,7 +106,6 @@
 .c-grey-mid {
     color: $color-koma-ui-darken;
 }
-
 
 // font classes
 

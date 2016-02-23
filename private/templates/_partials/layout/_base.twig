@@ -56,6 +56,10 @@
     </div>
 </div>
 
+{# nalinkovat data katalogu do každé stránky, pokud je user zalogován #}
+{% if currentUser %}
+    {% include "/_partials/base/_katalog.twig" %}
+{% endif %}
 
 <script src="/template/components/jquery/dist/jquery.js"></script>
 <script src="/template/components/what-input/what-input.js"></script>
@@ -64,6 +68,7 @@
 <script src="/template/components/photoswipe/dist/photoswipe.min.js"></script>
 <script src="/template/components/photoswipe/dist/photoswipe-ui-default.min.js"></script>
 <script src="/template/js/min/app-min.js"></script>
+
 
 <script>
 
@@ -101,10 +106,10 @@
             item.description = el.data("gallery-description");
             items.push(item);
 
-            el.data("gallery-index", items.length-1);
+            el.data("gallery-index", items.length - 1);
         });
 
-        domItems.each(function() {
+        domItems.each(function () {
             var el = $(this);
             el.on("click", function (e) {
                 openSubgallery(items, el.data("gallery-index"));
@@ -163,24 +168,37 @@
             owl.prev();
         })
 
-
-
         // init PSWP
 
         $('[gallery]').each(function () {
             $gal = $(this);
             //console.log($gal.attr('id'));
-            parseGallery("#"+$gal.attr('id'));
+            parseGallery("#" + $gal.attr('id'));
         });
+
+        // smooth scroll
+
+        $('[scroll-top]').click(function(e) {
+            e.preventDefault();
+            var tgt = $("body");
+            $('html, body').animate({
+                scrollTop: tgt.offset().top
+            }, 400);
+
+        });
+
 
 
     });
 
 
-    //document.getElementById('btn').onclick = openPhotoSwipe;
+
+
+
 
     {% block scriptsBottom %}{% endblock %}
 </script>
+    {% block pageScripts %}{% endblock %}
 
 {% include "/_partials/base/pswp.twig" %}
 </body>

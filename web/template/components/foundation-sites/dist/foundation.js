@@ -1037,7 +1037,7 @@ Foundation.Motion = Motion;
         timer;
 
     this.isPaused = false;
-    
+
     this.restart = function(){
       remain = -1;
       clearTimeout(timer);
@@ -2693,14 +2693,22 @@ Foundation.Motion = Motion;
           });
       _this._events($sub);
     });
+
     this.$submenus.each(function(){
       var $menu = $(this),
           $back = $menu.find('.js-drilldown-back');
       if(!$back.length){
-        $menu.prepend(_this.options.backButton);
+
+        // HACK custom button (najdi poslední položku a vem z ní text
+        var $plink = $menu.parent().find('a:first');
+        //console.dir($plink.text());
+        var bck = $('<li class="js-drilldown-back"><a>'+$plink.text()+'</a></li>');
+        $menu.prepend(bck);
+
       }
       _this._back($menu);
     });
+
     if(!this.$element.parent().hasClass('is-drilldown')){
       this.$wrapper = $(this.options.wrapper).addClass('is-drilldown').css(this._getMaxDims());
       this.$element.wrap(this.$wrapper);
@@ -2718,10 +2726,18 @@ Foundation.Motion = Motion;
 
     $elem.off('click.zf.drilldown')
     .on('click.zf.drilldown', function(e){
+
+      // HACK: tohle umožnuje mít v drill down také jiné odkazy
+      if($(e.target).parent().hasClass('extra-link')) {
+        return;
+      }
+
       if($(e.target).parentsUntil('ul', 'li').hasClass('is-drilldown-submenu-parent')){
         e.stopImmediatePropagation();
         e.preventDefault();
       }
+
+      console.dir(this);
 
       // if(e.target !== e.currentTarget.firstElementChild){
       //   return false;
@@ -2736,6 +2752,7 @@ Foundation.Motion = Motion;
           $body.off('.zf.drilldown');
         });
       }
+
     });
   };
   /**

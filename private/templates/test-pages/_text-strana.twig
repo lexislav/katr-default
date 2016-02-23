@@ -1,0 +1,240 @@
+{% set pageNav = true %}
+
+{% extends "/_partials/layout/_base.twig" %}
+
+{# posila se prazdny auth block kuli codekitu#}
+{% block user_autenth %}{% endblock user_autenth %}
+
+{% block content %}
+
+
+    <article>
+        <header class="mm-mgr-bottom">
+            <div class="row align-bottom">
+
+                <div class="columns small-8">
+                    <h1 class="xxl">Zklady ovládání aplikace Katalog technických řešení</h1>
+                </div>
+
+                <div class="columns small-3 small-offset-1">
+                    {% if pageNav %}
+                        <nav class="row mm-inverted-link-colors">
+                            <div class="columns small-4 text-right">
+                                <a href=""><i class="fa fa-2x fa-arrow-left"></i></a>
+                            </div>
+
+                            <div class="columns small-4 text-center">
+                                <a href=""><i class="fa fa-2x fa-arrow-up"></i></a>
+                            </div>
+
+                            <div class="columns small-4 text-left">
+                                <a href=""><i class="fa fa-2x fa-arrow-right"></i></a>
+                            </div>
+                        </nav>
+                    {% endif %}
+
+                </div>
+            </div>
+        </header>
+
+
+        <div class="row mm-pad-bottom">
+            <div class="columns small-12 large-9">
+                <div class="row">
+                    <div class="columns small-12">
+                        <div class="m-body-copy"> {# tenhle wrapper sebou nese definici typografie pro detail#}
+
+                            {# obsah - text #}
+
+                            <h2>H2 Vyhledávání prodkutů podle</h2>
+                            <p>Curabitur lobortis id lorem id bibendum. Ut id consectetur magna. Quisque volutpat augue enim, pulvinar lobortis nibh lacinia at. Vestibulum nec erat ut mi sollicitudin porttitor id sit amet risus. Nam tempus vel odio vitae aliquam. In imperdiet eros id lacus vestibulum vestibulum. Suspendisse fermentum sem sagittis ante venenatis egestas quis vel justo. Maecenas semper suscipit nunc, sed aliquam sapien convallis eu. Nulla ut turpis in diam dapibus consequat.</p>
+                            <p>Curabitur lobortis id lorem id bibendum. Ut id consectetur magna. Quisque volutpat augue enim, pulvinar lobortis nibh lacinia at. Vestibulum nec erat ut mi sollicitudin porttitor id sit amet risus. Nam tempus vel odio vitae aliquam. In imperdiet eros id lacus vestibulum vestibulum. Suspendisse fermentum sem sagittis ante venenatis egestas quis vel justo. Maecenas semper suscipit nunc, sed aliquam sapien convallis eu. Nulla ut turpis in diam dapibus consequat.</p>
+
+                            <ul>
+                                <li>Cakes
+                                    <ul>
+                                        <li><a href="stepbystep-recipe.html">Plain Sponge</a></li>
+                                        <li><a href="stepbystep-recipe.html">Chocolate Cake</a></li>
+                                        <li><a href="stepbystep-recipe.html">Apple Tea Cake</a></li>
+                                    </ul>
+                                </li>
+                                <li>Biscuits
+                                    <ul>
+                                        <li><a href="stepbystep-recipe.html">ANZAC Biscuits</a></li>
+                                        <li><a href="stepbystep-recipe.html">Jam Drops</a></li>
+                                        <li>Biscuits
+                                            <ul>
+                                                <li><a href="stepbystep-recipe.html">ANZAC Biscuits</a></li>
+                                                <li><a href="stepbystep-recipe.html">Jam Drops</a></li>
+                                                <li><a href="stepbystep-recipe.html">Melting Moments</a></li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li>Breads/quickbreads
+                                    <ul>
+                                        <li><a href="stepbystep-recipe.html">Damper</a></li>
+                                        <li><a href="stepbystep-recipe.html">Scones</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+
+                            <p>Curabitur lobortis id lorem id bibendum. Ut id consectetur magna. Quisque volutpat augue enim, pulvinar lobortis nibh lacinia at. Vestibulum nec erat ut mi sollicitudin porttitor id sit amet risus. Nam tempus vel odio vitae aliquam. In imperdiet eros id lacus vestibulum vestibulum. Suspendisse fermentum sem sagittis ante venenatis egestas quis vel justo. Maecenas semper suscipit nunc, sed aliquam sapien convallis eu. Nulla ut turpis in diam dapibus consequat.</p>
+                            <img src="http://www.lorempixel.com/900/600/" alt="">
+                            <p>Curabitur lobortis id lorem id bibendum. Ut id consectetur magna. Quisque volutpat augue enim, pulvinar lobortis nibh lacinia at. Vestibulum nec erat ut mi sollicitudin porttitor id sit amet risus. Nam tempus vel odio vitae aliquam. In imperdiet eros id lacus vestibulum vestibulum. Suspendisse fermentum sem sagittis ante venenatis egestas quis vel justo. Maecenas semper suscipit nunc, sed aliquam sapien convallis eu. Nulla ut turpis in diam dapibus consequat.</p>
+                            <h3>H3 Vyhledávání prodkutů podle</h3>
+
+                            <figure>
+                                <img src="http://www.lorempixel.com/900/600/" alt="">
+                                <figcaption><strong>Tohle je popisek:</strong> neboli figcaption k figure, bylo by fajn ho <a href="" title="">taky nastylovat</a></figcaption>
+                            </figure>
+
+                            <p>Curabitur lobortis id lorem id bibendum. Ut id consectetur magna. Quisque volutpat augue enim, pulvinar lobortis nibh lacinia at. Vestibulum nec erat ut mi sollicitudin porttitor id sit amet risus. Nam tempus vel odio vitae aliquam. In imperdiet eros id lacus vestibulum vestibulum. Suspendisse fermentum sem sagittis ante venenatis egestas quis vel justo. Maecenas semper suscipit nunc, sed aliquam sapien convallis eu. Nulla ut turpis in diam dapibus consequat.</p>
+
+                            <table>
+                                <thead>
+                                <tr>
+                                    <th>Name</th>
+                                    <th>ID</th>
+                                    <th>Favorite Color</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr>
+                                    <td>Jim</td>
+                                    <td>00001</td>
+                                    <td>Blue</td>
+                                </tr>
+                                <tr>
+                                    <td>Sue</td>
+                                    <td>00002</td>
+                                    <td>Red</td>
+                                </tr>
+                                <tr>
+                                    <td>Barb</td>
+                                    <td>00003</td>
+                                    <td>Green</td>
+                                </tr>
+                                </tbody>
+                            </table>
+
+                            <p>Curabitur lobortis id lorem id bibendum. Ut id consectetur magna. Quisque volutpat augue enim, pulvinar lobortis nibh lacinia at. Vestibulum nec erat ut mi sollicitudin porttitor id sit amet risus. Nam tempus vel odio vitae aliquam. In imperdiet eros id lacus vestibulum vestibulum. Suspendisse fermentum sem sagittis ante venenatis egestas quis vel justo. Maecenas semper suscipit nunc, sed aliquam sapien convallis eu. Nulla ut turpis in diam dapibus consequat.</p>
+                            <p>Curabitur lobortis id lorem id bibendum. Ut id consectetur magna. Quisque volutpat augue enim, pulvinar lobortis nibh lacinia at. Vestibulum nec erat ut mi sollicitudin porttitor id sit amet risus. Nam tempus vel odio vitae aliquam. In imperdiet eros id lacus vestibulum vestibulum. Suspendisse fermentum sem sagittis ante venenatis egestas quis vel justo. Maecenas semper suscipit nunc, sed aliquam sapien convallis eu. Nulla ut turpis in diam dapibus consequat.</p>
+                            <h4>H4 Vyhledávání prodkutů podle</h4>
+                            <ol>
+                                <li>Cakes
+                                    <ol>
+                                        <li><a href="stepbystep-recipe.html">Plain Sponge</a></li>
+                                        <li><a href="stepbystep-recipe.html">Chocolate Cake</a></li>
+                                        <li><a href="stepbystep-recipe.html">Apple Tea Cake</a></li>
+                                    </ol>
+                                </li>
+                                <li>Biscuits
+                                    <ol>
+                                        <li><a href="stepbystep-recipe.html">ANZAC Biscuits</a></li>
+                                        <li><a href="stepbystep-recipe.html">Jam Drops</a></li>
+                                        <li>Biscuits
+                                            <ol>
+                                                <li><a href="stepbystep-recipe.html">ANZAC Biscuits</a></li>
+                                                <li><a href="stepbystep-recipe.html">Jam Drops</a></li>
+                                                <li><a href="stepbystep-recipe.html">Melting Moments</a></li>
+                                            </ol>
+                                        </li>
+                                    </ol>
+                                </li>
+                                <li>Breads/quickbreads
+                                    <ol>
+                                        <li><a href="stepbystep-recipe.html">Damper</a></li>
+                                        <li><a href="stepbystep-recipe.html">Scones</a></li>
+                                    </ol>
+                                </li>
+                            </ol>
+                            <blockquote>
+                                urabitur lobortis id lorem id bibendum. Ut id consectetur magna. Quisque volutpat augue
+                            </blockquote>
+
+                            <p>Curabitur lobortis id lorem id bibendum. Ut id consectetur magna. Quisque volutpat augue enim, pulvinar lobortis nibh lacinia at. Vestibulum nec erat ut mi sollicitudin porttitor id sit amet risus. Nam tempus vel odio vitae aliquam. In imperdiet eros id lacus vestibulum vestibulum. Suspendisse fermentum sem sagittis ante venenatis egestas quis vel justo. Maecenas semper suscipit nunc, sed aliquam sapien convallis eu. Nulla ut turpis in diam dapibus consequat.</p>
+                            <blockquote>
+                                urabitur lobortis id lorem id bibendum. Ut id consectetur magna. Quisque volutpat augue
+                            </blockquote>
+                            <h5>H5 Vyhledávání prodkutů podle</h5>
+                            <p>Curabitur lobortis id lorem id bibendum. Ut id consectetur magna. Quisque volutpat augue enim, pulvinar lobortis nibh lacinia at. Vestibulum nec erat ut mi sollicitudin porttitor id sit amet risus. Nam tempus vel odio vitae aliquam. In imperdiet eros id lacus vestibulum vestibulum. Suspendisse fermentum sem sagittis ante venenatis egestas quis vel justo. Maecenas semper suscipit nunc, sed aliquam sapien convallis eu. Nulla ut turpis in diam dapibus consequat.</p>
+                            <h6>H6 Vyhledávání prodkutů podle</h6>
+                            <p>Curabitur lobortis id lorem id bibendum. Ut id consectetur magna. Quisque volutpat augue enim, pulvinar lobortis nibh lacinia at. Vestibulum nec erat ut mi sollicitudin porttitor id sit amet risus. Nam tempus vel odio vitae aliquam. In imperdiet eros id lacus vestibulum vestibulum. Suspendisse fermentum sem sagittis ante venenatis egestas quis vel justo. Maecenas semper suscipit nunc, sed aliquam sapien convallis eu. Nulla ut turpis in diam dapibus consequat.</p>
+
+                            {# obsah - text - konec #}
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            {# prava strana pouze pro large#}
+            <div class="columns large-3  hide-for-small-only hide-for-medium-only">
+                {# prava strana obsah #}
+
+
+                {# tohle je stejný blok jako vespod#}
+                {# dát do samostatné podšablony #}
+                <div class="m-block mm-side bg-grey-light">
+                    <h2 class="f-xl f-800 mm-pad-bottom-half">Další články v Nápověda / FAQ:</h2>
+                    <ul>
+                        <li><a href="">clanek</a></li>
+                        <li><a href="">clanek</a></li>
+                        <li><a href="">clanek</a></li>
+                        <li><a href="">clanek</a></li>
+                        <li><a href="">clanek</a></li>
+                    </ul>
+                </div>
+
+                {# prava strana obsah - konec#}
+            </div>
+        </div>
+
+    </article>
+
+
+    {# sekce související #}
+
+    <div class="m-section bg-grey-light mm-mgr-top mm-mgr-bottom-tiny hide-for-large">
+        <div class="row">
+            <div class="columns small-7 small-offset-1">
+
+
+                {# tohle je stejný blok jako v pravé straně#}
+                {# dát do samostatné podšablony #}
+                <div class="m-block mm-bottom">
+                    <h2 class="f-xl f-800">Další články v Nápověda / FAQ:</h2>
+                    <ul>
+                        <li><a href="">clanek</a></li>
+                        <li><a href="">clanek</a></li>
+                        <li><a href="">clanek</a></li>
+                        <li><a href="">clanek</a></li>
+                        <li><a href="">clanek</a></li>
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+
+    {# navigace další předchozí #}
+    {# dát do samostatné podšablony, pokud se bude používat na více místech #}
+    <div class="bg-grey-light mm-pad-top mm-pad-bottom">
+        <nav class="row mm-inverted-link-colors">
+            <div class="columns small-4 text-left f-800 f-l">
+                <a href=""><i class="fa fa-arrow-left"></i> Předchozí</a>
+            </div>
+
+            <div class="columns small-4 text-center f-800 f-l">
+                <a href=""><i class="fa fa-arrow-up"></i> FAQ</a>
+            </div>
+
+            <div class="columns small-4 text-right f-800 f-l">
+                <a href=""><i class="fa fa-arrow-right"></i> Další</a>
+            </div>
+        </nav>
+    </div>
+
+{% endblock %}

@@ -89,8 +89,9 @@ $breakpoint-classes: (small medium large);
 $grid-row-width: $global-width;
 $grid-column-count: 12;
 $grid-column-responsive-gutter: (
-  small: 30px,
-  medium: 40px,
+  small: 20px,
+  medium: 20px,
+  large: 40px,
 );
 $grid-column-align-edge: true;
 $block-grid-max: 8;
@@ -139,9 +140,9 @@ $code-border: 1px solid $medium-gray;
 $code-padding: rem-calc(2 5 1);
 
 $anchor-color: $primary-color;
-$anchor-color-hover: scale-color($anchor-color, $lightness: -14%);
-$anchor-text-decoration: none;
-$anchor-text-decoration-hover: none;
+$anchor-color-hover: $color-koma-ui-black;
+$anchor-text-decoration: underline;
+$anchor-text-decoration-hover: underline;
 
 $hr-width: $global-width;
 $hr-border: 1px solid $medium-gray;

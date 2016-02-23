@@ -6,12 +6,66 @@
 
 {% extends "/_partials/layout/_base.twig" %}
 
-{# TODO: detail dokumentace #}
-
 {% block content %}
-	<article>
-		<h1>{{ entry.title }}</h1>
-		<p>Posted on {{ entry.postDate.format('F d, Y') }}</p>
-		{{ entry.body }}
-	</article>
+
+	{% include '/_partials/base/_top-breadcrumbs.twig' %}
+
+    <article>
+		{% include "/_partials/obsah/_obsah-textpage-header.twig" %}
+
+
+        <div class="row">
+
+            {% include "/_partials/obsah/_obsah-textpage-body.twig" %}
+
+            {# prava strana pouze pro large#}
+            <div class="columns large-3  hide-for-small-only hide-for-medium-only">
+
+                {# prava strana obsah #}
+                {% import "_partials/macros/_macros.twig" as macros %}
+                {# dát do samostatné podšablony #}
+                <div class="m-dalsi  bg-grey-light">
+                    <h2 class="f-xl f-800 mm-pad-bottom-half">Související články:</h2>
+					{% if entry.getChildren|length > 0 %}
+					{{ macros.listRelated( entry.getChildren(1) ) }}
+					{% else %}
+					{{ macros.listRelated( entry.getSiblings() ) }}
+					{% endif %}
+                </div>
+                {# prava strana obsah - konec#}
+				
+            </div>
+        </div>
+
+    </article>
+
+
+    {# sekce související #}
+
+    <div class="m-section bg-grey-light mm-mgr-top mm-mgr-bottom-tiny">
+        <div class="row">
+            <div class="columns small-7 small-offset-1">
+
+
+                {# tohle je stejný blok jako v pravé straně#}
+				{# TODO: stejný blok jako napravo, měl by být vždy vidět ale jen jeden. na desktopu ten vpravo, na iPadu portrait jen ten dole, asi jasný, jen pro jistotu uvádím #}
+                {# dát do samostatné podšablony #}
+				{# NOTE: hodil jsem to do makra, wrappery jsou zde, neví, zda je to dle tebe dostačující #}
+                <div class="m-dalsi">
+                    <h2 class="f-xl f-800 mm-pad-bottom-half">Související články:</h2>
+					{% if entry.getChildren|length > 0 %}
+					{{ macros.listRelated( entry.getChildren(1) ) }}
+					{% else %}
+					{{ macros.listRelated( entry.getSiblings() ) }}
+					{% endif %}
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+	<div class="bg-grey-light mm-pad-top mm-pad-bottom">
+		{% include '/_partials/common/_prevnext-nav.twig' with { "navPosition" : "bottom" } %}
+	</div>
+
 {% endblock %}

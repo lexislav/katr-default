@@ -25,7 +25,7 @@
 		    <ul>
 		        {% nav page in pages %}
 		            <li>
-		                {% if page.body %}{{ page.getLink() }}{% else %}{{ page.title }}{% endif %}
+		                {% if page.docsBody %}{{ page.getLink() }}{% else %}{{ page.title }}{% endif %}
 
 		                {% ifchildren %}
 		                    <ul>
