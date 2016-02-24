@@ -65,7 +65,13 @@
 
 
         // otevirani modalu katalogu pres ID v menu
-        $("#katalogmenu").on('click', function (e) {
+        $(".katalogmenu").on('click', function (e) {
+            e.preventDefault();
+            var $modal = $('#katalogModal');
+            $modal.foundation('open');
+        });
+
+        $(".katalogmenu").on('click', function (e) {
             e.preventDefault();
             var $modal = $('#katalogModal');
             $modal.foundation('open');
