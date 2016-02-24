@@ -56,10 +56,7 @@
     </div>
 </div>
 
-{# nalinkovat data katalogu do každé stránky, pokud je user zalogován #}
-{% if currentUser %}
-    {% include "/_partials/base/_katalog.twig" %}
-{% endif %}
+
 
 <script src="/template/components/jquery/dist/jquery.js"></script>
 <script src="/template/components/what-input/what-input.js"></script>
@@ -67,6 +64,9 @@
 <script src="/template/components/owl-carousel/owl-carousel/owl.carousel.js"></script>
 <script src="/template/components/photoswipe/dist/photoswipe.min.js"></script>
 <script src="/template/components/photoswipe/dist/photoswipe-ui-default.min.js"></script>
+
+<script src="/template/js/koma-drill-down.js"></script>
+
 <script src="/template/js/min/app-min.js"></script>
 
 
@@ -178,7 +178,7 @@
 
         // smooth scroll
 
-        $('[scroll-top]').click(function(e) {
+        $('[scroll-top]').click(function (e) {
             e.preventDefault();
             var tgt = $("body");
             $('html, body').animate({
@@ -186,7 +186,6 @@
             }, 400);
 
         });
-
 
 
     });
@@ -197,9 +196,18 @@
 
 
     {% block scriptsBottom %}{% endblock %}
+
+
 </script>
-    {% block pageScripts %}{% endblock %}
+
+{% block pageScripts %}{% endblock %}
+
+{# nalinkovat data katalogu do každé stránky, pokud je user zalogován #}
+{% if currentUser %}
+    {% include "/_partials/base/_katalog.twig" %}
+{% endif %}
 
 {% include "/_partials/base/pswp.twig" %}
+
 </body>
 </html>

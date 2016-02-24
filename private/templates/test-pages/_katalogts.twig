@@ -5,16 +5,25 @@
 
 {% block content %}
 
+    <div class="reveal full drill-reveal" id="katalogModal" data-reveal>
+        <div class="drill-wrapper">
+            <div id="drill-down" class="drill-down">
+                <div class="drill-controls">
+                    <div class="drill-back-button" drill-back="#drill-down">
+                        <span class="drill-back-arrow"></span><span class="button">Back</span></div>
+                    <div class="drill-history"></div>
+                </div>
+            </div>
 
-    <div class="button" drill-home="#drill-down">Home</div>
-
-    <div id="drill-down" class="drill-down">
-        <div class="drill-controls">
-            <div class="drill-back-button" drill-back="#drill-down"><span class="drill-back-arrow"></span><span class="button">Back</span></div>
-            <div class="drill-history"></div>
         </div>
-
+        <button class="close-button" data-close aria-label="Close modal" type="button">
+            <span aria-hidden="true">&times;</span>
+        </button>
     </div>
+
+
+    <p><a data-open="katalogModal">Click me for a modal</a></p>
+
 
 {% endblock %}
 
