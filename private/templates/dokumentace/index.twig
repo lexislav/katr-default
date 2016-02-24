@@ -25,7 +25,11 @@
 		    <ul>
 		        {% nav page in pages %}
 		            <li>
-		                {% if page.docsBody %}{{ page.getLink() }}{% else %}{{ page.title }}{% if entry.forEditors and currentUser.groups != "users "%}*{% endif %}{% endif %}
+		                {% if page.docsBody %}
+							{{ page.getLink() }}{% if page.forEditors and currentUser.groups != "users" %}*{% endif %}
+						{% else %}
+							{{ page.title }}{% if page.forEditors and currentUser.groups != "users" %}*{% endif %}
+						{% endif %}
 
 		                {% ifchildren %}
 		                    <ul>
