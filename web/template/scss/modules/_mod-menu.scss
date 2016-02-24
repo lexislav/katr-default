@@ -130,3 +130,13 @@
     }
 
 }
+
+.menu {
+    .disabled {
+        pointer-events: none;
+        color: $color-koma-ui-mid;
+        a{
+            color: $color-koma-ui-mid;
+        }
+    }
+}
