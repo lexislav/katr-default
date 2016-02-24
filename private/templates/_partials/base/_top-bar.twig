@@ -8,11 +8,11 @@
 
             {# položka katalog potřebuje attribut na JS otevírání modalu#}
             <li class="menu-text">
-                <a data-open="katalogModal">JS Katalog</a>
+                <a href="#">JS Katalog</a>
             </li>
             {# TODO: Michale, tady nehoře nefunguje classa disabled, tudíž nemůže zešedivět položku vyhledat, což je matoucí #}
             {% for i in offCanvasMenu.menuItem|slice(0,3) %}
-                <li class="menu-text{% if i.menuLink is empty %} disabled{% endif %}"><a href="{% if i.menuLink is empty %}#{% else %}{{i.menuLink}}{% endif %}" {% if i.menuLink is empty %}class="disabled"{% endif %}><i class="{{i.menuIcon.value}}"></i>{{ i.menuTitle }}</a></li>
+                <li class="menu-text{% if i.menuLink is empty %} disabled{% endif %}"><a href="{% if i.menuLink is empty %}#{% else %}{{i.menuLink}}{% endif %}" {% if i.menuLink is empty %}class="disabled"{% endif %}{% if offCanvasMenu.menuID %} id="{{offCanvasMenu.menuID}}"{% endif %}><i class="{{i.menuIcon.value}}"></i>{{ i.menuTitle }}</a></li>
             {% endfor %}
         </ul>
     </div>
