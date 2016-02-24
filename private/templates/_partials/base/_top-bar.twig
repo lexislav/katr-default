@@ -10,12 +10,27 @@
 
             <li class="menu-text has-border"><img src="/template/assets/logo-koma.svg" alt=""></li>
 
-            {# TODO: Michale, tady nehoře nefunguje classa disabled, tudíž nemůže zešedivět položku vyhledat, což je matoucí #}
             {% for i in offCanvasMenu.menuItem|slice(0,3) %}
-                <li class="menu-text{% if i.menuLink is empty %} disabled{% endif %}">
-                    <a href="{% if i.menuLink is empty %}#{% else %}{{ i.menuLink }}{% endif %}" {% if i.menuLink is empty %}class="disabled"{% endif %}{% if i.menuID %} id="{{ i.menuID }}"{% endif %}><i class="{{ i.menuIcon.value }}"></i>{{ i.menuTitle }}
+
+                {% set id = '' %}
+                {% if i.menuID %}
+                    {% set id = i.menuID %}
+                {% endif %}
+
+                {% if i.menuLink is empty %}
+                    {% set menuLink = "#" %}
+                    {% set class = "disabled" %}
+                {% else %}
+                    {% set menuLink = i.menuLink %}
+                    {% set class = "" %}
+                {% endif %}
+
+                <li class="menu-text {{ class }}">
+                    <a href="{{ menuLink }}" class="{{ class }} {{ id }}" id="{{ id }}">
+                        <i class="{{ i.menuIcon.value }}"></i>{{ i.menuTitle }}
                     </a>
                 </li>
+
             {% endfor %}
         </ul>
     </div>

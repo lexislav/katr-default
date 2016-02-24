@@ -4155,7 +4155,6 @@ label a {
   color: #f8f8f8;
   display: inline-block;
   text-align: center;
-  text-transform: lowercase;
   font-style: normal;
   min-width: 24px;
   padding-left: 4px;
@@ -4745,6 +4744,11 @@ a.button {
   border-top: 1px solid #ecf0ec; }
   .m-oznameni article:last-child {
     border-bottom: 1px solid #ecf0ec; }
+
+.fa-inline {
+  vertical-align: middle;
+  font-size: 1.8em;
+  padding-right: .5em; }
 
 .tag {
   display: inline-block;
