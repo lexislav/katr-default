@@ -24,7 +24,7 @@
                 {# prava strana obsah #}
                 {% import "_partials/macros/_macros.twig" as macros %}
                 {# dát do samostatné podšablony #}
-                <div class="m-dalsi  bg-grey-light">
+                <div class="m-block mm-side bg-grey-light">
                     <h2 class="f-xl f-800 mm-pad-bottom-half">Související články:</h2>
 					{% if entry.getChildren|length > 0 %}
 					{{ macros.listRelated( entry.getChildren(1) ) }}
@@ -33,7 +33,7 @@
 					{% endif %}
                 </div>
                 {# prava strana obsah - konec#}
-				
+
             </div>
         </div>
 
@@ -42,7 +42,7 @@
 
     {# sekce související #}
 
-    <div class="m-section bg-grey-light mm-mgr-top mm-mgr-bottom-tiny">
+    <div class="m-section bg-grey-light mm-mgr-top mm-mgr-bottom-tiny hide-for-large">
         <div class="row">
             <div class="columns small-7 small-offset-1">
 
@@ -51,8 +51,8 @@
 				{# TODO: stejný blok jako napravo, měl by být vždy vidět ale jen jeden. na desktopu ten vpravo, na iPadu portrait jen ten dole, asi jasný, jen pro jistotu uvádím #}
                 {# dát do samostatné podšablony #}
 				{# NOTE: hodil jsem to do makra, wrappery jsou zde, neví, zda je to dle tebe dostačující #}
-                <div class="m-dalsi">
-                    <h2 class="f-xl f-800 mm-pad-bottom-half">Související články:</h2>
+                <div class="m-block mm-bottom">
+                    <h2 class="f-xl f-800">Související články:</h2>
 					{% if entry.getChildren|length > 0 %}
 					{{ macros.listRelated( entry.getChildren(1) ) }}
 					{% else %}

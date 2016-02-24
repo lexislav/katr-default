@@ -23,9 +23,9 @@
                 {# prava strana obsah #}
                 {% import "_partials/macros/_macros.twig" as macros %}
                 {# dát do samostatné podšablony #}
-                <div class="m-dalsi  bg-grey-light">
+                <div class="m-block mm-side bg-grey-light">
                     <h2 class="f-xl f-800 mm-pad-bottom-half">Související články:</h2>
-					{{ macros.listRelated( craft.entries.section('oznameni').limit(10) ) }}
+					{{ macros.listRelated( craft.entries.section('oznameni').limit(10).id('not ' ~ entry.id) ) }}
                 </div>
                 {# prava strana obsah - konec#}
 
@@ -39,7 +39,7 @@
             <div class="columns small-7 small-offset-1">
                 <div class="m-dalsi">
                     <h2 class="f-xl f-800 mm-pad-bottom-half">Související články:</h2>
-					{{ macros.listRelated( craft.entries.section('oznameni').limit(10) ) }}
+					{{ macros.listRelated( craft.entries.section('oznameni').limit(10).id('not ' ~ entry.id) ) }}
                 </div>
 
             </div>
