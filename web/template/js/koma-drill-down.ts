@@ -10,7 +10,7 @@ class DrillDown {
 
         selector: '#drill-down',
         historySelector: '.drill-history',
-        rootLevelName: 'Home'
+        rootLevelName: 'Katalog'
 
     };
 
@@ -69,7 +69,7 @@ class DrillDown {
 
         childs.forEach((entry) => {
             // build items
-            var levelItem = $('<div class="drill-item"><div class="drill-title"><a href="' + entry.url + '">' + entry.title + '</a></div> <div class="drill-next"> > </div> <div class="drill-icon"><a href="' + entry.url + '"><i class="fa fa-pause"></i></a></div> </div>');
+            var levelItem = $('<div class="drill-item"><div class="drill-title"><a href="' + entry.url + '">' + entry.title + '</a></div> <div class="drill-next"><i class="fa fa-play"></i></div> <div class="drill-icon"><a href="' + entry.filterUrl + '"><i class="fa fa-list"></i></a></div> </div>');
             var clickTarget = levelItem.find('.drill-next');
 
             if (entry.childs.length > 0) {
@@ -80,6 +80,12 @@ class DrillDown {
                     this.buildLevel(entry.childs, entry.title);
                 });
             }
+
+            // has content class
+            if (entry.hasContent == 0) {
+                levelItem.addClass('drill-empty-content');
+            }
+
             // attach items
             level.append(levelItem);
         });
@@ -127,6 +133,18 @@ class DrillDown {
             });
 
             this.historyElement.append(drillElement);
+
+
+        });
+
+        // show hide back button
+        this.root.find('[drill-back]').each((index, elem) => {
+            var el = $(elem);
+            if(this.history.length <= 1) {
+                el.addClass('is-hidden');
+            } else {
+                el.removeClass('is-hidden');
+            }
         });
     }
 

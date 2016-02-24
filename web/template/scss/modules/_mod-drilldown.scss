@@ -1,11 +1,13 @@
 /// my drilldown
 
 $drill-border-color: $color-koma-ui-mid;
-$drill-color: white;
 $drill-bg-color: $color-koma-ui-dark;
-$drill-link-color: black;
+
+$drill-color: $color-koma-ui-darken;
+$drill-link-color: $color-koma-ui-darken;
 $drill-link-hover-color: white;
-$drill-font-size: 30px;
+$drill-font-size: 24px;
+$drill-font-weight: 800;
 $drill-font-family: 'Purista';
 $drill-padding: 20px 20px;
 
@@ -47,9 +49,6 @@ $drill-padding: 20px 20px;
     transform: translateX(100%);
 }
 
-.drill-history {
-}
-
 .drill-next {
     display: none;
     padding: $drill-padding;
@@ -72,6 +71,8 @@ $drill-padding: 20px 20px;
     border-left: 1px solid $drill-border-color;
     //padding: $drill-padding;
     cursor: pointer;
+    font-size: $drill-font-size * 1.4;
+    line-height: 1;
 }
 
 .drill-item {
@@ -79,12 +80,84 @@ $drill-padding: 20px 20px;
     display: flex;
     font-size: $drill-font-size;
     font-family: $drill-font-family;
+    font-weight: $drill-font-weight;
 
     &.drill-has-childs {
         .drill-next {
             display: block;
         }
     }
+
+    &.drill-empty-content {
+        .drill-title {
+            opacity: 0.6;
+        }
+    }
+
+}
+
+// history
+
+.drill-controls {
+    padding: 30px 20px;
+    font-size: $drill-font-size;
+    font-family: $drill-font-family;
+    color: $color-koma-ui-mid;
+
+    display: flex;
+
+}
+
+.drill-history {
+}
+
+.drill-back-button {
+
+    $btnHeight: 36px;
+    $btnColor: black;
+    $btnBgColor: white;
+    $btnBgColorHover: $color-koma-primary;
+
+    margin-right: 20px;
+
+    .button {
+        transition: none;
+        margin-bottom: 0;
+        padding: 0;
+        vertical-align: top;
+        height: $btnHeight;
+        line-height: $btnHeight;
+        padding-left: 8px;
+        padding-right: 16px;
+        background-color: $btnBgColor;
+        font-size: 16px;
+        color: $btnColor;
+    }
+
+    .drill-back-arrow {
+        display: inline-block;
+        width: 0;
+        height: 0;
+        border-top: ($btnHeight / 2) solid transparent;
+        border-bottom: ($btnHeight / 2) solid transparent;
+        border-right: 16px solid $btnBgColor;
+        margin-bottom: 0;
+    }
+
+    &:hover {
+        .button {
+            transition: none;
+            background-color: $btnBgColorHover;
+            color: $btnBgColor;
+        }
+        .drill-back-arrow {
+            transition: none;
+            border-right: 16px solid $btnBgColorHover;
+        }
+    }
+
+    //
+
 
 }
 
@@ -99,7 +172,15 @@ $drill-padding: 20px 20px;
         margin-left: 10px;
     }
 
+    &:hover {
+        color: white;
+        &:after {
+            color: $drill-border-color;
+        }
+    }
+
     &:last-of-type {
+        color: $color-koma-primary;
         &:after {
             display: none;
         }

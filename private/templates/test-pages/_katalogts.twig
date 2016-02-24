@@ -5,11 +5,14 @@
 
 {% block content %}
 
-    <div class="button" drill-back="#drill-down">Back</div>
+
     <div class="button" drill-home="#drill-down">Home</div>
 
     <div id="drill-down" class="drill-down">
-        <div class="drill-history"></div>
+        <div class="drill-controls">
+            <div class="drill-back-button" drill-back="#drill-down"><span class="drill-back-arrow"></span><span class="button">Back</span></div>
+            <div class="drill-history"></div>
+        </div>
 
     </div>
 
@@ -27,9 +30,17 @@
          var drillDownData = [];
          drillDownData = [
              {% nav page in pages %}
+
+             {% set hasBody = 0 %}
+             {% if(page.body) %}
+             {% set hasBody = 1 %}
+             {% endif %}
+
              {
                  title: '{{ page.title }}',
                  url: '{{ page.url }}',
+                 filterUrl: '/polozky',
+                 hasContent: {{ hasBody }},
                  childs: [
                      {% ifchildren %}
                      {% children %}
@@ -45,7 +56,7 @@
 
              var opt = {
                  selector: '#drill-down',
-                 rootLevelName: 'Houmer'
+                 rootLevelName: 'Katalog'
              };
 
              var drill = new DrillDown(drillDownData, opt);

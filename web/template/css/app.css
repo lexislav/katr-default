@@ -4450,11 +4450,11 @@ label a {
   position: relative;
   height: 100%;
   background-color: #858585;
-  color: white; }
+  color: #434343; }
 
 .drill-level {
   background-color: #858585;
-  color: white;
+  color: #434343;
   position: fixed;
   left: 0;
   width: 100%;
@@ -4466,7 +4466,7 @@ label a {
     display: block;
     width: 100%;
     padding: 20px 20px;
-    color: black;
+    color: #434343;
     text-decoration: none; }
     .drill-level a:hover {
       color: white; }
@@ -4478,7 +4478,7 @@ label a {
 .drill-next {
   display: none;
   padding: 20px 20px;
-  color: black; }
+  color: #434343; }
   .drill-next:hover {
     color: white; }
 
@@ -4490,15 +4490,57 @@ label a {
   min-width: 100px;
   text-align: center;
   border-left: 1px solid #b5bbb4;
-  cursor: pointer; }
+  cursor: pointer;
+  font-size: 33.6px;
+  line-height: 1; }
 
 .drill-item {
   border-bottom: 1px solid #b5bbb4;
   display: flex;
-  font-size: 30px;
-  font-family: "Purista"; }
+  font-size: 24px;
+  font-family: "Purista";
+  font-weight: 800; }
   .drill-item.drill-has-childs .drill-next {
     display: block; }
+  .drill-item.drill-empty-content .drill-title {
+    opacity: 0.6; }
+
+.drill-controls {
+  padding: 30px 20px;
+  font-size: 24px;
+  font-family: "Purista";
+  color: #b5bbb4;
+  display: flex; }
+
+.drill-back-button {
+  margin-right: 20px; }
+  .drill-back-button .button {
+    transition: none;
+    margin-bottom: 0;
+    padding: 0;
+    vertical-align: top;
+    height: 36px;
+    line-height: 36px;
+    padding-left: 8px;
+    padding-right: 16px;
+    background-color: white;
+    font-size: 16px;
+    color: black; }
+  .drill-back-button .drill-back-arrow {
+    display: inline-block;
+    width: 0;
+    height: 0;
+    border-top: 18px solid transparent;
+    border-bottom: 18px solid transparent;
+    border-right: 16px solid white;
+    margin-bottom: 0; }
+  .drill-back-button:hover .button {
+    transition: none;
+    background-color: #c20e1a;
+    color: white; }
+  .drill-back-button:hover .drill-back-arrow {
+    transition: none;
+    border-right: 16px solid #c20e1a; }
 
 .drill-hist-button {
   display: inline-block;
@@ -4508,8 +4550,14 @@ label a {
     content: ">";
     display: inline-block;
     margin-left: 10px; }
-  .drill-hist-button:last-of-type:after {
-    display: none; }
+  .drill-hist-button:hover {
+    color: white; }
+    .drill-hist-button:hover:after {
+      color: #b5bbb4; }
+  .drill-hist-button:last-of-type {
+    color: #c20e1a; }
+    .drill-hist-button:last-of-type:after {
+      display: none; }
 
 .m-body-copy > * {
   margin-left: calc(8.3% + 20px);
