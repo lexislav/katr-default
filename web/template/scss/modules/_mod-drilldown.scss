@@ -16,12 +16,13 @@ $drill-padding: 20px 20px;
     height: 100%;
     background-color: $drill-bg-color;
     color: $drill-color;
+
 }
 
 .drill-reveal {
     padding: 0;
     margin: 0 !important;
-    top: 76px !important;
+    top: 0 !important;
 
     .close-button {
         z-index: 100;
@@ -34,6 +35,7 @@ $drill-padding: 20px 20px;
     width: 100%;
     height: 100%;
     position: relative;
+    overflow: hidden;
 }
 .drill-level {
     background-color: $drill-bg-color;
