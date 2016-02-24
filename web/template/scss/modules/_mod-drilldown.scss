@@ -20,7 +20,8 @@ $drill-padding: 20px 20px;
 
 .drill-reveal {
     padding: 0;
-    top: 48px;
+    margin: 0 !important;
+    top: 76px !important;
 
     .close-button {
         z-index: 100;

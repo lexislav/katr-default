@@ -4454,7 +4454,8 @@ label a {
 
 .drill-reveal {
   padding: 0;
-  top: 48px; }
+  margin: 0 !important;
+  top: 76px !important; }
   .drill-reveal .close-button {
     z-index: 100;
     color: white; }
