@@ -1,35 +1,46 @@
 {# taby #}
 
-<div class="m-tabs">
+<div class="m-tabs mm-mgr-top">
 
     <ul class="tabs" data-tabs id="example-tabs">
-        <li class="tabs-title is-active"><a href="#panel1" aria-selected="true"><i class="fa fa-random"></i> Oznámení</a></li>
+        <li class="tabs-title is-active">
+            <a href="#panel1" aria-selected="true"><i class="fa fa-random"></i> Oznámení</a></li>
         <li class="tabs-title"><a href="#panel2"><i class="fa fa-random"></i> FAQ</a></li>
     </ul>
 
     <div class="tabs-content" data-tabs-content="example-tabs">
 
-
         <div class="tabs-panel mm-pad-bottom mm-pad-top is-active" id="panel1">
+
             <div class="row align-center">
-                <div class="columns small-5">
+
+                <div class="columns small-4">
                     <h3 class="f-xl f-800">Oznámení</h3>
                 </div>
-                <div class="columns small-5">
+
+                <div class="columns small-6">
                     {% for entry in craft.entries.section('oznameni').limit(10) %}
-                    <article>
-                        <div class="row">
-                            <div class="column small-3">
-                                {{ entry.postDate.format('F d, Y') }}
-                            </div>
 
-                            <div class="">
-
-                            <h1><a href="{{ entry.url }}">{{ entry.title }}</a></h1>
+                        <article class=" mm-pad-bottom-half mm-pad-bottom-half">
+                            <div class="row">
+                                <div class="column small-3">
+                                    <div class="f-400 f-xs">{{ entry.postDate.format('F d, Y') }}</div>
+                                </div>
+                                <div class="columns small-9">
+                                    <h1 class="f-400 f-m"><a href="{{ entry.url }}">{{ entry.title }}</a></h1>
+                                </div>
                             </div>
-                        </div>
-                    </article>
+                        </article>
+
                     {% endfor %}
+
+                    <div class="row">
+                        <div class="column small-3"></div>
+                        <div class="columns small-9">
+                            <h3 class="f-800 f-xl c-primary-dark mm-link-notunderline mm-inverted-link-colors"><a href="/oznameni">Archiv oznámení <i class="fa fa-arrow-right"></i></a></h3>
+                        </div>
+                    </div>
+
                 </div>
             </div>
 
@@ -37,10 +48,10 @@
 
         <div class="tabs-panel mm-pad-bottom mm-pad-top" id="panel2">
             <div class="row align-center">
-                <div class="columns small-5">
+                <div class="columns small-4">
                     <h3 class="f-xl f-800">FAQ</h3>
                 </div>
-                <div class="columns small-5">
+                <div class="columns small-6">
                     <p>Sekce FAQ je zatím prázdná.</p>
                 </div>
             </div>

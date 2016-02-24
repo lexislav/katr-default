@@ -1,0 +1,209 @@
+/// my drilldown
+
+$drill-border-color: $color-koma-ui-mid;
+$drill-bg-color: $color-koma-ui-dark;
+
+$drill-color: $color-koma-ui-darken;
+$drill-link-color: $color-koma-ui-darken;
+$drill-link-hover-color: white;
+$drill-font-size: 24px;
+$drill-font-weight: 800;
+$drill-font-family: 'Purista';
+$drill-padding: 20px 20px;
+
+.drill-down {
+    position: relative;
+    height: 100%;
+    background-color: $drill-bg-color;
+    color: $drill-color;
+
+}
+
+.drill-reveal {
+    padding: 0;
+    margin: 0 !important;
+    top: 0 !important;
+
+    .close-button {
+        z-index: 100;
+        color: white;
+    }
+
+}
+
+.drill-wrapper {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    overflow: hidden;
+}
+.drill-level {
+    background-color: $drill-bg-color;
+    color: $drill-color;
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    margin: auto;
+    transition: all 0.3s ease-out;
+
+    border-top: 1px solid $drill-border-color;
+
+    a {
+        display: block;
+        width: 100%;
+        padding: $drill-padding;
+
+        color: $drill-link-color;
+        text-decoration: none;
+
+        &:hover {
+            color: $drill-link-hover-color;
+        }
+    }
+}
+
+.drill-hidden {
+    transition: all 0.3s ease-out;
+    transform: translateX(100%);
+}
+
+.drill-next {
+    display: none;
+    padding: $drill-padding;
+    color: $drill-link-color;
+    &:hover {
+        color: $drill-link-hover-color;
+    }
+}
+
+.drill-title {
+    flex-grow: 5;
+    //padding: $drill-padding;
+    //cursor: pointer;
+}
+
+.drill-next,
+.drill-icon {
+    min-width: 100px;
+    text-align: center;
+    border-left: 1px solid $drill-border-color;
+    //padding: $drill-padding;
+    cursor: pointer;
+    font-size: $drill-font-size * 1.4;
+    line-height: 1;
+}
+
+.drill-item {
+    border-bottom: 1px solid $drill-border-color;
+    display: flex;
+    font-size: $drill-font-size;
+    font-family: $drill-font-family;
+    font-weight: $drill-font-weight;
+
+    &.drill-has-childs {
+        .drill-next {
+            display: block;
+        }
+    }
+
+    &.drill-empty-content {
+        .drill-title {
+            opacity: 0.6;
+        }
+    }
+
+}
+
+// history
+
+.drill-controls {
+    padding: 30px 20px;
+    font-size: $drill-font-size;
+    font-family: $drill-font-family;
+    color: $color-koma-ui-mid;
+
+    display: flex;
+    align-content: center;
+    height: 100px;
+
+}
+
+.drill-history {
+}
+
+.drill-back-button {
+    height: 100%;
+    $btnHeight: 36px;
+    $btnColor: black;
+    $btnBgColor: white;
+    $btnBgColorHover: $color-koma-primary;
+
+    margin-right: 20px;
+
+    .button {
+        transition: none;
+        margin-bottom: 0;
+        padding: 0;
+        vertical-align: top;
+        height: $btnHeight;
+        line-height: $btnHeight;
+        padding-left: 8px;
+        padding-right: 16px;
+        background-color: $btnBgColor;
+        font-size: 16px;
+        color: $btnColor;
+    }
+
+    .drill-back-arrow {
+        display: inline-block;
+        width: 0;
+        height: 0;
+        border-top: ($btnHeight / 2) solid transparent;
+        border-bottom: ($btnHeight / 2) solid transparent;
+        border-right: 16px solid $btnBgColor;
+        margin-bottom: 0;
+    }
+
+    &:hover {
+        .button {
+            transition: none;
+            background-color: $btnBgColorHover;
+            color: $btnBgColor;
+        }
+        .drill-back-arrow {
+            transition: none;
+            border-right: 16px solid $btnBgColorHover;
+        }
+    }
+
+    //
+
+
+}
+
+.drill-hist-button {
+    display: inline-block;
+    margin-right: 10px;
+    cursor: pointer;
+
+    &:after {
+        content: ">";
+        display: inline-block;
+        margin-left: 10px;
+    }
+
+    &:hover {
+        color: white;
+        &:after {
+            color: $drill-border-color;
+        }
+    }
+
+    &:last-of-type {
+        color: $color-koma-primary;
+        &:after {
+            display: none;
+        }
+    }
+}

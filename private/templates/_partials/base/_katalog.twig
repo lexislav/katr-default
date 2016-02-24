@@ -7,31 +7,77 @@
 
 {% set pages = craft.entries.section('katalog') %}
 
-<div class="full reveal" id="katalogModal" data-reveal>
-    {# tohle vyžaduje hacknutý Foundation JS file#}
-    <nav class="m-katalog mm-link-notunderline">
-        <ul class="vertical menu" data-drilldown>
+{# html wrapper pro katalog#}
+<div class="reveal full drill-reveal" id="katalogModal" data-reveal>
+    <div class="drill-wrapper">
+        <div id="drill-down" class="drill-down">
+            <div class="drill-controls">
+                <div class="drill-back-button" drill-back="#drill-down">
+                    <span class="drill-back-arrow"></span><span class="button">Back</span></div>
+                <div class="drill-history"></div>
+            </div>
+        </div>
 
-
-            {% nav page in pages %}
-            <li>
-                <div class="m-katalog--item">
-                    <a class="m-katalog--item-link" href="{{ page.url }}">{{ page.title }}</a>
-                    <div class="m-katalog--item-next"><i class="fa fa-angle-right"></i></div>
-                    <div class="m-katalog--item-content">
-                        <a href="{{ page.url }}" class="extra-link"><i class="fa fa-file-text"></i></a>
-                    </div>
-                </div>
-                {% ifchildren %}
-                <ul class="vertical menu">
-                    {% children %}
-                </ul>
-                {% endifchildren %}
-            </li>
-            {% endnav %}
-        </ul>
-    </nav>
-    <button class="close-button" data-close aria-label="Close reveal" type="button">
+    </div>
+    <button class="close-button" data-close aria-label="Close modal" type="button">
         <span aria-hidden="true">&times;</span>
     </button>
 </div>
+
+<script>
+
+    {# build drilldown js inline config by twig #}
+    /* ********************************************* */
+    var drillDownData = [];
+    drillDownData = [
+        {% nav page in pages %}
+
+        {% set hasBody = 0 %}
+        {% if(page.body) %}
+        {% set hasBody = 1 %}
+        {% endif %}
+
+        {
+            title: '{{ page.title }}',
+            url: '{{ page.url }}',
+            filterUrl: '/polozky',
+            hasContent: {{ hasBody }},
+            childs: [
+                {% ifchildren %}
+                {% children %}
+                {% endifchildren %}
+            ]
+        },
+        {% endnav %}
+    ];
+    /* ********************************************* */
+    {# drilldown config end #}
+
+    $(function () {
+
+        var opt = {
+            selector: '#drill-down',
+            rootLevelName: 'Katalog'
+        };
+
+        var drill = new DrillDown(drillDownData, opt);
+
+
+
+        // otevirani modalu katalogu pres ID v menu
+        $(".katalogmenu").on('click', function (e) {
+            e.preventDefault();
+            var $modal = $('#katalogModal');
+            $modal.foundation('open');
+        });
+
+        $(".katalogmenu").on('click', function (e) {
+            e.preventDefault();
+            var $modal = $('#katalogModal');
+            $modal.foundation('open');
+        });
+
+    });
+
+
+</script>
