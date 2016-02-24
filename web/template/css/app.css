@@ -4206,6 +4206,12 @@ label a {
     color: #858585;
     margin-right: 8px; }
 
+.menu .disabled {
+  pointer-events: none;
+  color: #b5bbb4; }
+  .menu .disabled a {
+    color: #b5bbb4; }
+
 .koma-content .accordion-title:before {
   font-size: 24px;
   font-weight: 800;
@@ -4455,7 +4461,7 @@ label a {
 .drill-reveal {
   padding: 0;
   margin: 0 !important;
-  top: 76px !important; }
+  top: 0 !important; }
   .drill-reveal .close-button {
     z-index: 100;
     color: white; }
@@ -4463,7 +4469,8 @@ label a {
 .drill-wrapper {
   width: 100%;
   height: 100%;
-  position: relative; }
+  position: relative;
+  overflow: hidden; }
 
 .drill-level {
   background-color: #858585;
