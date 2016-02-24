@@ -11,16 +11,32 @@
 
                 {% for i in offCanvasMenu.menuItem %}
 
-                    <a class="row off-canvas-item {% if not i.menuLink %}disabled{% endif %}{% if i.menuDivider %} is-section{% endif %}"
-                            href="{% if i.menuLink  %}{{ i.menuLink }}{% else %}#{% endif %}"
-                            data-close="offCanvasLeft">
-                        <div class="small-2 column off-canvas-item--icon"><i class="{{ i.menuIcon.value }}"></i></div>
+                    {% set id = '' %}
+                    {% if i.menuID %}
+                        {% set id = i.menuID %}
+                    {% endif %}
 
+                    {% set isDivider = '' %}
+                    {% if i.menuDivider %}
+                        {% set isDivider = 'is-section' %}
+                    {% endif %}
+
+                    {% if i.menuLink is empty %}
+                        {% set menuLink = "#" %}
+                        {% set disabled = "disabled" %}
+                    {% else %}
+                        {% set menuLink = i.menuLink %}
+                        {% set disabled = "" %}
+                    {% endif %}
+
+                    <a class="row off-canvas-item {{ disabled }} {{ isDivider }} {{ id }}" href="{{ menuLink }}" data-close="offCanvasLeft">
+                        <div class="small-2 column off-canvas-item--icon"><i class="{{ i.menuIcon.value }}"></i></div>
                         <div class="small-10 column">
                             <h3 class="off-canvas-item--headline">{{ i.menuTitle }}</h3>
                             <div>{{ i.menuDescription }}</div>
                         </div>
                     </a>
+
                 {% endfor %}
 
             </div>
