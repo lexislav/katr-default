@@ -4745,6 +4745,11 @@ a.button {
   .m-oznameni article:last-child {
     border-bottom: 1px solid #ecf0ec; }
 
+.fa-inline {
+  vertical-align: middle;
+  font-size: 1.8em;
+  padding-right: .5em; }
+
 .tag {
   display: inline-block;
   border-radius: 4px;
