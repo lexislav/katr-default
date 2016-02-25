@@ -10,9 +10,34 @@
 
 	{% include '/_partials/base/_top-breadcrumbs.twig' %}
 
-    <article>
-		{% include "/_partials/obsah/_obsah-textpage-header.twig" %}
+	{# příprava linků na pčředchozí a následující obsah pro dokumentaci #}
+	{% set prev = "" %}
+	{% set prevtitle = "" %}
+	{% set up = "" %}
+	{% set uptitle = "" %}
+	{% set next = "" %}
+	{% set nexttitle = "" %}
 
+	{% set navlink = craft.entries.positionedBefore(entry).first() %}
+	{% if navlink %}
+		{% set prev = navlink.url %}
+		{% set prevtitle = navlink.title %}
+	{% endif %}
+	{% set navlink = entry.getAncestors(1) %}
+	{% if navlink|length > 0 %}
+		{% set up = navlink.first.url %}
+		{% set uptitle = navlink.first.title %}
+	{% endif %}
+	{% set navlink = craft.entries.positionedAfter(entry).first() %}
+	{% if navlink %}
+		{% set next = navlink.url %}
+		{% set nexttitle = navlink.title %}
+	{% endif %}
+	{% set vars = { "navPosition": "top", "prevlink": prev, "prevtitle": prevtitle, "uplink": up, "uptitle": uptitle, "nextlink": next, "nexttitle": nexttitle } %}
+	{% set varsbottom = { "navPosition": "bottom", "prevlink": prev, "prevtitle": prevtitle, "uplink": up, "uptitle": uptitle, "nextlink": next, "nexttitle": nexttitle } %}
+	{% include "/_partials/obsah/_obsah-textpage-header.twig" %}
+
+    <article>
 
         <div class="row">
 
@@ -23,15 +48,12 @@
 
                 {# prava strana obsah #}
                 {% import "_partials/macros/_macros.twig" as macros %}
-                {# dát do samostatné podšablony #}
-                <div class="m-block mm-side bg-grey-light">
-                    <h2 class="f-xl f-800 mm-pad-bottom-half">Související články:</h2>
-					{% if entry.getChildren|length > 0 %}
-					{{ macros.listRelated( entry.getChildren(1) ) }}
-					{% else %}
-					{{ macros.listRelated( entry.getSiblings() ) }}
-					{% endif %}
-                </div>
+				{% if entry.getChildren|length > 0 %}
+					{% set souvisejici = entry.getChildren(1) %}
+				{% else %}
+					{% set souvisejici = entry.getSiblings() %}
+				{% endif %}
+				{% include "/_partials/common/_related-aside.twig" %}
                 {# prava strana obsah - konec#}
 
             </div>
@@ -46,26 +68,16 @@
         <div class="row">
             <div class="columns small-7 small-offset-1">
 
+				{# TODO: Michale, stejný blok jako napravo, měl by být vždy vidět ale jen jeden. na desktopu ten vpravo, na iPadu portrait jen ten dole, asi jasný, jen pro jistotu uvádím #}
 
-                {# tohle je stejný blok jako v pravé straně#}
-				{# TODO: stejný blok jako napravo, měl by být vždy vidět ale jen jeden. na desktopu ten vpravo, na iPadu portrait jen ten dole, asi jasný, jen pro jistotu uvádím #}
-                {# dát do samostatné podšablony #}
-				{# NOTE: hodil jsem to do makra, wrappery jsou zde, neví, zda je to dle tebe dostačující #}
-                <div class="m-block mm-bottom">
-                    <h2 class="f-xl f-800">Související články:</h2>
-					{% if entry.getChildren|length > 0 %}
-					{{ macros.listRelated( entry.getChildren(1) ) }}
-					{% else %}
-					{{ macros.listRelated( entry.getSiblings() ) }}
-					{% endif %}
-                </div>
+				{% include "/_partials/common/_related-bottom.twig" %}
 
             </div>
         </div>
     </div>
 
 	<div class="bg-grey-light mm-pad-top mm-pad-bottom">
-		{% include '/_partials/common/_prevnext-nav.twig' with { "navPosition" : "bottom" } %}
+		{% include '/_partials/common/_prevnext-nav.twig' with varsbottom %}
 	</div>
 
 {% endblock %}

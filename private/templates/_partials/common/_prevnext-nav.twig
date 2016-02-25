@@ -16,14 +16,20 @@
 
 <nav class="row">
     <div class="columns small-4 {{prevDirection}}">
-        {% if entry.prevSibling %}<a href="{{ entry.prevSibling.url }}"><i class="fa {{iconSize}}fa-arrow-left"></i>{{ prevMessage }}</a>{% endif %}
+        {% if prevlink %}<a href="{{ prevlink }}" alt="{{ prevtitle }}" title ="{{ prevtitle }}">
+            <i class="fa {{iconSize}}fa-arrow-left"></i>{% if navPosition == "bottom" %}{{ prevMessage }}{% endif %}
+        </a>{% endif %}
     </div>
 
     <div class="columns small-4 text-center">
-        {% if entry.getAncestors(1)|length>0 %}<a href="{{entry.getAncestors(1).first.url}}"><i class="fa {{iconSize}}fa-arrow-up"></i>{{ parentMessage }}</a>{% endif %}
+        {% if uplink %}<a href="{{ uplink }}" alt="{{ uptitle }}" title="{{ uptitle }}">
+            <i class="fa {{iconSize}}fa-arrow-up"></i>{% if navPosition == "bottom" %}{{ parentMessage }}{% endif %}
+        </a>{% endif %}
     </div>
 
     <div class="columns small-4 {{nextDirection}}">
-        {% if entry.nextSibling %}<a href="{{ entry.nextSibling.url }}"><i class="fa {{iconSize}}fa-arrow-right"></i>{{ nextMessage }}</a>{% endif %}
+        {% if nextlink %}<a href="{{ nextlink }}" alt="{{ nexttitle }}" title="{{ nexttitle }}">
+            <i class="fa {{iconSize}}fa-arrow-right"></i>{% if navPosition == "bottom" %}{{ nextMessage }}{% endif %}
+        </a>{% endif %}
     </div>
 </nav>

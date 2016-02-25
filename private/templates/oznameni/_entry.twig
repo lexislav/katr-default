@@ -10,6 +10,26 @@
 
 	{% include '/_partials/base/_top-breadcrumbs.twig' %}
 
+	{# příprava linků na pčředchozí a následující obsah pro oznámení #}
+	{% set prev = "" %}
+	{% set prevtitle = "" %}
+	{% set up = "/oznameni" %}
+	{% set uptitle = "Oznámení (archiv)" %}
+	{% set next = "" %}
+	{% set nexttitle = "" %}
+	{% set souvisejici = craft.entries.section('oznameni') %}
+	{% if entry.getPrev(souvisejici) %}
+		{% set prev = entry.getPrev(souvisejici).url %}
+		{% set prevtitle = entry.getPrev(souvisejici).title %}
+	{% endif %}
+	{% if entry.getNext(souvisejici) %}
+		{% set next = entry.getNext(souvisejici).url %}
+		{% set nexttitle = entry.getNext(souvisejici).title %}
+	{% endif %}
+
+	{% set vars = { "navPosition": "top", "prevlink": prev, "prevtitle": prevtitle, "uplink": up, "uptitle": uptitle, "nextlink": next, "nexttitle": nexttitle } %}
+	{% set varsbottom = { "navPosition": "bottom", "prevlink": prev, "prevtitle": prevtitle, "uplink": up, "uptitle": uptitle, "nextlink": next, "nexttitle": nexttitle } %}
+
 	<article>
 		{% include "/_partials/obsah/_obsah-textpage-header.twig" %}
 
@@ -22,11 +42,9 @@
 				{# TODO sjednotit pravou stranu a související oznámení, dokumentace a testpages #}
                 {# prava strana obsah #}
                 {% import "_partials/macros/_macros.twig" as macros %}
-                {# dát do samostatné podšablony #}
-                <div class="m-block mm-side bg-grey-light">
-                    <h2 class="f-xl f-800 mm-pad-bottom-half">Související články:</h2>
-					{{ macros.listRelated( craft.entries.section('oznameni').limit(10).id('not ' ~ entry.id) ) }}
-                </div>
+				{% set souvisejici = craft.entries.section('oznameni').limit(10).id('not ' ~ entry.id) %}
+
+                {% include "_partials/common/_related-aside.twig" %}
                 {# prava strana obsah - konec#}
 
             </div>
@@ -34,20 +52,11 @@
 
 	</article>
 
-	<div class="m-section bg-grey-light mm-mgr-top mm-mgr-bottom-tiny">
-        <div class="row">
-            <div class="columns small-7 small-offset-1">
-                <div class="m-dalsi">
-                    <h2 class="f-xl f-800 mm-pad-bottom-half">Související články:</h2>
-					{{ macros.listRelated( craft.entries.section('oznameni').limit(10).id('not ' ~ entry.id) ) }}
-                </div>
+	{% include "/_partials/common/_related-bottom.twig" %}
 
-            </div>
-        </div>
-    </div>
 	{# TODO: opodmínkovat navigace, je-li vůbec potřeba a upravit, aby fungovala všude nebo je rozdělit#}
 	<div class="bg-grey-light mm-pad-top mm-pad-bottom">
-		{% include '/_partials/common/_prevnext-nav.twig' with { "navPosition" : "bottom" } %}
+		{% include '/_partials/common/_prevnext-nav.twig' with varsbottom %}
 	</div>
 
 	{% include "/_partials/obsah/_obsah-upozorneni.twig" %}
