@@ -5,6 +5,8 @@
 {% set parentMessage = " Nahoru" %}
 {% set prevDirection = "text-left" %}
 {% set nextDirection = "text-right" %}
+{% set cols = "columns small-4 text-left f-800 f-l" %}
+{% set rowclass = "row mm-inverted-link-colors mm-link-notunderline" %}
 {% if navPosition == "top" %}
     {% set iconSize = "fa-2x " %}
     {% set prevMessage = "" %}
@@ -12,22 +14,24 @@
     {% set parentMessage = "" %}
     {% set prevDirection = "text-right" %}
     {% set nextDirection = "text-left" %}
+    {% set cols = "columns small-4 text-right" %}
+    {% set rowclass = "row mm-inverted-link-colors" %}
 {% endif %}
 
-<nav class="row">
-    <div class="columns small-4 {{prevDirection}}">
+<nav class="{{rowclass}}">
+    <div class="{{cols}} {{prevDirection}}">
         {% if prevlink %}<a href="{{ prevlink }}" alt="{{ prevtitle }}" title ="{{ prevtitle }}">
             <i class="fa {{iconSize}}fa-arrow-left"></i>{% if navPosition == "bottom" %}{{ prevMessage }}{% endif %}
         </a>{% endif %}
     </div>
 
-    <div class="columns small-4 text-center">
+    <div class="{{cols}} text-center">
         {% if uplink %}<a href="{{ uplink }}" alt="{{ uptitle }}" title="{{ uptitle }}">
             <i class="fa {{iconSize}}fa-arrow-up"></i>{% if navPosition == "bottom" %}{{ parentMessage }}{% endif %}
         </a>{% endif %}
     </div>
 
-    <div class="columns small-4 {{nextDirection}}">
+    <div class="{{cols}} {{nextDirection}}">
         {% if nextlink %}<a href="{{ nextlink }}" alt="{{ nexttitle }}" title="{{ nexttitle }}">
             <i class="fa {{iconSize}}fa-arrow-right"></i>{% if navPosition == "bottom" %}{{ nextMessage }}{% endif %}
         </a>{% endif %}

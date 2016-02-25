@@ -35,11 +35,12 @@
 	{% endif %}
 	{% set vars = { "navPosition": "top", "prevlink": prev, "prevtitle": prevtitle, "uplink": up, "uptitle": uptitle, "nextlink": next, "nexttitle": nexttitle } %}
 	{% set varsbottom = { "navPosition": "bottom", "prevlink": prev, "prevtitle": prevtitle, "uplink": up, "uptitle": uptitle, "nextlink": next, "nexttitle": nexttitle } %}
-	{% include "/_partials/obsah/_obsah-textpage-header.twig" %}
 
     <article>
+		{#  TODO: Michale, textová strana margin nahoře, i v oznámení #}
+		{% include "/_partials/obsah/_obsah-textpage-header.twig" %}
 
-        <div class="row">
+        <div class="row mm-pad-bottom">
 
             {% include "/_partials/obsah/_obsah-textpage-body.twig" %}
 
@@ -63,18 +64,8 @@
 
 
     {# sekce související #}
+	{% include "/_partials/common/_related-bottom.twig" %}
 
-    <div class="m-section bg-grey-light mm-mgr-top mm-mgr-bottom-tiny hide-for-large">
-        <div class="row">
-            <div class="columns small-7 small-offset-1">
-
-				{# TODO: Michale, stejný blok jako napravo, měl by být vždy vidět ale jen jeden. na desktopu ten vpravo, na iPadu portrait jen ten dole, asi jasný, jen pro jistotu uvádím #}
-
-				{% include "/_partials/common/_related-bottom.twig" %}
-
-            </div>
-        </div>
-    </div>
 
 	<div class="bg-grey-light mm-pad-top mm-pad-bottom">
 		{% include '/_partials/common/_prevnext-nav.twig' with varsbottom %}

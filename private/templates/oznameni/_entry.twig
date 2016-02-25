@@ -33,28 +33,27 @@
 	<article>
 		{% include "/_partials/obsah/_obsah-textpage-header.twig" %}
 
-		<div class="row">
+		<div class="row mm-pad-bottom">
 
             {% include "/_partials/obsah/_obsah-textpage-body.twig" with { "type":"oznameni" } %}
 
             {# prava strana pouze pro large#}
             <div class="columns large-3  hide-for-small-only hide-for-medium-only">
-				{# TODO sjednotit pravou stranu a související oznámení, dokumentace a testpages #}
                 {# prava strana obsah #}
                 {% import "_partials/macros/_macros.twig" as macros %}
 				{% set souvisejici = craft.entries.section('oznameni').limit(10).id('not ' ~ entry.id) %}
 
                 {% include "_partials/common/_related-aside.twig" %}
-                {# prava strana obsah - konec#}
-
             </div>
+			{# prava strana obsah - konec#}
+
         </div>
 
 	</article>
 
+	{# sekce související #}
 	{% include "/_partials/common/_related-bottom.twig" %}
 
-	{# TODO: opodmínkovat navigace, je-li vůbec potřeba a upravit, aby fungovala všude nebo je rozdělit#}
 	<div class="bg-grey-light mm-pad-top mm-pad-bottom">
 		{% include '/_partials/common/_prevnext-nav.twig' with varsbottom %}
 	</div>
