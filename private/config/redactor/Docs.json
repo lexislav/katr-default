@@ -1,5 +1,5 @@
 {
     "buttons": ["bold","italic","format","lists","link","image"],
     "plugins": ["source", "table", "scriptbuttons", "fullscreen"],
-    "formatting": ["p","blockquote","h2","h3","h4"]
+    "formatting": ["p","blockquote","h2","h3","h4","code"]
 }
