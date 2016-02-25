@@ -5,6 +5,8 @@
 {% set parentMessage = " Nahoru" %}
 {% set prevDirection = "text-left" %}
 {% set nextDirection = "text-right" %}
+{% set cols = "columns small-4 f-800 f-l" %}
+{% set rowclass = "row mm-inverted-link-colors mm-link-notunderline" %}
 {% if navPosition == "top" %}
     {% set iconSize = "fa-2x " %}
     {% set prevMessage = "" %}
@@ -12,18 +14,26 @@
     {% set parentMessage = "" %}
     {% set prevDirection = "text-right" %}
     {% set nextDirection = "text-left" %}
+    {% set cols = "columns small-4" %}
+    {% set rowclass = "row mm-inverted-link-colors" %}
 {% endif %}
 
-<nav class="row">
-    <div class="columns small-4 {{prevDirection}}">
-        {% if entry.prevSibling %}<a href="{{ entry.prevSibling.url }}"><i class="fa {{iconSize}}fa-arrow-left"></i>{{ prevMessage }}</a>{% endif %}
+<nav class="{{rowclass}}">
+    <div class="{{cols}} {{prevDirection}}">
+        {% if prevlink %}<a href="{{ prevlink }}" alt="{{ prevtitle }}" title ="{{ prevtitle }}">
+            <i class="fa {{iconSize}}fa-arrow-left"></i>{% if navPosition == "bottom" %}{{ prevMessage }}{% endif %}
+        </a>{% endif %}
     </div>
 
-    <div class="columns small-4 text-center">
-        {% if entry.getAncestors(1)|length>0 %}<a href="{{entry.getAncestors(1).first.url}}"><i class="fa {{iconSize}}fa-arrow-up"></i>{{ parentMessage }}</a>{% endif %}
+    <div class="{{cols}} text-center">
+        {% if uplink %}<a href="{{ uplink }}" alt="{{ uptitle }}" title="{{ uptitle }}">
+            <i class="fa {{iconSize}}fa-arrow-up"></i>{% if navPosition == "bottom" %}{{ parentMessage }}{% endif %}
+        </a>{% endif %}
     </div>
 
-    <div class="columns small-4 {{nextDirection}}">
-        {% if entry.nextSibling %}<a href="{{ entry.nextSibling.url }}"><i class="fa {{iconSize}}fa-arrow-right"></i>{{ nextMessage }}</a>{% endif %}
+    <div class="{{cols}} {{nextDirection}}">
+        {% if nextlink %}<a href="{{ nextlink }}" alt="{{ nexttitle }}" title="{{ nexttitle }}">
+            <i class="fa {{iconSize}}fa-arrow-right"></i>{% if navPosition == "bottom" %}{{ nextMessage }}{% endif %}
+        </a>{% endif %}
     </div>
 </nav>
