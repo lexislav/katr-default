@@ -3,12 +3,13 @@
 
         {# obrazek #}
         {% if entry.uvodniObrazek|length>0 %}
-        <div class="columns small-2 ignore-gutter">
-            <div class="m-product-list-item--image" style="background-image: url({{ entry.uvodniObrazek.first.getUrl('thumb') }})">
-                <a href="{{entry.url}}"></a>
+            <div class="columns small-2 ignore-gutter">
+                <div class="m-product-list-item--image" style="background-image: url({{ entry.uvodniObrazek.first.getUrl('thumb') }})">
+                    <a href="{{ entry.url }}"></a>
+                </div>
             </div>
-        </div>
         {% endif %}
+
 
         {# stredni sloupec #}
         <div class="columns m-product-list--center-wrapper">
@@ -16,26 +17,31 @@
             {# horni linka#}
             <div class="row align-top m-product-list--line-top">
                 <div class="columns shrink">
-                    <h1 class="f-xl f-600"><a href="{{ entry.url }}" title="">{{entry.Title}}</a>
+                    <h1 class="f-xl f-600"><a href="{{ entry.url }}" title="">{{ entry.Title }}</a>
                         {% if entry.isEditable() %}
                             <a href="{{ entry.cpEditUrl }}" title="Editovat stránku" alt="Editace stránky"><i class="fa f-xl fa-pencil"></i></a>
                         {% endif %}
                     </h1>
-                    <div class="f-xxs c-grey-mid">{{entry.poznamka}}</div>
+                    <div class="f-xxs c-grey-mid">{{ entry.poznamka }}</div>
                 </div>
 
-            {# výpis prioritní tagů a rozměrů #}
+                {# výpis prioritní tagů a rozměrů #}
                 <div class="columns">
-                    <ul class="menu align-right dot-params">
+                    <ul class="menu dot-params align-right-flex ">
                         {% for pc in priorityCats %}{% set catValues = craft.categories({ relatedTo: { sourceElement: entry, field:pc.libraryHandle }, limit: null }) %}
-                        {# TODO: zvážit zda ponechat ochranou podmínku, editor pak neví, že uděl chybu #}
-                            {% if catValues.first %}<li><span class="tag">{{ catValues.first }}</span></li>{% endif %}
+                            {# TODO: zvážit zda ponechat ochranou podmínku, editor pak neví, že uděl chybu #}
+                            {% if catValues.first %}
+                                <li><span class="tag">{{ catValues.first }}</span></li>{% endif %}
                         {% endfor %}
 
-                            {# výpis rozměrů #}
-                            {% if entry.hloubka %}<li><i title="Hloubka / délka" class="dot">H</i><span>{{ entry.hloubka }} mm</span></li>{% endif %}
-                            {% if entry.vyska %}<li><i title="Výška" class="dot">V</i><span>{{ entry.vyska }} mm</span></li>{% endif %}
-                            {% if entry.sirka %}<li><i title="Šířka" class="dot">Š</i><span>{{ entry.sirka }} mm</span></li>{% endif %}
+                        {# výpis rozměrů #}
+                        {% if entry.hloubka %}
+                            <li><i title="Hloubka / délka" class="dot">H</i><span>{{ entry.hloubka }} mm</span>
+                            </li>{% endif %}
+                        {% if entry.vyska %}
+                            <li><i title="Výška" class="dot">V</i><span>{{ entry.vyska }} mm</span></li>{% endif %}
+                        {% if entry.sirka %}
+                            <li><i title="Šířka" class="dot">Š</i><span>{{ entry.sirka }} mm</span></li>{% endif %}
 
                     </ul>
                 </div>
@@ -44,20 +50,20 @@
             {# dolni linka #}
             <div class="row align-middle m-product-list--line-bottom">
                 <div class="columns shrink">
-                    <div class="f-m c-grey-mid">{{entry.katalogoveCislo}}</div>
+                    <div class="f-m c-grey-mid">{{ entry.katalogoveCislo }}</div>
                 </div>
 
                 <div class="columns">
-                    <ul class="menu align-right box-params">
+                    <ul class="menu align-right-flex box-params">
 
                         {% for pc in cats %}{% set catValues = craft.categories({ relatedTo: { sourceElement: entry, field:pc.libraryHandle }, limit: null }) %}
                             {% if catValues.first %}
-                            <li>
-                                {% if pc.shortTitle %}
-                                    <i title="{{ pc.title }}" class="dot">{{ pc.shortTitle }}</i>
-                                {% endif %}
+                                <li>
+                                    {% if pc.shortTitle %}
+                                        <i title="{{ pc.title }}" class="dot">{{ pc.shortTitle }}</i>
+                                    {% endif %}
                                     <span>{{ catValues.first }}</span>
-                            </li>
+                                </li>
                             {% endif %}
                         {% endfor %}
 

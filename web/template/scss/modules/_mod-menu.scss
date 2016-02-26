@@ -137,4 +137,10 @@
             color: $color-koma-ui-mid;
         }
     }
+
+    &.align-right-flex {
+        display: flex;
+        justify-content: flex-end;
+    }
+
 }

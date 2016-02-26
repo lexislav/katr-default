@@ -4211,6 +4211,10 @@ label a {
   .menu .disabled a {
     color: #b5bbb4; }
 
+.menu.align-right-flex {
+  display: flex;
+  justify-content: flex-end; }
+
 .koma-content .accordion-title:before {
   font-size: 24px;
   font-weight: 800;
