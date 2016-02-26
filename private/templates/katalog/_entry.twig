@@ -24,16 +24,7 @@
     <article>
 
 
-        {% if entry.ancestors|length>0 %}
-            {% if entry.ancestors.first.id == 5 %}
-                {% include "/_partials/obsah/_obsah-header.twig" with {"headerType": "hero"} %}
-            {% else %}
-                {% include "/_partials/obsah/_obsah-header.twig" with {"headerType": "default"} %}
-            {% endif %}
-        {% else %}
-            {% include "/_partials/obsah/_obsah-header.twig" with {"headerType": "default"} %}
-        {% endif %}
-
+        {% include "/_partials/obsah/_obsah-header.twig" %}
 
         {# body, tabulky, řady#}
         {% include "/_partials/obsah/_obsah-body.twig" %}

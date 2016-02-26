@@ -1,7 +1,7 @@
 <header>
 
     {# default header #}
-    {% if headerType == 'hero' %}
+    {% if entry.headerType == 'hero' %}
 
         {% if entry.uvodniObrazek|length > 0 %}
         {% set entryImage = entry.uvodniObrazek.first %}
@@ -35,7 +35,7 @@
 
     {# default header #}
 
-    {% if headerType == 'default' %}
+    {% if entry.headerType == 'default' %}
         <div class="row mm-pad-top mm-pad-bottom">
 
             <div class="small-12 medium-6 columns">
