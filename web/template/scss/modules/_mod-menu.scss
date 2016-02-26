@@ -147,6 +147,12 @@
 
 .menu-subsections {
 
+    @media #{$medium-only} {
+        // @todo: dát sem reálný gutter z gridu
+        margin-left: -20px;
+        margin-right: -20px;
+    }
+
     h3 {
         padding-left: 20px;
         padding-right: 20px;

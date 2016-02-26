@@ -810,8 +810,8 @@ button {
     margin-right: -0.7142857143rem; }
     @media screen and (min-width: 40em) {
       .row .row {
-        margin-left: -0.7142857143rem;
-        margin-right: -0.7142857143rem; } }
+        margin-left: -1.0714285714rem;
+        margin-right: -1.0714285714rem; } }
     @media screen and (min-width: 64em) {
       .row .row {
         margin-left: -1.4285714286rem;
@@ -828,8 +828,8 @@ button {
   flex: 1 1 0px; }
   @media screen and (min-width: 40em) {
     .column, .columns {
-      padding-left: 0.7142857143rem;
-      padding-right: 0.7142857143rem; } }
+      padding-left: 1.0714285714rem;
+      padding-right: 1.0714285714rem; } }
   @media screen and (min-width: 64em) {
     .column, .columns {
       padding-left: 1.4285714286rem;
@@ -1069,8 +1069,8 @@ button {
     padding-right: 0; }
 
   .medium-uncollapse > .column, .medium-uncollapse > .columns {
-    padding-left: 0.7142857143rem;
-    padding-right: 0.7142857143rem; } }
+    padding-left: 1.0714285714rem;
+    padding-right: 1.0714285714rem; } }
 @media screen and (min-width: 64em) {
   .large-1 {
     flex: 0 0 8.3333333333%;
@@ -4198,6 +4198,10 @@ label a {
   display: flex;
   justify-content: flex-end; }
 
+@media screen and (min-width: 40em) and (max-width: 63.9375em) {
+  .menu-subsections {
+    margin-left: -20px;
+    margin-right: -20px; } }
 .menu-subsections h3 {
   padding-left: 20px;
   padding-right: 20px; }
