@@ -1,18 +1,20 @@
 {# TODO: michale, prosím markup k subsekcím… díky #}
 
 
-<div class="row">
-    <div class="columns small-12">
 
-        <h3>Podkategorie</h3>
-        <ul class="menu vertical menu-subsections">
-            {% for subsection in entry.descendants(1) %}
-            <li>
-                <a href="{{ subsection.url }}">{{ subsection.title }}</a>
-                    <span><a href="{{ subsection.url }}">šipka</a></span>
-                    <span><a href="/polozky">Položky</a></span>
-            </li>
-            {% endfor %}
-        </ul>
+    <div class="row">
+        <div class="columns small-12 bg-grey-light mm-pad-bottom mm-pad-top">
+
+            <h3 class="f-xl f-800 mm-pad-bottom-half">katalog xx prvků</h3>
+
+            <div class="menu-subsections">
+                {% for subsection in entry.descendants(1) %}
+                    <div class="menu-item" {% if subsection.body is empty %} class="emtpy-content" {% endif %}>
+                        <a class="title" href="{{ subsection.url }}">{{ subsection.title }}</a>
+                        <a class="icon" href="/polozky"><i class="fa fa-list"></i></a>
+                    </div>
+                {% endfor %}
+            </div>
+
+        </div>
     </div>
-</div>
