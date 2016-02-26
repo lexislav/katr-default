@@ -10,10 +10,6 @@
 
             <li class="menu-text has-border"><img src="/template/assets/logo-koma.svg" alt=""></li>
 
-<<<<<<< HEAD
-            {# TODO: Michale, tady nehoře nefunguje classa disabled, tudíž nemůže zešedivět položku vyhledat, což je matoucí #}
-=======
->>>>>>> devel
             {% for i in offCanvasMenu.menuItem|slice(0,3) %}
 
                 {% set id = '' %}
