@@ -4759,9 +4759,10 @@ a.button {
   border-radius: 4px;
   padding: 2px 8px;
   line-height: 1em;
-  border: 2px solid #434343;
+  border: 1px solid #434343;
   color: #434343;
-  font-size: 12px; }
+  font-size: 12px;
+  vertical-align: text-bottom; }
 
 .m-dokumentace > ul {
   margin: 0; }

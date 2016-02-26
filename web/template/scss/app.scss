@@ -159,9 +159,13 @@ a.button {
     border-radius: 4px;
     padding: 2px 8px;
     line-height: 1em;
-    border: 2px solid $color-koma-ui-darken;
+    border: 1px solid $color-koma-ui-darken;
     color: $color-koma-ui-darken;
     font-size: 12px;
+
+    // only for test
+    vertical-align: text-bottom;
+
 }
 
 .m-dokumentace {
