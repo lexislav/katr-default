@@ -1,0 +1,8 @@
+{# TODO: michale, prosím markup k subsekcím… díky #}
+
+<h3>Podkategorie</h3>
+<ul>
+    {% for subsection in entry.descendants %}
+        <li><a href="{{ subsection.url }}">{{ subsection.title }}<span> + link na subsekci</span><span> + ikonka na položky</span></a><li>
+    {% endfor %}
+</ul>

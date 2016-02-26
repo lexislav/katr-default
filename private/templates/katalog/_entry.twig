@@ -51,6 +51,10 @@
             {% include "/_partials/obsah/_obsah-dalsi-info.twig" %}
         {% endif %}
 
+        {% if entry.descendants|length > 0 %}
+            {% include "/_partials/common/_subsections-nav.twig"%}
+        {% endif %}
+
         {# nahoru #}
         {% include "/_partials/base/_nav-top.twig" %}
 

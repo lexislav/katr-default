@@ -32,6 +32,10 @@
             {% include "/_partials/obsah/_obsah-dalsi-info.twig" %}
         {% endif %}
 
+        {% if entry.descendants|length > 0 %}
+            {% include "/_partials/common/_subsections-nav.twig"%}
+        {% endif %}
+
     </article>
 
     {# nahoru #}
