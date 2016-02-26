@@ -8,56 +8,56 @@
 
 {% block content %}
 
-	{% include '/_partials/base/_top-breadcrumbs.twig' %}
+    {% include '/_partials/base/_top-breadcrumbs.twig' %}
 
-	{# příprava linků na pčředchozí a následující obsah pro oznámení #}
-	{% set prev = "" %}
-	{% set prevtitle = "" %}
-	{% set up = "/oznameni" %}
-	{% set uptitle = "Oznámení (archiv)" %}
-	{% set next = "" %}
-	{% set nexttitle = "" %}
-	{% set souvisejici = craft.entries.section('oznameni') %}
-	{% if entry.getPrev(souvisejici) %}
-		{% set prev = entry.getPrev(souvisejici).url %}
-		{% set prevtitle = entry.getPrev(souvisejici).title %}
-	{% endif %}
-	{% if entry.getNext(souvisejici) %}
-		{% set next = entry.getNext(souvisejici).url %}
-		{% set nexttitle = entry.getNext(souvisejici).title %}
-	{% endif %}
+    {# příprava linků na pčředchozí a následující obsah pro oznámení #}
+    {% set prev = "" %}
+    {% set prevtitle = "" %}
+    {% set up = "/oznameni" %}
+    {% set uptitle = "Oznámení (archiv)" %}
+    {% set next = "" %}
+    {% set nexttitle = "" %}
+    {% set souvisejici = craft.entries.section('oznameni') %}
+    {% if entry.getPrev(souvisejici) %}
+        {% set prev = entry.getPrev(souvisejici).url %}
+        {% set prevtitle = entry.getPrev(souvisejici).title %}
+    {% endif %}
+    {% if entry.getNext(souvisejici) %}
+        {% set next = entry.getNext(souvisejici).url %}
+        {% set nexttitle = entry.getNext(souvisejici).title %}
+    {% endif %}
 
-	{% set vars = { "navPosition": "top", "prevlink": prev, "prevtitle": prevtitle, "uplink": up, "uptitle": uptitle, "nextlink": next, "nexttitle": nexttitle } %}
-	{% set varsbottom = { "navPosition": "bottom", "prevlink": prev, "prevtitle": prevtitle, "uplink": up, "uptitle": uptitle, "nextlink": next, "nexttitle": nexttitle } %}
+    {% set vars = { "navPosition": "top", "prevlink": prev, "prevtitle": prevtitle, "uplink": up, "uptitle": uptitle, "nextlink": next, "nexttitle": nexttitle } %}
+    {% set varsbottom = { "navPosition": "bottom", "prevlink": prev, "prevtitle": prevtitle, "uplink": up, "uptitle": uptitle, "nextlink": next, "nexttitle": nexttitle } %}
 
-	<article>
-		{% include "/_partials/obsah/_obsah-textpage-header.twig" %}
+    <article>
+        {% include "/_partials/obsah/_obsah-textpage-header.twig" %}
 
-		<div class="row mm-pad-bottom">
+        <div class="row mm-pad-bottom">
 
             {% include "/_partials/obsah/_obsah-textpage-body.twig" with { "type":"oznameni" } %}
 
             {# prava strana pouze pro large#}
             <div class="columns large-3  hide-for-small-only hide-for-medium-only">
                 {# prava strana obsah #}
-                {% import "_partials/macros/_macros.twig" as macros %}
-				{% set souvisejici = craft.entries.section('oznameni').limit(10).id('not ' ~ entry.id) %}
+                {% import "/_partials/macros/_macros.twig" as macros %}
+                {% set souvisejici = craft.entries.section('oznameni').limit(10).id('not ' ~ entry.id) %}
 
-                {% include "_partials/common/_related-aside.twig" %}
+                {% include "/_partials/common/_related-aside.twig" %}
             </div>
-			{# prava strana obsah - konec#}
+            {# prava strana obsah - konec#}
 
         </div>
 
-	</article>
+    </article>
 
-	{# sekce související #}
-	{% include "/_partials/common/_related-bottom.twig" %}
+    {# sekce související #}
+    {% include "/_partials/common/_related-bottom.twig" %}
 
-	<div class="bg-grey-light mm-pad-top mm-pad-bottom">
-		{% include '/_partials/common/_prevnext-nav.twig' with varsbottom %}
-	</div>
+    <div class="bg-grey-light mm-pad-top mm-pad-bottom">
+        {% include '/_partials/common/_prevnext-nav.twig' with varsbottom %}
+    </div>
 
-	{% include "/_partials/obsah/_obsah-upozorneni.twig" %}
+    {% include "/_partials/obsah/_obsah-upozorneni.twig" %}
 
 {% endblock %}
