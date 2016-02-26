@@ -7,10 +7,10 @@
         <h3>Podkategorie</h3>
         <ul class="menu vertical menu-subsections">
             {% for subsection in entry.descendants %}
-            <li><a href="{{ subsection.url }}">{{ subsection.title }}
-                    <span> + link na subsekci</span><span> + ikonka na položky</span></a>
             <li>
-                {% endfor %}
+                <a href="{{ subsection.url }}">{{ subsection.title }}<span> + link na subsekci</span><span> + ikonka na položky</span></a>
+            </li>
+            {% endfor %}
         </ul>
     </div>
 </div>
