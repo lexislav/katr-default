@@ -9,7 +9,7 @@
 
 	{% set entries = craft.entries.section('polozky') %}
 
-	{% import "_partials/macros/_macros.twig" as macros %}
+	{% import "/_partials/macros/_macros.twig" as macros %}
 
 	<div class="m-product-list">
 
@@ -24,7 +24,7 @@
 	{# získání ostatních taxonomií pro danou položku #}
 	{% set cats = structureHandle.ostatniKat %}
 
-	{% include "_partials/common/_product-card.twig" %}
+	{% include "/_partials/common/_product-card.twig" %}
 
 	{% else %}
 		<span>Tady nejsou žádné položky!</span>
