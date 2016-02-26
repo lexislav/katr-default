@@ -18,17 +18,36 @@
     {% set next = "" %}
     {% set nexttitle = "" %}
     {% set souvisejici = craft.entries.section('oznameni') %}
+
     {% if entry.getPrev(souvisejici) %}
         {% set prev = entry.getPrev(souvisejici).url %}
         {% set prevtitle = entry.getPrev(souvisejici).title %}
     {% endif %}
+
     {% if entry.getNext(souvisejici) %}
         {% set next = entry.getNext(souvisejici).url %}
         {% set nexttitle = entry.getNext(souvisejici).title %}
     {% endif %}
 
-    {% set vars = { "navPosition": "top", "prevlink": prev, "prevtitle": prevtitle, "uplink": up, "uptitle": uptitle, "nextlink": next, "nexttitle": nexttitle } %}
-    {% set varsbottom = { "navPosition": "bottom", "prevlink": prev, "prevtitle": prevtitle, "uplink": up, "uptitle": uptitle, "nextlink": next, "nexttitle": nexttitle } %}
+    {% set vars = {
+        "navPosition": "top",
+        "prevlink": prev,
+        "prevtitle": prevtitle,
+        "uplink": up,
+        "uptitle": uptitle,
+        "nextlink": next,
+        "nexttitle": nexttitle
+    } %}
+
+    {% set varsbottom = {
+        "navPosition": "bottom",
+        "prevlink": prev,
+        "prevtitle": prevtitle,
+        "uplink": up,
+        "uptitle": uptitle,
+        "nextlink": next,
+        "nexttitle": nexttitle
+    } %}
 
     <article>
         {% include "/_partials/obsah/_obsah-textpage-header.twig" %}
@@ -54,7 +73,7 @@
     {# sekce související #}
     {% include "/_partials/common/_related-bottom.twig" %}
 
-    <div class="bg-grey-light mm-pad-top mm-pad-bottom">
+    <div class="bg-grey-light mm-pad-top mm-pad-bottom mm-mgr-bottom-tiny">
         {% include '/_partials/common/_prevnext-nav.twig' with varsbottom %}
     </div>
 

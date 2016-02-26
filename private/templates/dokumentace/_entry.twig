@@ -8,37 +8,57 @@
 
 {% block content %}
 
-	{% include '/_partials/base/_top-breadcrumbs.twig' %}
+    {% include '/_partials/base/_top-breadcrumbs.twig' %}
 
-	{# příprava linků na pčředchozí a následující obsah pro dokumentaci #}
-	{% set prev = "" %}
-	{% set prevtitle = "" %}
-	{% set up = "" %}
-	{% set uptitle = "" %}
-	{% set next = "" %}
-	{% set nexttitle = "" %}
+    {# příprava linků na pčředchozí a následující obsah pro dokumentaci #}
+    {% set prev = "" %}
+    {% set prevtitle = "" %}
+    {% set up = "" %}
+    {% set uptitle = "" %}
+    {% set next = "" %}
+    {% set nexttitle = "" %}
 
-	{% set navlink = craft.entries.positionedBefore(entry).first() %}
-	{% if navlink %}
-		{% set prev = navlink.url %}
-		{% set prevtitle = navlink.title %}
-	{% endif %}
-	{% set navlink = entry.getAncestors(1) %}
-	{% if navlink|length > 0 %}
-		{% set up = navlink.first.url %}
-		{% set uptitle = navlink.first.title %}
-	{% endif %}
-	{% set navlink = craft.entries.positionedAfter(entry).first() %}
-	{% if navlink %}
-		{% set next = navlink.url %}
-		{% set nexttitle = navlink.title %}
-	{% endif %}
-	{% set vars = { "navPosition": "top", "prevlink": prev, "prevtitle": prevtitle, "uplink": up, "uptitle": uptitle, "nextlink": next, "nexttitle": nexttitle } %}
-	{% set varsbottom = { "navPosition": "bottom", "prevlink": prev, "prevtitle": prevtitle, "uplink": up, "uptitle": uptitle, "nextlink": next, "nexttitle": nexttitle } %}
+    {% set navlink = craft.entries.positionedBefore(entry).first() %}
+    {% if navlink %}
+        {% set prev = navlink.url %}
+        {% set prevtitle = navlink.title %}
+    {% endif %}
+
+    {% set navlink = entry.getAncestors(1) %}
+    {% if navlink|length > 0 %}
+        {% set up = navlink.first.url %}
+        {% set uptitle = navlink.first.title %}
+    {% endif %}
+
+    {% set navlink = craft.entries.positionedAfter(entry).first() %}
+    {% if navlink %}
+        {% set next = navlink.url %}
+        {% set nexttitle = navlink.title %}
+    {% endif %}
+
+    {% set vars = {
+        "navPosition": "top",
+        "prevlink": prev,
+        "prevtitle": prevtitle,
+        "uplink": up,
+        "uptitle": uptitle,
+        "nextlink": next,
+        "nexttitle": nexttitle
+    } %}
+
+    {% set varsbottom = {
+        "navPosition": "bottom",
+        "prevlink": prev,
+        "prevtitle": prevtitle,
+        "uplink": up,
+        "uptitle": uptitle,
+        "nextlink": next,
+        "nexttitle": nexttitle
+    } %}
 
     <article>
-		{#  TODO: Michale, textová strana margin nahoře, i v oznámení #}
-		{% include "/_partials/obsah/_obsah-textpage-header.twig" %}
+        {#  TODO: Michale, textová strana margin nahoře, i v oznámení #}
+        {% include "/_partials/obsah/_obsah-textpage-header.twig" %}
 
         <div class="row mm-pad-bottom">
 
@@ -49,12 +69,12 @@
 
                 {# prava strana obsah #}
                 {% import "_partials/macros/_macros.twig" as macros %}
-				{% if entry.getChildren|length > 0 %}
-					{% set souvisejici = entry.getChildren(1) %}
-				{% else %}
-					{% set souvisejici = entry.getSiblings() %}
-				{% endif %}
-				{% include "/_partials/common/_related-aside.twig" %}
+                {% if entry.getChildren|length > 0 %}
+                    {% set souvisejici = entry.getChildren(1) %}
+                {% else %}
+                    {% set souvisejici = entry.getSiblings() %}
+                {% endif %}
+                {% include "/_partials/common/_related-aside.twig" %}
                 {# prava strana obsah - konec#}
 
             </div>
@@ -64,10 +84,9 @@
 
 
     {# sekce související #}
-	{% include "/_partials/common/_related-bottom.twig" %}
+    {% include "/_partials/common/_related-bottom.twig" %}
 
-
-	<div class="bg-grey-light mm-pad-top mm-pad-bottom">
+	<div class="bg-grey-light mm-pad-top mm-pad-bottom mm-mgr-bottom-tiny">
 		{% include '/_partials/common/_prevnext-nav.twig' with varsbottom %}
 	</div>
 
