@@ -4215,6 +4215,9 @@ label a {
   display: flex;
   justify-content: flex-end; }
 
+.menu-subsections li {
+  border: 1px solid red; }
+
 .koma-content .accordion-title:before {
   font-size: 24px;
   font-weight: 800;
