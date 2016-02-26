@@ -23,15 +23,17 @@
 
     <article>
 
-    {% if entry.ancestors|length>0 %}
-        {% if entry.ancestors.first.id == 5 %}
-            {% include "/_partials/obsah/_obsah-header.twig" with {"headerType": "hero"} %}
+
+        {% if entry.ancestors|length>0 %}
+            {% if entry.ancestors.first.id == 5 %}
+                {% include "/_partials/obsah/_obsah-header.twig" with {"headerType": "hero"} %}
+            {% else %}
+                {% include "/_partials/obsah/_obsah-header.twig" with {"headerType": "default"} %}
+            {% endif %}
         {% else %}
             {% include "/_partials/obsah/_obsah-header.twig" with {"headerType": "default"} %}
         {% endif %}
-    {% else %}
-        {% include "/_partials/obsah/_obsah-header.twig" with {"headerType": "default"} %}
-    {% endif %}
+
 
         {# body, tabulky, řady#}
         {% include "/_partials/obsah/_obsah-body.twig" %}
@@ -52,7 +54,7 @@
         {% endif %}
 
         {% if entry.descendants|length > 0 %}
-            {% include "/_partials/common/_subsections-nav.twig"%}
+            {% include "/_partials/common/_subsections-nav.twig" %}
         {% endif %}
 
         {# nahoru #}
