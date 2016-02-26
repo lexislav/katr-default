@@ -4198,6 +4198,9 @@ label a {
   display: flex;
   justify-content: flex-end; }
 
+.menu-subsections h3 {
+  padding-left: 20px;
+  padding-right: 20px; }
 .menu-subsections .menu-item {
   border-bottom: 1px solid #858585;
   color: #b5bbb4;

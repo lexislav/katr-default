@@ -3,11 +3,11 @@
 
 
     <div class="row">
-        <div class="columns small-12 bg-grey-light mm-pad-bottom mm-pad-top">
+        <div class="columns small-12 ">
+            <div class="menu-subsections bg-grey-light  mm-pad-bottom-half mm-pad-top-half">
 
-            <h3 class="f-xl f-800 mm-pad-bottom-half">katalog xx prvků</h3>
+            <h3 class="f-xl f-800 mm-pad-half">katalog xx prvků</h3>
 
-            <div class="menu-subsections">
                 {% for subsection in entry.descendants(1) %}
                     <div class="menu-item" {% if subsection.body is empty %} class="emtpy-content" {% endif %}>
                         <a class="title" href="{{ subsection.url }}">{{ subsection.title }}</a>

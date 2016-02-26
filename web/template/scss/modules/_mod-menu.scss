@@ -147,6 +147,11 @@
 
 .menu-subsections {
 
+    h3 {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+
     .menu-item {
         border-bottom: 1px solid $color-koma-ui-dark;
         color: $color-koma-ui-mid;
@@ -174,7 +179,9 @@
             }
         }
 
-        .title {}
+        .title {
+
+        }
 
         .icon {
             flex-shrink: 100;
