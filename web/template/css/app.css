@@ -4763,4 +4763,30 @@ a.button {
   color: #434343;
   font-size: 12px; }
 
+.m-dokumentace > ul {
+  margin: 0; }
+  .m-dokumentace > ul > li {
+    font-size: 16px;
+    margin-bottom: 60px;
+    list-style: none;
+    color: #000;
+    font-weight: bold; }
+    .m-dokumentace > ul > li > a {
+      color: #000;
+      text-decoration: none; }
+      .m-dokumentace > ul > li > a:hover {
+        text-decoration: underline;
+        color: #c20e1a; }
+    .m-dokumentace > ul > li > ul {
+      margin-top: 30px; }
+    .m-dokumentace > ul > li ul, .m-dokumentace > ul > li li {
+      border: none;
+      font-size: 16px;
+      font-family: Purista;
+      font-weight: 400;
+      margin-bottom: 1em; }
+    .m-dokumentace > ul > li li {
+      list-style: circle;
+      margin-left: 20px; }
+
 /*# sourceMappingURL=app.css.map */

@@ -164,3 +164,51 @@ a.button {
     font-size: 12px;
 }
 
+.m-dokumentace {
+
+    > ul {
+        //reset přímé první úrovně
+        margin: 0;
+        > li {
+            // reset přímé první úrovně
+
+            font-size: 16px;
+            margin-bottom: 60px;
+            list-style: none;
+            color: $color-koma-ui-black;
+            //font-family: Purista;
+            font-weight: bold;
+
+            > a {
+                color: $color-koma-ui-black;
+                text-decoration: none;
+                &:hover {
+                    text-decoration: underline;
+                    color: $color-koma-primary;
+                }
+            }
+
+            // znovunastylování podúrovní
+            // odsazení 2.level on nadpisu (1.level)
+            > ul {
+                margin-top: 30px;
+            }
+
+            // nastavení všech ostatních vnořených
+            ul, li {
+                border: none;
+                font-size: 16px;
+                font-family: Purista;
+                font-weight: 400;
+                margin-bottom: 1em;
+
+            }
+
+            li {
+                list-style: circle;
+                margin-left: 20px;
+            }
+        }
+    }
+
+}

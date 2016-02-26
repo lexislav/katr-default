@@ -13,35 +13,54 @@
 
 {% block content %}
 
-	{# {% include '/_partials/base/_top-breadcrumbs.twig' with {'class': 'mm-over'} %} #}
+    {# {% include '/_partials/base/_top-breadcrumbs.twig' with {'class': 'mm-over'} %} #}
 
-	{% set pages = craft.entries.section('dokumentace') %}
+    {% set pages = craft.entries.section('dokumentace') %}
 
-	{# TODO: udělat markup - struktura dokumentace. #}
-	<article>
+    {# TODO: udělat markup - struktura dokumentace. #}
 
-		<nav>
-		    <ul>
-		        {% nav page in pages %}
-		            <li>
-		                {% if page.docsBody %}
-							{{ page.getLink() }}{% if page.forEditors and currentUser.groups != "users" %}*{% endif %}
-						{% else %}
-							{{ page.title }}{% if page.forEditors and currentUser.groups != "users" %}*{% endif %}
-						{% endif %}
+    <article class="">
+        <header class="mm-mgr-bottom mm-pad-top ">
+            <div class="row align-bottom">
 
-		                {% ifchildren %}
-		                    <ul>
-		                        {% children %}
-		                    </ul>
-		                {% endifchildren %}
-		            </li>
-		        {% endnav %}
-		    </ul>
-		</nav>
+                <div class="columns small-8">
+                    <h1 class="xxl">Dokumentace</h1>
+                </div>
 
-	</article>
+            </div>
+        </header>
 
-	{% include "/_partials/obsah/_obsah-upozorneni.twig" %}
+
+        <div class="row align-center">
+            <div class="small-8 columns">
+                <nav class="m-dokumentace">
+                    <ul>
+                        {% nav page in pages %}
+                        <li>
+                            {% if page.docsBody %}
+                                {{ page.getLink() }}{% if page.forEditors and currentUser.groups != "users" %}*{% endif %}
+                            {% else %}
+                                {{ page.title }}{% if page.forEditors and currentUser.groups != "users" %}*{% endif %}
+                            {% endif %}
+
+                            {% ifchildren %}
+                            <ul>
+                                {% children %}
+                            </ul>
+                            {% endifchildren %}
+                        </li>
+                        {% endnav %}
+                    </ul>
+                </nav>
+            </div>
+        </div>
+
+    </article>
+
+
+
+
+    {% include "/_partials/base/_nav-top.twig" %}
+    {% include "/_partials/obsah/_obsah-upozorneni.twig" %}
 
 {% endblock %}
