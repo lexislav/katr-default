@@ -4505,8 +4505,11 @@ label a {
 
 .drill-reveal {
   padding: 0;
-  margin: 0 !important;
-  top: 0 !important; }
+  position: absolute;
+  width: 100%;
+  height: 0;
+  overflow: hidden;
+  z-index: 50; }
   .drill-reveal .close-button {
     z-index: 100;
     color: white; }
@@ -4813,11 +4816,10 @@ a.button {
     color: #000;
     font-weight: bold; }
     .m-dokumentace > ul > li > a {
-      color: #000;
-      text-decoration: none; }
+      color: #c20e1a;
+      text-decoration: underline; }
       .m-dokumentace > ul > li > a:hover {
-        text-decoration: underline;
-        color: #c20e1a; }
+        color: #000; }
     .m-dokumentace > ul > li > ul {
       margin-top: 30px; }
     .m-dokumentace > ul > li ul, .m-dokumentace > ul > li li {
