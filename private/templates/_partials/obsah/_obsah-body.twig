@@ -20,7 +20,7 @@
             {% endif %}
 
             <div class="small-12 columns">
-                {% if entry.section == "Katalog" and entry.ancestors.first == "Výrobkové řady" %}
+                {% if entry.section == "Katalog" and (entry.ancestors.first == "Výrobkové řady" or entry.title == "Výrobkové řady") %}
                     <a href="http://www.koma-modular.cz/produkty-a-sluzby#produktove-rady" target="_blank" class="button large"><i class="fa fa-globe"></i> více web KOMA Modular</a>
                 {% elseif entry.section == "Katalog" %}
                     <a href="/polozky" class="button large"><i class="fa fa-bolt"></i> položky: {{ entry }}</a>
