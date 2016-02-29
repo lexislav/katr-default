@@ -1,6 +1,10 @@
 <div class="row mm-pad-top">
     <div class="column">
-        <h2>Další informace</h2>
+        {% if entry.infoblockTitle %}
+            <h2>{{ entry.infoblockTitle }}</h2>
+        {% else %}
+            <h2>Další informace</h2>
+        {% endif %}
     </div>
 </div>
 
