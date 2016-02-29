@@ -7,9 +7,7 @@
 {% extends "/_partials/layout/_base.twig" %}
 
 {% block content %}
-    {# TODO: vyčistit tyhle šílené podmínky na jednu
-    případně celek předělat ten header ať se zbytečně nevolá s tou proměnou, páč je to zbytečné
-    #}
+
     {% if entry.ancestors|length>0 %}
         {% if entry.ancestors.first.id == 5 %}
             {% include '/_partials/base/_top-breadcrumbs.twig'  with {"class": "mm-over"} %}
