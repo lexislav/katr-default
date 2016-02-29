@@ -4198,6 +4198,10 @@ label a {
   display: flex;
   justify-content: flex-end; }
 
+@media screen and (min-width: 0em) and (max-width: 39.9375em) {
+  .menu-subsections {
+    margin-left: -20px;
+    margin-right: -20px; } }
 @media screen and (min-width: 40em) and (max-width: 63.9375em) {
   .menu-subsections {
     margin-left: -20px;

@@ -147,6 +147,12 @@
 
 .menu-subsections {
 
+    @media #{$small-only} {
+        // @todo: dát sem reálný gutter z gridu
+        margin-left: -20px;
+        margin-right: -20px;
+    }
+
     @media #{$medium-only} {
         // @todo: dát sem reálný gutter z gridu
         margin-left: -20px;
