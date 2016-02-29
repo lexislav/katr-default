@@ -4821,7 +4821,9 @@ a.button {
       .m-dokumentace > ul > li > a:hover {
         color: #000; }
     .m-dokumentace > ul > li > ul {
-      margin-top: 30px; }
+      margin-top: 30px;
+      list-style: none;
+      padding: 0; }
     .m-dokumentace > ul > li ul, .m-dokumentace > ul > li li {
       border: none;
       font-size: 16px;
@@ -4829,7 +4831,10 @@ a.button {
       font-weight: 400;
       margin-bottom: 1em; }
     .m-dokumentace > ul > li li {
-      list-style: circle;
       margin-left: 20px; }
+      .m-dokumentace > ul > li li:before {
+        content: "→";
+        margin: 0 .6em;
+        color: #c20e1a; }
 
 /*# sourceMappingURL=app.css.map */

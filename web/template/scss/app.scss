@@ -185,9 +185,10 @@ a.button {
 
             > a {
                 color: $color-koma-primary;
-                    text-decoration: underline;
+                text-decoration: underline;
+
                 &:hover {
-                //text-decoration: none;
+                    //text-decoration: none;
                     color: $color-koma-ui-black;
                 }
             }
@@ -196,6 +197,8 @@ a.button {
             // odsazení 2.level on nadpisu (1.level)
             > ul {
                 margin-top: 30px;
+                list-style: none;
+                padding: 0;
             }
 
             // nastavení všech ostatních vnořených
@@ -209,8 +212,12 @@ a.button {
             }
 
             li {
-                list-style: circle;
                 margin-left: 20px;
+                &:before {
+                    content: "→";
+                    margin: 0 .6em;
+                    color: $color-koma-primary;
+                }
             }
         }
     }

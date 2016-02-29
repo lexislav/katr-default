@@ -1,28 +1,30 @@
 {# elementy pro modal katalogu #}
 {# musí být nalinkován všude kde se má katalog otevírat #}
 
-
-{#  otevírání pomocí attributu data-open="katalogModal" #}
-{# <a data-open="katalogModal">JS Katalog</a>#}
-
+{# načtení dat katalogu #}
 {% set pages = craft.entries.section('katalog') %}
 
-{# html wrapper pro katalog#}
-{#<div class="reveal full drill-reveal" id="katalogModal" data-reveal>#}
-    {#<div class="drill-wrapper">#}
-        {#<div id="drill-down" class="drill-down">#}
-            {#<div class="drill-controls">#}
-                {#<div class="drill-back-button" drill-back="#drill-down">#}
-                    {#<span class="drill-back-arrow"></span><span class="button">{{"Zpět"|t}}</span></div>#}
-                {#<div class="drill-history"></div>#}
-            {#</div>#}
-        {#</div>#}
 
-    {#</div>#}
-    {#<button class="close-button" data-close aria-label="Close modal" type="button">#}
-        {#<span aria-hidden="true">&times;</span>#}
-    {#</button>#}
-{#</div>#}
+{# html wrapper pro katalog#}
+{#
+<div class="drill-reveal" id="katalogModal">
+    <div class="drill-wrapper">
+        <div id="drill-down" class="drill-down">
+            <div class="drill-controls">
+                <div class="drill-back-button" drill-back="#drill-down">
+                    <span class="drill-back-arrow"></span><span class="button">{{"Zpět"|t}}</span></div>
+                <div class="drill-history"></div>
+            </div>
+        </div>
+        <button class="close-button close-katalog" aria-label="Close modal" type="button">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+
+</div>
+#}
+{# konec wrapperu pro katalog #}
+
 
 <script>
 
@@ -79,12 +81,6 @@
                 $('body').removeClass('scroll-lock');
             });
         });
-//
-//        $(".katalogmenu").on('click', function (e) {
-//            e.preventDefault();
-//            var $modal = $('#katalogModal');
-//            $modal.foundation('open');
-//        });
 
     });
 
