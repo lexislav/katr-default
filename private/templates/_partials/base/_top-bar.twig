@@ -8,7 +8,7 @@
                 </button>
             </li>
 
-            <li class="menu-text has-border"><img src="/template/assets/logo-koma.svg" alt=""></li>
+            <li class="menu-text has-border"><a href="{{ siteUrl }}" title="Úvodní strana" alt="Úvodní strana"><img src="/template/assets/logo-koma.svg" alt=""></a></li>
 
             {% for i in offCanvasMenu.menuItem|slice(0,3) %}
 
@@ -26,7 +26,7 @@
                 {% endif %}
 
                 <li class="menu-text {{ class }}">
-                    <a href="{{ menuLink }}" class="{{ class }} {{ id }}" id="{{ id }}">
+                    <a href="{{ menuLink }}" class="{{ class }} {{ id }}">
                         <i class="{{ i.menuIcon.value }}"></i>{{ i.menuTitle }}
                     </a>
                 </li>

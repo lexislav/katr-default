@@ -11,7 +11,7 @@ modifiers:
 <nav aria-label="Jste zde:" role="navigation" class="m-breadcrumbs mm-link-notunderline {{ class|default('') }}">
     <ul class="breadcrumbs">
         <li><a href="{{ siteUrl }}">Úvod</a></li>
-        <li><a href="{{ siteUrl }}{{entry.section.handle}}">{{entry.section}}</a></li>
+        <li><a href="{{ siteUrl }}{{entry.section.handle}}"{% if entry.section.handle == "katalog" %} class="katalogmenu"{% endif %}>{{entry.section}}</a></li>
         {% for crumb in entry.getAncestors() %}
             <li>{{ crumb.getLink() }}</li>
         {% endfor %}
