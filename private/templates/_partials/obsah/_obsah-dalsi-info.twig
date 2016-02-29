@@ -20,7 +20,7 @@
                     <div class="accordion-content" data-tab-content>
                         {% if i.infoImage|length > 0 %}
                             {% for im in i.infoImage %}
-                                <img src="{{ im.getUrl('otherInfoImage') }}">
+                                <img src="/{{ im.getUrl('otherInfoImage') }}">
                             {% endfor %}
                         {% endif %}
                         {{ i.infoBody }}
@@ -42,7 +42,7 @@
                     <div class="column small-12 large-12">
                         <div class="row m-info--panel">
                             <div class="large-6 large-order-1 column">
-                                <img src="{{ i.infoImage.first.getUrl('otherInfoImage') }}">
+                                <img src="/{{ i.infoImage.first.getUrl('otherInfoImage') }}">
                             </div>
                             <div class="large-6 large-order-2 column">
                                 <h2 class="m-info--headline f-xl f-800">{{ i.infoTitle }}</h2>
