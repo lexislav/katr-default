@@ -1,7 +1,7 @@
 <header>
 
     {% set headerType = entry.headerType %}
-    {% if entry.uvodniObrazek|lenght < 1 %}
+    {% if entry.uvodniObrazek|length < 1 %}
         {% set headerType = "default" %}
     {% endif %}
 
