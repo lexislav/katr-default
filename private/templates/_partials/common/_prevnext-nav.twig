@@ -10,21 +10,21 @@
 
 {% if navPosition == "top" %}
 
-    {% set iconSize = "fa-2x " %}
+    {% set iconSize = "f-xxl f-600" %}
     {% set prevMessage = "" %}
     {% set nextMessage = "" %}
     {% set parentMessage = "" %}
     {% set prevDirection = "text-right" %}
     {% set nextDirection = "text-left" %}
     {% set cols = "columns small-4" %}
-    {% set rowclass = "row mm-inverted-link-colors" %}
+    {% set rowclass = "row mm-inverted-link-colors mm-link-notunderline" %}
 
 {% endif %}
 
 <nav class="{{rowclass}}">
     <div class="{{cols}} {{prevDirection}}">
         {% if prevlink %}<a href="{{ prevlink }}" alt="{{ prevtitle }}" title ="{{ prevtitle }}">
-            <i class="fa {{iconSize}}fa-arrow-left"></i>{% if navPosition == "bottom" %}{{ prevMessage }}{% endif %}
+        <span class="{{iconSize}} f-headline">&larr;</span>{% if navPosition == "bottom" %}{{ prevMessage }}{% endif %}
         </a>{% endif %}
     </div>
 
@@ -32,7 +32,7 @@
         {% if uplink %}
             <a href="{{ uplink }}" alt="{{ uptitle }}" title="{{ uptitle }}">
             {% if parentType == "default" %}
-                <i class="fa {{iconSize}}fa-arrow-up"></i>
+                <span class="{{iconSize}} f-headline">&uparrow;</span>
             {% endif %}
             {% if navPosition == "bottom" %}
                 {{ parentMessage }}
@@ -40,7 +40,7 @@
             </a>
         {% else %}
             {% if parentType == "default" %}
-                <i class="fa {{iconSize}}fa-arrow-up"></i>
+                <span class="{{iconSize}} f-headline">&uarr;</span>
             {% endif %}
             {% if navPosition == "bottom" %}
                 {{ parentMessage }}
@@ -50,7 +50,7 @@
 
     <div class="{{cols}} {{nextDirection}}">
         {% if nextlink %}<a href="{{ nextlink }}" alt="{{ nexttitle }}" title="{{ nexttitle }}">
-            <i class="fa {{iconSize}}fa-arrow-right"></i>{% if navPosition == "bottom" %}{{ nextMessage }}{% endif %}
+            <span class="{{iconSize}} f-headline">&rarr;</span>{% if navPosition == "bottom" %}{{ nextMessage }}{% endif %}
         </a>{% endif %}
     </div>
 </nav>
