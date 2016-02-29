@@ -1,7 +1,12 @@
 <header>
 
+    {% set headerType = entry.headerType %}
+    {% if entry.uvodniObrazek|lenght < 1 %}
+        {% set headerType = "default" %}
+    {% endif %}
+
     {# default header #}
-    {% if entry.headerType == 'hero' %}
+    {% if headerType == 'hero' %}
 
         {% if entry.uvodniObrazek|length > 0 %}
         {% set entryImage = entry.uvodniObrazek.first %}
@@ -35,7 +40,7 @@
 
     {# default header #}
 
-    {% if entry.headerType == 'default' %}
+    {% if headerType == 'default' %}
         <div class="row mm-pad-top mm-pad-bottom">
 
             <div class="small-12 medium-6 columns">
