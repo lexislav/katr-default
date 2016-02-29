@@ -8,21 +8,21 @@
 {% set pages = craft.entries.section('katalog') %}
 
 {# html wrapper pro katalog#}
-<div class="reveal full drill-reveal" id="katalogModal" data-reveal>
-    <div class="drill-wrapper">
-        <div id="drill-down" class="drill-down">
-            <div class="drill-controls">
-                <div class="drill-back-button" drill-back="#drill-down">
-                    <span class="drill-back-arrow"></span><span class="button">{{"Zpět"|t}}</span></div>
-                <div class="drill-history"></div>
-            </div>
-        </div>
+{#<div class="reveal full drill-reveal" id="katalogModal" data-reveal>#}
+    {#<div class="drill-wrapper">#}
+        {#<div id="drill-down" class="drill-down">#}
+            {#<div class="drill-controls">#}
+                {#<div class="drill-back-button" drill-back="#drill-down">#}
+                    {#<span class="drill-back-arrow"></span><span class="button">{{"Zpět"|t}}</span></div>#}
+                {#<div class="drill-history"></div>#}
+            {#</div>#}
+        {#</div>#}
 
-    </div>
-    <button class="close-button" data-close aria-label="Close modal" type="button">
-        <span aria-hidden="true">&times;</span>
-    </button>
-</div>
+    {#</div>#}
+    {#<button class="close-button" data-close aria-label="Close modal" type="button">#}
+        {#<span aria-hidden="true">&times;</span>#}
+    {#</button>#}
+{#</div>#}
 
 <script>
 
@@ -63,19 +63,28 @@
         var drill = new DrillDown(drillDownData, opt);
 
 
-
         // otevirani modalu katalogu pres ID v menu
         $(".katalogmenu").on('click', function (e) {
             e.preventDefault();
-            var $modal = $('#katalogModal');
-            $modal.foundation('open');
+            $('body').addClass('scroll-lock');
+            $('.drill-reveal').height($(window).innerHeight()).fadeIn(100);
+
         });
 
-        $(".katalogmenu").on('click', function (e) {
-            e.preventDefault();
-            var $modal = $('#katalogModal');
-            $modal.foundation('open');
+        $(".close-katalog").each(function () {
+            var el = $(this);
+            el.on('click', function (e) {
+                e.preventDefault();
+                $('.drill-reveal').fadeOut(100);
+                $('body').removeClass('scroll-lock');
+            });
         });
+//
+//        $(".katalogmenu").on('click', function (e) {
+//            e.preventDefault();
+//            var $modal = $('#katalogModal');
+//            $modal.foundation('open');
+//        });
 
     });
 
