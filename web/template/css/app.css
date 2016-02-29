@@ -4816,11 +4816,10 @@ a.button {
     color: #000;
     font-weight: bold; }
     .m-dokumentace > ul > li > a {
-      color: #000;
-      text-decoration: none; }
+      color: #c20e1a;
+      text-decoration: underline; }
       .m-dokumentace > ul > li > a:hover {
-        text-decoration: underline;
-        color: #c20e1a; }
+        color: #000; }
     .m-dokumentace > ul > li > ul {
       margin-top: 30px; }
     .m-dokumentace > ul > li ul, .m-dokumentace > ul > li li {

@@ -184,11 +184,11 @@ a.button {
             font-weight: bold;
 
             > a {
-                color: $color-koma-ui-black;
-                text-decoration: none;
-                &:hover {
+                color: $color-koma-primary;
                     text-decoration: underline;
-                    color: $color-koma-primary;
+                &:hover {
+                //text-decoration: none;
+                    color: $color-koma-ui-black;
                 }
             }
 
