@@ -4,7 +4,7 @@
         {# obrazek #}
         {% if entry.uvodniObrazek|length>0 %}
             <div class="columns small-2 ignore-gutter">
-                <div class="m-product-list-item--image" style="background-image: url({{ entry.uvodniObrazek.first.getUrl('thumb') }})">
+                <div class="m-product-list-item--image" style="background-image: url(/{{ entry.uvodniObrazek.first.getUrl('thumb') }})">
                     <a href="{{ entry.url }}"></a>
                 </div>
             </div>

@@ -2,7 +2,7 @@
 {% set iconSize = "" %}
 {% set prevMessage = " Předchozí" %}
 {% set nextMessage = " Další" %}
-{% set parentMessage = " Nahoru" %}
+{% if not parentMessage %}{% set parentMessage = " Nahoru" %}{% endif %}
 {% set prevDirection = "text-left" %}
 {% set nextDirection = "text-right" %}
 {% set cols = "columns small-4 f-800 f-l" %}
@@ -29,9 +29,23 @@
     </div>
 
     <div class="{{cols}} text-center">
-        {% if uplink %}<a href="{{ uplink }}" alt="{{ uptitle }}" title="{{ uptitle }}">
-            <i class="fa {{iconSize}}fa-arrow-up"></i>{% if navPosition == "bottom" %}{{ parentMessage }}{% endif %}
-        </a>{% endif %}
+        {% if uplink %}
+            <a href="{{ uplink }}" alt="{{ uptitle }}" title="{{ uptitle }}">
+            {% if parentType == "default" %}
+                <i class="fa {{iconSize}}fa-arrow-up"></i>
+            {% endif %}
+            {% if navPosition == "bottom" %}
+                {{ parentMessage }}
+            {% endif %}
+            </a>
+        {% else %}
+            {% if parentType == "default" %}
+                <i class="fa {{iconSize}}fa-arrow-up"></i>
+            {% endif %}
+            {% if navPosition == "bottom" %}
+                {{ parentMessage }}
+            {% endif %}
+        {% endif%}
     </div>
 
     <div class="{{cols}} {{nextDirection}}">

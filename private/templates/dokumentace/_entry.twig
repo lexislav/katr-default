@@ -15,6 +15,8 @@
     {% set prevtitle = "" %}
     {% set up = "" %}
     {% set uptitle = "" %}
+    {% set parentMessage = "" %}
+	{% set uptype = "default" %}
     {% set next = "" %}
     {% set nexttitle = "" %}
 
@@ -28,6 +30,11 @@
     {% if navlink|length > 0 %}
         {% set up = navlink.first.url %}
         {% set uptitle = navlink.first.title %}
+        {% set parentMessage = uptitle %}
+    {% else %}
+        {% set up = "/dokumentace" %}
+        {% set uptitle = "Dokumentace / Nápověda" %}
+        {% set parentMessage = "Dokumentace" %}
     {% endif %}
 
     {% set navlink = craft.entries.positionedAfter(entry).first() %}
@@ -42,6 +49,8 @@
         "prevtitle": prevtitle,
         "uplink": up,
         "uptitle": uptitle,
+        "parentMessage": parentMessage,
+		"parentType": uptype,
         "nextlink": next,
         "nexttitle": nexttitle
     } %}
@@ -52,6 +61,8 @@
         "prevtitle": prevtitle,
         "uplink": up,
         "uptitle": uptitle,
+        "parentMessage": parentMessage,
+		"parentType": uptype,
         "nextlink": next,
         "nexttitle": nexttitle
     } %}

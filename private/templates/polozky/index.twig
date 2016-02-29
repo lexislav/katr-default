@@ -7,13 +7,18 @@
 
 {% block content %}
 
-	{% set entries = craft.entries.section('polozky').order('katalogoveCislo') %}
+
+
+	{# nastavení bez paginace
+		{% set entries = craft.entries.section('polozky').order('katalogoveCislo') %}
+	#}
+	{% paginate craft.entries.section('polozky').order('katalogoveCislo').limit(25) as pageInfo, pageEntries %}
 
 	{% import "/_partials/macros/_macros.twig" as macros %}
 
 	<div class="m-product-list">
 
-	{% for entry in entries %}
+	{% for entry in pageEntries %}
 
 	{# getting the cats and tags and stuff… #}
 	{% set highSpecs = {} %}
@@ -32,6 +37,38 @@
 
 	</div>
 
+	{# nahoru #}
+	{% include "/_partials/base/_nav-top.twig" %}
+
+	{# paginace #}
+	{% set prev = "" %}
+    {% set prevtitle = "Předchozí strana" %}
+    {% set up = "" %}
+	{% set uptitle = "Archiv položek" %}
+    {% set parentMessage = pageInfo.currentPage ~ " / " ~ pageInfo.totalPages %}
+	{% set uptype = "paging" %}
+    {% set next = "" %}
+    {% set nexttitle = "Další strana" %}
+
+	{% set varsbottom = {
+        "navPosition": "bottom",
+        "prevlink": pageInfo.prevUrl,
+        "prevtitle": prevtitle,
+        "uplink": up,
+        "uptitle": uptitle,
+		"parentMessage": parentMessage,
+		"parentType": uptype,
+        "nextlink": pageInfo.nextUrl,
+        "nexttitle": nexttitle
+    } %}
+
+	{% if pageInfo.prevUrl or pageInfo.nextUrl %}
+	<div class="bg-grey-light mm-pad-top mm-pad-bottom mm-mgr-bottom-tiny">
+        {% include '/_partials/common/_prevnext-nav.twig' with varsbottom %}
+    </div>
+	{% endif %}
+
+	{# upozornění #}
 	{% include "/_partials/obsah/_obsah-upozorneni.twig" %}
 
 {% endblock %}

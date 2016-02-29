@@ -10,11 +10,13 @@
 
     {% include '/_partials/base/_top-breadcrumbs.twig' %}
 
-    {# příprava linků na pčředchozí a následující obsah pro oznámení #}
+    {# příprava linků na předchozí a následující obsah pro oznámení #}
     {% set prev = "" %}
     {% set prevtitle = "" %}
     {% set up = "/oznameni" %}
     {% set uptitle = "Oznámení (archiv)" %}
+    {% set parentMessage = "" %}
+	{% set uptype = "default" %}
     {% set next = "" %}
     {% set nexttitle = "" %}
     {% set souvisejici = craft.entries.section('oznameni') %}
@@ -35,6 +37,8 @@
         "prevtitle": prevtitle,
         "uplink": up,
         "uptitle": uptitle,
+        "parentMessage": parentMessage,
+		"parentType": uptype,
         "nextlink": next,
         "nexttitle": nexttitle
     } %}
@@ -45,6 +49,8 @@
         "prevtitle": prevtitle,
         "uplink": up,
         "uptitle": uptitle,
+        "parentMessage": parentMessage,
+		"parentType": uptype,
         "nextlink": next,
         "nexttitle": nexttitle
     } %}

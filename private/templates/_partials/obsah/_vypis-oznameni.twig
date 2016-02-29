@@ -1,6 +1,6 @@
 <div class="m-oznameni">
 
-    {% for entry in craft.entries.section('oznameni').find() %}
+    {% for entry in pageEntries %}
 
         {# TODO: tahle podmínka shodí web, pokud se na to dostane nezalogovany user #}
         {% if entry.forEditors and currentUser.groups != "users " %}

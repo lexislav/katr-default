@@ -18,27 +18,42 @@
         </header>
     </article>
 
+{% paginate craft.entries.section('oznameni').limit(25) as pageInfo, pageEntries %}
+
     {% include "/_partials/obsah/_vypis-oznameni.twig" %}
 
     {% include "/_partials/base/_nav-top.twig" %}
 
-    {# TODO: napojit paginaci #}
-    {# paginace další předchozí #}
-    {# v sub šabloně už to je, ta ale neumí stránkování… #}
+    {# paginace #}
+    {% set prev = "" %}
+    {% set prevtitle = "Předchozí strana" %}
+    {% set up = "/oznameni" %}
+    {% set uptitle = "Archiv oznámení" %}
+    {% set parentMessage = pageInfo.currentPage ~ " / " ~ pageInfo.totalPages %}
+    {% set uptype = "paging" %}
+    {% set next = "" %}
+    {% set nexttitle = "Další strana" %}
+    {% set souvisejici = craft.entries.section('oznameni') %}
+
+    {% set varsbottom = {
+        "navPosition": "bottom",
+        "prevlink": pageInfo.prevUrl,
+        "prevtitle": prevtitle,
+        "uplink": up,
+        "uptitle": uptitle,
+        "parentMessage": parentMessage,
+        "parentType": uptype,
+        "nextlink": pageInfo.nextUrl,
+        "nexttitle": nexttitle
+    } %}
+
+    {% if pageInfo.prevUrl or pageInfo.nextUrl %}
     <div class="bg-grey-light mm-pad-top mm-pad-bottom mm-mgr-bottom-tiny">
-        <nav class="row mm-inverted-link-colors mm-link-notunderline">
-            <div class="columns small-4 text-left f-800 f-l">
-                <a href=""><i class="fa fa-arrow-left"></i> Starší</a>
-            </div>
-
-            <div class="columns small-4 text-center f-800 f-l">
-                5 / 8
-            </div>
-
-            <div class="columns small-4 text-right f-800 f-l">
-                <a href=""><i class="fa fa-arrow-right"></i> Novější</a>
-            </div>
-        </nav>
+        {% include '/_partials/common/_prevnext-nav.twig' with varsbottom %}
     </div>
+    {% endif %}
+
+    {# upozornění #}
+    {% include "/_partials/obsah/_obsah-upozorneni.twig" %}
 
 {% endblock %}
