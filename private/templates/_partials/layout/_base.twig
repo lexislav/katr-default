@@ -194,7 +194,7 @@
             parseGallery("#" + $gal.attr('id'));
         });
 
-        // smooth scroll
+        // smooth scroll na začátek body
 
         $('[scroll-top]').click(function (e) {
             e.preventDefault();
@@ -202,7 +202,16 @@
             $('html, body').animate({
                 scrollTop: tgt.offset().top
             }, 400);
+        });
 
+
+        // smooth scroll k #top-offset
+        $('[scroll-top-offset]').click(function (e) {
+            e.preventDefault();
+            var tgt = $("#top-offset");
+            $('html, body').animate({
+                scrollTop: tgt.offset().top
+            }, 400);
         });
 
     });
