@@ -19,7 +19,7 @@
                                     data-gallery-h="{{ i.getHeight("fullSize") }}"
                                     data-gallery-title="{{ i.title }}"
                                     data-gallery-description="Popis fotky">
-                                <img src="/{{ i.getUrl('photoGalleryThumb') }}">
+                                <img src="{{ i.getUrl('photoGalleryThumb') }}">
                             </div>
                         {% endfor %}
                     </div>

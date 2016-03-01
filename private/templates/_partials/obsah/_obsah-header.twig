@@ -11,7 +11,7 @@
         {% if entry.uvodniObrazek|length > 0 %}
         {% set entryImage = entry.uvodniObrazek.first %}
 
-        <div class="m-header--bgimage" style="height:500px; background-image: url('/{{ entry.uvodniObrazek.first.getUrl('fullPage') }}')">
+        <div class="m-header--bgimage" style="height:500px; background-image: url('{{ entry.uvodniObrazek.first.getUrl('fullPage') }}')">
             {% if entry.productPhotogallery|length > 0 %}
                 <div class="button big m-header-image--button" gallery-open-first><i class="fa fa-2x fa-image"></i><span>Fotogalerie</span></div>
             {% endif %}
@@ -58,7 +58,7 @@
             {% if entry.uvodniObrazek|length > 0 %}
                 <div class="small-12 medium-6 columns">
                     <div class="m-header-image">
-                        <img src="/{{ entry.uvodniObrazek.first.getUrl('headerHalfImage') }}">
+                        <img src="{{ entry.uvodniObrazek.first.getUrl('headerHalfImage') }}">
                         {% if entry.productPhotogallery|length > 0 %}
                             <div class="button big m-header-image--button" gallery-open-first><i class="fa fa-2x fa-image"></i></div>
                         {% endif %}

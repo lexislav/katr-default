@@ -12,7 +12,7 @@
                 {% if schema.schemaImage.first.width > schema.schemaImage.first.height %}
 
                         <div class="columns small-12 mm-pad-bottom text-center">
-                            <img src="/{{ schema.schemaImage.first.getUrl() }}">
+                            <img src="{{ schema.schemaImage.first.getUrl() }}">
                         </div>
                         <div class="columns small-6">
                             {{ schema.schemaDescription }}
@@ -28,7 +28,7 @@
                             {{ schema.schemaNote }}
                         </div>
                         <div class="columns small-6 text-center">
-                            <img src="/{{ schema.schemaImage.first.getUrl() }}">
+                            <img src="{{ schema.schemaImage.first.getUrl() }}">
                         </div>
 
                 {% endif %}

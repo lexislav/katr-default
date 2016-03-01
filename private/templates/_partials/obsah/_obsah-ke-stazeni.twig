@@ -2,7 +2,7 @@
     <ul class="menu vertical menu-download">
         <li class="header"><h4 class="f-m f-800 mm-no-space">KE STAŽENÍ</h4></li>
         {% for f in entry.downloads %}
-            <li><a href="/{{ f.getUrl }}"><i class="fa fa-list"></i>{{ f }}</a></li>
+            <li><a href="{{ f.getUrl }}"><i class="fa fa-list"></i>{{ f }}</a></li>
         {% endfor %}
     </ul>
 </div>
