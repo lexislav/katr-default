@@ -38,6 +38,14 @@
         {% if(page.body) %}
         {% set hasBody = 1 %}
         {% endif %}
+        {# TODO: Lexa, dopsat podmínku na předchůdce page.ancestors.first.id (což nefunguje, bude to drobátko jinak) #}
+        {% if page.id == 5 %}
+        {% set hasItems = 0 %}
+        {% else %}
+        {% set hasItems = 1 %}
+        {% endif %}
+
+        {# TODO: Michale prosím, ikonu položek zobrazit když hasItems = 1 (nejsi ve výrobkových řadách)#}
 
         {
             title: '{{ page.title }}',
