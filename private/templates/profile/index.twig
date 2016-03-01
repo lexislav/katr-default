@@ -1,0 +1,49 @@
+{#
+ # Profile page
+ # ----------------
+ #}
+
+{% extends "/_partials/layout/_base.twig" %}
+
+{% block content %}
+    <article class="">
+        <header class="mm-mgr-bottom mm-pad-top ">
+            <div class="row align-bottom">
+
+                <div class="columns small-8">
+                    <h1 class="xxl">Uživatelský profil ({{ currentUser.username }})</h1>
+                    {% if currentUser.can('accessCp') %}
+                        <a href="/admin">Administrace</a> |
+                    {% endif %}
+                    {% if currentUser %}
+                        <a href="{{ logoutUrl }}">{{"Odhlásit"|t}}</a>
+                    {% endif %}
+                </div>
+
+            </div>
+        </header>
+        <div class="row">
+            <div class="columns small-12">
+                <strong>Jméno a příjmení:</strong> {{ currentUser.getName() }}
+            </div>
+            <div class="columns small-12">
+                <strong>Uživatelské jméno:</strong> {{ currentUser.username }}
+            </div>
+            <div class="columns small-12">
+                <strong>Firma:</strong> {% if currentUser.firma %}{{ currentUser.firma }}{% else %}<em>nevyplněno</em>{% endif %}
+            </div>
+            <div class="columns small-12">
+                <strong>E-mail:</strong> {{ currentUser.email }}
+            </div>
+            <div class="columns small-12">
+                <strong>Telefon:</strong> {% if currentUser.telefon %}{{ currentUser.firma }}{% else %}<em>nevyplněno</em>{% endif %}
+            </div>
+        </div>
+    </article>
+
+    {% include "/_partials/base/_nav-top.twig" %}
+
+    {# upozornění #}
+    {% include "/_partials/obsah/_obsah-upozorneni.twig" %}
+
+{% endblock %}
