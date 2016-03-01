@@ -1,0 +1,6 @@
+{
+    "buttons": ["format"],
+    "plugins": ["source", "scriptbuttons"],
+    "formatting": [],
+    "paragraphize": false
+}

@@ -11,16 +11,19 @@
 {# ZJIŠTĚNÍ NAPLŇENÝCH KNIHOVEN PRO ENTRY#}
 
 {% set techSpecifikace = {} %}
-{% for category in craft.categories('catLibraries') %}
-    {% set catGroupName = category.getGroup.name %}
-    {% set catGroupHandle = category.getGroup.handle %}
+{% for category in craft.categories.group('catLibraries') %}
+    {% set catGroupName = category.title %}
+    {% set catGroupHandle = category.libraryHandle %}
+    {% set catUnits = category.libraryUnits %}
     {% set oneSpec = craft.categories({ relatedTo: { sourceElement: entry, field:catGroupHandle }, limit: null }) %}
     {% if oneSpec|length > 0 %}
+
         {% set specValues = "" %}
         {% for value in oneSpec %}
             {% set specValues = specValues ~ value %}
             {% if not loop.last %}{% set specValues = specValues ~ ", " %} {% endif %}
         {% endfor %}
+        {% set specValues = specValues ~ " " ~ catUnits %}
         {% set catGroup = { (catGroupName) : { "handle": catGroupHandle, "values": specValues }} %}
         {% set techSpecifikace = techSpecifikace|merge(catGroup) %}
     {% endif %}
@@ -84,7 +87,7 @@
 
                                 {% for groupName,spec in techSpecifikace %}
 
-                                <li><div><span><strong>{{ groupName }}:</strong></span><span class="align-right">{{ spec.values }}</span></div></li>
+                                <li><div><span><strong>{{ groupName }}:</strong></span><span class="align-right">{{ spec.values|raw }}</span></div></li>
 
                                 {% if loop.index == colBreakpoint %}
                             </ul>
