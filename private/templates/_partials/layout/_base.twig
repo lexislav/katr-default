@@ -132,8 +132,6 @@
                 openSubgallery(items, el.data("gallery-index"));
             });
         });
-
-
         return items;
     }
 
@@ -186,11 +184,23 @@
         })
 
         // init PSWP
+        var firstgallery = null;
+        var galleryCounter = 0;
 
         $('[gallery]').each(function () {
             $gal = $(this);
             //console.log($gal.attr('id'));
-            parseGallery("#" + $gal.attr('id'));
+            var cGalleryItems = parseGallery("#" + $gal.attr('id'));
+            galleryCounter++;
+
+            // pokud je prvni galerie tak namapuj open-first na tuhle galerii
+            if(galleryCounter == 1) {
+                firstgallery = cGalleryItems;
+                $('[gallery-open-first]').on('click', function(event) {
+                    event.preventDefault();
+                    openSubgallery(firstgallery, 0);
+                });
+            }
         });
 
         // smooth scroll na začátek body
