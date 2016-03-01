@@ -4121,6 +4121,9 @@ label a {
         background-image: url("/template/assets/logo-koma-wide.svg"); } }
   .top-bar-koma .menu-links {
     flex-shrink: 0; }
+  @media screen and (min-width: 0em) and (max-width: 39.9375em) {
+    .top-bar-koma .menu-text span {
+      display: none; } }
 
 .m-breadcrumbs {
   background-color: #ecf0ec;
