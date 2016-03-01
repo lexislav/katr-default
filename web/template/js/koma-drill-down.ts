@@ -48,10 +48,10 @@ class DrillDown {
         this.root = $(this.options.selector);
 
         this.historyElement = this.root.find(this.options.historySelector);
-        console.dir(this.historyElement);
+        // console.dir(this.historyElement);
 
-        console.log("Koma Drill Down init");
-        console.dir(this.data);
+        // console.log("drill init");
+        // console.dir(this.data);
 
         // start building levels
         this.buildLevel(this.data, this.options.rootLevelName);
@@ -108,7 +108,7 @@ class DrillDown {
             element: level
         };
         this.history.push(histObj);
-        console.dir(this.history);
+        // console.dir(this.history);
         this.historyShow();
     }
 
@@ -174,7 +174,7 @@ class DrillDown {
         $('[drill-back]').each((index, elem) => {
             var el = $(elem);
             if (el.attr('drill-back') == this.options.selector) {
-                console.log('back');
+                // console.log('back');
 
                 el.on('click', (event) => {
                     this.historyGoBack();
@@ -186,7 +186,7 @@ class DrillDown {
         $('[drill-home]').each((index, elem) => {
             var el = $(elem);
             if (el.attr('drill-home') == this.options.selector) {
-                console.log('home');
+                // console.log('home');
 
                 el.on('click', (event) => {
                     this.histBackLevel(1);

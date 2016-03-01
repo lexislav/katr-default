@@ -4094,8 +4094,7 @@ label a {
   .top-bar-koma .menu > li > a {
     padding: 0; }
   .top-bar-koma .menu-icon::after {
-    color: #858585;
-    background: orangered; }
+    color: #858585; }
   .top-bar-koma .menu-square {
     width: 77px; }
   .top-bar-koma .top-bar--left {
@@ -4134,7 +4133,16 @@ label a {
     position: absolute;
     z-index: 1;
     width: 100%;
-    background-color: rgba(0, 0, 0, 0.1); }
+    background-color: rgba(0, 0, 0, 0.4);
+    color: #f8f8f8; }
+    .m-breadcrumbs.mm-over .breadcrumbs li {
+      color: #f8f8f8;
+      text-shadow: 0 1px 1px rgba(0, 0, 0, 0.4); }
+    .m-breadcrumbs.mm-over .breadcrumbs li:not(:last-child)::after {
+      color: #f8f8f8; }
+    .m-breadcrumbs.mm-over .breadcrumbs a {
+      text-decoration: underline;
+      color: #f8f8f8; }
 
 .dot-params li {
   padding: 0 10px; }
