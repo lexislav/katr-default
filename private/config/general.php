@@ -30,6 +30,7 @@ return array(
     'koma-katalog.cz' => array(
         'devMode' => false,
         'loginPath' => 'homepage',
+        'testToEmailAddress' => null,
         'siteUrl' => 'http://koma-katalog.cz/'
     )
 );
