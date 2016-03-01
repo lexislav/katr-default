@@ -4776,14 +4776,15 @@ label a {
   .m-body-copy table th,
   .m-body-copy table tbody th {
     vertical-align: middle; }
-  .m-body-copy table > blockquote {
-    font-family: Purista;
-    font-style: italic;
-    padding: 20px 28px;
-    color: #c20e1a;
-    background-color: #ecf0ec;
-    font-size: 24px;
-    border-left: 5px solid #c20e1a; }
+
+.m-body-copy > blockquote {
+  font-family: Purista;
+  font-style: italic;
+  padding: 20px 28px;
+  color: #c20e1a;
+  background-color: #ecf0ec;
+  font-size: 24px;
+  border-left: 5px solid #c20e1a; }
 
 .grow {
   flex: 2 0 0; }

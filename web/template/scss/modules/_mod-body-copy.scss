@@ -151,17 +151,18 @@
             vertical-align: middle;
         }
 
-        > blockquote {
-            font-family: Purista;
-            font-style: italic;
-            padding: 20px 28px;
-            color: $color-koma-primary;
-            background-color: $color-koma-ui-light;
 
-            font-size: 24px;
-            border-left: 5px solid $color-koma-primary;
 
-        }
+    }
+    > blockquote {
+        font-family: Purista;
+        font-style: italic;
+        padding: 20px 28px;
+        color: $color-koma-primary;
+        background-color: $color-koma-ui-light;
+
+        font-size: 24px;
+        border-left: 5px solid $color-koma-primary;
 
     }
 }
