@@ -22,14 +22,24 @@
 
     // TODO: nadefinovat typografii obsahu
     h1, h2 {
+        font-size: 22px;
+        margin-bottom: 30px;
     }
     h3 {
+        font-size: 18px;
+        margin-bottom: 22px;
     }
     h4 {
+        font-size: 16px;
+        margin-bottom: 22px;
     }
     h5 {
+        font-size: 16px;
+        margin-bottom: 22px;
     }
     h6 {
+        font-size: 16px;
+        margin-bottom: 22px;
     }
 
     p, ul, ol, img {
@@ -123,16 +133,35 @@
         }
     }
 
-    > blockquote {
-        font-family: Purista;
-        font-style: italic;
-        padding: 20px 28px;
-        color: $color-koma-primary;
-        background-color: $color-koma-ui-light;
+    table {
+        border-top: 2px solid $color-koma-primary;
+        border-bottom: 2px solid $color-koma-primary;
+        font-size: 16px;
 
-        font-size: 24px;
-        border-left: 5px solid $color-koma-primary;
+        th,
+        td,
+        tbody th,
+        tbody td {
+            padding: 0.4em 0.5em;
+            vertical-align: top;
+        }
+
+        th,
+        tbody th {
+            vertical-align: middle;
+        }
+
+        > blockquote {
+            font-family: Purista;
+            font-style: italic;
+            padding: 20px 28px;
+            color: $color-koma-primary;
+            background-color: $color-koma-ui-light;
+
+            font-size: 24px;
+            border-left: 5px solid $color-koma-primary;
+
+        }
 
     }
-
 }

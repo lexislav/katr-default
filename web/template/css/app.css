@@ -4674,6 +4674,26 @@ label a {
   font-weight: 800;
   font-size: 32px; }
 
+.m-body-copy h1, .m-body-copy h2 {
+  font-size: 22px;
+  margin-bottom: 30px; }
+
+.m-body-copy h3 {
+  font-size: 18px;
+  margin-bottom: 22px; }
+
+.m-body-copy h4 {
+  font-size: 16px;
+  margin-bottom: 22px; }
+
+.m-body-copy h5 {
+  font-size: 16px;
+  margin-bottom: 22px; }
+
+.m-body-copy h6 {
+  font-size: 16px;
+  margin-bottom: 22px; }
+
 .m-body-copy p, .m-body-copy ul, .m-body-copy ol, .m-body-copy img {
   margin-top: 1.4em; }
 
@@ -4743,14 +4763,27 @@ label a {
   .m-body-copy figure figcaption strong {
     color: #434343; }
 
-.m-body-copy > blockquote {
-  font-family: Purista;
-  font-style: italic;
-  padding: 20px 28px;
-  color: #c20e1a;
-  background-color: #ecf0ec;
-  font-size: 24px;
-  border-left: 5px solid #c20e1a; }
+.m-body-copy table {
+  border-top: 2px solid #c20e1a;
+  border-bottom: 2px solid #c20e1a;
+  font-size: 16px; }
+  .m-body-copy table th,
+  .m-body-copy table td,
+  .m-body-copy table tbody th,
+  .m-body-copy table tbody td {
+    padding: 0.4em 0.5em;
+    vertical-align: top; }
+  .m-body-copy table th,
+  .m-body-copy table tbody th {
+    vertical-align: middle; }
+  .m-body-copy table > blockquote {
+    font-family: Purista;
+    font-style: italic;
+    padding: 20px 28px;
+    color: #c20e1a;
+    background-color: #ecf0ec;
+    font-size: 24px;
+    border-left: 5px solid #c20e1a; }
 
 .grow {
   flex: 2 0 0; }
