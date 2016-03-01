@@ -4775,7 +4775,9 @@ label a {
     vertical-align: top; }
   .m-body-copy table th,
   .m-body-copy table tbody th {
-    vertical-align: middle; }
+    vertical-align: middle;
+    background-color: #b5bbb4;
+    border-right: 2px solid #ecf0ec; }
 
 .m-body-copy > blockquote {
   font-family: Purista;
