@@ -4773,21 +4773,29 @@ label a {
     position: fixed; }
 
 .m-header-image {
-  position: relative; }
+  position: relative;
+  z-index: 0; }
 
 .m-header-image--button {
   position: absolute;
-  bottom: 0;
-  right: 0;
+  bottom: 30px;
+  right: 30px;
   margin: 0;
   background-color: rgba(0, 0, 0, 0.5); }
+  .m-header-image--button .fa {
+    vertical-align: middle; }
+  .m-header-image--button span {
+    margin-left: 10px; }
 
 .m-header--bgimage {
   background-repeat: no-repeat;
   background-position: 50% 50%;
-  background-size: cover; }
+  background-size: cover;
+  position: relative; }
 
 .mm-negative-offset {
+  position: relative;
+  z-index: 1;
   margin-top: -100px;
   background-color: white;
   padding-top: 25px; }
