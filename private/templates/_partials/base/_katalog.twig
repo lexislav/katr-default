@@ -47,11 +47,12 @@
             {% set hasItems = 0 %}
         {% endif %}
 
-        {# TODO: Michale prosím, ikonu položek zobrazit když hasItems = 1 (nejsi ve výrobkových řadách)#}
+        {# TODO: Michale prosím, ikonu položek zobrazit pouze když hasItems /hasFilterUrl== 1 (nejsi ve výrobkových řadách)#}
 
         {
             title: '{{ page.title }}',
             url: '{{ page.url }}',
+            hasFilterUrl: {{ hasItems }},
             filterUrl: '/polozky',
             hasContent: {{ hasBody }},
             childs: [

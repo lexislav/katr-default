@@ -1,3 +1,11 @@
+{% set showItems = true %}
+{% if entry.id == 5 %}
+    {% set showItems = false %}
+{% elseif entry.getAncestors()|length > 0 %}
+    {% if entry.getAncestors().first.id == 5 %}
+        {% set showItems = false %}
+    {% endif %}
+{% endif %}
 <div class="row">
     <div class="columns small-12 ">
         <div class="menu-subsections bg-grey-light  mm-pad-bottom-half mm-pad-top-half">
@@ -7,7 +15,9 @@
                     <a class="title" href="{{ subsection.url }}" title="{{ subsection.title }}">{{ subsection.title }}</a>
 
                     <a class="icon" href="{{ subsection.url }}" title="{{ subsection.title }}">&rarr;</a>
+                    {% if showItems %}
                     <a class="icon" href="/polozky"><i class="fa fa-list"></i></a>
+                    {% endif %}
                 </div>
             {% endfor %}
         </div>
