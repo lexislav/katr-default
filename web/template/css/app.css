@@ -3662,6 +3662,10 @@ table.hover tr:nth-of-type(even):hover {
 .debug {
   outline: 1px solid crimson; }
 
+.mm-pad-row {
+  padding-top: 20px;
+  padding-bottom: 20px; }
+
 .mm-pad-top {
   padding-top: 50px; }
 
@@ -4113,7 +4117,7 @@ label a {
     background-position: center; }
     @media screen and (min-width: 64em) {
       .top-bar-koma .menu-logo {
-        min-width: 400px;
+        min-width: 300px;
         background-image: url("/template/assets/logo-koma-wide.svg"); } }
   .top-bar-koma .menu-links {
     flex-shrink: 0; }
