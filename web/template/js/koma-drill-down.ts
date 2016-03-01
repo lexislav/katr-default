@@ -48,10 +48,7 @@ class DrillDown {
         this.root = $(this.options.selector);
 
         this.historyElement = this.root.find(this.options.historySelector);
-        // console.dir(this.historyElement);
-
         // console.log("drill init");
-        // console.dir(this.data);
 
         // start building levels
         this.buildLevel(this.data, this.options.rootLevelName);
