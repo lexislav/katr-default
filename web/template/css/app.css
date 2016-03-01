@@ -4249,8 +4249,8 @@ label a {
       color: #c20e1a; }
   .menu-subsections .menu-item .icon {
     flex-shrink: 100;
-    padding-left: 30px;
-    padding-right: 30px;
+    min-width: 80px;
+    text-align: center;
     border-left: 1px solid #b5bbb4; }
   .menu-subsections .menu-item.empty-content .title {
     opacity: 0.6; }
