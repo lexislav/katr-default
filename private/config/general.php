@@ -31,6 +31,7 @@ return array(
         'devMode' => false,
         'loginPath' => 'homepage',
         'testToEmailAddress' => null,
+        'postLoginRedirect' => 'homepage',
         'siteUrl' => 'http://koma-katalog.cz/'
     )
 );
