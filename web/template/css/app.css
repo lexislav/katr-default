@@ -4075,32 +4075,49 @@ label a {
     background: linear-gradient(180deg, transparent, #434343);
     position: absolute; }
 
-.top-bar {
+.top-bar-koma {
   height: 77px;
   padding: 0;
   border-bottom: 1px solid #b5bbb4;
-  overflow: hidden; }
-  .top-bar .menu
+  overflow: hidden;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 100%;
+  background-color: white; }
+  .top-bar-koma .menu
 .menu a {
     color: #858585; }
-  .top-bar .menu > li {
+  .top-bar-koma .menu > li {
     padding: 21px;
     height: 76px; }
-  .top-bar .menu > li > a {
+  .top-bar-koma .menu > li > a {
     padding: 0; }
-  .top-bar .menu-icon::after {
+  .top-bar-koma .menu-icon::after {
     color: #858585;
     background: orangered; }
-  .top-bar .menu-square {
+  .top-bar-koma .menu-square {
     width: 77px; }
-  .top-bar .top-bar-left {
+  .top-bar-koma .top-bar--left {
     height: 76px; }
-    .top-bar .top-bar-left .has-border {
+    .top-bar-koma .top-bar--left .has-border {
       border-right: 1px solid #b5bbb4; }
-  .top-bar .top-bar-right {
+  .top-bar-koma .top-bar--right {
     height: 76px; }
-    .top-bar .top-bar-right .has-border {
+    .top-bar-koma .top-bar--right .has-border {
       border-left: 1px solid #b5bbb4; }
+  .top-bar-koma .menu-logo {
+    min-width: 210px;
+    flex-shrink: 2;
+    background-image: url("/template/assets/logo-koma.svg");
+    background-repeat: no-repeat;
+    background-position: center; }
+    @media screen and (min-width: 64em) {
+      .top-bar-koma .menu-logo {
+        min-width: 400px;
+        background-image: url("/template/assets/logo-koma-wide.svg"); } }
+  .top-bar-koma .menu-links {
+    flex-shrink: 0; }
 
 .m-breadcrumbs {
   background-color: #ecf0ec;

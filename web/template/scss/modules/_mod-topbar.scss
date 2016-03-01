@@ -1,10 +1,17 @@
 
-.top-bar {
+.top-bar-koma {
 
     height: 77px;
     padding: 0;
     border-bottom: 1px solid $color-koma-ui-mid;
     overflow: hidden;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+    width: 100%;
+    background-color: white;
 
     .menu
     .menu a {
@@ -29,16 +36,33 @@
         width: 77px;
     }
 
-    .top-bar-left {
+    .top-bar--left {
         height: 76px;
         .has-border {
             border-right: 1px solid $color-koma-ui-mid;
         }
     }
-    .top-bar-right {
+    .top-bar--right {
         height: 76px;
         .has-border {
             border-left: 1px solid $color-koma-ui-mid;
         }
+    }
+
+    .menu-logo {
+        min-width: 210px;
+        flex-shrink: 2;
+        background-image: url('/template/assets/logo-koma.svg');
+        background-repeat: no-repeat;
+        background-position: center;
+
+        @media #{$large-up} {
+            min-width: 400px;
+            background-image: url('/template/assets/logo-koma-wide.svg');
+        }
+
+    }
+    .menu-links {
+        flex-shrink: 0;
     }
 }
