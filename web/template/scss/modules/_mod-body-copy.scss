@@ -231,6 +231,20 @@
         margin-bottom: 0;
     }
 
+    code, pre {
+        font-family: Consolas, "Liberation Mono", Courier, monospace;
+        font-weight: normal;
+        color: #0a0a0a;
+        background-color: #e6e6e6;
+        border: 1px solid #cacaca;
+        padding: 0.1428571429rem 0.3571428571rem 0.0714285714rem;
+        font-size: 14px;
+    }
 
+    pre {
+        margin-top: 0.4em;
+        margin-bottom: 0.6em;
+        padding: 0.3em;
+    }
 
 }
