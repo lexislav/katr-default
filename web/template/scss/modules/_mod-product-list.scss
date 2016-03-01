@@ -1,7 +1,7 @@
 // produkt list
 
 .m-product-list-item {
-    background-color: $color-koma-ui-light;
+    //background-color: $color-koma-ui-light;
     margin-bottom: 2px;
 
     h1 {
@@ -19,13 +19,18 @@
         }
     }
 
+    & > .row {
+        background-color: $color-koma-ui-light;
+    }
+
+
     .ignore-gutter {
-        @media #{$small-only} {
+        //@media #{$small-only} {
             padding-left: 0;
-        }
-        @media #{$medium-only} {
-            padding-left: 0;
-        }
+        //}
+        //@media #{$medium-only} {
+        //    padding-left: 0;
+        //}
     }
 
 }

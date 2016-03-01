@@ -64,4 +64,14 @@
     .menu-links {
         flex-shrink: 0;
     }
+
+    @media #{$small-only} {
+        .menu-text {
+            span {
+                display: none;
+            }
+        }
+    }
+
+
 }
