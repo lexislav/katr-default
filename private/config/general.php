@@ -19,6 +19,7 @@ return array(
         'loginPath' => 'admin',
         'testToEmailAddress' => 'lexislav@gmail.com',
         'generateTransformsBeforePageLoad' => true,
+        'baseAssetPath' => './',
         'siteUrl' => 'http://koma-katalog.cz/'
     ),
 
