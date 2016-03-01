@@ -13,7 +13,7 @@
     {# accordeon for mobile only#}
     <div class="hide-for-large">
 
-        <ul class="accordion koma-content" data-accordion data-multi-expand="true" data-allow-all-closed="true">
+        <ul class="accordion koma-content mm-pad-bottom" data-accordion data-multi-expand="true" data-allow-all-closed="true">
             {% for i in entry.doplnkoveInformace %}
                 <li class="accordion-item" data-accordion-item>
                     <a class="accordion-title"><h2 class="f-xl f-800">{{ i.infoTitle }}</h2></a>
@@ -40,7 +40,7 @@
                 {% if i.infoImage|length > 0 %}
                     {# s obrazky#}
                     <div class="column small-12 large-12">
-                        <div class="row m-info--panel">
+                        <div class="row m-info--panel mm-pad-bottom">
                             <div class="large-6 large-order-1 column">
                                 <img src="{{ i.infoImage.first.getUrl('otherInfoImage') }}">
                             </div>
@@ -52,8 +52,8 @@
                     </div>
                 {% else %}
                     {# bez obrazku#}
-                    <div class="column small-12 large-6">
-                        <div class=" m-info--panel">
+                    <div class="column small-12 large-6 ">
+                        <div class=" m-info--panel mm-pad-bottom">
                             <h2 class="m-info--headline f-xl f-800">{{ i.infoTitle }}</h2>
                             {{ i.infoBody }}
                         </div>
