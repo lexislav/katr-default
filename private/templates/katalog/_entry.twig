@@ -9,11 +9,13 @@
 {% block content %}
 
     {% if entry.ancestors|length>0 %}
-        {% if entry.ancestors.first.id == 5 or entry.id == 5 %}
+        {% if entry.ancestors.first.id == 5 %}
             {% include '/_partials/base/_top-breadcrumbs.twig'  with {"class": "mm-over"} %}
         {% else %}
             {% include '/_partials/base/_top-breadcrumbs.twig' %}
         {% endif %}
+    {% elseif entry.id == 5 %}
+        {% include '/_partials/base/_top-breadcrumbs.twig'  with {"class": "mm-over"} %}
     {% else %}
         {% include '/_partials/base/_top-breadcrumbs.twig' %}
     {% endif %}
