@@ -27,30 +27,31 @@
 
 
 <script>
-    {% cache for 1 hour %}
 
     {# build drilldown js inline config by twig #}
+
+    {% cache for 1 hour %}
     /* ********************************************* */
     var drillDownData = [];
     drillDownData = [
         {% nav page in pages %}
 
-        {% set hasBody = 0 %}
+            {% set hasBody = 0 %}
 
-        {% if(page.body) %}
-            {% set hasBody = 1 %}
-        {% endif %}
+            {% if(page.body) %}
+                {% set hasBody = 1 %}
+            {% endif %}
 
-        {% set itemsUrl = '/polozky' %}
+            {% set itemsUrl = '/polozky' %}
 
-            /* pokud nema přiřazené produky, netýká se struktury katalogu*/
-        {% if page.getAncestors()|length > 0 %}
-            {% if page.getAncestors().first.id == 5 %}
+            {# pokud nema přiřazené produky, netýká se struktury katalogu #}
+            {% if page.getAncestors()|length > 0 %}
+                {% if page.getAncestors().first.id == 5 %}
+                    {% set itemsUrl = null %}
+                {% endif %}
+            {% elseif page.id == 5 %}
                 {% set itemsUrl = null %}
             {% endif %}
-        {% elseif page.id == 5 %}
-            {% set itemsUrl = null %}
-        {% endif %}
 
         {
             title: '{{ page.title }}',
@@ -59,19 +60,20 @@
             hasContent: {{ hasBody }},
             childs: [
                 {% ifchildren %}
-                {% children %}
+                    {% children %}
                 {% endifchildren %}
             ]
         },
+
         {% endnav %}
     ];
     /* ********************************************* */
     {# drilldown config end #}
-
     {% endcache %}
 
-    $(function () {
 
+
+    $(function () {
         var opt = {
             selector: '#drill-down',
             rootLevelName: 'Katalog'
@@ -86,12 +88,12 @@
             $('body').addClass('scroll-lock');
             $('.drill-reveal').height($(window).innerHeight()).fadeIn(100);
 
-            $(document).keyup(function(e) {
+            $(document).keyup(function (e) {
                 if (e.keyCode == 13) $('.save').click();     // enter
                 if (e.keyCode == 27) $('.cancel').click();   // esc
             });
 
-            $(document).on('keyup', function(event){
+            $(document).on('keyup', function (event) {
                 $(document).off('keyup');
                 e.preventDefault();
                 $('.drill-reveal').fadeOut(100);
