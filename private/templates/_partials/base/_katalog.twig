@@ -27,6 +27,7 @@
 
 
 <script>
+    {% cache for 1 hour %}
 
     {# build drilldown js inline config by twig #}
     /* ********************************************* */
@@ -35,25 +36,26 @@
         {% nav page in pages %}
 
         {% set hasBody = 0 %}
+
         {% if(page.body) %}
-        {% set hasBody = 1 %}
-        {% endif %}
-        {% set hasItems = 1 %}
-        {% if page.getAncestors()|length>0 %}
-            {% if page.getAncestors().first.id == 5 %}
-                {% set hasItems = 0 %}
-            {% endif %}
-        {% elseif page.id == 5 %}
-            {% set hasItems = 0 %}
+            {% set hasBody = 1 %}
         {% endif %}
 
-        {# TODO: Michale prosím, ikonu položek zobrazit pouze když hasItems /hasFilterUrl== 1 (nejsi ve výrobkových řadách)#}
+        {% set itemsUrl = '/polozky' %}
+
+            /* pokud nema přiřazené produky, netýká se struktury katalogu*/
+        {% if page.getAncestors()|length > 0 %}
+            {% if page.getAncestors().first.id == 5 %}
+                {% set itemsUrl = null %}
+            {% endif %}
+        {% elseif page.id == 5 %}
+            {% set itemsUrl = null %}
+        {% endif %}
 
         {
             title: '{{ page.title }}',
             url: '{{ page.url }}',
-            hasFilterUrl: {{ hasItems }},
-            filterUrl: '/polozky',
+            itemsUrl: '{{ itemsUrl }}',
             hasContent: {{ hasBody }},
             childs: [
                 {% ifchildren %}
@@ -65,6 +67,8 @@
     ];
     /* ********************************************* */
     {# drilldown config end #}
+
+    {% endcache %}
 
     $(function () {
 

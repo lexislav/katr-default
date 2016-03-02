@@ -47,7 +47,11 @@ var DrillDown = (function () {
         }
         childs.forEach(function (entry) {
             // build items
-            var levelItem = $('<div class="drill-item"><div class="drill-title"><a href="' + entry.url + '">' + entry.title + '</a></div> <div class="drill-next"><i class="fa fa-play"></i></div> <div class="drill-icon"><a href="' + entry.filterUrl + '"><i class="fa fa-list"></i></a></div> </div>');
+            var levelItem = $('<div class="drill-item"><div class="drill-title"><a href="' + entry.url + '">' + entry.title + '</a></div> <div class="drill-next"><i class="fa fa-play"></i></div> <div class="drill-icon"><a href="' + entry.itemsUrl + '"><i class="fa fa-list"></i></a></div> </div>');
+            // smazni ikonu listu pokud není žádné url na položky - produkty
+            if (!entry.itemsUrl || entry.itemsUrl.length < 1) {
+                levelItem.find('.drill-icon').remove();
+            }
             var clickTarget = levelItem.find('.drill-next');
             if (entry.childs.length > 0) {
                 levelItem.addClass('drill-has-childs');
