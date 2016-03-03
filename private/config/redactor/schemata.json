@@ -1,0 +1,5 @@
+{
+    "buttons": ["bold","italic","lists","link"],
+    "plugins": ["source", "table", "scriptbuttons", "fullscreen"],
+    "formatting": ["p","h4","pre"]
+}
