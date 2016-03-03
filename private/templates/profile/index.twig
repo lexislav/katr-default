@@ -11,7 +11,7 @@
             <div class="row align-bottom">
 
                 <div class="columns small-8">
-                    <h1 class="xxl">Uživatelský profil ({{ currentUser.username }})</h1>
+                    <h1 class="xxl">{{ currentUser.username }}</h1>
                     {% if currentUser.can('accessCp') %}
                         <a href="/admin">Administrace</a> |
                     {% endif %}
