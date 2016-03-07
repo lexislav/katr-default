@@ -34,7 +34,7 @@
         {% include "/_partials/obsah/_obsah-subgalleries.twig" %}
 
         {# doplnkove informace #}
-        {% if entry.doplnkoveInformace %}
+        {% if entry.doplnkoveInformace|length > 0 %}
             {% include "/_partials/obsah/_obsah-dalsi-info.twig" %}
         {% endif %}
 
