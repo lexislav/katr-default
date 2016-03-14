@@ -20,6 +20,7 @@ return array(
         'testToEmailAddress' => 'lexislav@gmail.com',
         'generateTransformsBeforePageLoad' => true,
         'baseAssetPath' => './',
+        'docsUrl' => '/dokumentace',
         'siteUrl' => 'http://koma-katalog.cz/'
     ),
 
