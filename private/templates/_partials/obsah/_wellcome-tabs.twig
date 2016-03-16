@@ -65,6 +65,7 @@
                 </div>
                 <div class="columns small-6">
                     {% set faqs = craft.entries.id(257).first() %}
+                    {% if faqs %}
                     {% for entry in faqs.children %}
                         {% if entry.forEditors and currentUser.groups != "users " %}
                         <article class=" mm-pad-bottom-half mm-pad-bottom-half">
@@ -92,7 +93,7 @@
                     {% else %}
                         <p>Sekce FAQ je zatím prázdná.</p>
                     {% endfor %}
-
+                    {% endif %}
                 </div>
             </div>
 
