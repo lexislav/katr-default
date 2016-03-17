@@ -26,34 +26,43 @@
         {% set specValues = specValues ~ " " ~ catUnits %}
         {% set catGroup = { (catGroupName) : { "handle": catGroupHandle, "values": specValues }} %}
         {% set techSpecifikace = techSpecifikace|merge(catGroup) %}
+
+    {# ATYPICKE PARAMETRY, KATEGORIE #}
+    {# přiložení hmotnost k tabulce #}
+    {% elseif catGroupHandle == "hmotnost" and entry.hmotnost %}
+        {% set specValues = entry.hmotnost ~ " " ~ catUnits %}
+        {% set catGroup = { (catGroupName) : { "handle": catGroupHandle, "values": specValues }} %}
+        {% set techSpecifikace = techSpecifikace|merge(catGroup) %}
     {% endif %}
-{% endfor %}
 
-{# přiložení souvisejících výrobkových řad k tabulce #}
-{% if entry.souvisejiciVyrobkoveRady|length > 0 %}
-    {% set catGroupHandle = "souvisejiciVyrobkoveRady" %}
-    {% set catGroupName = "Související výrobkové řady" %}
-    {% set specValues = "" %}
-    {% for value in entry.souvisejiciVyrobkoveRady %}
+        {# přiložení hmotnosti na plochu do tabulky#}
+    {% elseif catGroupHandle == "hmotnostNaPlochu" and entry.hmotnostNaPlochu %}
+        {% set specValues = entry.hmotnostNaPlochu %}
+        {% set specValues = specValues ~ " " ~ catUnits %}
+        {% set catGroup = { (catGroupName) : { "handle": catGroupHandle, "values": specValues }} %}
+        {% set techSpecifikace = techSpecifikace|merge(catGroup) %}
+
+        {# přiložení souvisejících výrobkových řad k tabulce #}
+    {% elseif catGroupHandle == "souvisejiciVyrobkoveRady" and entry.souvisejiciVyrobkoveRady|length > 0 %}
+        {% set specValues = "" %}
+        {% for value in entry.souvisejiciVyrobkoveRady %}
+                {% set specValues = specValues ~ value %}
+            {% if not loop.last %}{% set specValues = specValues ~ ", " %} {% endif %}
+        {% endfor %}
+        {% set catGroup = { (catGroupName) : { "handle": catGroupHandle, "values": specValues }} %}
+        {% set techSpecifikace = techSpecifikace|merge(catGroup) %}
+
+        {# přiložení zemí užití k tabulce #}
+    {% elseif catGroupHandle == "zemePouziti" and entry.zemePouziti|length > 0 %}
+        {% set specValues = "" %}
+        {% for value in entry.zemePouziti %}
             {% set specValues = specValues ~ value %}
-        {% if not loop.last %}{% set specValues = specValues ~ ", " %} {% endif %}
-    {% endfor %}
-    {% set catGroup = { (catGroupName) : { "handle": catGroupHandle, "values": specValues }} %}
-    {% set techSpecifikace = techSpecifikace|merge(catGroup) %}
-{% endif %}
+            {% if not loop.last %}{% set specValues = specValues ~ ", " %} {% endif %}
+        {% endfor %}
+        {% set catGroup = { (catGroupName) : { "handle": catGroupHandle, "values": specValues }} %}
+        {% set techSpecifikace = techSpecifikace|merge(catGroup) %}
 
-{# přiložení zemí užití k tabulce #}
-{% if entry.zemePouziti|length > 0 %}
-    {% set catGroupHandle = "zemePouziti" %}
-    {% set catGroupName = "Země použití" %}
-    {% set specValues = "" %}
-    {% for value in entry.zemePouziti %}
-        {% set specValues = specValues ~ value %}
-        {% if not loop.last %}{% set specValues = specValues ~ ", " %} {% endif %}
-    {% endfor %}
-    {% set catGroup = { (catGroupName) : { "handle": catGroupHandle, "values": specValues }} %}
-    {% set techSpecifikace = techSpecifikace|merge(catGroup) %}
-{% endif %}
+{% endfor %}
 
 {# podmínka pro zobrazení bloku:, spustit, až to bude odladěné#}
 {% if techSpecifikace|length or entry.sirka or entry.vyska or entry.hloubka %}
