@@ -29,13 +29,13 @@
 
     {# ATYPICKE PARAMETRY, KATEGORIE #}
     {# přiložení hmotnost k tabulce #}
-    {% elseif catGroupHandle == "hmotnost" and entry.hmotnost %}
+    {% elseif catGroupHandle == "hmotnost" and entry.hmotnost > 0 %}
         {% set specValues = entry.hmotnost ~ " " ~ catUnits %}
         {% set catGroup = { (catGroupName) : { "handle": catGroupHandle, "values": specValues }} %}
         {% set techSpecifikace = techSpecifikace|merge(catGroup) %}
 
         {# přiložení hmotnosti na plochu do tabulky#}
-    {% elseif catGroupHandle == "hmotnostNaPlochu" and entry.hmotnostNaPlochu %}
+    {% elseif catGroupHandle == "hmotnostNaPlochu" and entry.hmotnostNaPlochu > 0 %}
         {% set specValues = entry.hmotnostNaPlochu %}
         {% set specValues = specValues ~ " " ~ catUnits %}
         {% set catGroup = { (catGroupName) : { "handle": catGroupHandle, "values": specValues }} %}
