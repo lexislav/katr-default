@@ -16,9 +16,9 @@
     {% set catGroupHandle = category.libraryHandle %}
     {% set catUnits = category.libraryUnits %}
     {% set oneSpec = craft.categories({ relatedTo: { sourceElement: entry, field:catGroupHandle }, limit: null }) %}
-    {% if oneSpec|length > 0 %}
+    {% set specValues = "" %}
 
-        {% set specValues = "" %}
+    {% if oneSpec|length > 0 %}
         {% for value in oneSpec %}
             {% set specValues = specValues ~ value %}
             {% if not loop.last %}{% set specValues = specValues ~ ", " %} {% endif %}
