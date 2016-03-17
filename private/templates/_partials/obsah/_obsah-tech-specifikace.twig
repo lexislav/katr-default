@@ -33,7 +33,6 @@
         {% set specValues = entry.hmotnost ~ " " ~ catUnits %}
         {% set catGroup = { (catGroupName) : { "handle": catGroupHandle, "values": specValues }} %}
         {% set techSpecifikace = techSpecifikace|merge(catGroup) %}
-    {% endif %}
 
         {# přiložení hmotnosti na plochu do tabulky#}
     {% elseif catGroupHandle == "hmotnostNaPlochu" and entry.hmotnostNaPlochu %}
@@ -42,25 +41,7 @@
         {% set catGroup = { (catGroupName) : { "handle": catGroupHandle, "values": specValues }} %}
         {% set techSpecifikace = techSpecifikace|merge(catGroup) %}
 
-        {# přiložení souvisejících výrobkových řad k tabulce #}
-    {% elseif catGroupHandle == "souvisejiciVyrobkoveRady" and entry.souvisejiciVyrobkoveRady|length > 0 %}
-        {% set specValues = "" %}
-        {% for value in entry.souvisejiciVyrobkoveRady %}
-                {% set specValues = specValues ~ value %}
-            {% if not loop.last %}{% set specValues = specValues ~ ", " %} {% endif %}
-        {% endfor %}
-        {% set catGroup = { (catGroupName) : { "handle": catGroupHandle, "values": specValues }} %}
-        {% set techSpecifikace = techSpecifikace|merge(catGroup) %}
-
-        {# přiložení zemí užití k tabulce #}
-    {% elseif catGroupHandle == "zemePouziti" and entry.zemePouziti|length > 0 %}
-        {% set specValues = "" %}
-        {% for value in entry.zemePouziti %}
-            {% set specValues = specValues ~ value %}
-            {% if not loop.last %}{% set specValues = specValues ~ ", " %} {% endif %}
-        {% endfor %}
-        {% set catGroup = { (catGroupName) : { "handle": catGroupHandle, "values": specValues }} %}
-        {% set techSpecifikace = techSpecifikace|merge(catGroup) %}
+    {% endif %}
 
 {% endfor %}
 
