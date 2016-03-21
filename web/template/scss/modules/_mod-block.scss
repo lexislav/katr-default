@@ -27,12 +27,12 @@
         li {
             &:before {
                 font-family: Purista;
+                font-weight: 800;
                 color: $color-koma-primary;
-                content: "\2190";
+                content: "\2192";
                 margin-right: 1em;
             }
         }
-
     }
 
     li {
