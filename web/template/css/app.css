@@ -4972,4 +4972,26 @@ a.button {
         margin: 0 .6em;
         color: #c20e1a; }
 
+table {
+  border: none;
+  border-top: 2px solid #c20e1a;
+  border-bottom: 2px solid #c20e1a;
+  font-size: 16px; }
+  table tbody, table thead {
+    border: none; }
+  table th,
+  table td,
+  table tbody th,
+  table tbody td {
+    padding: 0.4em 0.5em;
+    vertical-align: top; }
+  table th,
+  table tbody th {
+    vertical-align: middle;
+    background-color: #b5bbb4;
+    border-right: 2px solid #ecf0ec; }
+    table th:last-child,
+    table tbody th:last-child {
+      border: none; }
+
 /*# sourceMappingURL=app.css.map */

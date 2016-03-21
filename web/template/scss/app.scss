@@ -235,3 +235,38 @@ a.button {
     }
 
 }
+
+
+// table
+
+table {
+    border: none;
+    border-top: 2px solid $color-koma-primary;
+    border-bottom: 2px solid $color-koma-primary;
+    font-size: 16px;
+
+    tbody, thead {
+        border: none;
+    }
+
+    th,
+    td,
+    tbody th,
+    tbody td {
+        padding: 0.4em 0.5em;
+        vertical-align: top;
+    }
+
+    th,
+    tbody th {
+        vertical-align: middle;
+        background-color: $color-koma-ui-mid;
+        border-right: 2px solid $color-koma-ui-light;
+        &:last-child {
+            border: none;
+        }
+    }
+
+
+
+}
