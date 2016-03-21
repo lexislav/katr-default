@@ -130,7 +130,7 @@
         width: 100%;
         left: 0;
         content: "";
-        background: linear-gradient(180deg, transparent, $offcanvas-background);
+        background: linear-gradient(180deg, rgba($offcanvas-background, 0),  rgba($offcanvas-background, 1));
         position: absolute;
     }
 }

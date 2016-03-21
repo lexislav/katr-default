@@ -4076,7 +4076,7 @@ label a {
     width: 100%;
     left: 0;
     content: "";
-    background: linear-gradient(180deg, transparent, #434343);
+    background: linear-gradient(180deg, rgba(67, 67, 67, 0), #434343);
     position: absolute; }
 
 .top-bar-koma {
