@@ -5003,4 +5003,7 @@ table {
     table tbody th:last-child {
       border: none; }
 
+ul.mm-double-spacing li {
+  margin-bottom: 1em; }
+
 /*# sourceMappingURL=app.css.map */
