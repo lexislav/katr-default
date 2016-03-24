@@ -30,7 +30,7 @@
 
     {# build drilldown js inline config by twig #}
 
-    {% cache for 1 hour %}
+    {% cache globally for 1 hour %}
     /* ********************************************* */
     var drillDownData = [];
     drillDownData = [
