@@ -71,6 +71,7 @@ $space-tiny: 6px;
     overflow: hidden;
     &.touch {
         position: fixed;
+        overflow: hidden;
     }
 }
 
@@ -236,7 +237,6 @@ a.button {
 
 }
 
-
 // table
 
 table {
@@ -267,11 +267,10 @@ table {
         }
     }
 
-
-
 }
 
-
 ul.mm-double-spacing {
-   li { margin-bottom: 1em;}
+    li {
+        margin-bottom: 1em;
+    }
 }

@@ -49,7 +49,7 @@ class DrillDown {
 
         this.historyElement = this.root.find(this.options.historySelector);
         // console.log("drill init");
-
+        
         // start building levels
         this.buildLevel(this.data, this.options.rootLevelName);
         this.buildBackButtons();

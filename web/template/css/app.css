@@ -4038,6 +4038,8 @@ label a {
     border-top: 1px solid #858585; }
   .off-canvas-item:first-of-type {
     border-bottom: none; }
+  .off-canvas-item:last-of-type {
+    padding-bottom: 300px; }
   .off-canvas-item:hover:not(.disabled) {
     background-color: #484848; }
     .off-canvas-item:hover:not(.disabled) * {
@@ -4884,7 +4886,8 @@ label a {
 .scroll-lock {
   overflow: hidden; }
   .scroll-lock.touch {
-    position: fixed; }
+    position: fixed;
+    overflow: hidden; }
 
 .m-header-image {
   position: relative;

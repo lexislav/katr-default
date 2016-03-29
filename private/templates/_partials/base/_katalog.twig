@@ -85,7 +85,6 @@
         // otevirani modalu katalogu pres ID v menu
         $(".katalogmenu").on('click', function (e) {
             e.preventDefault();
-            $('body').addClass('scroll-lock');
             $('.drill-reveal').height($(window).innerHeight()).fadeIn(100);
 
             $(document).keyup(function (e) {
@@ -97,9 +96,10 @@
                 $(document).off('keyup');
                 e.preventDefault();
                 $('.drill-reveal').fadeOut(100);
-                $('body').removeClass('scroll-lock');
+                $('html').removeClass('scroll-lock');
             });
 
+            $('html').addClass('scroll-lock');
 
         });
 
@@ -109,7 +109,7 @@
             el.on('click', function (e) {
                 e.preventDefault();
                 $('.drill-reveal').fadeOut(100);
-                $('body').removeClass('scroll-lock');
+                $('html').removeClass('scroll-lock');
             });
         });
 

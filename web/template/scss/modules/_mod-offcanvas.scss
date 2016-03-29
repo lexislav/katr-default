@@ -78,6 +78,10 @@
         border-bottom: none;
     }
 
+    &:last-of-type {
+        padding-bottom: 300px; // scrollpad
+    }
+
     &:hover:not(.disabled) {
         background-color: lighten($color-koma-ui-darken, 2%);
         * {
