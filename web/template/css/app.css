@@ -5019,8 +5019,8 @@ ul.mm-double-spacing li {
 .pswp__bg {
   background-color: #f2f2f2; }
 
-.pswp__ui--fit .pswp__top-bar,
-.pswp__ui--fit .pswp__caption {
+.pswp__top-bar,
+.pswp__caption {
   background-color: transparent; }
 
 .pswp__counter,
