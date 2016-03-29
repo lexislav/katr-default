@@ -1,13 +1,17 @@
 {% for schema in entry.schemata %}
-    <div class="m-schema bg-grey-light mm-pad-top-half mm-pad-bottom-half mm-mgr-bottom-tiny ">
+    <div class="m-schema bg-grey-light mm-pad-top-half mm-pad-bottom-half mm-mgr-bottom-tiny mm-closed" closable>
 
         <div class="row">
-            <div class="column small-12">
-                <h2 class="f-xl f-800 mm-pad-bottom-half f-up">{{ schema.schemaTitle }}</h2>
+
+            <div class="column small-11">
+                <h2 class="f-xl f-800 f-up">{{ schema.schemaTitle }}</h2>
+            </div>
+            <div class="column small-1 text-right">
+                <div class="f-xl f-800 f-up" closable-close-button><i class="fa fa-angle-down"></i></div>
             </div>
         </div>
 
-        <div class="row mm-pad-bottom">
+        <div class="row mm-pad-bottom mm-pad-top-half" closable-content>
             {% if schema.schemaImage|length > 0 %}
                 {% if schema.schemaImage.first.width > schema.schemaImage.first.height %}
 

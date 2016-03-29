@@ -57,4 +57,21 @@
     ol ol li:last-child {
         margin-bottom: 0;
     }
+
+    .row {
+        position: relative;
+    }
+
+
+
+
+}
+
+.mm-closed[closable] {
+
+
+    [closable-content] {
+        display: none;
+    }
+
 }

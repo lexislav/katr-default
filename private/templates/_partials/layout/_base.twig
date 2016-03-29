@@ -223,6 +223,18 @@
             }, 400);
         });
 
+        // closables
+        $('[closable]').each(function () {
+            var el = $(this);
+
+            el.on('click', function (e) {
+                e.preventDefault();
+                el.toggleClass("mm-closed");
+            });
+
+        });
+
+
     });
 
     {% block scriptsBottom %}{% endblock %}
