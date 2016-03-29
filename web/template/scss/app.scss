@@ -274,3 +274,22 @@ ul.mm-double-spacing {
         margin-bottom: 1em;
     }
 }
+
+
+// PSWP patch
+
+.pswp__bg {
+    background-color: $color-koma-ui-lighter;
+}
+
+.pswp__ui--fit .pswp__top-bar,
+.pswp__ui--fit .pswp__caption {
+    background-color: transparent; //rgba(0, 0, 0, 0.3);
+}
+
+.pswp__counter,
+.pswp__caption,
+.pswp__caption__center,
+button.pswp__button{
+    color: $color-koma-ui-black;
+}

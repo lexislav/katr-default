@@ -5016,4 +5016,17 @@ table {
 ul.mm-double-spacing li {
   margin-bottom: 1em; }
 
+.pswp__bg {
+  background-color: #f2f2f2; }
+
+.pswp__ui--fit .pswp__top-bar,
+.pswp__ui--fit .pswp__caption {
+  background-color: transparent; }
+
+.pswp__counter,
+.pswp__caption,
+.pswp__caption__center,
+button.pswp__button {
+  color: #000; }
+
 /*# sourceMappingURL=app.css.map */
