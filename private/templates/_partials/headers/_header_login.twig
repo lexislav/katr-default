@@ -24,20 +24,15 @@
         {{ getCsrfInput() }}
         <input type="hidden" name="action" value="users/login">
 
-        {# CRAFT CMS verze
-        <h3><label for="loginName">Username or email</label></h3>
-        <input id="loginName" type="text" name="loginName"
-            value="{{ craft.session.rememberedUsername }}">#}
+        {# uživatelské jméno #}
         <div class="row align-center">
             <div class="small-10 medium-6 large-4 columns">
                 <input id="loginName" type="text" name="loginName"
-                    value="{{ craft.session.rememberedUsername }}" placeholder="Uživatelské jméno" required>
+                    value="{{ craft.session.rememberedUsername }}" placeholder="{{ "Uživatelské jméno"|t }}" required>
             </div>
         </div>
 
-        {# CRAFT CMS verze
-        <h3><label for="password">Password</label></h3>
-        <input id="password" type="password" name="password"> #}
+        {# heslo #}
         <div class="row align-center">
             <div class="small-10 medium-6 large-4 columns">
                 <input id="password" type="password" name="password" placeholder="{{ "Heslo"|t }}" required>
@@ -45,11 +40,6 @@
         </div>
 
         {# souhlas #}
-        {# CRAFT CMS verze
-        <label>
-            <input type="checkbox" name="rememberMe" value="1">
-            Remember me
-        </label> #}
         <div class="row align-center align-middle mm-pad-bottom-half">
             <fieldset class="small-10 medium-6 large-4 columns text-center">
                 <input type="checkbox" name="rememberMe" value="1" id="rememeber"><label for="rememeber" style="vertical-align: top">Zapamatovat přihlášení</label>
