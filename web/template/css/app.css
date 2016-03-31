@@ -4317,6 +4317,9 @@ label a {
   .menu-subsections .menu-item.empty-content .title {
     opacity: 0.6; }
 
+.menu.dropdown.menu-language a:after {
+  display: none; }
+
 .koma-content .accordion-title:before {
   font-size: 24px;
   font-weight: 800;
