@@ -58,9 +58,8 @@
             <div class="small-4 columns text-center">
                 {# <button class="large button">Vstoupit</button> #}
                 <input type="submit" value="Vstoupit" class="large button">
-                {# TODO: nastylovat hlášku zapoměnli jste heslo 12px šedá + Špatné heslo 14px white, viz design sketch 13/14, asi stačí sem hodit správné třídy… #}
                 {% if errorMessage is defined %}
-                    <p>{{ errorMessage }}</p>
+                    <p class="f-xs">{{ errorMessage }}</p>
                 {% else %}
                     <p><a href="{{ url('forgotpassword') }}">{{ "Zapomněli jste své heslo?"|t }}</a></p>
                 {% endif %}
