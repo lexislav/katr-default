@@ -21,8 +21,8 @@ input[type="checkbox"] {
 }
 
 input[type="checkbox"]:checked {
-    background-color: $color-koma-ui-darken;
-    background-image: url("/assets/progress-1.png");
+    background-color: transparent;
+    background-image: url("/template/assets/checkbox-checked.png");
     background-size: cover;
 }
 

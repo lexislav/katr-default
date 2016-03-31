@@ -3938,8 +3938,8 @@ input[type="checkbox"] {
   margin-bottom: 0; }
 
 input[type="checkbox"]:checked {
-  background-color: #434343;
-  background-image: url("/assets/progress-1.png");
+  background-color: transparent;
+  background-image: url("/template/assets/checkbox-checked.png");
   background-size: cover; }
 
 input[type="checkbox"]:focus {
