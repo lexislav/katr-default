@@ -64,7 +64,7 @@
                     <h3 class="f-xl f-800">FAQ</h3>
                 </div>
                 <div class="columns small-6">
-                    {% set faqs = craft.entries.id(257).first() %}
+                    {% set faqs = craft.entries.id(257) %}
                     {% if faqs %}
                     {% for entry in faqs.children %}
                         {% if entry.forEditors and currentUser.groups != "users " %}
