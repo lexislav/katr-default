@@ -5049,6 +5049,14 @@ table {
 ul.mm-double-spacing li {
   margin-bottom: 1em; }
 
+.m-header-pwd,
+.m-header-pwd a {
+  color: #b5bbb4; }
+
+.m-header-errmsg,
+.m-header-errmsg a {
+  font-size: 14px; }
+
 .pswp__bg {
   background-color: #f2f2f2; }
 

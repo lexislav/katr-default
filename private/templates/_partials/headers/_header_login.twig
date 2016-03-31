@@ -6,15 +6,15 @@
         </div>
         <div class="columns small-5 small-pull-2">
 
-                <ul class="dropdown menu menu-language" data-dropdown-menu>
-                    <li>
-                        <a href="">Language <i class="fa fa-2x fa-angle-down" style="vertical-align: middle;"></i></a>
-                        <ul class="menu">
-                            <li><a href="#">Česky</a></li>
-                            <li><a href="#">Anglicky</a></li>
-                        </ul>
-                    </li>
-                </ul>
+            <ul class="dropdown menu menu-language" data-dropdown-menu>
+                <li>
+                    <a href="">Language <i class="fa fa-2x fa-angle-down" style="vertical-align: middle;"></i></a>
+                    <ul class="menu">
+                        <li><a href="#">Česky</a></li>
+                        <li><a href="#">Anglicky</a></li>
+                    </ul>
+                </li>
+            </ul>
         </div>
     </div>
 
@@ -60,9 +60,11 @@
                 <input type="submit" value="Vstoupit" class="large button">
                 {# TODO: nastylovat hlášku zapoměnli jste heslo 12px šedá + Špatné heslo 14px white, viz design sketch 13/14, asi stačí sem hodit správné třídy… #}
                 {% if errorMessage is defined %}
-                    <p>{{ errorMessage }}</p>
+                    <p class="m-header-errmsg">{{ errorMessage }}</p>
                 {% else %}
-                    <p><a href="{{ url('forgotpassword') }}">{{ "Zapomněli jste své heslo?"|t }}</a></p>
+                    <p class="m-header-pwd">
+                        <a href="{{ url('forgotpassword') }}">{{ "Zapomněli jste své heslo?"|t }}</a>
+                    </p>
                 {% endif %}
             </div>
         </div>

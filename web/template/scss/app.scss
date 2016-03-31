@@ -275,6 +275,18 @@ ul.mm-double-spacing {
     }
 }
 
+.m-header-pwd,
+.m-header-pwd a {
+
+    color: $color-koma-ui-mid;
+
+}
+.m-header-errmsg,
+.m-header-errmsg a {
+    font-size: 14px;
+}
+
+
 
 // PSWP patch
 
