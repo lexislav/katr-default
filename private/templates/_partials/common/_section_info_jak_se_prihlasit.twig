@@ -1,9 +1,10 @@
+{% if jakSePrihlasit.infoblockTitle  %}
 <section class="m-section bg-grey-light">
     <article>
         <header>
             <div class="row align-center">
                 <div class="small-10 column text-center">
-                    <h2 class="s-hollow f-xxl">Jak se přihlásit</h2>
+                    <h2 class="s-hollow f-xxl">{{jakSePrihlasit.infoblockTitle}}</h2>
                 </div>
             </div>
         </header>
@@ -11,20 +12,18 @@
         <div class="row align-center">
             <div class="column small-10">
                 <div class="row">
-
-                    {% for i in range(1, 3) %}
+                    {% for i in jakSePrihlasit.imageInfos %}
                         <div class="columns medium-4 text-center">
                             <div>
-                                <img src="/assets/progress-{{ i }}.png" alt="" class="image-progress">
+                                <img src="{{i.infoImage.first.url}}" alt="" class="image-progress">
                             </div>
-                            <p>KATR je primárně určen všem zájemcům o modulární výstavbu a zaměstnancům firmy KOMA MODULAR s.r.o. ke snadné orientaci standardizovaných technických řešení, které jsou odzkoušené a promyšlené.</p>
+                            {{i.infoBody}}
                         </div>
                     {% endfor %}
                 </div>
 
             </div>
         </div>
-
     </article>
-
 </section>
+{% endif %}
