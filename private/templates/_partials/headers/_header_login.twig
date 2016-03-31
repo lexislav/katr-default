@@ -59,9 +59,9 @@
                 {# <button class="large button">Vstoupit</button> #}
                 <input type="submit" value="Vstoupit" class="large button">
                 {% if errorMessage is defined %}
-                    <p class="f-xs">{{ errorMessage }}</p>
+                    <p class="f-s">{{ errorMessage }}</p>
                 {% else %}
-                    <p><a href="{{ url('forgotpassword') }}">{{ "Zapomněli jste své heslo?"|t }}</a></p>
+                    <p class="f-xs"><a href="{{ url('forgotpassword') }}">{{ "Zapomněli jste své heslo?"|t }}</a></p>
                 {% endif %}
             </div>
         </div>
