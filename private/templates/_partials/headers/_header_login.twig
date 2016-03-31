@@ -5,8 +5,8 @@
             <img src="/template/assets/logo-koma-modular.svg" alt="">
         </div>
         <div class="columns small-5 small-pull-2">
-
-                <ul class="dropdown menu menu-language" data-dropdown-menu>
+                {# TODO: Mich- dodělat dropdown na jazyky #}
+                {# <ul class="dropdown menu menu-language" data-dropdown-menu>
                     <li>
                         <a href="">Language <i class="fa fa-2x fa-angle-down" style="vertical-align: middle;"></i></a>
                         <ul class="menu">
@@ -14,7 +14,7 @@
                             <li><a href="#">Anglicky</a></li>
                         </ul>
                     </li>
-                </ul>
+                </ul> #}
         </div>
     </div>
 
@@ -50,17 +50,16 @@
 
         <div class="row align-center align-middle mm-pad-bottom-half">
             <fieldset class="small-10 medium-6 large-4 columns text-center">
-                {# TODO: změnit label checboxu na f-s (14px) a vertikálně center na čtvereček#}
+                {# TODO: změnit label checboxu na f-s (14px) a vertikálně center na čtvereček #}
                 <input type="checkbox" name="rememberMe" value="1" id="rememeber"><label for="rememeber" style="vertical-align: top">Zapamatovat přihlášení</label>
             </fieldset>
         </div>
 
         <div class="row align-center">
             <div class="small-4 columns text-center">
-                {# <button class="large button">Vstoupit</button> #}
                 <input type="submit" value="Vstoupit" class="large button">
                 {% if errorMessage is defined %}
-                    <p class="m-header-errmsg f-s mm-pad-top-half">{{ errorMessage }}</p>
+                    <p class="m-header-errmsg f-m mm-pad-top-half">{{ errorMessage }}</p>
                 {% else %}
                     <p class="m-header-pwd f-xs mm-pad-top-half">
                         <a href="{{ url('forgotpassword') }}">{{ "Zapomněli jste své heslo?"|t }}</a>
