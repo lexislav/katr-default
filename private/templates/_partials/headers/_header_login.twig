@@ -50,6 +50,7 @@
 
         <div class="row align-center align-middle mm-pad-bottom-half">
             <fieldset class="small-10 medium-6 large-4 columns text-center">
+                {# TODO: změnit label checboxu na f-s (14px) a vertikálně center na čtvereček#}
                 <input type="checkbox" name="rememberMe" value="1" id="rememeber"><label for="rememeber" style="vertical-align: top">Zapamatovat přihlášení</label>
             </fieldset>
         </div>
@@ -59,9 +60,9 @@
                 {# <button class="large button">Vstoupit</button> #}
                 <input type="submit" value="Vstoupit" class="large button">
                 {% if errorMessage is defined %}
-                    <p class="m-header-errmsg f-s">{{ errorMessage }}</p>
+                    <p class="m-header-errmsg f-s mm-pad-top-half">{{ errorMessage }}</p>
                 {% else %}
-                    <p class="m-header-pwd f-xs">
+                    <p class="m-header-pwd f-xs mm-pad-top-half">
                         <a href="{{ url('forgotpassword') }}">{{ "Zapomněli jste své heslo?"|t }}</a>
                     </p>
                 {% endif %}
