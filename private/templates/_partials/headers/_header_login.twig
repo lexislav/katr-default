@@ -60,10 +60,11 @@
                 <input type="submit" value="Vstoupit" class="large button">
                 {% if errorMessage is defined %}
                     <p class="m-header-errmsg f-m mm-pad-top-half">{{ errorMessage }}</p>
-                {% else %}
+                {# TODO: udělat formulář na zaslání hesla #}
+                {# {% else %}
                     <p class="m-header-pwd f-xs mm-pad-top-half">
                         <a href="{{ url('forgotpassword') }}">{{ "Zapomněli jste své heslo?"|t }}</a>
-                    </p>
+                    </p> #}
                 {% endif %}
             </div>
         </div>
