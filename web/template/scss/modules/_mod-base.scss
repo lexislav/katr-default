@@ -112,6 +112,14 @@
     color: $color-koma-ui-darken;
 }
 
+.c-ui-mid {
+    color: $color-koma-ui-mid;
+}
+
+.bg-ui-mid {
+    color: $color-koma-ui-mid;
+}
+
 // font classes
 
 .f-headline {
@@ -184,4 +192,5 @@
 @include createBuildFontSizeHelpers(s,    14px,   14px,   1.2em,   1.2em,   0.7em,   0.7em);
 @include createBuildFontSizeHelpers(xs,   12px,   12px,   1.2em,   1.2em,   0.5em,   0.5em);
 @include createBuildFontSizeHelpers(xxs,  10px,   10px,   1.5em,   1.5em,  0.25em,  0.25em);
+
 //@formatter:on
