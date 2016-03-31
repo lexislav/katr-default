@@ -3762,25 +3762,45 @@ table.hover tr:nth-of-type(even):hover {
 .f-200 {
   font-weight: 200; }
 
-.f-xxl {
+.f-xxxl {
   font-size: 38px;
   line-height: 1.32em; }
-  .f-xxl:after, .f-xxl:before {
+  .f-xxxl:after, .f-xxxl:before {
     font-size: 38px;
     line-height: 1.32em; }
   @media screen and (min-width: 64em) {
-    .f-xxl {
+    .f-xxxl {
       font-size: 50px;
       line-height: 1.32em; }
-      .f-xxl:after, .f-xxl:before {
+      .f-xxxl:after, .f-xxxl:before {
         font-size: 38px;
         line-height: 1.32em; } }
 
-.f-pad-xxl {
+.f-pad-xxxl {
   padding-bottom: 3em; }
   @media screen and (min-width: 64em) {
-    .f-pad-xxl {
+    .f-pad-xxxl {
       padding-bottom: 3em; } }
+
+.f-xxl {
+  font-size: 28px;
+  line-height: 1.32em; }
+  .f-xxl:after, .f-xxl:before {
+    font-size: 28px;
+    line-height: 1.32em; }
+  @media screen and (min-width: 64em) {
+    .f-xxl {
+      font-size: 28px;
+      line-height: 1.32em; }
+      .f-xxl:after, .f-xxl:before {
+        font-size: 28px;
+        line-height: 1.32em; } }
+
+.f-pad-xxl {
+  padding-bottom: 2em; }
+  @media screen and (min-width: 64em) {
+    .f-pad-xxl {
+      padding-bottom: 2em; } }
 
 .f-xl {
   font-size: 20px;

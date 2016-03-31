@@ -176,7 +176,8 @@
 }
 
 //@formatter:off
-@include createBuildFontSizeHelpers(xxl,  38px,   50px,  1.32em,  1.32em,     3em,     3em);
+@include createBuildFontSizeHelpers(xxxl, 38px,   50px,  1.32em,  1.32em,     3em,     3em);
+@include createBuildFontSizeHelpers(xxl,  28px,   28px,  1.32em,  1.32em,     2em,     2em);
 @include createBuildFontSizeHelpers(xl,   20px,   20px,  1.32em,  1.32em,     2em,     2em);
 @include createBuildFontSizeHelpers(l,    18px,   18px,   1.2em,   1.2em,   1.5em,   1.5em);
 @include createBuildFontSizeHelpers(m,    16px,   16px,   1.2em,   1.2em,     1em,     1em);
