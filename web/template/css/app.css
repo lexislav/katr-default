@@ -3941,6 +3941,10 @@ input[type="checkbox"]:checked {
   background-color: transparent;
   background-image: url("/template/assets/checkbox-checked.png");
   background-size: cover; }
+  input[type="checkbox"]:checked.mm-inverted {
+    background-color: transparent;
+    background-image: url("/template/assets/checkbox-checked-inverted.png");
+    background-size: cover; }
 
 input[type="checkbox"]:focus {
   outline: 0 none;
