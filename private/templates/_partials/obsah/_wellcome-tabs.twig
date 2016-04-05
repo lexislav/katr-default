@@ -19,8 +19,13 @@
                 </div>
 
                 <div class="columns small-6">
-                    {% for entry in craft.entries.section('oznameni').limit(10) %}
-                        {% if entry.forEditors and currentUser.groups != "users " %}
+                    {% if currentUser.isInGroup("users") %}
+                        {% set entries = craft.entries.section('oznameni').search('forEditors:unchecked').limit(10) %}
+                    {% else %}
+                        {% set entries = craft.entries.section('oznameni').limit(10) %}
+                    {% endif %}
+                    {% for entry in entries %}
+                        {% if entry.forEditors and currentUser.groups != "users" %}
                         <article class=" mm-pad-bottom-half mm-pad-bottom-half">
                             <div class="row">
                                 <div class="column small-3">
@@ -43,7 +48,8 @@
                             </div>
                         </article>
                         {% endif %}
-
+                    {% else %}
+                        <p>Sekce OZNÁMENÍ je zatím prázdná.</p>
                     {% endfor %}
 
                     <div class="row">
@@ -64,7 +70,12 @@
                     <h3 class="f-xl f-800">FAQ</h3>
                 </div>
                 <div class="columns small-6">
-                    {% set faqs = craft.entries.id(257) %}
+                    {% if currentUser.isInGroup("users") %}
+                        {% set faqs = craft.entries.id(257).search('forEditors:unchecked').limit(10) %}
+                    {% else %}
+                        {% set faqs = craft.entries.id(257).limit(10) %}
+                    {% endif %}
+
                     {% if faqs %}
                     {% for entry in faqs.children %}
                         {% if entry.forEditors and currentUser.groups != "users " %}

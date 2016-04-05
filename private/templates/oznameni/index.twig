@@ -18,7 +18,11 @@
         </header>
     </article>
 
-{% paginate craft.entries.section('oznameni').limit(25) as pageInfo, pageEntries %}
+    {% if currentUser.isInGroup("users") %}
+        {% paginate craft.entries.section('oznameni').search('forEditors:unchecked').limit(25) as pageInfo, pageEntries %}
+    {% else %}
+        {% paginate craft.entries.section('oznameni').limit(25) as pageInfo, pageEntries %}
+    {% endif %}
 
     {% include "/_partials/obsah/_vypis-oznameni.twig" %}
 
