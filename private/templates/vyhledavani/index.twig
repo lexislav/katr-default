@@ -1,0 +1,40 @@
+{#
+ # Výsledky hledání
+ # -------------------
+ #
+ #}
+
+{% extends "/_partials/layout/_base.twig" %}
+
+{% block content %}
+
+
+    <article>
+        {# {% include "/_partials/obsah/_obsah-textpage-header.twig" %} #}
+
+        <div class="row mm-pad-bottom">
+
+            <h1>Search Results</h1>
+
+            {% set query = craft.request.getParam('q') %}
+            {% set entries = craft.entries.search(query).order('score') %}
+
+            {% if entries|length %}
+                <p>{{ entries|length }} results:</p>
+
+                <ul>
+                    {% for entry in entries %}
+                        <li><a href="{{ entry.url }}">{{ entry.title }}</a></li>
+                    {% endfor %}
+                </ul>
+            {% else %}
+                <p>Your search for “{{ query }}” didn’t return any results.</p>
+            {% endif %}
+
+        </div>
+
+    </article>
+
+    {% include "/_partials/obsah/_obsah-upozorneni.twig" %}
+
+{% endblock %}
