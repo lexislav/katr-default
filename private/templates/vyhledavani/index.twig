@@ -8,6 +8,23 @@
 
 {% block content %}
 
+{% if craft.request.getParam('q') == "" %}
+
+    <article>
+        {# {% include "/_partials/obsah/_obsah-textpage-header.twig" %} #}
+
+        <div class="row mm-pad-bottom">
+
+            <form action="{{ url('vyhledavani') }}">
+                <input type="search" name="q" placeholder="Search">
+                <input type="submit" value="Go">
+            </form>
+
+        </div>
+
+    </article>
+
+{% else %}
 
     <article>
         {# {% include "/_partials/obsah/_obsah-textpage-header.twig" %} #}
@@ -34,6 +51,8 @@
         </div>
 
     </article>
+
+{% endif %}
 
     {% include "/_partials/obsah/_obsah-upozorneni.twig" %}
 
