@@ -1,3 +1,41 @@
+var FilterStructure = [
+
+    {
+        type: 'section',
+        label: 'velikosti z externího konfigu',
+        header: true,
+        closable: true,
+        opened: true,
+
+        fields: [
+            // prvek pole
+            {
+                id: 'objektB',
+                label: 'Můj slider',
+                type: 'slider',
+                value: 10,
+                default: 10,
+
+                options: {
+                    showTicks: true,
+                    ceil: 20,
+                    floor: 0
+                },
+
+                style: {
+                    width: 12
+                },
+
+                disabled: [
+                    { handle_id: ['handle_id_value', 'handle_id_value', 'handle_id_value'] }
+                ]
+
+            },
+
+        ]
+    }
+];
+
 
 var FilterConfig = [
 
@@ -23,8 +61,9 @@ var FilterConfig = [
                 style: {
                     width: 12
                 },
+
                 disabled: [
-                    { handle_id: [ 'handle_id_value', 'handle_id_value', 'handle_id_value' ] }
+                    {handle_id: ['handle_id_value', 'handle_id_value', 'handle_id_value']}
                 ]
 
             },
@@ -43,6 +82,23 @@ var FilterConfig = [
                     width: 12
                 },
                 disabled: []
+
+            },
+
+            {
+                id: 'objektB',
+                type: 'dropdown',
+                style: {
+                    width: 10
+                },
+                value: [],
+                options: [
+                    {label: 'label2', value: 1000},
+                    {label: 'label3', value: 100},
+                    {label: 'label4', value: 10},
+                    {label: 'label5', value: 1},
+                    {label: 'label6', value: 10000}
+                ]
 
             },
 
