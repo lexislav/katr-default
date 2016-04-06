@@ -1,6 +1,6 @@
 {#
- # Výsledky hledání
- # -------------------
+ # Hledání + výsledky hledání
+ # --------------------------
  #
  #}
 
@@ -10,54 +10,75 @@
 
 {% if craft.request.getParam('q') == "" %}
 
+{# Nové hledání #}
     <article>
-        {# {% include "/_partials/obsah/_obsah-textpage-header.twig" %} #}
-        <h1>Vyhledávání</h1>
-        <div class="row mm-pad-bottom">
+        <header class="mm-mgr-bottom mm-pad-top ">
+            <div class="row align-bottom">
 
-            <form action="{{ url('vyhledavani') }}">
-                <input type="search" name="q" placeholder="Hledaný výraz">
-                <input type="submit" value="Vyhledat">
-            </form>
+                <div class="columns small-8">
+                    <h1 class="f-xxxl">Vyhledávání</h1>
+                </div>
 
-        </div>
-
+            </div>
+        </header>
+        {% include "/_partials/forms/_search_form.twig" %}
     </article>
 
 {% else %}
 
+{# hledání již proběhlo #}
+    {% set query = craft.request.getParam('q') %}
+    {% set entries = craft.entries.search(query).order('score') %}
+
     <article>
-        {# {% include "/_partials/obsah/_obsah-textpage-header.twig" %} #}
+        <header class="mm-mgr-bottom mm-pad-top ">
+            <div class="row align-bottom">
 
-        <div class="row mm-pad-bottom">
-
-            <h1>Výsledky hledání</h1>
-            <a href="/vyhledavani" title="Zkusit hledat něco jiného" alt="Nové hledání">Nové hledání</a>
-
-            {% set query = craft.request.getParam('q') %}
-            {% set entries = craft.entries.search(query).order('score') %}
-
-            {% if entries|length %}
-                <p>{{ entries|length }} results:</p>
-
-                <ul>
-                    {% for entry in entries %}
-                        <li><a href="{{ entry.url }}">{{ entry.title }}</a></li>
-                    {% endfor %}
-                </ul>
-            {% else %}
-                <p>Hledání “{{ query }}” nemá žádné výsledky. Zkuste to nějak jinak.</p>
-                <div class="row mm-pad-bottom">
-
-                    <form action="{{ url('vyhledavani') }}">
-                        <input type="search" name="q" placeholder="Search">
-                        <input type="submit" value="Vyhledat">
-                    </form>
-
+                <div class="columns small-12">
+                    <h1 class="f-xxxl">Výsledky hledání</h1>
                 </div>
-            {% endif %}
+
+            </div>
+        </header>
+
+        <div class="row">
+
+                {% if entries|length > 0 %}
+{# hledání má výsledky #}
+                    <div class="columns small-6">
+                        <p>{{ entries|length }} nalezených záznamů:</p>
+                    </div>
+
+                    <div class="columns small-6 text-right">
+                        <a href="/vyhledavani" title="Zkusit hledat něco jiného" alt="Nové hledání">Nové hledání</a>
+                    </div>
+
+                    <div class="small-12 columns mm-pad-bottom">
+                        {% for entry in entries %}
+                            {% include "/_partials/common/_search-card.twig" %}
+                            {# <li><a href="{{ entry.url }}">{{ entry.title }}</a></li> #}
+                        {% endfor %}
+                    </div>
+
+                    <div class="columns small-12 text-right mm-pad-bottom">
+                        <a href="/vyhledavani" title="Zkusit hledat něco jiného" alt="Nové hledání">Nové hledání</a>
+                    </div>
+
+                {% else %}
+{# hledání nemá výsledky #}
+                    <div class="small-12 columns mm-pad-bottom">
+                        <p>Hledání “{{ query }}” nemá žádné výsledky. Zkuste to nějak jinak.</p>
+                        {% include "/_partials/forms/_search_form.twig" %}
+                    </div>
+
+                {% endif %}
 
         </div>
+
+        {% if entries|length > 0 %}
+            {# nahoru #}
+            {% include "/_partials/base/_nav-top.twig" %}
+        {% endif %}
 
     </article>
 
