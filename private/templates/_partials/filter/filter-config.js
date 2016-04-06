@@ -1,5 +1,6 @@
 var FilterStructure = [
 
+    // foreach sekce
     {
         type: 'section',
         label: 'velikosti z externího konfigu',
@@ -8,7 +9,7 @@ var FilterStructure = [
         opened: true,
 
         fields: [
-            // prvek pole
+            // foreach pole_v_sekci
             {
                 id: 'objektB',
                 label: 'Můj slider',
@@ -16,7 +17,7 @@ var FilterStructure = [
                 value: 10,
                 default: 10,
 
-                options: {
+                options: { // ruzne pro ruzne typy slider, cloud a dropdown
                     showTicks: true,
                     ceil: 20,
                     floor: 0
@@ -31,10 +32,15 @@ var FilterStructure = [
                 ]
 
             },
+            // endfor
 
         ]
     }
+    // endfor sekce
 ];
+
+
+
 
 
 var FilterConfig = [
@@ -53,11 +59,14 @@ var FilterConfig = [
                 type: 'slider',
                 value: 10,
                 default: 10,
+
+                // options pro slider
                 options: {
                     showTicks: true,
                     ceil: 20,
                     floor: 0
                 },
+
                 style: {
                     width: 12
                 },
