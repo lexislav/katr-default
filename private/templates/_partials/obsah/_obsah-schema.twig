@@ -1,5 +1,11 @@
+{% if entry.schemata|length > 1 %}
+    {% set closure = " mm-closed" %}
+{% else %}
+    {% set closure = "" %}
+{% endif %}
+
 {% for schema in entry.schemata %}
-    <div class="m-schema bg-grey-light mm-pad-top-half mm-pad-bottom-half mm-mgr-bottom-tiny mm-closed" closable>
+    <div class="m-schema bg-grey-light mm-pad-top-half mm-pad-bottom-half mm-mgr-bottom-tiny{{ closure }}" closable>
 
         <div class="row">
 
