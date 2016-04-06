@@ -12,12 +12,12 @@
 
     <article>
         {# {% include "/_partials/obsah/_obsah-textpage-header.twig" %} #}
-
+        <h1>Vyhledávání</h1>
         <div class="row mm-pad-bottom">
 
             <form action="{{ url('vyhledavani') }}">
-                <input type="search" name="q" placeholder="Search">
-                <input type="submit" value="Go">
+                <input type="search" name="q" placeholder="Hledaný výraz">
+                <input type="submit" value="Vyhledat">
             </form>
 
         </div>
@@ -31,7 +31,8 @@
 
         <div class="row mm-pad-bottom">
 
-            <h1>Search Results</h1>
+            <h1>Výsledky hledání</h1>
+            <a href="/vyhledavani" title="Zkusit hledat něco jiného" alt="Nové hledání">Nové hledání</a>
 
             {% set query = craft.request.getParam('q') %}
             {% set entries = craft.entries.search(query).order('score') %}
@@ -45,7 +46,15 @@
                     {% endfor %}
                 </ul>
             {% else %}
-                <p>Your search for “{{ query }}” didn’t return any results.</p>
+                <p>Hledání “{{ query }}” nemá žádné výsledky. Zkuste to nějak jinak.</p>
+                <div class="row mm-pad-bottom">
+
+                    <form action="{{ url('vyhledavani') }}">
+                        <input type="search" name="q" placeholder="Search">
+                        <input type="submit" value="Vyhledat">
+                    </form>
+
+                </div>
             {% endif %}
 
         </div>
