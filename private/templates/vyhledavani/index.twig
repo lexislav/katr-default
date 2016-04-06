@@ -22,6 +22,7 @@
             </div>
         </header>
         {% include "/_partials/forms/_search_form.twig" %}
+        {# TODO: Michale, šlo by tady pod tím formulářm udělat nějak jednoduše stejně místa, jako je nad ním (cca)? #}
     </article>
 
 {% else %}
@@ -53,6 +54,7 @@
                         <a href="/vyhledavani" title="Zkusit hledat něco jiného" alt="Nové hledání">Nové hledání</a>
                     </div>
 
+                    {# TODO: Michal, prosím mrkni na to, zda takto můžu vychrlit výsledky hledání, vyšel jsem z karet položek… díky #}
                     <div class="small-12 columns mm-pad-bottom">
                         {% for entry in entries %}
                             {% include "/_partials/common/_search-card.twig" %}
