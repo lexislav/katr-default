@@ -22,7 +22,11 @@ var FilterConfig = [
                 },
                 style: {
                     width: 12
-                }
+                },
+                disabled: [
+                    { handle_id: [ 'handle_id_value', 'handle_id_value', 'handle_id_value' ] }
+                ]
+
             },
 
             {
@@ -37,7 +41,9 @@ var FilterConfig = [
                 },
                 style: {
                     width: 12
-                }
+                },
+                disabled: []
+
             },
 
             {
@@ -46,7 +52,8 @@ var FilterConfig = [
                 label: 'Můj slider',
                 style: {
                     width: 2
-                }
+                },
+                disabled: []
             },
 
             {
