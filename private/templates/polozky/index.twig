@@ -5,9 +5,9 @@
 
 {% extends "/_partials/layout/_base.twig" %}
 
-{% block content %}
 
-	{# {% cache globally %} #}
+{% cache globally %}
+{% block content %}
 
 	{# analýza queryny #}
 	{% set cat = craft.categories.title(craft.request.getParam('cat')) %}
@@ -87,6 +87,5 @@
 	{# upozornění #}
 	{% include "/_partials/obsah/_obsah-upozorneni.twig" %}
 
-	{% endcache %}
-
 {% endblock %}
+{% endcache %}
