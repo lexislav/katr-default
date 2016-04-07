@@ -7,7 +7,7 @@
 
 {% block content %}
 
-	{# {% cache globally for 1 hour %} #}
+	{# {% cache globally %} #}
 
 	{# analýza queryny #}
 	{% set cat = craft.categories.title(craft.request.getParam('cat')) %}
@@ -87,6 +87,6 @@
 	{# upozornění #}
 	{% include "/_partials/obsah/_obsah-upozorneni.twig" %}
 
-	{# {% endcache %} #}
+	{% endcache %}
 
 {% endblock %}

@@ -30,7 +30,7 @@
 
     {# build drilldown js inline config by twig #}
 
-    // {% cache globally for 1 hour %}
+    {% cache globally %}
     /* ********************************************* */
     var drillDownData = [];
     drillDownData = [
@@ -69,7 +69,7 @@
     ];
     /* ********************************************* */
     {# drilldown config end #}
-    // {% endcache %}
+    {% endcache %}
 
 
 

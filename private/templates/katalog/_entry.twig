@@ -6,6 +6,7 @@
 
 {% extends "/_partials/layout/_base.twig" %}
 
+{% cache globally %}
 {% block content %}
 
     {% if entry.ancestors|length>0 %}
@@ -57,3 +58,5 @@
     {% include "/_partials/obsah/_obsah-upozorneni.twig" %}
 
 {% endblock %}
+
+{% endcache %}

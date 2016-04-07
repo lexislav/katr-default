@@ -11,6 +11,7 @@
 
 {% extends "/_partials/layout/_base.twig" %}
 
+{% cache globally %}
 {% block content %}
 
     {% include '/_partials/base/_top-breadcrumbs.twig' %}
@@ -47,3 +48,4 @@
     {% include "/_partials/obsah/_obsah-upozorneni.twig" %}
 
 {% endblock %}
+{% endcache %}
