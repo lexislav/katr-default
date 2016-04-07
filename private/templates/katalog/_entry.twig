@@ -6,8 +6,8 @@
 
 {% extends "/_partials/layout/_base.twig" %}
 
-{% cache globally %}
 {% block content %}
+    {% cache globally %}
 
     {% if entry.ancestors|length>0 %}
         {% if entry.ancestors.first.id == 5 %}
@@ -57,6 +57,5 @@
 
     {% include "/_partials/obsah/_obsah-upozorneni.twig" %}
 
+    {% endcache %}
 {% endblock %}
-
-{% endcache %}
