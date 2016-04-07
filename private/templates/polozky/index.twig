@@ -26,7 +26,11 @@
 	{# getting the cats and tags and stuff… #}
 	{% set highSpecs = {} %}
 	{% set lowSpecs = {} %}
-	{% set structureHandle = entry.catalogueStruct.last %}
+	{% if entry.catalogueStruct.first ==  "Rámy" %}
+		{% set structureHandle = entry.catalogueStruct.first %}
+	{% else %}
+		{% set structureHandle = entry.catalogueStruct.last %}
+	{% endif %}
 	{# získání zvýrazněných taxonomií pro danou položku #}
 	{% set priorityCats = structureHandle.zvyrazneneKat %}
 	{# získání ostatních taxonomií pro danou položku #}
