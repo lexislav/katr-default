@@ -39,7 +39,16 @@
 	{% include "/_partials/common/_product-card.twig" %}
 
 	{% else %}
-		<span>Tomuto nastavení neodpovídají žádné položky. Změňte nastavení filtru a zkuste to znovu.</span>
+		<article>
+			<div class="m-section">
+				<div class="row">
+					<div class="small-12 column">
+						<h1>Je nám líto,</h1>
+						<p>ale tomuto nastavení neodpovídají žádné položky. Změňte nastavení filtru a zkuste to znovu, případně si vypiště <a href="/polozky">všechny položky v katalogu.</a></p>
+					</div>
+				</div>
+			</div>
+		</article>
 	{% endfor %}
 
 	</div>
