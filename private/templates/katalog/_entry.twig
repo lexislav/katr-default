@@ -32,11 +32,13 @@
         {# default gallery#}
         {% include "/_partials/obsah/_obsah-fotogalerie.twig" %}
 
+    {% cache globally %}
         {# schemata #}
         {% include "/_partials/obsah/_obsah-schema.twig" %}
 
         {# subgallerie #}
         {% include "/_partials/obsah/_obsah-subgalleries.twig" %}
+    {% endcache %}
 
         {# podmínka pro spuštění bloku Doplňkévých informací #}
 
