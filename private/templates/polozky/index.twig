@@ -7,7 +7,7 @@
 
 {% block content %}
 
-	{% cache globally for 1 hour %}
+	{# {% cache globally for 1 hour %} #}
 
 
 	{# nastavení bez paginace
@@ -72,6 +72,6 @@
 	{# upozornění #}
 	{% include "/_partials/obsah/_obsah-upozorneni.twig" %}
 
-	{% endcache %}
+	{# {% endcache %} #}
 
 {% endblock %}

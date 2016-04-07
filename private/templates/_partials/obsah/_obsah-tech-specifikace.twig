@@ -27,7 +27,7 @@
         {% set catGroup = { (catGroupName) : { "handle": catGroupHandle, "values": specValues }} %}
         {% set techSpecifikace = techSpecifikace|merge(catGroup) %}
 
-    {# ATYPICKE PARAMETRY, KATEGORIE #}
+    {# ATYPICKE PARAMETRY, KATEGORIE, číselná pole #}
     {# přiložení hmotnost k tabulce #}
     {% elseif catGroupHandle == "hmotnost" and entry.hmotnost > 0 %}
         {% set specValues = entry.hmotnost ~ " " ~ catUnits %}
