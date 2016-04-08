@@ -16,34 +16,20 @@ var FilterStructure = [
             {
                 id: '{{ field.fieldSource.first.libraryHandle }}',
                 label: '{{ field.fieldLabel }}',
-
+                {% set library = craft.categories.group(field.fieldSource.first.libraryHandle)%}
                 {% switch field.displayType %}
                     {% case "dropdown" %}
                         type: 'dropdown',
                         style: {
                             width: 10
                         },
-                        value: [],
-                        options: [
-                            {label: 'label2', value: 1000},
-                            {label: 'label3', value: 100},
-                            {label: 'label4', value: 10},
-                            {label: 'label5', value: 1},
-                            {label: 'label6', value: 10000}
-                        ]
+                        value: [],{% include "/_partials/filter/_fieldtype-dropdown.twig" %}
                     {% case "cloud" %}
                         type: 'cloud',
                         style: {
                             width: 10
                         },
-                        value: [],
-                        options: [
-                            {label: 'label2', value: 1000},
-                            {label: 'label3', value: 100},
-                            {label: 'label4', value: 10},
-                            {label: 'label5', value: 1},
-                            {label: 'label6', value: 10000}
-                        ],
+                        value: [],{% include "/_partials/filter/_fieldtype-dropdown.twig" %}
                     {% case "simgleslider" %}
                         type: 'slider',
                         value: 10,

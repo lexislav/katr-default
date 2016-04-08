@@ -10,7 +10,7 @@
     <div class="mm-pad-bottom">
         <ul class="menu vertical menu-download">
             <li class="header"><h4 class="f-m f-800 mm-no-space">Varianty řady
-                    <a href="{{ productLine.url }}">{{ productLine.souvisejiciVyrobkoveRady.first }}</a></h4></li>
+                    <a href="{{ productLine.url }}">{{ productLine.vyrobkovarada.first }}</a></h4></li>
 
             {% for e in variations %}
                 <li>{% if e.body %}<a href="{{ e.getUrl }}">{{ e }}</a>{% else %}{{ e }}{% endif %}</li>
