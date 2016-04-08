@@ -8,6 +8,12 @@
                     <a href="{{ entry.url }}"></a>
                 </div>
             </div>
+        {% else %}
+            <div class="columns small-2 ignore-gutter">
+                <div class="m-product-list-item--image" style="background-image: url()">
+                    <a href="{{ entry.url }}"></a>
+                </div>
+            </div>
         {% endif %}
 
 
@@ -23,6 +29,9 @@
 
                 {# výpis prioritní tagů a rozměrů #}
                 <div class="columns">
+                    <ul class="menu dot-params align-right-flex">
+                        <li><span class="tag">{{entry.getSection()}}</span></li>
+                    </ul>
                     {# <ul class="menu dot-params align-right-flex ">
                         {% for pc in priorityCats %}{% set catValues = craft.categories({ relatedTo: { sourceElement: entry, field:pc.libraryHandle }, limit: null }) %}
                             {# TODO: zvážit zda ponechat ochranou podmínku, editor pak neví, že uděl chybu #}
