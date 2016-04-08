@@ -23,7 +23,8 @@
             {# horni linka#}
             <div class="row align-top m-product-list--line-top">
                 <div class="columns shrink">
-                    <h1 class="f-xl f-600"><a href="{{ entry.url }}" title="">{{ entry.Title }}</a></h1>
+                    {# TODO: Michale, prosím tag class… nebo nějak vymyslet, abych to mohl použít i na tomto místě a mělo to stejné písmenka a neposouvalo se to dolů, díky #}
+                    <h1 class="f-xl f-600"><a href="{{ entry.url }}" title="">{{ entry.Title }}</a><span class="tag">{{entry.getSection()}}</span></h1>
                     <div class="f-xxs c-grey-mid">{{ entry.poznamka }}</div>
                 </div>
 
