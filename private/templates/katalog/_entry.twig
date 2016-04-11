@@ -32,7 +32,7 @@
         {# default gallery#}
         {% include "/_partials/obsah/_obsah-fotogalerie.twig" %}
 
-    {% cache globally %}
+    {% cache globally for 1 hour %}
         {# schemata #}
         {% include "/_partials/obsah/_obsah-schema.twig" %}
 

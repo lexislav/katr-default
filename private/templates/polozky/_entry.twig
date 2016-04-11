@@ -12,7 +12,7 @@
 {% extends "/_partials/layout/_base.twig" %}
 
 {% block content %}
-    {% cache globally %}
+
     {% include '/_partials/base/_top-breadcrumbs.twig' %}
 
     <article>
@@ -46,5 +46,4 @@
 
     {% include "/_partials/obsah/_obsah-upozorneni.twig" %}
     
-    {% endcache %}
 {% endblock %}
