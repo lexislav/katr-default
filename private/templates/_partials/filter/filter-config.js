@@ -40,9 +40,6 @@ var FilterStructure = [
 ];
 
 
-
-
-
 var FilterConfig = [
 
     {
