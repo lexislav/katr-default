@@ -1,4 +1,4 @@
-{% header "Content-Type: application/json" %}
+{# {% header "Content-Type: application/json" %} #}
 
 var FilterStructure = [
 
@@ -17,7 +17,19 @@ var FilterStructure = [
             {
                 id: '{{ field.fieldSource.first.libraryHandle }}',
                 label: '{{ field.fieldLabel }}',
-                {% set library = craft.categories.group(field.fieldSource.first.libraryHandle)%}
+                {% set library = craft.categories.group(field.fieldSource.first.libraryHandle) %}
+
+                {% if field.displayType.value in ['simpleslider','stepsslider','doubleslider'] %}
+                    {% set selectedEntries = craft.entries.section('polozky').find({(field.fieldSource.first.libraryHandle):'> 0'})|supersort('sortas','{sirka}') %}
+                    <br>
+                    {{ field.fieldLabel }} / {{ field.fieldSource.first.libraryHandle }}<br>
+                    ======================<br>
+
+                    {% for shw in selectedEntries %}
+                        >! {{ shw.title }} -> {{ shw.sirka }}<br>
+                    {% endfor %}
+                {% endif %}
+
                 {% switch field.displayType %}
                     {% case "dropdown" %}
                         type: 'dropdown',
@@ -33,7 +45,7 @@ var FilterStructure = [
                         value: [],{% include "/_partials/filter/_fieldtype-dropdown.twig" %}
 
                     {# NOTE: pokdu pošlu reálné hodnoty, jak poznám, zda user slider použil nebo ne? #}
-                    {% case "simgleslider" %}
+                    {% case "simpleslider" %}
                         type: 'slider',
                         value: 10,
                         default: 10,
@@ -54,8 +66,6 @@ var FilterStructure = [
                         },
                     {% case "doubleslider" %}
                         type: 'range',
-                        id: 'objektB',
-                        label: 'Můj ranger',
                         min: 10,
                         max: 20,
                         defaultmin: 10,
