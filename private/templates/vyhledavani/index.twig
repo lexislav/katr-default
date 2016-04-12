@@ -31,7 +31,7 @@
     {% set query = craft.request.getParam('q') %}
     {% set entries = craft.entries.search(query).order('score') %}
 
-    <article>
+    <div>
         <header class="mm-mgr-bottom mm-pad-top ">
             <div class="row align-bottom">
 
@@ -82,7 +82,7 @@
             {% include "/_partials/base/_nav-top.twig" %}
         {% endif %}
 
-    </article>
+    </div>
 
 {% endif %}
 

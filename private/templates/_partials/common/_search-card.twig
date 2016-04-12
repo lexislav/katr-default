@@ -30,26 +30,39 @@
 
                 {# výpis prioritní tagů a rozměrů #}
                 <div class="columns">
-                    <ul class="menu dot-params align-right-flex">
+                    {# <ul class="menu dot-params align-right-flex">
                         <li><span class="tag">{{entry.getSection()}}</span></li>
-                    </ul>
-                    {# <ul class="menu dot-params align-right-flex ">
-                        {% for pc in priorityCats %}{% set catValues = craft.categories({ relatedTo: { sourceElement: entry, field:pc.libraryHandle }, limit: null }) %}
-                            {# TODO: zvážit zda ponechat ochranou podmínku, editor pak neví, že uděl chybu #}
-                            {#{% if catValues.first %}
-                                <li><span class="tag">{{ catValues.first }}</span></li>{% endif %}
-                        {% endfor %}
-
-                        {# výpis rozměrů #}
-                        {#{% if entry.hloubka %}
-                            <li><i title="Hloubka / délka" class="dot">H</i><span>{{ entry.hloubka }} mm</span>
-                            </li>{% endif %}
-                        {% if entry.vyska %}
-                            <li><i title="Výška" class="dot">V</i><span>{{ entry.vyska }} mm</span></li>{% endif %}
-                        {% if entry.sirka %}
-                            <li><i title="Šířka" class="dot">Š</i><span>{{ entry.sirka }} mm</span></li>{% endif %}
-
                     </ul> #}
+                    {% if entry.getSection() == "Položky" %}
+                        {% set highSpecs = {} %}
+                    	{% set lowSpecs = {} %}
+                    	{% if entry.catalogueStruct.first ==  "Rámy" %}
+                    	    {% set structureHandle = entry.catalogueStruct.first %}
+                    	{% else %}
+                    	    {% set structureHandle = entry.catalogueStruct.last %}
+                    	{% endif %}
+                    	{# získání zvýrazněných taxonomií pro danou položku #}
+                    	{% set priorityCats = structureHandle.zvyrazneneKat %}
+                    	{# získání ostatních taxonomií pro danou položku #}
+                    	{% set cats = structureHandle.ostatniKat %}
+
+                        <ul class="menu dot-params align-right-flex ">
+                            {% for pc in priorityCats %}{% set catValues = craft.categories({ relatedTo: { sourceElement: entry, field:pc.libraryHandle }, limit: null }) %}
+                                {# TODO: zvážit zda ponechat ochranou podmínku, editor pak neví, že uděl chybu #}
+                                {% if catValues.first %}
+                                    <li><span class="tag">{{ catValues.first }}</span></li>{% endif %}
+                            {% endfor %}
+
+                            {# výpis rozměrů #}
+                            {% if entry.hloubka %}
+                                <li><i title="Hloubka / délka" class="dot">H</i><span>{{ entry.hloubka }} mm</span>
+                                </li>{% endif %}
+                            {% if entry.vyska %}
+                                <li><i title="Výška" class="dot">V</i><span>{{ entry.vyska }} mm</span></li>{% endif %}
+                            {% if entry.sirka %}
+                                <li><i title="Šířka" class="dot">Š</i><span>{{ entry.sirka }} mm</span></li>{% endif %}
+                        </ul>
+                    {% endif %}
                 </div>
             </div>
 

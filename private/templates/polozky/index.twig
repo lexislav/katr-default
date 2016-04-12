@@ -17,7 +17,7 @@
 
 	{% paginate craft.entries.section('polozky').relatedTo(cat).order('katalogoveCislo').limit(25) as pageInfo, pageEntries %}
 
-	{% import "/_partials/macros/_macros.twig" as macros %}
+	{# {% import "/_partials/macros/_macros.twig" as macros %} #}
 
 	<div class="m-product-list">
 
@@ -27,9 +27,9 @@
 	{% set highSpecs = {} %}
 	{% set lowSpecs = {} %}
 	{% if entry.catalogueStruct.first ==  "Rámy" %}
-		{% set structureHandle = entry.catalogueStruct.first %}
+	    {% set structureHandle = entry.catalogueStruct.first %}
 	{% else %}
-		{% set structureHandle = entry.catalogueStruct.last %}
+	    {% set structureHandle = entry.catalogueStruct.last %}
 	{% endif %}
 	{# získání zvýrazněných taxonomií pro danou položku #}
 	{% set priorityCats = structureHandle.zvyrazneneKat %}
