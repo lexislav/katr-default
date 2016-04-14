@@ -125,13 +125,11 @@ var FilterConfig = [
                         type: 'range',
                         min: {{floor}},
                         max: {{ceil}},
-                        defaultmin: 0,
-                        defaultmax: 0,
+                        defaultmin: {{floor}},
+                        defaultmax: {{ceil}},
                         options: {
                             floor: {{ floor }},
                             ceil: {{ ceil }},
-                            step: 2,
-                            showTicks: true
                         },
 
                 {% endswitch %}
