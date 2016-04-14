@@ -5,10 +5,10 @@ var FilterStructure = [
     {% for section in craft.categories.group('filter') %}
     {
         type: 'section',
-        label: '{{section.title}}',
-        header: true,
-        closable: true,
-        opened: true,
+        label: '{{ section.title }}',
+        header: {{ section.hasSectionHeader ? 'true':'false' }},
+        closable: {{ section.isSectionClosable ? 'true':'false' }},
+        opened: {{ section.isSectionOpen ? 'true':'false' }},
 
         fields: [
 
@@ -24,6 +24,7 @@ var FilterStructure = [
                 {% set ceil = 0 %}
                 {% set values = [] %}
                 {% set lastone = null %}
+                {% set default = null %}
 
                 {% if field.displayType.value in ['simpleslider','stepslider','doubleslider'] %}
                     {% switch libraryHandle %}
@@ -37,6 +38,7 @@ var FilterStructure = [
                             {% endfor %}
                         {% case "vyska" %}
                             {% set selectedEntries = craft.entries.section('polozky').find({(libraryHandle):'> 0'})|supersort('sortas','{vyska}') %}
+                            {# {% set selectedEntries = craft.entries.section('polozky').find({(libraryHandle):'> 0'}).order('vyska') %} #}
                             {% for shw in selectedEntries %}
                                 {% if loop.first %}{% set floor = shw.vyska %}{% endif %}
                                 {% if loop.last %}{% set ceil = shw.vyska %}{% endif %}
@@ -79,25 +81,21 @@ var FilterStructure = [
                     {% endswitch %}
                 {% endif %}
 
+                {% set default = values|length / 2 |round %}
+
                 {% switch field.displayType %}
                     {% case "dropdown" %}
                         type: 'dropdown',
-                        style: {
-                            width: 10
-                        },
                         value: [],{% include "/_partials/filter/_fieldtype-dropdown.twig" %}
                     {% case "cloud" %}
                         type: 'cloud',
-                        style: {
-                            width: 10
-                        },
                         value: [],{% include "/_partials/filter/_fieldtype-dropdown.twig" %}
 
                     {# NOTE: pokdu pošlu reálné hodnoty, jak poznám, zda user slider použil nebo ne? #}
                     {% case "simpleslider" %}
                         type: 'slider',
                         value: 10,
-                        default: 10,
+                        default: {{default}},
 
                         options: { // ruzne pro ruzne typy slider, cloud a dropdown
                             showTicks: true,
@@ -107,7 +105,7 @@ var FilterStructure = [
                     {% case "stepslider" %}
                         type: 'slider',
                         value: 2,
-                        default: 2,
+                        default: {{default}},
 
                         options: {
                             showTicks: true,
@@ -115,10 +113,10 @@ var FilterStructure = [
                         },
                     {% case "doubleslider" %}
                         type: 'range',
-                        min: 10,
-                        max: 20,
-                        defaultmin: 10,
-                        defaultmax: 20,
+                        min: {{floor}},
+                        max: {{ceil}},
+                        defaultmin: 0,
+                        defaultmax: 0,
                         options: {
                             floor: {{ floor }},
                             ceil: {{ ceil }},
@@ -127,9 +125,16 @@ var FilterStructure = [
                         },
 
                 {% endswitch %}
-
+                {# NOTE: Pokud je label políčka prázdný, rovnou se mu dá 0 šířka. Pokud není prázdný, šířka popisku se vztahuje k celkové šířce pole#}
                 style: {
-                    width: 12
+                    width: {{field.fieldSize}},
+                    {% if field.fieldLabel == '' %}
+                        widthLabel: 0
+                    {% elseif field.fieldSize == '12' %}
+                        widthLabel: 1
+                    {% else %}
+                        widthLabel: 2
+                    {% endif %}
                 },
 
                 disabled: [
