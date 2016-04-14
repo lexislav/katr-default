@@ -77,15 +77,18 @@ var FilterConfig = [
                                 {% if lastone != shw.hmotnostNaPlochu %}{% set values = values|merge([shw.hmotnostNaPlochu ]) %}{% endif %}
                                 {% set lastone = shw.hmotnostNaPlochu %}
                             {% endfor %}
-                        {% default%}
-                            {% set selectedEntries = craft.entries.section('polozky').order('libraryHandle') %}
-                            {# {% for shw in selectedEntries %}
-                                {{shw.title}} > {{shw.'libraryHandle'.first}}
-                                {# {% if loop.first %}{% set floor = shw.(libraryHandle) %}{% endif %}
-                                {% if loop.last %}{% set ceil = shw.(libraryHandle) %}{% endif %}
-                                {% if lastone != shw.(libraryHandle) %}{% set values = values|merge([shw.(libraryHandle)]) %}{% endif %}
-                                {% set lastone = shw.(libraryHandle) %} #}
-                            {% endfor %} #}
+                        {% case "tepelnaOdolnost" %}
+                            {% set selectedEntries = craft.entries.section('polozky')|supersort('sortas','{tepelnaOdolnost.first}') %}
+                            {% for shw in selectedEntries %}
+                                {% if shw.tepelnaOdolnost.first %}
+                                    {# {% if loop.first %}{% set floor = shw.tepelnaOdolnost.first %}{% endif %}
+                                    {% if loop.last %}{% set ceil = shw.tepelnaOdolnost.first %}{% endif %} #}
+                                    {% if lastone != shw.tepelnaOdolnost.first.title %}{% set values = values|merge([shw.tepelnaOdolnost.first.title]) %}{% endif %}
+                                    {% set lastone = shw.tepelnaOdolnost.first.title %}
+                                {% endif %}
+                            {% endfor %}
+                            {{dump(values)}}
+                        {% default %}
                     {% endswitch %}
                 {% endif %}
 
