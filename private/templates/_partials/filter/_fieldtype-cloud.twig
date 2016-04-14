@@ -1,0 +1,6 @@
+{% spaceless %}
+options: [
+{% for item in library %}
+    {label: '{% if item.getParent|length > 0%}-{% endif %}{{item}}', value: '{{item}}'}{% if not loop.last %},{% endif %}
+{% endfor %}
+],{% endspaceless %}
