@@ -81,8 +81,8 @@ var FilterConfig = [
                             {% set selectedEntries = craft.entries.section('polozky')|supersort('sortas','{tepelnaOdolnost.first}') %}
                             {% for shw in selectedEntries %}
                                 {% if shw.tepelnaOdolnost.first %}
-                                    {% if loop.first %}{% set floor = shw.tepelnaOdolnost.first %}{% endif %}
-                                    {% if loop.last %}{% set ceil = shw.tepelnaOdolnost.first %}{% endif %}
+                                    {% if loop.first %}{% set floor = shw.tepelnaOdolnost.first.title %}{% endif %}
+                                    {% if loop.last %}{% set ceil = shw.tepelnaOdolnost.first.title %}{% endif %}
                                     {% if lastone != shw.tepelnaOdolnost.first.title %}{% set values = values|merge([shw.tepelnaOdolnost.first.title]) %}{% endif %}
                                     {% set lastone = shw.tepelnaOdolnost.first.title %}
                                 {% endif %}
