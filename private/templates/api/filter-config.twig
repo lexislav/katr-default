@@ -78,6 +78,14 @@ var FilterStructure = [
                                 {% set lastone = shw.hmotnostNaPlochu %}
                             {% endfor %}
                         {% default%}
+                            {% set selectedEntries = craft.entries.section('polozky').order('libraryHandle') %}
+                            {# {% for shw in selectedEntries %}
+                                {{shw.title}} > {{shw.'libraryHandle'.first}}
+                                {# {% if loop.first %}{% set floor = shw.(libraryHandle) %}{% endif %}
+                                {% if loop.last %}{% set ceil = shw.(libraryHandle) %}{% endif %}
+                                {% if lastone != shw.(libraryHandle) %}{% set values = values|merge([shw.(libraryHandle)]) %}{% endif %}
+                                {% set lastone = shw.(libraryHandle) %} #}
+                            {% endfor %} #}
                     {% endswitch %}
                 {% endif %}
 
@@ -109,8 +117,6 @@ var FilterStructure = [
 
                         options: {
                             showTicks: true,
-                            ceil: {{ values.first }},
-                            floor: {{ values.last }},
                             stepsArray: [{% for single in values %}{{single}}{% if not loop.last %},{% endif %}{% endfor %}]
                         },
                     {% case "doubleslider" %}
