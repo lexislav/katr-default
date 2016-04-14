@@ -96,7 +96,7 @@ var FilterConfig = [
                 {% switch field.displayType %}
                     {% case "dropdown" %}
                         type: 'dropdown',
-                        value: "",{% include "/_partials/filter/_fieldtype-dropdown.twig" %}
+                        value: null ,{% include "/_partials/filter/_fieldtype-dropdown.twig" %}
                     {% case "cloud" %}
                         type: 'cloud',
                         value: [],{% include "/_partials/filter/_fieldtype-dropdown.twig" %}
