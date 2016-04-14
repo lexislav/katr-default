@@ -96,10 +96,10 @@ var FilterConfig = [
                 {% switch field.displayType %}
                     {% case "dropdown" %}
                         type: 'dropdown',
-                        value: [],{% include "/_partials/filter/_fieldtype-dropdown.twig" %}
+                        value: "",{% include "/_partials/filter/_fieldtype-dropdown.twig" %}
                     {% case "cloud" %}
                         type: 'cloud',
-                        value: [],{% include "/_partials/filter/_fieldtype-dropdown.twig" %}
+                        value: "",{% include "/_partials/filter/_fieldtype-dropdown.twig" %}
 
                     {# NOTE: pokdu pošlu reálné hodnoty, jak poznám, zda user slider použil nebo ne? #}
                     {% case "simpleslider" %}
