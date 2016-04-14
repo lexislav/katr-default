@@ -14,9 +14,6 @@ var FilterConfig = [
 
             {% for field in section.filter.sectionfield %}
 
-            {
-                id: '{{ field.fieldSource.first.libraryHandle }}',
-                label: '{{ field.fieldLabel }}',
                 {% set libraryHandle = field.fieldSource.first.libraryHandle %}
                 {% set library = craft.categories.group(libraryHandle) %}
                 {% set selectedEntries = null %}
@@ -25,6 +22,10 @@ var FilterConfig = [
                 {% set values = [] %}
                 {% set lastone = null %}
                 {% set default = null %}
+
+            {
+                id: '{{ libraryHandle }}',
+                label: '{{ field.fieldLabel }}',
 
                 {% if field.displayType.value in ['simpleslider','stepslider','doubleslider'] %}
                     {% switch libraryHandle %}
@@ -145,9 +146,9 @@ var FilterConfig = [
                     {% endif %}
                 },
 
-                disabled: [
-                    { handle_id: ['handle_id_value', 'handle_id_value', 'handle_id_value'] }
-                ]
+                disabled: [{% if field.disabledIn|length > 0 %}{% spaceless %}
+                    { {{ field.disabledIn.first.group.handle }}: [[{% for category in field.disabledIn %}'{{category}}'{% if not loop.last %}, {% endif %}{% endfor %}]] }
+                {% endspaceless %}{% endif %}]
 
             }{% if not loop.last %},{% endif %}
             {% endfor %}
