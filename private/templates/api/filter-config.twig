@@ -104,7 +104,7 @@ var FilterConfig = [
                     {# NOTE: pokdu pošlu reálné hodnoty, jak poznám, zda user slider použil nebo ne? #}
                     {% case "simpleslider" %}
                         type: 'slider',
-                        value: 10,
+                        value: null,
                         default: {{default}},
 
                         options: { // ruzne pro ruzne typy slider, cloud a dropdown
@@ -114,7 +114,7 @@ var FilterConfig = [
                         },
                     {% case "stepslider" %}
                         type: 'slider',
-                        value: 2,
+                        value: null,
                         default: {{default}},
 
                         options: {
