@@ -109,6 +109,8 @@ var FilterStructure = [
 
                         options: {
                             showTicks: true,
+                            ceil: {{ values.first }},
+                            floor: {{ values.last }},
                             stepsArray: [{% for single in values %}{{single}}{% if not loop.last %},{% endif %}{% endfor %}]
                         },
                     {% case "doubleslider" %}
