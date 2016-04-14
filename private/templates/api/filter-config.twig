@@ -141,11 +141,11 @@ var FilterStructure = [
                     { handle_id: ['handle_id_value', 'handle_id_value', 'handle_id_value'] }
                 ]
 
-            },
+            }{% if not loop.last %},{% endif %}
             {% endfor %}
 
         ]
-    }
+    }{% if not loop.last %},{% endif %}
 
     {% endfor %}
 ];
