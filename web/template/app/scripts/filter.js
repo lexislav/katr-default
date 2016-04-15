@@ -21,7 +21,6 @@ app.controller('FormController', [
 
                         if (field.type === 'slider' && field.options.stepsArray != null) {
 
-
                             var defValue = field.options.stepsArray[field.default];
                             var tValue = field.options.stepsArray[field.value];
 
@@ -85,16 +84,11 @@ app.controller('FormController', [
         };
 
         $scope.toggleSelection = function (value, selection) {
-
-            console.dir(selection);
-
             var idx = selection.indexOf(value);
-
             // is currently selected
             if (idx > -1) {
                 selection.splice(idx, 1);
             }
-
             // is newly selected
             else {
                 selection.push(value);
