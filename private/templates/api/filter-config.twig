@@ -99,9 +99,11 @@ var FilterConfig = [
                     {% case "dropdown" %}
                         type: 'dropdown',
                         value: null ,{% include "/_partials/filter/_fieldtype-dropdown.twig" %}
+                        default: null,
                     {% case "cloud" %}
                         type: 'cloud',
                         value: [],{% include "/_partials/filter/_fieldtype-cloud.twig" %}
+                        default:[],
 
                     {# NOTE: pokdu pošlu reálné hodnoty, jak poznám, zda user slider použil nebo ne? #}
                     {% case "simpleslider" %}

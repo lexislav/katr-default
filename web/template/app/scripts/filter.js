@@ -53,6 +53,24 @@ app.controller('FormController', [
             }
         );
 
+        $scope.resetFilter = function () {
+            $scope.config.forEach(function (currentSection) {
+                currentSection.fields.forEach(function (field) {
+
+                    if ('value' in field) {
+                        field.value = field.default;
+                    }
+                    if ('min' in field) {
+                        field.min = field.defaultmin;
+                    }
+                    if ('max' in field) {
+                        field.max = field.defaultmax;
+                    }
+                    
+                })
+            })
+        };
+
         $scope.isFieldDisabled = function (field) {
 
             if (field.disabled.length > 0) {
@@ -66,12 +84,10 @@ app.controller('FormController', [
 
         $scope.toggleCloudItem = function toggleSelection(cloud, index) {
             var idx = cloud.indexOf(index);
-
             // is currently selected
             if (idx > -1) {
                 cloud.splice(idx, 1);
             }
-
             // is newly selected
             else {
                 cloud.push(index);

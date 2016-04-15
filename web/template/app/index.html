@@ -45,7 +45,7 @@
                                     </div>
 
                                     <div ng-if="field.type == 'cloud'">
-                                        <label ng-repeat="opt in field.options"  class="float-left">
+                                        <label ng-repeat="opt in field.options" ng-model="field.value"  class="float-left">
                                             <input
                                                     type="checkbox"
                                                     name="{{field.id}}[]"
@@ -78,6 +78,10 @@
                 <div class="column">
                     <a href="{{query}}" class="button primary" >Filtrovat</a>
                 </div>
+                <div class="column">
+                    <button class="button secondary" ng-click="resetFilter()" >Reset</button>
+                </div>
+
             </div>
 
             <div class="log">
@@ -87,8 +91,6 @@
 
         </ng-form>
     </div>
-
-    <koma-field></koma-field>
 
 </div>
 
@@ -106,7 +108,6 @@
 <script src="http://koma-katalog.dev/api/filter-config"></script>
 
 <script src="/template/app/scripts/filter.js"></script>
-<script src="/template/app/scripts/directives/fField.js"></script>
 <script src="/template/components/angularjs-slider/dist/rzslider.js"></script>
 
 
