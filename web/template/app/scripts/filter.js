@@ -1,12 +1,11 @@
 var app = angular.module('komaApp', ['rzModule']);
 
-
 app.controller('FormController', [
 
     '$scope', '$httpParamSerializer',
     function ($scope, $httpParamSerializer) {
 
-        $scope.queryUrl = 'http://' + window.location.host + '/api/filter-query?';
+        $scope.queryUrl = 'http://' + window.location.host + '/polozky?';
         $scope.query = null;
         $scope.config = FilterConfig;
 
@@ -20,7 +19,6 @@ app.controller('FormController', [
 
 
                         if (field.type === 'slider' && field.options.stepsArray != null) {
-
 
                             var defValue = field.options.stepsArray[field.default];
                             var tValue = field.options.stepsArray[field.value];
@@ -85,16 +83,11 @@ app.controller('FormController', [
         };
 
         $scope.toggleSelection = function (value, selection) {
-
-            console.dir(selection);
-
             var idx = selection.indexOf(value);
-
             // is currently selected
             if (idx > -1) {
                 selection.splice(idx, 1);
             }
-
             // is newly selected
             else {
                 selection.push(value);
