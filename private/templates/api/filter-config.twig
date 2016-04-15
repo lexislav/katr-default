@@ -26,6 +26,7 @@ var FilterConfig = [
             {
                 id: '{{ libraryHandle }}',
                 label: '{{ field.fieldLabel }}',
+                isDisabled: false,
 
                 {% if field.displayType.value in ['simpleslider','stepslider','doubleslider'] %}
                     {% switch libraryHandle %}
@@ -144,10 +145,15 @@ var FilterConfig = [
                     {% endif %}
                 },
 
-                disabled: [{% if field.disabledIn|length > 0 %}{% spaceless %}
-                    { {{ field.disabledIn.first.group.handle }}: [[{% for category in field.disabledIn %}'{{category}}'{% if not loop.last %}, {% endif %}{% endfor %}]] }
-                {% endspaceless %}{% endif %}]
-
+                disabled: [ {% if field.disabledIn|length > 0 %}{% spaceless %}
+                    {# tohle by mělo být ve smyčce pokud se bude disablovat podle více polí #}
+                    {
+                           id: '{{ field.disabledIn.first.group.handle }}',
+                           data: [ {% for category in field.disabledIn %} '{{category}}' {% if not loop.last %}, {% endif %}{% endfor %} ]
+                    }
+                    {# konec smyčky#}
+                {% endspaceless %}
+                {% endif %}]
             }{% if not loop.last %},{% endif %}
             {% endfor %}
 

@@ -47,8 +47,6 @@ app.controller('FormController', [
                                 }
                             }
                         }
-
-
                     });
                 });
 
@@ -56,6 +54,17 @@ app.controller('FormController', [
                 console.log($scope.query);
             }
         );
+
+        $scope.isFieldDisabled = function (field) {
+
+            if (field.disabled.length > 0) {
+                field.disabled.forEach(function (driver) {
+                    //console.log(driver.id + ' ' + driver.data);
+                });
+            }
+            return false;
+        };
+
 
         $scope.toggleCloudItem = function toggleSelection(cloud, index) {
             var idx = cloud.indexOf(index);

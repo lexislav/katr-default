@@ -23,7 +23,7 @@
                     </div>
 
                     <div class="row section-content">
-                        <div ng-repeat="field in section.fields" class="column small-{{ field.style.width }} bound">
+                        <div ng-repeat="field in section.fields" class="column small-{{ field.style.width }} bound" ng-class="{'is-disabled': field.isDisabled}">
                             <div class="row">
 
                                 <div class="column small-{{ field.style.widthLabel }}" ng-if="field.label">
