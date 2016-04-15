@@ -11,6 +11,10 @@
 
 	{# analýza queryny #}
 	{% set cat = craft.categories.title(craft.request.getParam('cat')) %}
+	{% set cat = craft.categories.title(craft.request.getParam('struktura')) %}
+	{% set material = craft.request.getParam() %}
+	{{dump(craft.request)}}
+	{{dump(material)}}
 
 	{# nastavení bez paginace #}
 		{# {% set entries = craft.entries.section('polozky').order('katalogoveCislo') %} #}
