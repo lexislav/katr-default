@@ -93,7 +93,6 @@ var FilterConfig = [
                     {% endswitch %}
                 {% endif %}
 
-                {# TODO: zkontrolovat výstup, musí být celé číslo#}
                 {% set default = (values|length / 2)|round %}
 
                 {% switch field.displayType %}
