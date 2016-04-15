@@ -93,7 +93,7 @@ var FilterConfig = [
                     {% endswitch %}
                 {% endif %}
 
-                {% set default = values|length / 2 |round %}
+                {% set default = (values|length / 2)|round %}
 
                 {% switch field.displayType %}
                     {% case "dropdown" %}
@@ -117,7 +117,6 @@ var FilterConfig = [
                     {% case "stepslider" %}
                         type: 'slider',
                         value: null,
-                        {# TODO: použít index hodnoty - u stepslideru se nepracuje s hodnotami ale s indexy hodnot, takže i defautní hodnota je index, nikoli hodnota kteru index vyjadřuje #}
                         default: {{default}},
                         options: {
                             showTicks: true,
