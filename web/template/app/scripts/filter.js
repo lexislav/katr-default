@@ -6,7 +6,7 @@ app.controller('FormController', [
     '$scope', '$httpParamSerializer',
     function ($scope, $httpParamSerializer) {
 
-        $scope.queryUrl = 'http://' + window.location.host + '/api/filter-query?';
+        $scope.queryUrl = 'http://' + window.location.host + '/polozky?';
         $scope.query = null;
         $scope.config = FilterConfig;
 
