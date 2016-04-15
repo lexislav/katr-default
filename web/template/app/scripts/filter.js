@@ -1,6 +1,5 @@
 var app = angular.module('komaApp', ['rzModule']);
 
-
 app.controller('FormController', [
 
     '$scope', '$httpParamSerializer',
