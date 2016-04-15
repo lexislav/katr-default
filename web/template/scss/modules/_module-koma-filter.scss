@@ -37,3 +37,61 @@
     padding-bottom: 10px;
 }
 
+.m-koma-filter--input {
+    padding: 10px;
+}
+
+
+.m-koma-filter--cloud {
+    label {
+        background-color: white;
+        margin: 5px;
+        padding: 2px 5px;
+        vertical-align: middle;
+        border-radius: 3px;
+        font-size: 14px;
+        cursor: pointer;
+
+        &.is-checked {
+            background-color: yellow;
+        }
+    }
+
+    input[type="checkbox"] {
+        cursor: pointer;
+        -webkit-appearance: none;
+        appearance: none;
+        background: transparent;
+        border-radius: 3px;
+        border: 1px solid $color-koma-ui-dark;
+
+        position: relative;
+        margin: 0;
+        vertical-align: text-top;
+        box-sizing: content-box;
+        width: 16px;
+        height: 16px;
+        transition: all .3s linear;
+        display: inline-block;
+    }
+
+    input[type="checkbox"]:checked {
+        background-color: $color-koma-primary;
+        background-image: url("/template/assets/checkbox-checked.png");
+        background-size: cover;
+
+
+        &.mm-inverted {
+            background-color: transparent;
+            background-image: url("/template/assets/checkbox-checked-inverted.png");
+            background-size: cover;
+        }
+    }
+
+    input[type="checkbox"]:focus {
+        outline: 0 none;
+        box-shadow: none;
+    }
+
+
+}

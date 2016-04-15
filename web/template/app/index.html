@@ -28,11 +28,11 @@
                             <div ng-repeat="field in section.fields" class="column small-{{ field.style.width }} bound m-koma-filter--field" ng-class="{'is-disabled': field.isDisabled}">
                                 <div class="row align-middle">
 
-                                    <div class="column small-{{ field.style.widthLabel }} m-koma-filter--label" ng-if="field.label">
+                                    <div class="column small-{{ field.style.widthLabel * 2 }} m-koma-filter--label" ng-if="field.label">
                                         {{field.label}}
                                     </div>
 
-                                    <div class="column">
+                                    <div class="column m-koma-filter--input">
                                         <!-- number -->
                                         <input id="{{field.id}}" type="number" ng-if="field.type == 'number'" placeholder="num" ng-model="field.value">
 
@@ -46,8 +46,8 @@
                                             <rzslider rz-slider-model="field.min" rz-slider-high="field.max" rz-slider-options="field.options"></rzslider>
                                         </div>
 
-                                        <div ng-if="field.type == 'cloud'">
-                                            <label ng-repeat="opt in field.options" ng-model="field.value" class="float-left">
+                                        <div ng-if="field.type == 'cloud'" class="m-koma-filter--cloud">
+                                            <label ng-repeat="opt in field.options" ng-model="field.value" class="float-left" ng-class="{'is-checked': field.value.indexOf(opt.value) > -1}">
                                                 <input type="checkbox" name="{{field.id}}[]" value="{{opt.value}}" ng-checked="field.value.indexOf(opt.value) > -1" ng-click="toggleSelection(opt.value, field.value)"> {{opt.label}}
                                             </label>
                                         </div>
