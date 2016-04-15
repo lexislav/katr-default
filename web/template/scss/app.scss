@@ -46,6 +46,9 @@ $space-tiny: 6px;
 
 @import "modules/mod-body-copy";
 
+@import "modules/module-koma-filter";
+@import "rzslider";
+
 .grow {
     flex: 2 0 0;
 }
