@@ -20,8 +20,12 @@ app.controller('FormController', [
 
 
                         if (field.type === 'slider' && field.options.stepsArray != null) {
+
+
+                            var defValue = field.options.stepsArray[field.default];
                             var tValue = field.options.stepsArray[field.value];
-                            if (tValue) {
+
+                            if (tValue && tValue != defValue) {
                                 tQuery[field.id] = tValue;
                             }
 
