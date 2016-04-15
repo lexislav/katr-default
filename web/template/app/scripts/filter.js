@@ -6,8 +6,8 @@ app.controller('FormController', [
     '$scope', '$httpParamSerializer',
     function ($scope, $httpParamSerializer) {
 
+        $scope.queryUrl = 'http://' + window.location.host + '/api/filter-query?';
         $scope.query = null;
-
         $scope.config = FilterConfig;
 
         $scope.$watch(
@@ -37,8 +37,6 @@ app.controller('FormController', [
                             if (field.max != field.defaultmax) {
                                 tQuery[field.id + '-max'] = field.max;
                             }
-                            // kontrola
-                            //tQuery[field.id] = [field.min, field.max];
 
                         } else {
                             if (field.value) {
@@ -54,10 +52,8 @@ app.controller('FormController', [
                     });
                 });
 
-                $scope.query = $httpParamSerializer(tQuery);
+                $scope.query = $scope.queryUrl + $httpParamSerializer(tQuery);
                 console.log($scope.query);
-
-                //$scope.query = tQuery;
             }
         );
 
@@ -75,15 +71,9 @@ app.controller('FormController', [
             }
         };
 
-
         $scope.sectionToggle = function (section) {
             section.opened = !section.opened;
         };
-
-        // $scope.add = function () {
-        //     $scope.contacts.push($scope.newcontact);
-        //     $scope.newcontact = "";
-        // };
 
         $scope.toggleSelection = function (value, selection) {
 
