@@ -31,7 +31,8 @@ var FilterConfig = [
                 {% if field.displayType.value in ['simpleslider','stepslider','doubleslider'] %}
                     {% switch libraryHandle %}
                         {% case "sirka" %}
-                            {% set selectedEntries = craft.entries.section('polozky').find({(libraryHandle):'> 0'})|supersort('sortas','{sirka}') %}
+                            {# {% set selectedEntries = craft.entries.section('polozky').find({(libraryHandle):'> 0'})|supersort('sortas','{sirka}') %} #}
+                            {% set selectedEntries = craft.entries.sirka('> 0').section('polozky').order('sirka') %}
                             {% for shw in selectedEntries %}
                                 {% if loop.first %}{% set floor = shw.sirka %}{% endif %}
                                 {% if loop.last %}{% set ceil = shw.sirka %}{% endif %}
@@ -39,7 +40,7 @@ var FilterConfig = [
                                 {% set lastone = shw.sirka%}
                             {% endfor %}
                         {% case "vyska" %}
-                            {% set selectedEntries = craft.entries.section('polozky').find({(libraryHandle):'> 0'})|supersort('sortas','{vyska}') %}
+                            {% set selectedEntries = craft.entries.vyska('> 0').section('polozky').order('vyska') %}
                             {# {% set selectedEntries = craft.entries.section('polozky').find({(libraryHandle):'> 0'}).order('vyska') %} #}
                             {% for shw in selectedEntries %}
                                 {% if loop.first %}{% set floor = shw.vyska %}{% endif %}
@@ -56,7 +57,8 @@ var FilterConfig = [
                                 {% set lastone = shw.vnitrniVyska %}
                             {% endfor %}
                         {% case "hloubka" %}
-                            {% set selectedEntries = craft.entries.section('polozky').find({(libraryHandle):'> 0'})|supersort('sortas','{hloubka}') %}
+                            {# {% set selectedEntries = craft.entries.section('polozky').find({(libraryHandle):'> 0'})|supersort('sortas','{hloubka}') %} #}
+                            {% set selectedEntries = craft.entries.section('polozky').hloubka('> 0').order('hloubka') %}
                             {% for shw in selectedEntries %}
                                 {% if loop.first %}{% set floor = shw.hloubka %}{% endif %}
                                 {% if loop.last %}{% set ceil = shw.hloubka %}{% endif %}
