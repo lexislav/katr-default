@@ -1,5 +1,5 @@
 {% header "Content-Type: application/json" %}
-{% set numericFields = ['sirka','vyska','hloubka','vnitrniVyska','hmotnost','hmotnostNaPlochu'] %}
+{% set numericFields = ['sirka', 'vyska', 'hloubka', 'vnitrniVyska', 'hmotnost', 'hmotnostNaPlochu'] %}
 
 var FilterConfig = [
 
@@ -29,13 +29,14 @@ var FilterConfig = [
                 label: '{{ field.fieldLabel }}',
                 isDisabled: false,
 
+                {# získání dat #}
                 {% if field.displayType.value in ['simpleslider','stepslider','doubleslider'] %}
                     {# fetch entries #}
                     {% if libraryHandle in numericFields %}
                         {% set selectedEntries = craft.entries({
                           section: 'polozky',
                           order: libraryHandle,
-                          sirka: '> 0'
+                          (libraryHandle): '> 0'
                         }) %}
                     {% endif %}
 
@@ -47,7 +48,6 @@ var FilterConfig = [
                                 {% if lastone != shw.sirka %}{% set values = values|merge([shw.sirka]) %}{% endif %}
                                 {% set lastone = shw.sirka%}
                             {% endfor %}
-
                         {% case "vyska" %}
                             {% for shw in selectedEntries %}
                                 {% if loop.first %}{% set floor = shw.vyska %}{% endif %}
@@ -84,21 +84,19 @@ var FilterConfig = [
                                 {% set lastone = shw.hmotnostNaPlochu %}
                             {% endfor %}
                         {% case "tepelnaOdolnost" %}
-                            {% set selectedEntries = craft.entries.section('polozky')|supersort('sortas','{tepelnaOdolnost.first}') %}
-                            {% for shw in selectedEntries %}
-                                {% if shw.tepelnaOdolnost.first %}
-                                    {% if loop.first %}{% set floor = shw.tepelnaOdolnost.first.title %}{% endif %}
-                                    {% if loop.last %}{% set ceil = shw.tepelnaOdolnost.first.title %}{% endif %}
-                                    {% if lastone != shw.tepelnaOdolnost.first.title %}{% set values = values|merge([shw.tepelnaOdolnost.first.title]) %}{% endif %}
-                                    {% set lastone = shw.tepelnaOdolnost.first.title %}
-                                {% endif %}
+                            {# {% set selectedEntries = craft.entries.section('polozky')|supersort('sortas','{tepelnaOdolnost.first}') %} #}
+                            {% for shw in library %}
+                                    {% if loop.first %}{% set floor = shw.title %}{% endif %}
+                                    {% if loop.last %}{% set ceil = shw.title %}{% endif %}
+                                    {% set values = values|merge([shw.title]) %}
                             {% endfor %}
                         {% default %}
                     {% endswitch %}
                 {% endif %}
-
+                {# výpočet středové polohy slideru #}
                 {% set default = (values|length / 2)|round %}
 
+                {# Zobrazení dat #}
                 {% switch field.displayType %}
                     {% case "dropdown" %}
                         type: 'dropdown',
@@ -149,7 +147,7 @@ var FilterConfig = [
                         widthLabel: 2
                     {% endif %}
                 },
-
+                
                 disabled: [ {% if field.disabledIn|length > 0 %}{% spaceless %}
                     {# tohle by mělo být ve smyčce pokud se bude disablovat podle více polí #}
                     {
