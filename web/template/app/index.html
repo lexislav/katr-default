@@ -5,95 +5,91 @@
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Koma filter</title>
-    <link rel="stylesheet" href="/template/app/app.css">
+    <link rel="stylesheet" href="/template/css/app.css">
 </head>
 <body>
+<div class="m-koma-filter">
 
-<div ng-app="komaApp" ng-cloak>
 
-    <div ng-controller="FormController">
-        <ng-form>
+    <div ng-app="komaApp" ng-cloak>
+        <div ng-controller="FormController">
+            <ng-form>
 
-            <div class="row">
-                <div ng-repeat="section in config" class="section column small-12 bound" ng-class="{'is-closed' : section.opened === false}">
+                <div class="row">
+                    <div ng-repeat="section in config" class="m-koma-filter--section column small-12 bound" ng-class="{'is-closed' : section.opened === false}">
 
-                    <div class="row section-header" ng-if="section.header">
-                        <div class="column small-11 align-middle bound ">{{ section.label }}</div>
-                        <div class="column small-1 align-middle text-right bound" ng-if="section.closable === true" ng-click="sectionToggle(section)">X</div>
-                    </div>
+                        <div class="row m-koma-filter--section-header" ng-if="section.header">
+                            <div class="column small-11 align-middle bound ">{{ section.label }}</div>
+                            <div class="column small-1 align-middle text-right bound" ng-if="section.closable === true" ng-click="sectionToggle(section)">X</div>
+                        </div>
 
-                    <div class="row section-content">
-                        <div ng-repeat="field in section.fields" class="column small-{{ field.style.width }} bound" ng-class="{'is-disabled': field.isDisabled}">
-                            <div class="row">
+                        <div class="row m-koma-filter--section-content">
 
-                                <div class="column small-{{ field.style.widthLabel }}" ng-if="field.label">
-                                    {{field.label}}
+                            <div ng-repeat="field in section.fields" class="column small-{{ field.style.width }} bound m-koma-filter--field" ng-class="{'is-disabled': field.isDisabled}">
+                                <div class="row align-middle">
+
+                                    <div class="column small-{{ field.style.widthLabel * 2 }} m-koma-filter--label" ng-if="field.label">
+                                        {{field.label}}
+                                    </div>
+
+                                    <div class="column m-koma-filter--input">
+                                        <!-- number -->
+                                        <input id="{{field.id}}" type="number" ng-if="field.type == 'number'" placeholder="num" ng-model="field.value">
+
+                                        <!-- slider -->
+                                        <div ng-if="field.type == 'slider'">
+                                            <rzslider rz-slider-model="field.value" rz-slider-options="field.options"></rzslider>
+                                        </div>
+
+                                        <!-- range -->
+                                        <div ng-if="field.type == 'range'">
+                                            <rzslider rz-slider-model="field.min" rz-slider-high="field.max" rz-slider-options="field.options"></rzslider>
+                                        </div>
+
+                                        <div ng-if="field.type == 'cloud'" class="m-koma-filter--cloud">
+                                            <label ng-repeat="opt in field.options" ng-model="field.value" class="float-left" ng-class="{'is-checked': field.value.indexOf(opt.value) > -1}">
+                                                <input type="checkbox" name="{{field.id}}[]" value="{{opt.value}}" ng-checked="field.value.indexOf(opt.value) > -1" ng-click="toggleSelection(opt.value, field.value)"> {{opt.label}}
+                                            </label>
+                                        </div>
+
+                                        <div ng-if="field.type == 'dropdown'">
+                                            <select name="{{field.id}}" ng-model="field.value">
+                                                <option ng-repeat="option in field.options" value="{{option.value}}">{{option.label}}</option>
+                                            </select>
+                                        </div>
+
+                                        <!-- global label -->
+                                        <p class="help-text" ng-if="field.help">{{ field.help }}</p>
+                                    </div>
+
                                 </div>
-
-                                <div class="column">
-                                    <!-- number -->
-                                    <input id="{{field.id}}" type="number" ng-if="field.type == 'number'" placeholder="num" ng-model="field.value" >
-
-                                    <!-- slider -->
-                                    <div ng-if="field.type == 'slider'">
-                                        <rzslider rz-slider-model="field.value" rz-slider-options="field.options"></rzslider>
-                                    </div>
-
-                                    <!-- range -->
-                                    <div ng-if="field.type == 'range'">
-                                        <rzslider rz-slider-model="field.min" rz-slider-high="field.max" rz-slider-options="field.options"></rzslider>
-                                    </div>
-
-                                    <div ng-if="field.type == 'cloud'">
-                                        <label ng-repeat="opt in field.options" ng-model="field.value"  class="float-left">
-                                            <input
-                                                    type="checkbox"
-                                                    name="{{field.id}}[]"
-                                                    value="{{opt.value}}"
-                                                    ng-checked="field.value.indexOf(opt.value) > -1"
-                                                    ng-click="toggleSelection(opt.value, field.value)"
-                                            > {{opt.label}}
-                                        </label>
-                                    </div>
-
-                                    <div ng-if="field.type == 'dropdown'">
-                                        <select name="{{field.id}}" ng-model="field.value">
-                                            <option ng-repeat="option in field.options" value="{{option.value}}">{{option.label}}</option>
-                                        </select>
-                                    </div>
-
-                                    <!-- global label -->
-                                    <p class="help-text" ng-if="field.help">{{ field.help }}</p>
-                                </div>
-
                             </div>
 
                         </div>
-
                     </div>
-                </div>
-            </div>
 
-            <div class="row">
-                <div class="column">
-                    <a href="{{query}}" class="button primary" >Filtrovat</a>
-                </div>
-                <div class="column">
-                    <button class="button secondary" ng-click="resetFilter()" >Reset</button>
                 </div>
 
-            </div>
+                <div class="row">
+                    <div class="column">
+                        <a href="{{query}}" class="button primary">Filtrovat</a>
+                    </div>
+                    <div class="column">
+                        <button class="button secondary" ng-click="resetFilter()">Reset</button>
+                    </div>
 
-            <div class="log">
-                {{ query }}
-            </div>
+                </div>
+
+                <div class="log">
+                    {{ query }}
+                </div>
 
 
-        </ng-form>
+            </ng-form>
+        </div>
+
     </div>
-
 </div>
-
 
 </body>
 
@@ -104,7 +100,7 @@
 <script src="/template/js/min/app-min.js"></script>
 
 <!-- APP -->
-<!--<script src="/js/filter-config.js"></script>-->
+<!--<script src="/template/filter-config.js"></script>-->
 <script src="http://koma-katalog.dev/api/filter-config"></script>
 
 <script src="/template/app/scripts/filter.js"></script>

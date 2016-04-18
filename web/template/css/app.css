@@ -4901,6 +4901,273 @@ label a {
   margin-bottom: 0.6em;
   padding: 0.3em; }
 
+.m-koma-filter {
+  background-color: #858585;
+  color: white;
+  font-family: Purista; }
+  .m-koma-filter input, .m-koma-filter select {
+    margin-bottom: 0; }
+
+.m-koma-filter--section-header,
+.m-koma-filter--section-content {
+  padding: 20px 20px; }
+
+.m-koma-filter--section-content {
+  padding-bottom: 10px; }
+
+.m-koma-filter--section-header {
+  border-top: 1px solid #b5bbb4;
+  border-bottom: 1px solid #b5bbb4;
+  font-size: 18px;
+  font-weight: 600; }
+
+.m-koma-filter--field {
+  padding-top: 10px;
+  padding-bottom: 10px; }
+
+.m-koma-filter--input {
+  padding: 10px; }
+
+.m-koma-filter--cloud label {
+  background-color: white;
+  margin: 5px;
+  padding: 2px 5px;
+  vertical-align: middle;
+  border-radius: 3px;
+  font-size: 14px;
+  cursor: pointer; }
+  .m-koma-filter--cloud label.is-checked {
+    background-color: yellow; }
+
+.m-koma-filter--cloud input[type="checkbox"] {
+  cursor: pointer;
+  -webkit-appearance: none;
+  appearance: none;
+  background: transparent;
+  border-radius: 3px;
+  border: 1px solid #858585;
+  position: relative;
+  margin: 0;
+  vertical-align: text-top;
+  box-sizing: content-box;
+  width: 16px;
+  height: 16px;
+  transition: all .3s linear;
+  display: inline-block; }
+
+.m-koma-filter--cloud input[type="checkbox"]:checked {
+  background-color: #c20e1a;
+  background-image: url("/template/assets/checkbox-checked.png");
+  background-size: cover; }
+  .m-koma-filter--cloud input[type="checkbox"]:checked.mm-inverted {
+    background-color: transparent;
+    background-image: url("/template/assets/checkbox-checked-inverted.png");
+    background-size: cover; }
+
+.m-koma-filter--cloud input[type="checkbox"]:focus {
+  outline: 0 none;
+  box-shadow: none; }
+
+/*! angularjs-slider - v2.10.4 -
+ (c) Rafal Zajac <rzajac@gmail.com>, Valentin Hervieu <valentin@hervieu.me>, Jussi Saarivirta <jusasi@gmail.com>, Angelin Sirbu <angelin.sirbu@gmail.com> -
+ https://github.com/angular-slider/angularjs-slider -
+ 2016-03-28 */
+rzslider {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+  height: 4px;
+  margin: 35px 0 15px 0;
+  vertical-align: middle;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none; }
+
+rzslider[disabled] {
+  cursor: not-allowed; }
+
+rzslider[disabled] .rz-pointer {
+  cursor: not-allowed;
+  background-color: #fbcacd; }
+
+rzslider span {
+  position: absolute;
+  display: inline-block;
+  white-space: nowrap; }
+
+rzslider .rz-base {
+  width: 100%;
+  height: 100%;
+  padding: 0; }
+
+rzslider .rz-bar-wrapper {
+  left: 0;
+  z-index: 1;
+  width: 100%;
+  height: 32px;
+  padding-top: 16px;
+  margin-top: -16px;
+  box-sizing: border-box; }
+
+rzslider .rz-bar-wrapper.rz-draggable {
+  cursor: move; }
+
+rzslider .rz-bar {
+  left: 0;
+  z-index: 1;
+  width: 100%;
+  height: 4px;
+  background: #fbcacd;
+  -webkit-border-radius: 2px;
+  -moz-border-radius: 2px;
+  border-radius: 2px; }
+
+rzslider .rz-bar.rz-selection {
+  z-index: 2;
+  background: #c20e1a;
+  -webkit-border-radius: 2px;
+  -moz-border-radius: 2px;
+  border-radius: 2px; }
+
+rzslider .rz-pointer {
+  top: -14px;
+  z-index: 3;
+  width: 32px;
+  height: 32px;
+  cursor: pointer;
+  background-color: #c20e1a;
+  -webkit-border-radius: 16px;
+  -moz-border-radius: 16px;
+  border-radius: 3px; }
+
+rzslider .rz-pointer:after {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  width: 8px;
+  height: 8px;
+  background: #ffffff;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  border-radius: 4px;
+  content: ''; }
+
+rzslider .rz-pointer:hover:after {
+  background-color: #ffffff; }
+
+rzslider .rz-pointer.rz-active {
+  z-index: 4; }
+
+rzslider .rz-pointer.rz-active:after {
+  background-color: #f89aa0; }
+
+rzslider .rz-bubble {
+  bottom: 16px;
+  padding: 1px 3px;
+  color: #fff;
+  cursor: default; }
+
+rzslider .rz-bubble.rz-selection {
+  top: 16px; }
+
+rzslider .rz-bubble.rz-limit {
+  color: #fff; }
+
+rzslider .rz-ticks {
+  position: absolute;
+  top: -3px;
+  left: 0;
+  z-index: 1;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+  height: 0;
+  padding: 0 11px;
+  margin: 0;
+  list-style: none;
+  box-sizing: border-box;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between; }
+
+rzslider .rz-ticks .rz-tick {
+  width: 10px;
+  height: 10px;
+  text-align: center;
+  cursor: pointer;
+  background: #fbcacd;
+  border-radius: 50%; }
+
+rzslider .rz-ticks .rz-tick.rz-selected {
+  background: #c20e1a; }
+
+rzslider .rz-ticks .rz-tick .rz-tick-value {
+  position: absolute;
+  top: -30px;
+  transform: translate(-50%, 0); }
+
+rzslider.rz-vertical {
+  position: relative;
+  width: 4px;
+  height: 100%;
+  padding: 0;
+  margin: 0 20px;
+  vertical-align: baseline; }
+
+rzslider.rz-vertical .rz-base {
+  width: 100%;
+  height: 100%;
+  padding: 0; }
+
+rzslider.rz-vertical .rz-bar-wrapper {
+  top: auto;
+  left: 0;
+  width: 32px;
+  height: 100%;
+  padding: 0 0 0 16px;
+  margin: 0 0 0 -16px; }
+
+rzslider.rz-vertical .rz-bar {
+  bottom: 0;
+  left: auto;
+  width: 4px;
+  height: 100%; }
+
+rzslider.rz-vertical .rz-pointer {
+  top: auto;
+  bottom: 0;
+  left: -14px !important; }
+
+rzslider.rz-vertical .rz-bubble {
+  bottom: 0;
+  left: 16px !important;
+  margin-left: 3px; }
+
+rzslider.rz-vertical .rz-bubble.rz-selection {
+  top: auto;
+  left: 16px !important; }
+
+rzslider.rz-vertical .rz-ticks {
+  top: 0;
+  left: -3px;
+  z-index: 1;
+  width: 0;
+  height: 100%;
+  padding: 11px 0;
+  -webkit-flex-direction: column-reverse;
+  -ms-flex-direction: column-reverse;
+  flex-direction: column-reverse; }
+
+rzslider.rz-vertical .rz-ticks .rz-tick {
+  vertical-align: middle; }
+
+rzslider.rz-vertical .rz-ticks .rz-tick .rz-tick-value {
+  top: auto;
+  right: -30px;
+  transform: translate(0, -28%); }
+
 .grow {
   flex: 2 0 0; }
 
