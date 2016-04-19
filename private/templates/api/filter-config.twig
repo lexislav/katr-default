@@ -38,61 +38,28 @@ var FilterConfig = [
                           order: libraryHandle,
                           (libraryHandle): '> 0'
                         }) %}
-                    {% endif %}
 
-                    {% switch libraryHandle %}
-                        {% case "sirka" %}
-                            {% for shw in selectedEntries %}
-                                {% if loop.first %}{% set floor = shw.sirka %}{% endif %}
-                                {% if loop.last %}{% set ceil = shw.sirka %}{% endif %}
-                                {% if lastone != shw.sirka %}{% set values = values|merge([shw.sirka]) %}{% endif %}
-                                {% set lastone = shw.sirka%}
-                            {% endfor %}
-                        {% case "vyska" %}
-                            {% for shw in selectedEntries %}
-                                {% if loop.first %}{% set floor = shw.vyska %}{% endif %}
-                                {% if loop.last %}{% set ceil = shw.vyska %}{% endif %}
-                                {% if lastone != shw.vyska %}{% set values = values|merge([shw.vyska]) %}{% endif %}
-                                {% set lastone = shw.vyska %}
-                            {% endfor %}
-                        {% case "vnitrniVyska" %}
-                            {% for shw in selectedEntries %}
-                                {% if loop.first %}{% set floor = shw.vnitrniVyska %}{% endif %}
-                                {% if loop.last %}{% set ceil = shw.vnitrniVyska %}{% endif %}
-                                {% if lastone != shw.vnitrniVyska %}{% set values = values|merge([shw.vnitrniVyska]) %}{% endif %}
-                                {% set lastone = shw.vnitrniVyska %}
-                            {% endfor %}
-                        {% case "hloubka" %}
-                            {% for shw in selectedEntries %}
-                                {% if loop.first %}{% set floor = shw.hloubka %}{% endif %}
-                                {% if loop.last %}{% set ceil = shw.hloubka %}{% endif %}
-                                {% if lastone != shw.hloubka %}{% set values = values|merge([shw.hloubka]) %}{% endif %}
-                                {% set lastone = shw.hloubka %}
-                            {% endfor %}
-                        {% case "hmotnost" %}
-                            {% for shw in selectedEntries %}
-                                {% if loop.first %}{% set floor = shw.hmotnost %}{% endif %}
-                                {% if loop.last %}{% set ceil = shw.hmotnost %}{% endif %}
-                                {% if lastone != shw.hmotnost %}{% set values = values|merge([shw.hmotnost]) %}{% endif %}
-                                {% set lastone = shw.hmotnost %}
-                            {% endfor %}
-                        {% case "hmotnostNaPlochu" %}
-                            {% for shw in selectedEntries %}
-                                {% if loop.first %}{% set floor = shw.hmotnostNaPlochu %}{% endif %}
-                                {% if loop.last %}{% set ceil = shw.hmotnostNaPlochu %}{% endif %}
-                                {% if lastone != shw.hmotnostNaPlochu %}{% set values = values|merge([shw.hmotnostNaPlochu ]) %}{% endif %}
-                                {% set lastone = shw.hmotnostNaPlochu %}
-                            {% endfor %}
-                        {% case "tepelnaOdolnost" %}
-                            {# {% set selectedEntries = craft.entries.section('polozky')|supersort('sortas','{tepelnaOdolnost.first}') %} #}
-                            {% for shw in library %}
-                                    {% if loop.first %}{% set floor = shw.title %}{% endif %}
-                                    {% if loop.last %}{% set ceil = shw.title %}{% endif %}
-                                    {% set values = values|merge([shw.title]) %}
-                            {% endfor %}
-                        {% default %}
-                    {% endswitch %}
+                        {# sestavení pole hodnot, zjištění nejmenší, největší #}
+                        {% for shw in selectedEntries %}
+                            {# získání hodnoty dynamicky #}
+                            {% set value = attribute(shw,libraryHandle) %}
+                            {% if loop.first %}{% set floor = value %}{% endif %}
+                            {% if loop.last %}{% set ceil = value %}{% endif %}
+                            {% if lastone != value %}{% set values = values|merge([value]) %}{% endif %}
+                            {% set lastone = value %}
+                        {% endfor %}
+
+                    {# vyjímka pro nečíselné hodnoty, které se mohou zobrazit jako slider #}
+                    {% elseif libraryHandle == "tepelnaOdolnost" %}
+                        {% for shw in library %}
+                                {# vypisuje všechny hodnoty v tabulce U. původně bylo napsáno, že vypisuje jen přiřazené hodnoty položkám #}
+                                {% if loop.first %}{% set floor = shw.title %}{% endif %}
+                                {% if loop.last %}{% set ceil = shw.title %}{% endif %}
+                                {% set values = values|merge([shw.title]) %}
+                        {% endfor %}
+                    {% endif %}
                 {% endif %}
+
                 {# výpočet středové polohy slideru #}
                 {% set default = (values|length / 2)|round %}
 
@@ -134,8 +101,8 @@ var FilterConfig = [
                             floor: {{ floor }},
                             ceil: {{ ceil }},
                         },
-
                 {% endswitch %}
+
                 {# NOTE: Pokud je label políčka prázdný, rovnou se mu dá 0 šířka. Pokud není prázdný, šířka popisku se vztahuje k celkové šířce pole#}
                 style: {
                     width: {{field.fieldSize}},
@@ -147,7 +114,7 @@ var FilterConfig = [
                         widthLabel: 2
                     {% endif %}
                 },
-                
+
                 disabled: [ {% if field.disabledIn|length > 0 %}{% spaceless %}
                     {# tohle by mělo být ve smyčce pokud se bude disablovat podle více polí #}
                     {
