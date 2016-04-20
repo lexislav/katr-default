@@ -4910,6 +4910,12 @@ label a {
   .m-koma-filter input, .m-koma-filter select {
     margin-bottom: 0;
     height: 40px; }
+  .m-koma-filter select {
+    background-image: url("/template/assets/arrow-down.png");
+    background-size: 16px 9px;
+    background-position: right center;
+    background-origin: content-box;
+    background-repeat: no-repeat; }
 
 .m-koma-filter--section-close {
   background-image: url("/template/assets/arrow-down.png");
@@ -4946,13 +4952,13 @@ label a {
 .m-koma-filter--label {
   font-size: 18px;
   font-weight: 600; }
+  @media screen and (min-width: 0em) and (max-width: 39.9375em) {
+    .m-koma-filter--label {
+      font-size: 14px; } }
 
 .m-koma-filter--field {
   padding-top: 10px;
   padding-bottom: 10px; }
-
-.m-koma-filter--input {
-  padding: 10px; }
 
 .m-koma-filter--range-row {
   display: flex;

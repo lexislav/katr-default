@@ -8,6 +8,14 @@
         height: 40px;
     }
 
+    select {
+        background-image: url('/template/assets/arrow-down.png');
+        background-size: 16px 9px;
+        background-position: right center;
+        background-origin: content-box;
+        background-repeat: no-repeat;
+    }
+
 }
 
 .m-koma-filter--section-close {
@@ -58,6 +66,10 @@
 }
 
 .m-koma-filter--label {
+
+    @include breakpoint(small only) {
+        font-size: 14px;
+    }
     font-size: 18px;
     font-weight: 600;
 }
@@ -68,9 +80,6 @@
     padding-bottom: 10px;
 }
 
-.m-koma-filter--input {
-    padding: 10px;
-}
 
 .m-koma-filter--range-row {
     display: flex;
