@@ -1,18 +1,25 @@
 .m-koma-filter {
     background-color: $color-koma-ui-dark;
     color: white;
-    font-family: $header-font-family;
+    font-family: $body-font-family;
 
 
     input, select {
         margin-bottom: 0;
+        height: 40px;
     }
-
 
 
 }
 
 .m-koma-filter--section {
+    border-bottom: 1px solid $color-koma-ui-mid;
+
+    &.is-closed {
+        .m-koma-filter--section-content {
+            display: none;
+        }
+    }
 }
 
 .m-koma-filter--section-header,
@@ -22,11 +29,16 @@
 
 .m-koma-filter--section-content {
     padding-bottom: 10px;
+    padding-top: 0;
 }
 
 .m-koma-filter--section-header {
-    border-top: 1px solid $color-koma-ui-mid;
-    border-bottom: 1px solid $color-koma-ui-mid;
+
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.m-koma-filter--label {
     font-size: 18px;
     font-weight: 600;
 }
@@ -41,19 +53,44 @@
     padding: 10px;
 }
 
+.m-koma-filter--range-row {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+}
+
+.m-koma-filter--range-slider {
+    padding-left: 20px;
+    padding-right: 20px;
+    flex-grow: 100;
+}
+
+.m-koma-filter--range-min,
+.m-koma-filter--range-max {
+    color: black;
+    min-width: 50px;
+    text-align: center;
+    font-size: 16px;
+}
+
 
 .m-koma-filter--cloud {
     label {
         background-color: white;
-        margin: 5px;
-        padding: 2px 5px;
+        color: black;
+        margin: 0;
+        margin-bottom: 10px;
+        margin-right: 20px;
+
+        padding: 0px 8px;
         vertical-align: middle;
         border-radius: 3px;
         font-size: 14px;
         cursor: pointer;
 
         &.is-checked {
-            background-color: yellow;
+            background-color: #00D70C;
+            color:white;
         }
     }
 
@@ -72,7 +109,9 @@
         width: 16px;
         height: 16px;
         transition: all .3s linear;
-        display: inline-block;
+        //display: inline-block;
+
+        display: none;
     }
 
     input[type="checkbox"]:checked {

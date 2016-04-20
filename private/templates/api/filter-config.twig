@@ -77,18 +77,24 @@ var FilterConfig = [
                     {# NOTE: pokdu pošlu reálné hodnoty, jak poznám, zda user slider použil nebo ne? #}
                     {% case "simpleslider" %}
                         type: 'slider',
-                        value: null,
+                        value: {{default}},
                         default: {{default}},
                         options: { // ruzne pro ruzne typy slider, cloud a dropdown
                             ceil: {{ ceil }},
-                            floor: {{ floor }}
+                            floor: {{ floor }},
+                            hidePointerLabels: true,
+                            hideLimitLabels: true,
+                            showTicksValues: false,
                         },
                     {% case "stepslider" %}
                         type: 'slider',
-                        value: null,
+                        value: {{default}},
                         default: {{default}},
                         options: {
+                            hidePointerLabels: true,
                             showTicks: true,
+                            showTicksValues: false,
+                            hideLimitLabels: true,
                             stepsArray: [{% for single in values %}{{single}}{% if not loop.last %},{% endif %}{% endfor %}]
                         },
                     {% case "doubleslider" %}
@@ -98,8 +104,11 @@ var FilterConfig = [
                         defaultmin: {{floor}},
                         defaultmax: {{ceil}},
                         options: {
+                            hidePointerLabels: true,
                             floor: {{ floor }},
                             ceil: {{ ceil }},
+                            showTicksValues: false,
+                            hideLimitLabels: true,
                         },
                 {% endswitch %}
 

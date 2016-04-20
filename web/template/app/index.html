@@ -13,14 +13,23 @@
 
     <div ng-app="komaApp" ng-cloak>
         <div ng-controller="FormController">
+
+
+
             <ng-form>
+
+                <div class="row m-koma-filter--section-content">
+                    <div class="column">
+                        <h2 class="f-xxl c-primary f-400">FILTER</h2>
+                    </div>
+                </div>
 
                 <div class="row">
                     <div ng-repeat="section in config" class="m-koma-filter--section column small-12 bound" ng-class="{'is-closed' : section.opened === false}">
 
                         <div class="row m-koma-filter--section-header" ng-if="section.header">
                             <div class="column small-11 align-middle bound ">{{ section.label }}</div>
-                            <div class="column small-1 align-middle text-right bound" ng-if="section.closable === true" ng-click="sectionToggle(section)">X</div>
+                            <div class="column small-1 align-middle text-right bound" ng-if="section.closable === true" ng-click="sectionToggle(section)">&times;</div>
                         </div>
 
                         <div class="row m-koma-filter--section-content">
@@ -43,7 +52,13 @@
 
                                         <!-- range -->
                                         <div ng-if="field.type == 'range'">
-                                            <rzslider rz-slider-model="field.min" rz-slider-high="field.max" rz-slider-options="field.options"></rzslider>
+                                            <div class="m-koma-filter--range-row">
+                                                <div class="m-koma-filter--range-min">{{field.min}}</div>
+                                                <div class="m-koma-filter--range-slider">
+                                                    <rzslider rz-slider-model="field.min" rz-slider-high="field.max" rz-slider-options="field.options"></rzslider>
+                                                </div>
+                                                <div class="m-koma-filter--range-max">{{field.max}}</div>
+                                            </div>
                                         </div>
 
                                         <div ng-if="field.type == 'cloud'" class="m-koma-filter--cloud">
@@ -70,19 +85,19 @@
 
                 </div>
 
-                <div class="row">
-                    <div class="column">
-                        <a href="{{query}}" class="button primary">Filtrovat</a>
+                <div class="row m-koma-filter--section-content">
+                    <div class="column mm-pad-top-half text-center">
+                        <a href="{{query}}" class="button primary large">Použít filter</a>
                     </div>
-                    <div class="column">
-                        <button class="button secondary" ng-click="resetFilter()">Reset</button>
-                    </div>
+                    <!--<div class="column">-->
+                        <!--<button class="button secondary" ng-click="resetFilter()">Reset</button>-->
+                    <!--</div>-->
 
                 </div>
 
-                <div class="log">
+                <!--<div class="log">
                     {{ query }}
-                </div>
+                </div>-->
 
 
             </ng-form>

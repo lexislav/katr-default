@@ -66,7 +66,7 @@ app.controller('FormController', [
                     if ('max' in field) {
                         field.max = field.defaultmax;
                     }
-                    
+
                 })
             })
         };
@@ -95,6 +95,7 @@ app.controller('FormController', [
         };
 
         $scope.sectionToggle = function (section) {
+            console.log('xx');
             section.opened = !section.opened;
         };
 

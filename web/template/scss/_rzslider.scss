@@ -3,17 +3,18 @@
  https://github.com/angular-slider/angularjs-slider -
  2016-03-28 */
 
-$rzColorMain: $color-koma-primary;
-$rzColorMainBg: lighten($rzColorMain,48%);
-$rzColorMainBgActive: lighten($rzColorMain,38%);
-$rzText:#fff;
+$rzColorMain: $color-koma-ui-light;
+$rzColorMainBg: $color-koma-ui-darken;
+$rzColorMainBgActive: lighten($rzColorMain, 38%);
+$rzText: $color-koma-ui-black;
 
 rzslider {
     position: relative;
     display: inline-block;
     width: 100%;
     height: 4px;
-    margin: 35px 0 15px 0;
+    //margin: 35px 0 15px 0;
+    margin: 0;
     vertical-align: middle;
     -webkit-user-select: none;
     -moz-user-select: none;
@@ -89,19 +90,20 @@ rzslider .rz-pointer {
 
 rzslider .rz-pointer:after {
     position: absolute;
-    top: 12px;
-    left: 12px;
-    width: 8px;
-    height: 8px;
-    background: #ffffff;
-    -webkit-border-radius: 4px;
-    -moz-border-radius: 4px;
-    border-radius: 4px;
+    top: 0;
+    left: 0;
+    width: 32px;
+    height: 32px;
+    text-align: center;
+    line-height: 32px;
     content: '';
+    color: $color-koma-ui-black;
 }
 
+
+
 rzslider .rz-pointer:hover:after {
-    background-color: #ffffff;
+    //background-color: #ffffff;
 }
 
 rzslider .rz-pointer.rz-active {
@@ -109,7 +111,7 @@ rzslider .rz-pointer.rz-active {
 }
 
 rzslider .rz-pointer.rz-active:after {
-    background-color: $rzColorMainBgActive;
+    //background-color: $rzColorMainBgActive;
 }
 
 rzslider .rz-bubble {
@@ -117,6 +119,7 @@ rzslider .rz-bubble {
     padding: 1px 3px;
     color: $rzText;
     cursor: default;
+
 }
 
 rzslider .rz-bubble.rz-selection {
@@ -126,6 +129,21 @@ rzslider .rz-bubble.rz-selection {
 rzslider .rz-bubble.rz-limit {
     color: $rzText;
 }
+
+
+.m-koma-filter--range-slider {
+
+    rzslider .rz-pointer-min:after {
+        content: 'OD';
+    }
+    rzslider .rz-pointer-max:after {
+        content: 'DO';
+    }
+    rzslider .rz-bubble {
+        display: none;
+    }
+}
+
 
 rzslider .rz-ticks {
     position: absolute;
