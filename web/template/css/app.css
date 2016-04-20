@@ -4911,17 +4911,32 @@ label a {
     margin-bottom: 0;
     height: 40px; }
 
+.m-koma-filter--section-close {
+  background-image: url("/template/assets/arrow-down.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  width: 30px;
+  height: 30px;
+  transform-origin: 50% 50%;
+  transform: rotate(180deg);
+  transition: transform 0.2s ease;
+  display: block;
+  float: right; }
+
 .m-koma-filter--section {
   border-bottom: 1px solid #b5bbb4; }
+  .m-koma-filter--section.is-closed .m-koma-filter--section-close {
+    transform: rotate(0deg);
+    transition: transform 0.2s ease; }
   .m-koma-filter--section.is-closed .m-koma-filter--section-content {
     display: none; }
 
-.m-koma-filter--section-header,
-.m-koma-filter--section-content {
+.m-koma-filter--section-header {
   padding: 20px 20px; }
 
 .m-koma-filter--section-content {
-  padding-bottom: 10px;
+  padding: 10px 20px;
   padding-top: 0; }
 
 .m-koma-filter--section-header {
@@ -4968,7 +4983,7 @@ label a {
   font-size: 14px;
   cursor: pointer; }
   .m-koma-filter--cloud label.is-checked {
-    background-color: #00D70C;
+    background-color: #00d70c;
     color: white; }
 
 .m-koma-filter--cloud input[type="checkbox"] {

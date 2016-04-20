@@ -27,9 +27,9 @@
                 <div class="row">
                     <div ng-repeat="section in config" class="m-koma-filter--section column small-12 bound" ng-class="{'is-closed' : section.opened === false}">
 
-                        <div class="row m-koma-filter--section-header" ng-if="section.header">
-                            <div class="column small-11 align-middle bound ">{{ section.label }}</div>
-                            <div class="column small-1 align-middle text-right bound" ng-if="section.closable === true" ng-click="sectionToggle(section)">&times;</div>
+                        <div class="row m-koma-filter--section-header" ng-if="section.header" ng-click="sectionToggle(section)">
+                            <div class="column small-11 align-middle">{{ section.label }}</div>
+                            <div class="column small-1"><div class="m-koma-filter--section-close"></div></div>
                         </div>
 
                         <div class="row m-koma-filter--section-content">
