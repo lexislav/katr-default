@@ -12,44 +12,72 @@ app.controller('FormController', [
         $scope.$watch(
             function () {
                 var tQuery = null;
+                var checker = $scope.config[0].fields[1]; //struktura
+
                 tQuery = [];
 
                 $scope.config.forEach(function (currentSection) {
                     currentSection.fields.forEach(function (field) {
 
+                        if (field.isDisabled === false) {
 
-                        if (field.type === 'slider' && field.options.stepsArray != null) {
+                            if (field.type === 'slider' && field.options.stepsArray != null) {
 
-                            var defValue = field.options.stepsArray[field.default];
-                            var tValue = field.options.stepsArray[field.value];
+                                var defValue = field.options.stepsArray[field.default];
+                                var tValue = field.options.stepsArray[field.value];
 
-                            if (tValue && tValue != defValue) {
-                                tQuery[field.id] = tValue;
-                            }
+                                if (tValue && tValue != defValue) {
+                                    tQuery[field.id] = tValue;
+                                }
 
-                        } else if (field.type === 'range') {
+                            } else if (field.type === 'range') {
 
-                            if (field.min != field.defaultmin) {
-                                tQuery[field.id + '-min'] = field.min;
-                            }
-                            if (field.max != field.defaultmax) {
-                                tQuery[field.id + '-max'] = field.max;
-                            }
+                                if (field.min != field.defaultmin) {
+                                    tQuery[field.id + '-min'] = field.min;
+                                }
+                                if (field.max != field.defaultmax) {
+                                    tQuery[field.id + '-max'] = field.max;
+                                }
 
-                        } else {
-                            if (field.value) {
-                                if (field.value instanceof Array) {
-                                    tQuery[field.id + '[]'] = field.value;
-                                } else {
-                                    tQuery[field.id] = field.value;
+                            } else {
+                                if (field.value) {
+                                    if (field.value instanceof Array) {
+                                        tQuery[field.id + '[]'] = field.value;
+                                    } else {
+                                        tQuery[field.id] = field.value;
+                                    }
                                 }
                             }
                         }
+
+
+                        // check disable lock
+
+                        if (field.disabled.length > 0) {
+                            field.disabled.forEach(function (driver) {
+                                if (driver.id === checker.id) {
+
+                                    // tohle je jen hodně na oko
+                                    var a = driver.data.indexOf(checker.value);
+                                    if (a >= 0) {
+                                        field.isDisabled = true;
+                                    } else {
+                                        field.isDisabled = false;
+                                    }
+                                }
+                            });
+                        } else {
+                            field.isDisabled = false;
+                        }
+
+
                     });
                 });
 
                 $scope.query = $scope.queryUrl + $httpParamSerializer(tQuery);
-                console.log($scope.query);
+
+
+                //console.log($scope.query);
             }
         );
 
@@ -73,12 +101,6 @@ app.controller('FormController', [
 
         $scope.isFieldDisabled = function (field) {
 
-            if (field.disabled.length > 0) {
-                field.disabled.forEach(function (driver) {
-                    //console.log(driver.id + ' ' + driver.data);
-                });
-            }
-            return false;
         };
 
 

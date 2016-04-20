@@ -16,6 +16,11 @@
         background-repeat: no-repeat;
     }
 
+    .is-disabled {
+        opacity: .2;
+        pointer-events: none;
+    }
+
 }
 
 .m-koma-filter--section-close {
@@ -158,4 +163,13 @@
         box-shadow: none;
     }
 
+}
+
+.is-disabled .m-koma-filter--cloud {
+    label {
+        &.is-checked {
+            background-color: white;
+            color: black;
+        }
+    }
 }

@@ -30,7 +30,7 @@
 
                         <div class="row m-koma-filter--section-content">
 
-                            <div ng-repeat="field in section.fields" class="column small-{{ field.style.width }} bound m-koma-filter--field" ng-class="{'is-disabled': field.isDisabled}">
+                            <div ng-repeat="field in section.fields" class="column small-{{ field.style.width }} bound m-koma-filter--field" ng-class="{'is-disabled': field.isDisabled === true}">
                                 <div class="row align-middle">
 
                                     <div class="column small-{{ field.style.widthLabel * 2 }} m-koma-filter--label" ng-if="field.label">
