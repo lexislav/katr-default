@@ -42,7 +42,7 @@
                 {% set hasBody = 1 %}
             {% endif %}
 
-            {% set itemsUrl = '/polozky?cat=' ~ page.title  %}
+            {% set itemsUrl = '/polozky?struktura=' ~ page.title  %}
 
             {# pokud nema přiřazené produky, netýká se struktury katalogu #}
             {% if page.getAncestors()|length > 0 %}
