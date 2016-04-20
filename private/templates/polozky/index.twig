@@ -10,8 +10,12 @@
 {% block content %}
 
 	{# analýza queryny #}
-	{% set cat = craft.categories.title(craft.request.getParam('cat')) %}
-	{% set cat = craft.categories.title(craft.request.getParam('struktura')) %}
+	{% set filterCat = ['or'] %}
+	{# {% set cat = craft.categories.title(craft.request.getParam('struktura')) %} #}
+	{% set cat = craft.categories.title('Okna') %}
+	{% set filterCat = filterCat|merge(cat) %}
+	{% set cat = craft.categories.title('Podlaha') %}
+	{% set filterCat = filterCat|merge(cat) %}
 	{% set material = craft.request.getParam('material') %}
 
 	{# dotaz/nastavení bez paginace #}
@@ -20,9 +24,24 @@
 	{# původní dotaz
 	{% paginate craft.entries.section('polozky').relatedTo(cat).order('katalogoveCislo').limit(25) as pageInfo, pageEntries %} #}
 
+	{# vzorový kód na multiple categories
+	{% set featured = craft.categories.group('myCatGroup').slug('featured').first() %}
+	{% set caseStudies = craft.categories.group('myCatGroup').slug('case-studies') %}
+
+	{% set entries = craft.users({
+	    group: 'resource',
+	    relatedTo: [
+	        'and',
+	        { targetElement: featured },
+	        { targetElement: caseStudies }
+	    ]
+
+		NOTE: snad to bude možné udělat filter = filter|merge cat
+	}) %} #}
+
 	{% set polozky = craft.entries({
 		    section: 'polozky',
-			relatedTo: cat,
+			relatedTo: filterCat,
 			order: 'katalogoveCislo',
 			limit: 25,
 			with: ['uvodniObrazek']
