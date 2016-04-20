@@ -17,7 +17,16 @@
 	{# nastavení bez paginace #}
 		{# {% set entries = craft.entries.section('polozky').order('katalogoveCislo') %} #}
 
-	{% paginate craft.entries.section('polozky').relatedTo(cat).order('katalogoveCislo').limit(25) as pageInfo, pageEntries %}
+	{% set polozky = craft.entries({
+		    section: 'polozky',
+			relatedTo: cat,
+			order: 'katalogoveCislo',
+			limit: 25,
+			with: ['uvodniObrazek']
+	}) %}
+
+	{# {% paginate craft.entries.section('polozky').relatedTo(cat).order('katalogoveCislo').limit(25) as pageInfo, pageEntries %} #}
+	{% paginate polozky as pageInfo, pageEntries %}
 
 	{# {% import "/_partials/macros/_macros.twig" as macros %} #}
 

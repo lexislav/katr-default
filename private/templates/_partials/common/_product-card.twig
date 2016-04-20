@@ -2,9 +2,10 @@
     <div class="row align-middle">
 
         {# obrazek #}
-        {% if entry.uvodniObrazek|length>0 %}
+        {% set image = entry.uvodniObrazek[0] ?? null %}
+        {% if image %}
             <div class="columns small-2 ignore-gutter">
-                <div class="m-product-list-item--image" style="background-image: url({{ entry.uvodniObrazek.first.getUrl('thumb') }})">
+                <div class="m-product-list-item--image" style="background-image: url({{ image.getUrl('thumb') }})">
                     <a href="{{ entry.url }}"></a>
                 </div>
             </div>
@@ -28,6 +29,7 @@
                 {# výpis prioritní tagů a rozměrů #}
                 <div class="columns">
                     <ul class="menu dot-params align-right-flex ">
+                        {# TODO: zistit, zda nejde zjednodušit nebo eliminovat query na databázi na kategoriem možná pomocí {{atribute(library handle? )}} #}
                         {% for pc in priorityCats %}{% set catValues = craft.categories({ relatedTo: { sourceElement: entry, field:pc.libraryHandle }, limit: null }) %}
                             {# TODO: zvážit zda ponechat ochranou podmínku, editor pak neví, že uděl chybu #}
                             {% if catValues.first %}
