@@ -15,7 +15,8 @@ app.directive('komaFilter', function () {
                 $scope.queryUrl = 'http://' + window.location.host + '/polozky?';
                 $scope.query = null;
                 $scope.config = FilterConfig;
-                $scope.queryItems = 0;
+                $scope.queryItems = null;
+                $scope.queryItemsLabeled = null;
                 $scope.loading = false;
                 var timer = null;
 
@@ -109,6 +110,7 @@ app.directive('komaFilter', function () {
                         url: queryurl
                     }).then(function successCallback(response) {
                         $scope.queryItems = response.data.items;
+                        $scope.queryItemsLabeled = response.data.labeled;
                         console.log('affected['+ $scope.queryItems + ']: ' + queryurl);
                         $scope.loading = false;
                     }, function errorCallback(response) {

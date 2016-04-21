@@ -4953,6 +4953,14 @@ label a {
 .m-koma-filter--section-header {
   font-size: 18px;
   font-weight: 600; }
+  .m-koma-filter--section-header.mm-inline * {
+    display: inline-block;
+    margin-right: 20px; }
+
+.m-koma-filter--results-label {
+  color: black;
+  font-size: 18px;
+  font-weight: 400; }
 
 .m-koma-filter--label {
   font-size: 18px;
