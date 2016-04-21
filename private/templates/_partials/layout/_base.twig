@@ -65,7 +65,7 @@
                     <div id="drill-down" class="drill-down">
                         <div class="drill-controls">
                             <div class="drill-back-button" drill-back="#drill-down">
-                                <span class="drill-back-arrow"></span><span class="button">{{"Zpět"|t}}</span></div>
+                                <span class="drill-back-arrow"></span><span class="button">{{ "Zpět"|t }}</span></div>
                             <div class="drill-history"></div>
                         </div>
                     </div>
@@ -77,6 +77,18 @@
             </div>
             {# konec wrapperu pro katalog #}
 
+            {# html wrapper pro filter#}
+            <div class="drill-reveal" id="filterModal">
+                <div class="drill-wrapper">
+                    <div ng-app="komaApp">
+                        <koma-filter send-label="'Použít filter'" headline="'Filter'" language="'cs'"></koma-filter>
+                    </div>
+                    <button class="close-button close-katalog" aria-label="Close modal" type="button">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+            </div>
+            {# konec wrapperu pro filter #}
 
             {% block content %}{% endblock %}
 
@@ -90,7 +102,7 @@
 
     </div>
 </div>
-
+<script src="/template/components/angular/angular.js"></script>
 <script src="/template/components/jquery/dist/jquery.js"></script>
 <script src="/template/components/what-input/what-input.js"></script>
 <script src="/template/components/foundation-sites/dist/foundation.js"></script>
@@ -98,6 +110,9 @@
 <script src="/template/components/photoswipe/dist/photoswipe.min.js"></script>
 <script src="/template/components/photoswipe/dist/photoswipe-ui-default.min.js"></script>
 <script src="/template/js/koma-drill-down.js"></script>
+<script src="http://koma-katalog.dev/api/filter-config"></script>
+<script src="/template/app/scripts/filter.js"></script>
+<script src="/template/components/angularjs-slider/dist/rzslider.js"></script>
 
 <script>
 
@@ -257,6 +272,7 @@
 {# nalinkovat data katalogu do každé stránky, pokud je user zalogován #}
 {% if currentUser %}
     {% include "/_partials/base/_katalog.twig" %}
+    {% include "/_partials/base/_filter.twig" %}
 {% endif %}
 
 {# pswipe data #}
