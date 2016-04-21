@@ -1,2 +1,42 @@
 {% header "Content-Type: application/json" %}
-{"items": 333, "labeled":"(Filtru odpovídá 333 položek)" }
+
+{# analýza queryny #}
+{% set filterCat = [] %}
+{% set search = "" %}
+{# NOTE: když není žádný parametr, ve filtru nesmí být ani operátor
+{% set filterCat = ['and'] %} #}
+{% for catHandle in craft.categories.group('catLibraries').handle %} {# v cyklu projížím všechyn známe knihovny a hledám, zda je danýparametr v queryně #}
+    {% set parameter = craft.request.getParam(catHandle.libraryHandle) ? craft.request.getParam(catHandle.libraryHandle) : "" %}
+
+    {% if parameter is iterable %} {# parsing parametrů v poli #}
+        {% set partialsearch = "" %}
+        {% for onepiece in parameter %}
+            {% set partialsearch = partialsearch ~ onepiece %}
+            {% if not loop.last %}{% set partialsearch = partialsearch ~ " OR " %}{% endif %}
+        {% endfor %}
+        {% set search = search != "" ? search ~ " " ~ catHandle.libraryHandle ~ ":" ~ partialsearch : catHandle.libraryHandle ~ ":" ~ partialsearch %}
+
+    {% elseif parameter != "" %} {# sestavení filtru kategorií s jednou ozančením #}
+        {% if filterCat == [] %}{% set filterCat = ['and'] %}{% endif %}
+        {% set cat = craft.categories.group(catHandle.libraryHandle).title(parameter) %}
+        {% set filterCat = filterCat|merge(cat) %}
+    {% endif %}
+
+
+    {# width: [
+      'and',
+      '>= ' ~ wage_from,
+      '<= ' ~ wage_to,
+    ],
+     #}
+{% endfor %}
+
+{% set numberofresults = craft.entries({
+        section: 'polozky',
+        relatedTo: filterCat,
+        search: search,
+        order: 'katalogoveCislo',
+        limit: null
+})|length %}
+
+{"items": {{ numberofresults }}, "labeled":"(Filtru odpovídá {{ numberofresults }} položek)" }
