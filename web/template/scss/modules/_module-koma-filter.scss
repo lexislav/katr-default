@@ -3,32 +3,67 @@
     color: white;
     font-family: $body-font-family;
 
+    height: 100%;
+    overflow: auto;
 
     input, select {
         margin-bottom: 0;
         height: 40px;
     }
 
+    select {
+        background-image: url('/template/assets/arrow-down.png');
+        background-size: 16px 9px;
+        background-position: right center;
+        background-origin: content-box;
+        background-repeat: no-repeat;
+    }
 
+    .is-disabled {
+        opacity: .2;
+        pointer-events: none;
+    }
+
+}
+
+.m-koma-filter--section-close {
+    background-image: url("/template/assets/arrow-down.png");
+    background-repeat: no-repeat;
+    background-position: center;
+
+    background-size: contain;
+    width: 30px;
+    height: 30px;
+    transform-origin: 50% 50%;
+    transform: rotate(180deg);
+    transition: transform 0.2s ease;
+
+    display: block;
+    float: right;
 }
 
 .m-koma-filter--section {
     border-bottom: 1px solid $color-koma-ui-mid;
 
     &.is-closed {
+        .m-koma-filter--section-close {
+            transform: rotate(0deg);
+            transition: transform 0.2s ease;
+        }
+
         .m-koma-filter--section-content {
             display: none;
         }
     }
 }
 
-.m-koma-filter--section-header,
-.m-koma-filter--section-content {
-    padding:  20px 20px;
+.m-koma-filter--section-header {
+    padding: 20px 20px;
 }
 
 .m-koma-filter--section-content {
-    padding-bottom: 10px;
+
+    padding: 10px 20px;
     padding-top: 0;
 }
 
@@ -39,6 +74,10 @@
 }
 
 .m-koma-filter--label {
+
+    @include breakpoint(small only) {
+        font-size: 14px;
+    }
     font-size: 18px;
     font-weight: 600;
 }
@@ -49,9 +88,6 @@
     padding-bottom: 10px;
 }
 
-.m-koma-filter--input {
-    padding: 10px;
-}
 
 .m-koma-filter--range-row {
     display: flex;
@@ -73,7 +109,6 @@
     font-size: 16px;
 }
 
-
 .m-koma-filter--cloud {
     label {
         background-color: white;
@@ -89,8 +124,8 @@
         cursor: pointer;
 
         &.is-checked {
-            background-color: #00D70C;
-            color:white;
+            background-color: #00d70c;
+            color: white;
         }
     }
 
@@ -119,7 +154,6 @@
         background-image: url("/template/assets/checkbox-checked.png");
         background-size: cover;
 
-
         &.mm-inverted {
             background-color: transparent;
             background-image: url("/template/assets/checkbox-checked-inverted.png");
@@ -132,5 +166,13 @@
         box-shadow: none;
     }
 
+}
 
+.is-disabled .m-koma-filter--cloud {
+    label {
+        &.is-checked {
+            background-color: white;
+            color: black;
+        }
+    }
 }

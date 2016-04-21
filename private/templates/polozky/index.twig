@@ -18,6 +18,7 @@
 	{% set cat = craft.categories.title('čiré') %}
 	{% set filterCat = filterCat|merge(cat) %}
 	{% set material = craft.request.getParam('material') %}
+	{{ material }}
 
 	{# dotaz/nastavení bez paginace #}
 	{# {% set entries = craft.entries.section('polozky').order('katalogoveCislo') %} #}
