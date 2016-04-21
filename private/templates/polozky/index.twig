@@ -8,14 +8,77 @@
 
 
 {% block content %}
-
+	{# nastavení numerických hodnot#}
+	{% set numericFields = ['sirka', 'vyska', 'hloubka', 'vnitrniVyska', 'hmotnost', 'hmotnostNaPlochu'] %}
 	{# analýza queryny #}
 	{% set filterCat = [] %}
 	{% set search = "" %}
+	{% set sirkaq = [] %}
+	{% set vyskaq = [] %}
+	{% set hloubkaq = [] %}
+	{% set vnitrniVyskaq = [] %}
+	{% set hmotnostq = [] %}
+	{% set hmotnostNaPlochuq = [] %}
+
 	{# NOTE: když není žádný parametr, ve filtru nesmí být ani operátor
 	{% set filterCat = ['and'] %} #}
-	{% for catHandle in craft.categories.group('catLibraries').handle %} {# v cyklu projížím všechyn známe knihovny a hledám, zda je danýparametr v queryně #}
-		{% set parameter = craft.request.getParam(catHandle.libraryHandle) ? craft.request.getParam(catHandle.libraryHandle) : "" %}
+	{% for catHandle in craft.categories.group('catLibraries') %} {# v cyklu projížím všechyn známe knihovny a hledám, zda je danýparametr v queryně #}
+
+		{% if catHandle.libraryHandle in numericFields %}
+			{% switch catHandle.libraryHandle %}
+				{% case 'sirka' %}
+					{% set minparameter = craft.request.getParam('sirka-min') ? craft.request.getParam('sirka-min') : "" %}
+					{% set maxparameter = craft.request.getParam('sirka-max') ? craft.request.getParam('sirka-max') : "" %}
+					{% if minparameter or maxparameter %}
+						{% set sirkaq = ['and'] %}
+						{% set sirkaq = minparameter ? sirkaq|merge([">= " ~ minparameter]) %}
+						{% set sirkaq = maxparameter ? sirkaq|merge(["<= " ~ maxparameter]) %}
+					{% endif %}
+				{% case 'vyska' %}
+					{% set minparameter = craft.request.getParam('vyska-min') ? craft.request.getParam('vyska-min') : "" %}
+					{% set maxparameter = craft.request.getParam('vyska-max') ? craft.request.getParam('vyska-max') : "" %}
+					{% if minparameter or maxparameter %}
+						{% set vyskaq = ['and'] %}
+						{% set vyskaq = minparameter ? vyskaq|merge([">= " ~ minparameter]) %}
+						{% set vyskaq = maxparameter ? vyskaq|merge(["<= " ~ maxparameter]) %}
+					{% endif %}
+				{% case 'hloubka' %}
+					{% set minparameter = craft.request.getParam('hloubka-min') ? craft.request.getParam('hloubka-min') : "" %}
+					{% set maxparameter = craft.request.getParam('hloubka-max') ? craft.request.getParam('hloubka-max') : "" %}
+					{% if minparameter or maxparameter %}
+						{% set hloubkaq = ['and'] %}
+						{% set hloubkaq = minparameter ? hloubkaq|merge([">= " ~ minparameter]) %}
+						{% set hloubkaq = maxparameter ? hloubkaq|merge(["<= " ~ maxparameter]) %}
+					{% endif %}
+				{% case 'vnitrniVyska' %}
+					{% set minparameter = craft.request.getParam('vnitrniVyska-min') ? craft.request.getParam('vnitrniVyska-min') : "" %}
+					{% set maxparameter = craft.request.getParam('vnitrniVyska-max') ? craft.request.getParam('vnitrniVyska-max') : "" %}
+					{% if minparameter or maxparameter %}
+						{% set vnitrniVyskaq = ['and'] %}
+						{% set vnitrniVyskaq = minparameter ? vnitrniVyskaq|merge([">= " ~ minparameter]) %}
+						{% set vnitrniVyskaq = maxparameter ? vnitrniVyskaq|merge(["<= " ~ maxparameter]) %}
+					{% endif %}
+				{% case 'hmotnost' %}
+					{% set minparameter = craft.request.getParam('hmotnost-min') ? craft.request.getParam('hmotnost-min') : "" %}
+					{% set maxparameter = craft.request.getParam('hmotnost-max') ? craft.request.getParam('hmotnost-max') : "" %}
+					{% if minparameter or maxparameter %}
+						{% set hmotnostq = ['and'] %}
+						{% set hmotnostq = minparameter ? hmotnostq|merge([">= " ~ minparameter]) %}
+						{% set hmotnostq = maxparameter ? hmotnostq|merge(["<= " ~ maxparameter]) %}
+					{% endif %}
+				{% case 'hmotnostNaPlochu' %}
+					{% set minparameter = craft.request.getParam('hmotnostNaPlochu-min') ? craft.request.getParam('hmotnostNaPlochu-min') : "" %}
+					{% set maxparameter = craft.request.getParam('hmotnostNaPlochu-max') ? craft.request.getParam('hmotnostNaPlochu-max') : "" %}
+					{% if minparameter or maxparameter %}
+						{% set hmotnostNaPlochuq = ['and'] %}
+						{% set hmotnostNaPlochuq = minparameter ? hmotnostNaPlochuq|merge([">= " ~ minparameter]) %}
+						{% set hmotnostNaPlochuq = maxparameter ? hmotnostNaPlochuq|merge(["<= " ~ maxparameter]) %}
+					{% endif %}
+				{% default %}
+			{% endswitch %}
+		{% else %}
+			{% set parameter = craft.request.getParam(catHandle.libraryHandle) ? craft.request.getParam(catHandle.libraryHandle) : "" %}
+		{% endif %}
 
 		{% if parameter is iterable %} {# parsing parametrů v poli #}
 			{% set partialsearch = "" %}
@@ -30,18 +93,18 @@
 			{% set cat = craft.categories.group(catHandle.libraryHandle).title(parameter) %}
 			{% set filterCat = filterCat|merge(cat) %}
 		{% endif %}
-
-
-		{# width: [
-          'and',
-          '>= ' ~ wage_from,
-          '<= ' ~ wage_to,
-        ],
-		 #}
 	{% endfor %}
+
+	{{dump(sirkaq)}}
 
 	{% set polozky = craft.entries({
 		    section: 'polozky',
+			sirka: sirkaq,
+			vyska: vyskaq,
+			hloubka: hloubkaq,
+			vnitrniVyska: vnitrniVyskaq,
+			hmotnost: hmotnostq,
+			hmotnostNaPlochu: hmotnostNaPlochuq,
 			relatedTo: filterCat,
 			search: search,
 			order: 'katalogoveCislo',
