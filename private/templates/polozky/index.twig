@@ -10,11 +10,12 @@
 {% block content %}
 
 	{# analýza queryny #}
-	{% set filterCat = ['or'] %}
+	{% set filterCat = ['and'] %}
 	{# {% set cat = craft.categories.title(craft.request.getParam('struktura')) %} #}
 	{% set cat = craft.categories.title('Okna') %}
 	{% set filterCat = filterCat|merge(cat) %}
-	{% set cat = craft.categories.title('Podlaha') %}
+	{# {% set cat = craft.categories.title('Podlaha') %} #}
+	{% set cat = craft.categories.title('čiré') %}
 	{% set filterCat = filterCat|merge(cat) %}
 	{% set material = craft.request.getParam('material') %}
 
