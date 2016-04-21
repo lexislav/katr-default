@@ -4906,7 +4906,9 @@ label a {
 .m-koma-filter {
   background-color: #858585;
   color: white;
-  font-family: "Helvetica Neue", Helvetica, Roboto, Arial, sans-serif; }
+  font-family: "Helvetica Neue", Helvetica, Roboto, Arial, sans-serif;
+  height: 100%;
+  overflow: auto; }
   .m-koma-filter input, .m-koma-filter select {
     margin-bottom: 0;
     height: 40px; }

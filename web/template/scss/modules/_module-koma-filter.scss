@@ -3,6 +3,9 @@
     color: white;
     font-family: $body-font-family;
 
+    height: 100%;
+    overflow: auto;
+
     input, select {
         margin-bottom: 0;
         height: 40px;
