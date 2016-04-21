@@ -2,9 +2,9 @@
 
 <div class="m-koma-filter" ng-cloak>
     <div class="row">
-        <div class=" m-koma-filter--section column small-12 bound">
-            <div class="m-koma-filter--section-header ">
-                <h2 class="f-xxl c-primary f-400">{{headline}}</h2> <button ng-click="testResult()" class="button primary">GR [{{queryItems}}]</button>
+        <div class="m-koma-filter--section column small-12 bound">
+            <div class="m-koma-filter--section-header mm-inline ">
+                <h2 class="f-xl c-primary f-400">{{headline}}</h2><div ng-click="testResult()" class="m-koma-filter--results-label">{{queryItemsLabeled}}</div>
             </div>
         </div>
     </div>
@@ -79,14 +79,7 @@
             <div class="column mm-pad-top-half text-center">
                 <a href="{{queryUrl}}{{query}}" class="button primary large"><i class="fa fa-paper-plane"></i> {{sendLabel}}</a>
             </div>
-            <!--<div class="column">-->
-            <!--<button class="button secondary" ng-click="resetFilter()">Reset</button>-->
-            <!--</div>-->
         </div>
-
-        <!--<div class="log">
-            {{ query }}
-        </div>-->
     </ng-form>
 
 </div>

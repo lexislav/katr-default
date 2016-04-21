@@ -71,6 +71,19 @@
 
     font-size: 18px;
     font-weight: 600;
+
+    &.mm-inline {
+        * {
+            display: inline-block;
+            margin-right: 20px;
+        }
+    }
+}
+
+.m-koma-filter--results-label {
+    color: black;
+    font-size: 18px;
+    font-weight: 400;
 }
 
 .m-koma-filter--label {
@@ -87,7 +100,6 @@
     padding-top: 10px;
     padding-bottom: 10px;
 }
-
 
 .m-koma-filter--range-row {
     display: flex;
