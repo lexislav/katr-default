@@ -18,6 +18,7 @@ app.directive('komaFilter', function () {
                 $scope.queryItems = null;
                 $scope.queryItemsLabeled = null;
                 $scope.loading = false;
+                $scope.first = false;
                 var timer = null;
 
                 $scope.$watch(
@@ -87,8 +88,9 @@ app.directive('komaFilter', function () {
 
 
                         var newQuery = $httpParamSerializer(tQuery);
-                        if(newQuery != $scope.query && $scope.loading === false) {
+                        if(newQuery != $scope.query && $scope.loading === false && newQuery.length > 0) {
                             $scope.query = newQuery;
+
                             if(timer) {
                                 $timeout.cancel(timer);
                             }
