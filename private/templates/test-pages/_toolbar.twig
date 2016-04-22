@@ -1,0 +1,109 @@
+{% set pageNav = true %}
+
+{# posila se prazdny auth block kuli codekitu#}
+{% block user_autenth %}{% endblock user_autenth %}
+
+{% extends "/_partials/layout/_base.twig" %}
+
+{% block content %}
+
+    <div class="m-toolbar">
+        <div class="row bound">
+            <div class="m-toolbar--item column">
+                <a href="" class="m-toolbar--button mm-filter-button"><i class="fa fa-cog"></i> Filter </a>
+                <div>M3+m4+m5</div>
+            </div>
+            <div class="m-toolbar--item column shrink">
+                <a href="#" class="m-toolbar--button"><i class="fa fa-table"></i></a>
+                <a href="#" class="m-toolbar--button is-disabled"><i class="fa fa-table"></i></a>
+                <a href="#" class="m-toolbar--button is-disabled"><i class="fa fa-sort"></i> seřadit</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="m-product-list mm-card">
+        <div class="row">
+
+            {% for i in 1..6 %}
+                <div class="column small-4">
+                    <article class="m-product-list-item">
+
+                        <div class="row">
+                            <div class="columns">
+                                <div class="mm-pad-card">
+
+                                    <h1 class="f-xl f-600">
+                                        <a href="http://koma-katalog.dev/polozky/ram-c3-000782" title="">Rám C3</a>
+                                        <a href="http://koma-katalog.dev/admin/entries/polozky/749-ram-c3-000782" title="Editovat stránku" alt="Editace stránky"><i class="fa f-xl fa-pencil"></i></a>
+                                    </h1>
+                                    <div class="f-xxs c-grey-mid mm-pad-bottom-half">KR-000782</div>
+
+                                    <ul class="menu dot-params">
+                                        <li><i title="Hloubka / délka" class="dot">H</i><span>6058</span></li>
+                                        <li><span class="tag">vodorovná vlna</span></li>
+                                        <li><span class="tag">vodorovná vlna</span></li>
+                                        <li><span class="tag">vodorovná vlna</span></li>
+                                        <li><i title="Výška" class="dot">V</i><span>2800</span></li>
+                                        <li><i title="Výška" class="dot">V</i><span>2800</span></li>
+                                        <li><i title="Šířka" class="dot">Š</i><span>2438</span></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+
+                            <div class="column small-12">
+                                <div class="m-product-list-item--image" style="background-image: url(/assets/obrazky/fotografie/02-ramy/_thumb/ram_C3.jpg)">
+                                    <a href="http://koma-katalog.dev/polozky/ram-c3-000782"></a>
+                                </div>
+                            </div>
+
+                            <div class="columns small-12">
+                                <div class="mm-pad-card">
+                                    <div class="f-m c-grey-mid">9019018000782</div>
+
+                                    <ul class="menu -flex box-params">
+
+                                        <li>
+                                            <i title="Nájezdy" class="dot">NAJ</i>
+                                            <span>Ne</span>
+                                        </li>
+                                        <li>
+                                            <i title="Tloušťka izolace v podlaze" class="dot">PI</i>
+                                            <span>100</span>
+                                        </li>
+                                        <li>
+                                            <i title="Tloušťka izolace ve stropě" class="dot">SI</i>
+                                            <span>100</span>
+                                        </li>
+                                        <li>
+                                            <span>2xST</span>
+                                        </li>
+                                        <li>
+                                            <i title="Výška podlahového nosníku" class="dot">PON</i>
+                                            <span>120</span>
+                                        </li>
+
+                                    </ul>
+
+
+                                </div>
+                            </div>
+
+
+
+                        </div>
+
+
+                    </article>
+                </div>
+
+
+            {% endfor %}
+
+        </div>
+
+    </div>
+
+{% endblock %}

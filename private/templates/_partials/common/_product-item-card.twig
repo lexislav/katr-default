@@ -1,0 +1,95 @@
+<div class="column small-4">
+<article class="m-product-list-item">
+
+    <div class="row">
+        <div class="columns">
+            <div class="mm-pad-card">
+
+                <h1 class="f-xl f-600"><a href="{{ entry.url }}" title="">{{ entry.Title }}</a>
+                    {% if entry.isEditable() %}
+                        <a href="{{ entry.cpEditUrl }}" title="Editovat stránku" alt="Editace stránky"><i class="fa f-xl fa-pencil"></i></a>
+                    {% endif %}
+                </h1>
+                <div class="f-xxs c-grey-mid">{{ entry.poznamka }}</div>
+
+                {# výpis prioritní tagů a rozměrů #}
+                <ul class="menu dot-params align-right-flex ">
+                    {# NOTE: původní podoba dotazu, těžko říct, zda nový je výhodnější. má ale kratší zápis
+                    {% for pc in priorityCats %}{% set catValues = craft.categories({ relatedTo: { sourceElement: entry, field:pc.libraryHandle }, limit: null }) %}
+                        {% if catValues.first %}
+                            <li><span class="tag">{{ catValues.first }}</span></li>{% endif %}
+                    {% endfor %} #}
+
+                    {% for pc in priorityCats %}
+                        {% set catValues = attribute(entry,pc.libraryHandle) %}
+                        {# TODO: zvážit zda ponechat ochranou podmínku, editor pak neví, že uděl chybu #}
+                        {% if catValues.first %}
+                            <li><span class="tag">{{ catValues.first }}</span></li>{% endif %}
+                    {% endfor %}
+
+                    {# výpis rozměrů #}
+                    {% if entry.hloubka %}
+                        <li><i title="Hloubka / délka" class="dot">H</i><span>{{ entry.hloubka }} mm</span>
+                        </li>{% endif %}
+                    {% if entry.vyska %}
+                        <li><i title="Výška" class="dot">V</i><span>{{ entry.vyska }} mm</span></li>{% endif %}
+                    {% if entry.sirka %}
+                        <li><i title="Šířka" class="dot">Š</i><span>{{ entry.sirka }} mm</span></li>{% endif %}
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+
+        {# obrazek #}
+        {% set image = entry.uvodniObrazek[0] ?? null %}
+        {% if image %}
+            <div class="column small-12">
+                <div class="m-product-list-item--image" style="background-image: url({{ image.getUrl('thumb') }})">
+                    <a href="{{ entry.url }}"></a>
+                </div>
+            </div>
+        {% endif %}
+
+
+        <div class="columns small-12">
+            <div class="mm-pad-card">
+
+                <div class="f-m c-grey-mid">{{ entry.katalogoveCislo }}</div>
+
+                <ul class="menu align-right-flex box-params">
+                    {# NOTE: původní podoba dotazu, těžko říct, zda nový je výhodnější. má ale kratší zápis
+                    {% for pc in cats %}{% set catValues = craft.categories({ relatedTo: { sourceElement: entry, field:pc.libraryHandle }, limit: null }) %}
+                        {% if catValues.first %}
+                            <li>
+                                {% if pc.shortTitle %}
+                                    <i title="{{ pc.title }}" class="dot">{{ pc.shortTitle }}</i>
+                                {% endif %}
+                                <span>{{ catValues.first }}</span>
+                            </li>
+                        {% endif %}
+                    {% endfor %} #}
+
+                    {% for pc in cats %}
+                        {% set catValues = attribute(entry,pc.libraryHandle) %}
+                        {% if catValues.first %}
+                            <li>
+                                {% if pc.shortTitle %}
+                                    <i title="{{ pc.title }}" class="dot">{{ pc.shortTitle }}</i>
+                                {% endif %}
+                                <span>{{ catValues.first }}</span>
+                            </li>
+                        {% endif %}
+                    {% endfor %}
+                </ul>
+
+            </div>
+        </div>
+
+
+    </div>
+
+
+</article>
+</div>

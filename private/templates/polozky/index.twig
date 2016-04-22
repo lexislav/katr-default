@@ -5,7 +5,11 @@
 
 {% extends "/_partials/layout/_base.twig" %}
 
-
+{% if(craft.request.getParam("displaytype")) %}
+    {% set displayType = craft.request.getParam("displaytype") %}
+{% else %}
+    {% set displayType = 'list' %}
+{% endif %}
 
 {% block content %}
 	{# nastavení numerických hodnot#}
@@ -119,17 +123,43 @@
 
 	{# {% import "/_partials/macros/_macros.twig" as macros %} #}
 
-		<header class="mm-mgr-bottom mm-pad-top ">
-            <div class="row align-bottom">
-                <div class="columns small-12">
-					<h1 class="filtermenu">Výpis položek</h1>
-					Zobrazujete: {{ pageInfo.total }} | Použijte <a href="#" class="filtermenu">filtr</a> / <a href="/polozky">Zrušit filtr X</a>
-                </div>
+    {# toolbar#}
+    <div class="m-toolbar">
+        <div class="row bound">
+            <div class="m-toolbar--item column">
+                <a href="" class="m-toolbar--button mm-filter-button"><i class="fa fa-cog"></i> Filter </a>
+                <div>M3+m4+m5</div>
             </div>
-        </header>
+            <div class="m-toolbar--item column shrink">
+                <a href="?displaytype=list" class="m-toolbar--button"><i class="fa fa-list"></i></a>
+                <a href="?displaytype=card" class="m-toolbar--button is-disabled"><i class="fa fa-table"></i></a>
+                <a href="#" class="m-toolbar--button is-disabled"><i class="fa fa-sort"></i> seřadit</a>
+            </div>
+        </div>
+    </div>
+    {# end toolbar#}
 
 
-	<div class="m-product-list">
+    <header class="mm-mgr-bottom mm-pad-top ">
+        <div class="row align-bottom">
+            <div class="columns small-12">
+                <h1 class="filtermenu">Výpis položek</h1>
+                Zobrazujete: {{ pageInfo.total }} | Použijte <a href="#" class="filtermenu">filtr</a> /
+                <a href="/polozky">Zrušit filtr X</a>
+
+                {{ displayType }}
+
+            </div>
+        </div>
+    </header>
+
+    {% if (displayType == 'list') %}
+        <div class="m-product-list mm-list">
+    {% else %}
+        <div class="m-product-list mm-card">
+        <div class="row">
+    {% endif %}
+
 
 
 	{% for entry in pageEntries %}
@@ -147,55 +177,68 @@
 	{# získání ostatních taxonomií pro danou položku #}
 	{% set cats = structureHandle.ostatniKat %}
 
-	{% include "/_partials/common/_product-card.twig" %}
 
-	{% else %}
-		<article>
-			<div class="m-section">
-				<div class="row">
-					<div class="small-12 column">
-						<h1>Je nám líto,</h1>
-						<p>ale tomuto nastavení neodpovídají žádné položky. Změňte nastavení filtru a zkuste to znovu, případně si vypiště <a href="/polozky">všechny položky v katalogu.</a></p>
-					</div>
-				</div>
-			</div>
-		</article>
-	{% endfor %}
+        {% if (displayType == 'list') %}
+            {% include "/_partials/common/_product-item-list.twig" %}
+        {% else %}
+            {% include "/_partials/common/_product-item-card.twig" %}
+        {% endif %}
 
-	</div>
+    {% else %}
+        <article>
+            <div class="m-section">
+                <div class="row">
+                    <div class="small-12 column">
+                        <h1>Je nám líto,</h1>
+                        <p>ale tomuto nastavení neodpovídají žádné položky. Změňte nastavení filtru a zkuste to znovu, případně si vypiště
+                            <a href="/polozky">všechny položky v katalogu.</a></p>
+                    </div>
+                </div>
+            </div>
+        </article>
+    {% endfor %}
 
-	{# nahoru #}
-	{% include "/_partials/base/_nav-top.twig" %}
 
-	{# paginace #}
-	{% set prev = "" %}
+    {% if (displayType == 'list') %}
+        </div>
+    {% else %}
+        </div>
+        </div>
+    {% endif %}
+
+
+    {# nahoru #}
+    {% include "/_partials/base/_nav-top.twig" %}
+
+    {# paginace #}
+    {% set prev = "" %}
     {% set prevtitle = "Předchozí strana" %}
     {% set up = "" %}
-	{% set uptitle = "Archiv položek" %}
+    {% set uptitle = "Archiv položek" %}
     {% set parentMessage = pageInfo.currentPage ~ " / " ~ pageInfo.totalPages %}
-	{% set uptype = "paging" %}
+    {% set uptype = "paging" %}
     {% set next = "" %}
     {% set nexttitle = "Další strana" %}
 
-	{% set varsbottom = {
-        "navPosition": "bottom",
-        "prevlink": pageInfo.prevUrl,
-        "prevtitle": prevtitle,
-        "uplink": up,
-        "uptitle": uptitle,
-		"parentMessage": parentMessage,
-		"parentType": uptype,
-        "nextlink": pageInfo.nextUrl,
-        "nexttitle": nexttitle
+    {% set varsbottom = {
+    "navPosition": "bottom",
+    "prevlink": pageInfo.prevUrl,
+    "prevtitle": prevtitle,
+    "uplink": up,
+    "uptitle": uptitle,
+    "parentMessage": parentMessage,
+    "parentType": uptype,
+    "nextlink": pageInfo.nextUrl,
+    "nexttitle": nexttitle
     } %}
 
-	{% if pageInfo.prevUrl or pageInfo.nextUrl %}
-	<div class="bg-grey-light mm-pad-top mm-pad-bottom mm-mgr-bottom-tiny">
-        {% include '/_partials/common/_prevnext-nav.twig' with varsbottom %}
-    </div>
-	{% endif %}
+    {% if pageInfo.prevUrl or pageInfo.nextUrl %}
+        <div class="bg-grey-light mm-pad-top mm-pad-bottom mm-mgr-bottom-tiny">
+            {% include '/_partials/common/_prevnext-nav.twig' with varsbottom %}
+        </div>
+    {% endif %}
 
-	{# upozornění #}
-	{% include "/_partials/obsah/_obsah-upozorneni.twig" %}
+    {# upozornění #}
+    {% include "/_partials/obsah/_obsah-upozorneni.twig" %}
 
 {% endblock %}

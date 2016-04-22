@@ -80,7 +80,7 @@
             {# html wrapper pro filter#}
             <div class="drill-reveal" id="filterModal">
                 <div class="drill-wrapper">
-                    <div ng-app="komaApp">
+                    <div ng-app="komaApp" style="height: 100%">
                         <koma-filter send-label="'Použít filter'" headline="'Filter'" language="'cs'"></koma-filter>
                     </div>
                     <button class="close-button close-katalog" aria-label="Close modal" type="button">
@@ -330,8 +330,10 @@
 
 {# nalinkovat data katalogu do každé stránky, pokud je user zalogován #}
 {% if currentUser %}
+    {% cache %}
     {% include "/_partials/base/_katalog.twig" %}
     {% include "/_partials/base/_filter.twig" %}
+    {% endcache %}
 {% endif %}
 
 {# pswipe data #}
