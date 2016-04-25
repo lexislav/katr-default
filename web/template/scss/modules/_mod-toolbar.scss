@@ -1,12 +1,13 @@
 $m-toolbar-height: 48px;
 
 .m-toolbar {
-    background-color: $color-koma-ui-lighter;
+    background-color: $color-koma-ui-darken;
     border-bottom: 1px solid $color-koma-ui-mid;
     font-size: 14px;
+    color: white;
     a {
         text-decoration: none;
-        color: $color-koma-ui-darken;
+        color: $color-koma-ui-mid;
     }
 
     .bound {
@@ -49,7 +50,7 @@ $m-toolbar-height: 48px;
     }
 
     &.is-disabled {
-        color: $color-koma-ui-mid;
+        color: $color-koma-ui-dark;
         &:hover {
             color: $color-koma-primary;
         }
