@@ -11,21 +11,21 @@
     {% set displayType = 'list' %}
 {% endif %}
 
-{% block content %}
-	{# nastavení numerických hodnot#}
-	{% set numericFields = ['sirka', 'vyska', 'hloubka', 'vnitrniVyska', 'hmotnost', 'hmotnostNaPlochu'] %}
-	{# analýza queryny #}
-	{% set filterCat = [] %}
-	{% set search = "" %}
-	{% set sirkaq = [] %}
-	{% set vyskaq = [] %}
-	{% set hloubkaq = [] %}
-	{% set vnitrniVyskaq = [] %}
-	{% set hmotnostq = [] %}
-	{% set hmotnostNaPlochuq = [] %}
+{# nastavení numerických hodnot#}
+{% set numericFields = ['sirka', 'vyska', 'hloubka', 'vnitrniVyska', 'hmotnost', 'hmotnostNaPlochu'] %}
+{# analýza queryny #}
+{% set filterCat = [] %}
+{% set search = "" %}
+{% set sirkaq = [] %}
+{% set vyskaq = [] %}
+{% set hloubkaq = [] %}
+{% set vnitrniVyskaq = [] %}
+{% set hmotnostq = [] %}
+{% set hmotnostNaPlochuq = [] %}
+{% set filterexists = false %}
 
-	{# NOTE: když není žádný parametr, ve filtru nesmí být ani operátor
-	{% set filterCat = ['and'] %} #}
+{% block content %}
+
 	{% for catHandle in craft.categories.group('catLibraries') %} {# v cyklu projížím všechyn známe knihovny a hledám, zda je danýparametr v queryně #}
 
 		{% if catHandle.libraryHandle in numericFields %}
@@ -100,6 +100,10 @@
 		{% endif %}
 	{% endfor %}
 
+    {% if sirkaq or vyskaq or hloubkaq or vnitrniVyskaq or hmotnostq or hmotnostNaPlochuq or filterCat or search %}
+        {% set filterexists = true %}
+    {% endif %}
+
 	{% set polozky = craft.entries({
 		    section: 'polozky',
 			sirka: sirkaq,
@@ -127,8 +131,8 @@
     <div class="m-toolbar">
         <div class="row bound">
             <div class="m-toolbar--item column">
-                <a href="" class="m-toolbar--button mm-filter-button"><i class="fa fa-cog"></i> Filter </a>
-                <div>M3+m4+m5</div>
+                <a href="" class="m-toolbar--button mm-filter-button filtermenu"><i class="fa fa-cog"></i> Filter </a>
+                {# <div>M3+m4+m5</div> #}
             </div>
             <div class="m-toolbar--item column shrink">
                 <a href="?displaytype=list" class="m-toolbar--button"><i class="fa fa-list"></i></a>
@@ -144,10 +148,13 @@
         <div class="row align-bottom">
             <div class="columns small-12">
                 <h1 class="filtermenu">Výpis položek</h1>
-                Zobrazujete: {{ pageInfo.total }} | Použijte <a href="#" class="filtermenu">filtr</a> /
-                <a href="/polozky">Zrušit filtr X</a>
-
-                {{ displayType }}
+                {% if filterexists %}
+                    Výsledek filtru: {{ pageInfo.total }} | Použijte <a href="#" class="filtermenu">Nový filtr</a>{% if filterexists %} |
+                    <a href="/polozky">Zrušit filtr X</a>{% endif %}
+                {% else %}
+                    <strong>Položek v katalogu:</strong> {{ pageInfo.total }} | Položky můžete odfiltrovat pomocí <a href="#" class="filtermenu">parametrického filtru</a>.
+                {% endif %}
+                | Typ zobrazení: {{ displayType }}
 
             </div>
         </div>
