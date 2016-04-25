@@ -4887,13 +4887,13 @@ label a {
   padding: 0.3em; }
 
 .m-toolbar {
-  background-color: #434343;
+  background-color: #858585;
   border-bottom: 1px solid #b5bbb4;
   font-size: 14px;
-  color: white; }
+  color: #fff; }
   .m-toolbar a {
     text-decoration: none;
-    color: #b5bbb4; }
+    color: #fff; }
   .m-toolbar .bound .column:first-child, .m-toolbar .bound .columns:first-child {
     padding-left: 0 !important; }
   .m-toolbar .bound .column:last-child, .m-toolbar .bound .columns:last-child {
@@ -4917,11 +4917,11 @@ label a {
   .m-toolbar--button:last-of-type {
     border-right: 1px solid #b5bbb4; }
   .m-toolbar--button.is-disabled {
-    color: #858585; }
+    color: #b5bbb4; }
     .m-toolbar--button.is-disabled:hover {
-      color: #c20e1a; }
+      color: #b5bbb4; }
   .m-toolbar--button.mm-filter-button {
-    background-image: url("/template/assets/filter-button-bg.png");
+    background-image: url("/template/assets/filter-arrow-high.png");
     background-color: transparent;
     background-repeat: no-repeat;
     background-size: auto 48px;
@@ -4929,8 +4929,10 @@ label a {
     width: 110px;
     padding-right: 20px;
     border: none;
-    color: #b5bbb4;
+    color: #fff;
     margin-right: 16px; }
+    .m-toolbar--button.mm-filter-button:hover {
+      color: #c20e1a; }
 
 .m-koma-filter {
   background-color: #858585;

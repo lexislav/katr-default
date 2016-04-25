@@ -1,13 +1,14 @@
 $m-toolbar-height: 48px;
 
 .m-toolbar {
-    background-color: $color-koma-ui-darken;
+    background-color: $color-koma-ui-dark;
     border-bottom: 1px solid $color-koma-ui-mid;
     font-size: 14px;
-    color: white;
+    color: $color-koma-ui-white;
+
     a {
         text-decoration: none;
-        color: $color-koma-ui-mid;
+        color: $color-koma-ui-white;
     }
 
     .bound {
@@ -50,14 +51,15 @@ $m-toolbar-height: 48px;
     }
 
     &.is-disabled {
-        color: $color-koma-ui-dark;
+        color: $color-koma-ui-mid;
+
         &:hover {
-            color: $color-koma-primary;
+            color: $color-koma-ui-mid;
         }
     }
 
     &.mm-filter-button {
-        background-image: url("/template/assets/filter-button-bg.png");
+        background-image: url("/template/assets/filter-arrow-high.png");
         background-color: transparent;
         background-repeat: no-repeat;
         background-size: auto $m-toolbar-height;
@@ -65,7 +67,11 @@ $m-toolbar-height: 48px;
         width: 110px;
         padding-right: 20px;
         border: none;
-        color: $color-koma-ui-mid;
+        color: $color-koma-ui-white;
         margin-right: 16px;
+
+        &:hover {
+            color:$color-koma-primary;
+        }
     }
 }
