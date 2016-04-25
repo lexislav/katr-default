@@ -25,7 +25,7 @@
     <link rel="apple-touch-icon-precomposed" sizes="152x152" href="/template/assets/apple-touch-icon-152x152.png" />
     <link rel="icon" type="image/png" href="/template/assets/favicon-32x32.png" sizes="32x32" />
     <link rel="icon" type="image/png" href="/template/assets/favicon-16x16.png" sizes="16x16" />
-    <meta name="application-name" content="KATALOG Technických řešení KOMA"/>
+    <meta name="application-name" content="KATALOG Technických řešení KOMA" />
     <meta name="msapplication-TileColor" content="#FFFFFF" />
     <meta name="msapplication-TileImage" content="/template/assets/mstile-144x144.png" />
 
@@ -81,7 +81,7 @@
             <div class="drill-reveal" id="filterModal">
                 <div class="drill-wrapper">
                     <div ng-app="komaApp" style="height: 100%">
-                        <koma-filter send-label="'Použít filter'" headline="'Filter'" language="'cs'"></koma-filter>
+                        <koma-filter send-label="'Použít filter xxx'" headline="'Filter'" language="'cs'"></koma-filter>
                     </div>
                     <button class="close-button close-katalog" aria-label="Close modal" type="button">
                         <span aria-hidden="true">&times;</span>
@@ -93,8 +93,6 @@
             {% block content %}{% endblock %}
 
             {% include "/_partials/base/_footer.twig" %}
-
-
 
 
         </div>
@@ -221,9 +219,9 @@
             galleryCounter++;
 
             // pokud je prvni galerie tak namapuj open-first na tuhle galerii
-            if(galleryCounter == 1) {
+            if (galleryCounter == 1) {
                 firstgallery = cGalleryItems;
-                $('[gallery-open-first]').on('click', function(event) {
+                $('[gallery-open-first]').on('click', function (event) {
                     event.preventDefault();
                     openSubgallery(firstgallery, 0);
                 });
@@ -312,7 +310,7 @@
         $(".close-katalog").each(function () {
             var el = $(this);
             $(document).off('keyup');
-            targetDrill= null;
+            targetDrill = null;
             el.on('click', function (e) {
                 e.preventDefault();
                 $('.drill-reveal').fadeOut(100);
@@ -332,7 +330,6 @@
 {% if currentUser %}
     {% cache %}
     {% include "/_partials/base/_katalog.twig" %}
-    {% include "/_partials/base/_filter.twig" %}
     {% endcache %}
 {% endif %}
 
