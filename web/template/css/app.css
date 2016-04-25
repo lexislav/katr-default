@@ -5435,3 +5435,12 @@ ul.mm-double-spacing li {
 .pswp__caption__center,
 button.pswp__button {
   color: #000; }
+
+[closable-close-button] i {
+  cursor: pointer;
+  transform: rotate(180deg);
+  transition: transform 0.2s; }
+
+.mm-closed [closable-close-button] i {
+  transform: rotate(0deg);
+  transition: transform 0.2s; }
