@@ -27,32 +27,32 @@
                 </div>
 
                 <div class="columns">
-                   <ul class="menu dot-params align-right-flex ">
+                    <ul class="menu dot-params align-right-flex ">
 
-                       {# NOTE: původní podoba dotazu, těžko říct, zda nový je výhodnější. má ale kratší zápis
-                       {% for pc in priorityCats %}{% set catValues = craft.categories({ relatedTo: { sourceElement: entry, field:pc.libraryHandle }, limit: null }) %}
-                           {% if catValues.first %}
-                               <li><span class="tag">{{ catValues.first }}</span></li>{% endif %}
-                       {% endfor %} #}
+                        {# NOTE: původní podoba dotazu, těžko říct, zda nový je výhodnější. má ale kratší zápis
+                        {% for pc in priorityCats %}{% set catValues = craft.categories({ relatedTo: { sourceElement: entry, field:pc.libraryHandle }, limit: null }) %}
+                            {% if catValues.first %}
+                                <li><span class="tag">{{ catValues.first }}</span></li>{% endif %}
+                        {% endfor %} #}
 
-                       {% for pc in priorityCats %}
-                           {% set catValues = attribute(entry,pc.libraryHandle) %}
-                           {# TODO: zvážit zda ponechat ochranou podmínku, editor pak neví, že uděl chybu #}
-                           {% if catValues.first %}
-                               <li><span class="tag">{{ catValues.first }}</span></li>{% endif %}
-                       {% endfor %}
+                        {% for pc in priorityCats %}
+                            {% set catValues = attribute(entry,pc.libraryHandle) %}
+                            {# TODO: zvážit zda ponechat ochranou podmínku, editor pak neví, že uděl chybu #}
+                            {% if catValues.first %}
+                                <li><span class="tag">{{ catValues.first }}</span></li>{% endif %}
+                        {% endfor %}
 
-                       {# výpis rozměrů #}
-                       {% if entry.hloubka %}
-                           <li><i title="Hloubka / délka" class="dot">H</i><span>{{ entry.hloubka }} mm</span>
-                           </li>{% endif %}
-                       {% if entry.vyska %}
-                           <li><i title="Výška" class="dot">V</i><span>{{ entry.vyska }} mm</span></li>{% endif %}
-                       {% if entry.sirka %}
-                           <li><i title="Šířka" class="dot">Š</i><span>{{ entry.sirka }} mm</span></li>{% endif %}
+                        {# výpis rozměrů #}
+                        {% if entry.hloubka %}
+                            <li><i title="Hloubka / délka" class="dot">H</i><span>{{ entry.hloubka }} mm</span>
+                            </li>{% endif %}
+                        {% if entry.vyska %}
+                            <li><i title="Výška" class="dot">V</i><span>{{ entry.vyska }} mm</span></li>{% endif %}
+                        {% if entry.sirka %}
+                            <li><i title="Šířka" class="dot">Š</i><span>{{ entry.sirka }} mm</span></li>{% endif %}
 
-                   </ul>
-               </div>
+                    </ul>
+                </div>
             </div>
 
             {# dolni linka #}
@@ -75,7 +75,6 @@
                                 </li>
                             {% endif %}
                         {% endfor %} #}
-
 
                         {% for pc in cats %}
                             {% set catValues = attribute(entry,pc.libraryHandle)%}
