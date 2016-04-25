@@ -105,7 +105,7 @@ app.directive('komaFilter', function () {
                 );
 
                 $scope.testResult = function () {
-                    var queryurl = 'http://koma-katalog.dev/api/filter-results.json?' + $scope.query;
+                    var queryurl = 'http://' + window.location.host + '/api/filter-results.json?' + $scope.query;
                     $scope.loading = true;
                     $http({
                         method: 'GET',
