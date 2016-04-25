@@ -4030,6 +4030,12 @@ label a {
       width: 100%; }
     .off-canvas.position-left .row .row {
       width: auto; }
+  .off-canvas .menu-icon {
+    vertical-align: inherit; }
+    .off-canvas .menu-icon:hover {
+      color: white; }
+    .off-canvas .menu-icon:after {
+      display: none; }
 
 .off-canvas-content {
   box-shadow: none; }

@@ -37,6 +37,18 @@
             width: auto;
         }
     }
+
+    .menu-icon {
+
+        vertical-align: inherit;
+        &:hover {
+            color: white;
+        }
+
+        &:after {
+            display: none;
+        }
+    }
 }
 
 .off-canvas-content {
@@ -138,3 +150,4 @@
         position: absolute;
     }
 }
+
