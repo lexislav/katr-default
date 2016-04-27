@@ -24,6 +24,9 @@
 {% set hmotnostNaPlochuq = [] %}
 {% set filterexists = false %}
 
+{# defaultní obrázky#}
+{% set defaultImage = craft.assets.filename('no_image-with-logo.png').first ?? null %}
+
 {% block content %}
 
 	{% for catHandle in craft.categories.group('catLibraries') %} {# v cyklu projížím všechyn známe knihovny a hledám, zda je danýparametr v queryně #}
