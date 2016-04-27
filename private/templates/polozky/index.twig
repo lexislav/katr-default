@@ -118,13 +118,16 @@
 			relatedTo: filterCat,
 			search: search,
 			order: 'katalogoveCislo',
-			limit: 25,
-			with: [
-				['uvodniObrazek', {
-				        withTransforms: ['thumb']
-				        }]
-				]
+			limit: 25
 	}) %}
+
+    {# eaher loading out #}
+    {# ,
+    with: [
+        ['uvodniObrazek', {
+                withTransforms: ['thumb']
+                }]
+        ] #}
 
 	{% paginate polozky as pageInfo, pageEntries %}
 

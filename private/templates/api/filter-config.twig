@@ -1,4 +1,7 @@
 {% header "Content-Type: application/json" %}
+
+{% cache globally for 1 hour %}
+
 {% set numericFields = ['sirka', 'vyska', 'hloubka', 'vnitrniVyska', 'hmotnost', 'hmotnostNaPlochu'] %}
 
 var FilterConfig = [
@@ -141,3 +144,5 @@ var FilterConfig = [
 
     {% endfor %}
 ];
+
+{% endcache %}

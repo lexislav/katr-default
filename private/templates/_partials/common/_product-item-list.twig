@@ -2,7 +2,8 @@
     <div class="row align-middle">
 
         {# obrazek #}
-        {% set image = entry.uvodniObrazek[0] ?? null %}
+        {# {% set image = entry.uvodniObrazek[0] ?? null %} #}
+        {% set image = entry.uvodniObrazek.first ?? null %}
         {% if image %}
             <div class="columns small-2 ignore-gutter">
                 <div class="m-product-list-item--image" style="background-image: url({{ image.getUrl('thumb') }})">
