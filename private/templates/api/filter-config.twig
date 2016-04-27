@@ -88,14 +88,14 @@ var FilterConfig = [
                         },
                     {% case "stepslider" %}
                         type: 'slider',
-                        value: {{default}},
-                        default: {{default}},
+                        value: 0,
+                        default: 0,
                         options: {
                             hidePointerLabels: true,
                             showTicks: true,
                             showTicksValues: false,
                             hideLimitLabels: true,
-                            stepsArray: [{% for single in values %}{{single}}{% if not loop.last %},{% endif %}{% endfor %}]
+                            stepsArray: ["nic",{% for single in values %}{{single}}{% if not loop.last %},{% endif %}{% endfor %}]
                         },
                     {% case "doubleslider" %}
                         type: 'range',
