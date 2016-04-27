@@ -28,6 +28,7 @@ app.directive('komaFilter', function () {
 
                         tQuery = [];
 
+
                         $scope.config.forEach(function (currentSection) {
                             currentSection.fields.forEach(function (field) {
 
@@ -88,20 +89,30 @@ app.directive('komaFilter', function () {
 
 
                         var newQuery = $httpParamSerializer(tQuery);
+
                         if(newQuery != $scope.query && $scope.loading === false && newQuery.length > 0) {
                             $scope.query = newQuery;
 
-                            if(timer) {
+                            if (timer) {
                                 $timeout.cancel(timer);
                             }
-                            timer = $timeout(function(){
+                            timer = $timeout(function () {
                                 //console.log(timer.$$timeoutId);
                                 $timeout.cancel(timer);
                                 $scope.testResult();
-                            }, 1000);
+                            }, 500);
 
                         }
+
+                        // reset informace o poctu prvku
+                        if(newQuery.length === 0) {
+                            $scope.queryItemsLabeled = '';
+                            $scope.queryItems = 0;
+                        }
+
                     }
+
+
                 );
 
                 $scope.testResult = function () {
