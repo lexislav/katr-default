@@ -33,7 +33,6 @@
 {% set defaultImage = craft.assets.filename('no_image-with-logo.png').first ?? null %}
 
 {% block content %}
-
 	{% for catHandle in craft.categories.group('catLibraries') %} {# v cyklu projížím všechyn známe knihovny a hledám, zda je danýparametr v queryně #}
 
 		{% if catHandle.libraryHandle in numericFields %}
@@ -230,6 +229,7 @@
 
     {# paginace #}
     {% set prev = "" %}
+    {% set next = "" %}
     {% set prevtitle = "Předchozí strana" %}
     {% set up = "" %}
     {% set uptitle = "Archiv položek" %}
@@ -237,6 +237,7 @@
     {% set uptype = "paging" %}
     {% set next = "" %}
     {% set nexttitle = "Další strana" %}
+    {% set queryna = craft.request.getQueryStringWithoutPath() ?? "" %}
 
     {% set varsbottom = {
     "navPosition": "bottom",
@@ -247,7 +248,8 @@
     "parentMessage": parentMessage,
     "parentType": uptype,
     "nextlink": pageInfo.nextUrl,
-    "nexttitle": nexttitle
+    "nexttitle": nexttitle,
+    "queryString": queryna
     } %}
 
     {% if pageInfo.prevUrl or pageInfo.nextUrl %}

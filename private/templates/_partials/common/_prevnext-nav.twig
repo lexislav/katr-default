@@ -23,7 +23,7 @@
 
 <nav class="{{rowclass}}">
     <div class="{{cols}} {{prevDirection}}">
-        {% if prevlink %}<a href="{{ prevlink }}" alt="{{ prevtitle }}" title ="{{ prevtitle }}">
+        {% if prevlink %}<a href="{{ prevlink }}{% if queryString %}?{{queryString}}{%endif%}" alt="{{ prevtitle }}" title ="{{ prevtitle }}">
         <span class="{{iconSize}} f-headline">&larr;</span>{% if navPosition == "bottom" %}{{ prevMessage }}{% endif %}
         </a>{% endif %}
     </div>
@@ -49,7 +49,7 @@
     </div>
 
     <div class="{{cols}} {{nextDirection}}">
-        {% if nextlink %}<a href="{{ nextlink }}" alt="{{ nexttitle }}" title="{{ nexttitle }}">
+        {% if nextlink %}<a href="{{ nextlink }}{% if queryString %}?{{queryString}}{%endif%}" alt="{{ nexttitle }}" title="{{ nexttitle }}">
             <span class="{{iconSize}} f-headline">&rarr;</span>{% if navPosition == "bottom" %}{{ nextMessage }}{% endif %}
         </a>{% endif %}
     </div>
