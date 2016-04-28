@@ -24,15 +24,20 @@
     <div class="row">
 
         {# obrazek #}
-        {% set image = entry.uvodniObrazek[0] ?? null %}
+        {% set image = entry.uvodniObrazek.first ?? null %}
         {% if image %}
-            <div class="column small-12">
-                <div class="m-product-list-item--image" style="background-image: url({{ image.getUrl('thumb') }})">
+            <div class="columns small-12">
+                <div class="m-product-list-item--image" style="background-image: url({{ image.getUrl('') }})">
+                    <a href="{{ entry.url }}"></a>
+                </div>
+            </div>
+        {% elseif defaultImage %}
+            <div class="columns small-12">
+                <div class="m-product-list-item--image" style="background-image: url({{ defaultImage.getUrl() }})">
                     <a href="{{ entry.url }}"></a>
                 </div>
             </div>
         {% endif %}
-
 
         <div class="columns small-12">
             <div class="mm-pad-card">
