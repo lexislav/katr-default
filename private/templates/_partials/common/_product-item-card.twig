@@ -12,6 +12,33 @@
                 </h1>
                 <div class="f-xxs c-grey-mid">{{ entry.poznamka }}</div>
 
+                <div class="f-m c-grey-mid right">{{ entry.katalogoveCislo }}</div>
+
+            </div>
+
+
+
+        </div>
+    </div>
+
+    <div class="row">
+
+        {# obrazek #}
+        {% set image = entry.uvodniObrazek[0] ?? null %}
+        {% if image %}
+            <div class="column small-12">
+                <div class="m-product-list-item--image" style="background-image: url({{ image.getUrl('thumb') }})">
+                    <a href="{{ entry.url }}"></a>
+                </div>
+            </div>
+        {% endif %}
+
+
+        <div class="columns small-12">
+            <div class="mm-pad-card">
+
+
+
                 {# výpis prioritní tagů a rozměrů #}
                 <ul class="menu dot-params align-right-flex ">
                     {# NOTE: původní podoba dotazu, těžko říct, zda nový je výhodnější. má ale kratší zápis
@@ -36,27 +63,6 @@
                     {% if entry.sirka %}
                         <li><i title="Šířka" class="dot">Š</i><span>{{ entry.sirka }} mm</span></li>{% endif %}
                 </ul>
-            </div>
-        </div>
-    </div>
-
-    <div class="row">
-
-        {# obrazek #}
-        {% set image = entry.uvodniObrazek[0] ?? null %}
-        {% if image %}
-            <div class="column small-12">
-                <div class="m-product-list-item--image" style="background-image: url({{ image.getUrl('thumb') }})">
-                    <a href="{{ entry.url }}"></a>
-                </div>
-            </div>
-        {% endif %}
-
-
-        <div class="columns small-12">
-            <div class="mm-pad-card">
-
-                <div class="f-m c-grey-mid">{{ entry.katalogoveCislo }}</div>
 
                 <ul class="menu align-right-flex box-params">
                     {# NOTE: původní podoba dotazu, těžko říct, zda nový je výhodnější. má ale kratší zápis
