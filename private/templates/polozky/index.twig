@@ -11,6 +11,11 @@
     {% set displayType = 'list' %}
 {% endif %}
 
+{% if(craft.request.getParam("sort")) %}
+    {% set sortDirection = " desc" %}
+{% else %}
+    {% set sortDirection = "" %}
+{% endif %}
 {# nastavení numerických hodnot#}
 {% set numericFields = ['sirka', 'vyska', 'hloubka', 'vnitrniVyska', 'hmotnost', 'hmotnostNaPlochu'] %}
 {# analýza queryny #}
@@ -117,8 +122,8 @@
 			hmotnostNaPlochu: hmotnostNaPlochuq,
 			relatedTo: filterCat,
 			search: search,
-			order: 'katalogoveCislo',
-			limit: 25
+			order: 'katalogoveCislo' ~ sortDirection,
+			limit: 24
 	}) %}
 
     {# eaher loading out #}
