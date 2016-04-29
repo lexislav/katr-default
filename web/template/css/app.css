@@ -5019,7 +5019,8 @@ label a {
     background-size: 16px 9px;
     background-position: right center;
     background-origin: content-box;
-    background-repeat: no-repeat; }
+    background-repeat: no-repeat;
+    padding: 0 10px; }
   .m-koma-filter .is-disabled {
     opacity: .2;
     pointer-events: none; }
