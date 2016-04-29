@@ -12,6 +12,7 @@ app.directive('komaFilter', function () {
             function ($scope, $httpParamSerializer, $http, $timeout) {
 
 
+
                 $scope.queryUrl = 'http://' + window.location.host + '/polozky?';
                 $scope.query = null;
                 $scope.config = FilterConfig;
@@ -20,6 +21,21 @@ app.directive('komaFilter', function () {
                 $scope.loading = false;
                 $scope.first = false;
                 var timer = null;
+
+
+                $scope.getParameterByName = function(name, url) {
+                    if (!url) url = window.location.href;
+
+                    name = name.replace(/[\[\]]/g, "\\$&");
+                    var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
+                        results = regex.exec(url);
+                    if (!results) return null;
+                    if (!results[2]) return '';
+                    return decodeURIComponent(results[2].replace(/\+/g, " "));
+                };
+
+                $scope.displaytype = $scope.getParameterByName('displaytype');
+                $scope.sort = $scope.getParameterByName('sort');
 
                 $scope.$watch(
                     function () {
@@ -86,6 +102,14 @@ app.directive('komaFilter', function () {
 
                             });
                         });
+
+                        // pass location and sort to query
+                        if($scope.sort) {
+                            tQuery['sort'] = $scope.sort;
+                        }
+                        if ($scope.displaytype) {
+                            tQuery['displaytype'] = $scope.displaytype;
+                        }
 
 
                         var newQuery = $httpParamSerializer(tQuery);
