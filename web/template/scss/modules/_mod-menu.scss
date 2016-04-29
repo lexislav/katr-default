@@ -213,7 +213,49 @@
 
 
 .menu.dropdown.menu-language {
+    $twidth: 120px;
+    min-width: $twidth;
+
+    a {
+        text-decoration: none;
+        &:hover {
+            color: lighten($color-koma-primary, 10%);
+        }
+    }
     a:after {
         display: none;
     }
+
+    .is-dropdown-submenu-parent {
+        > a {
+            min-width: $twidth;
+            text-decoration: none;
+        }
+
+    }
+    .is-dropdown-submenu-parent.is-down-arrow a {
+        padding-right: 0.8em;
+        position: relative;
+    }
+
+    .is-dropdown-submenu {
+       // display: block;
+
+    }
+    .submenu {
+        background-color: transparent;
+        border-left: none;
+        border-right: none;
+
+    }
+    &.menu:not(.vertical) .is-dropdown-submenu.first-sub {
+        //right: 0;
+        //left: auto;
+        min-width:$twidth;
+
+    }
+    .is-dropdown-submenu-item {
+        //text-align: right;
+    }
+
 }
