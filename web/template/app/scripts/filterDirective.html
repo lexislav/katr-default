@@ -17,7 +17,7 @@
                 <div class="row m-koma-filter--section-header" ng-if="section.header" ng-click="sectionToggle(section)">
                     <div class="column small-11 align-middle">{{ section.label }}</div>
                     <div class="column small-1">
-                        <div class="m-koma-filter--section-close"></div>
+                        <div class="m-koma-filter--section-close" ng-if="section.closable === true"></div>
                     </div>
                 </div>
 

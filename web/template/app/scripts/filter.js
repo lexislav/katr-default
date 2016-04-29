@@ -90,7 +90,7 @@ app.directive('komaFilter', function () {
 
                         var newQuery = $httpParamSerializer(tQuery);
 
-                        if(newQuery != $scope.query && $scope.loading === false && newQuery.length > 0) {
+                        if (newQuery != $scope.query && $scope.loading === false && newQuery.length > 0) {
                             $scope.query = newQuery;
 
                             if (timer) {
@@ -105,14 +105,12 @@ app.directive('komaFilter', function () {
                         }
 
                         // reset informace o poctu prvku
-                        if(newQuery.length === 0) {
+                        if (newQuery.length === 0) {
                             $scope.queryItemsLabeled = '';
                             $scope.queryItems = 0;
                         }
 
                     }
-
-
                 );
 
                 $scope.testResult = function () {
@@ -124,7 +122,7 @@ app.directive('komaFilter', function () {
                     }).then(function successCallback(response) {
                         $scope.queryItems = response.data.items;
                         $scope.queryItemsLabeled = response.data.labeled;
-                        console.log('affected['+ $scope.queryItems + ']: ' + queryurl);
+                        console.log('affected[' + $scope.queryItems + ']: ' + queryurl);
                         $scope.loading = false;
                     }, function errorCallback(response) {
                         $scope.loading = false;
@@ -168,7 +166,9 @@ app.directive('komaFilter', function () {
                 };
 
                 $scope.sectionToggle = function (section) {
-                    section.opened = !section.opened;
+                    if (section.closable === true) {
+                        section.opened = !section.opened;
+                    }
                 };
 
                 $scope.toggleSelection = function (value, selection) {
