@@ -8,6 +8,7 @@
 {# nastavení numerických hodnot#}
 {% set numericFields = ['sirka', 'vyska', 'hloubka', 'vnitrniVyska', 'hmotnost', 'hmotnostNaPlochu'] %}
 {# analýza queryny #}
+{# TODO prověřit všechny draft.request možnosti, kde je cetsa bez queryny na aktuální stránku #}
 {% set queryna = craft.request.getQueryStringWithoutPath() ?? "" %}
 {% set queryParams = craft.request.getQuery() %}
 {% set filterCat = [] %}
