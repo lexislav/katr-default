@@ -4605,7 +4605,7 @@ label a {
   .m-product-list.mm-card .m-product-list-item {
     background-color: #ecf0ec;
     margin-bottom: 30px;
-    min-height: 400px; }
+    min-height: 426px; }
     @media screen and (min-width: 64em) {
       .m-product-list.mm-card .m-product-list-item {
         margin-bottom: 40px; } }
