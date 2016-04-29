@@ -8,10 +8,13 @@
 {# nastavení numerických hodnot#}
 {% set numericFields = ['sirka', 'vyska', 'hloubka', 'vnitrniVyska', 'hmotnost', 'hmotnostNaPlochu'] %}
 {# analýza queryny #}
-{# TODO prověřit všechny draft.request možnosti, kde je cetsa bez queryny na aktuální stránku #}
 {% set queryna = craft.request.getQueryStringWithoutPath() ?? "" %}
-{% set queryParams = craft.request.getQuery() %}
+{# TODO: zjistit, za se nějak chytře nedá najít parametr p (kvůli jazykovým variantám)#}
+{% set segment = craft.request.segments[0] %}
+{% set queryParams = craft.request.getQuery()|without({'p':segment}) %}
 {% set filterCat = [] %}
+
+{# ostatní proměnné#}
 {% set search = "" %}
 {% set sirkaq = [] %}
 {% set vyskaq = [] %}
@@ -23,31 +26,54 @@
 {# defaultní obrázky#}
 {% set defaultImage = craft.assets.filename('no_image-with-logo.png').first ?? null %}
 
-{# parametry #}
+{# parametry - příprava odkazů přepínačů #}
+{# TODO: prověřit, zda nejde zjednodušit #}
+{# TODO: udělat všechny ostatní linky na stránce, včetně paginace atd.#}
+
 {% if(craft.request.getParam("displaytype")) %}
     {% set displayType = craft.request.getParam("displaytype") %}
+    {% switch displayType %}
+        {% case "card" %}
+            {% set listParams = queryParams | without({'displaytype' : 'card' }) %}
+            {% set cardParams = queryParams %}
+        {% case "list" %}
+            {% set listParams = queryParams | without({'displaytype' : 'list' }) %}
+            {% set cardParams = queryParams | merge({ 'displaytype' : "card" }) %}
+    {% endswitch %}
 {% else %}
     {% set displayType = 'list' %}
+    {% set listParams = queryParams %}
+    {% set cardParams = queryParams | merge({ 'displaytype' : "card" }) %}{# // Adds a param #}
 {% endif %}
-
-{% block content %}
 {% if(craft.request.getParam("sort")) %}
     {% set sortDirection = " " ~ craft.request.getParam("sort") %}
     {% if sortDirection == " desc"%}
-        {% set queryParams = queryParams | without({ 'sort' : "desc" }) %}{# // Removes a param#}
+        {% set sortParams = queryParams | without({ 'sort' : "desc" }) %}{# // Removes a param#}
     {% else  %}
-        {% set queryParams = queryParams | merge({ 'sort' : "desc" }) %}{# // Adds a param #}
+        {% set sortParams = queryParams | merge({ 'sort' : "desc" }) %}{# // Adds a param #}
     {% endif %}
 {% else %}
     {% set sortDirection = " asc" %}
-    {% set queryParams = queryParams | merge({ 'sort' : "desc" }) %}
+    {% set sortParams = queryParams | merge({ 'sort' : "desc" }) %}
 {% endif %}
-
-{% set sortQueryString = '' %}{%autoescape%}
-{% for key, value in queryParams %}
+{% set sortQueryString = '' %}
+{% set listQueryString = '' %}
+{% set cardQueryString = '' %}
+{%autoescape%}
+{% for key, value in sortParams %}
         {% set sortQueryString = loop.first ? '?' ~ key ~ '=' ~ value : sortQueryString ~ '&' ~ key ~ '=' ~ value %}
-{% endfor %}{%endautoescape%}
+{% endfor %}
+{% for key, value in cardParams %}
+        {% set cardQueryString = loop.first ? '?' ~ key ~ '=' ~ value : cardQueryString ~ '&' ~ key ~ '=' ~ value %}
+{% endfor %}
+{% for key, value in listParams %}
+        {% set listQueryString = loop.first ? '?' ~ key ~ '=' ~ value : listQueryString ~ '&' ~ key ~ '=' ~ value %}
+{% endfor %}
+{%endautoescape%}
 
+
+
+{% block content %}
 
 	{% for catHandle in craft.categories.group('catLibraries') %} {# v cyklu projížím všechyn známe knihovny a hledám, zda je danýparametr v queryně #}
 
@@ -141,7 +167,7 @@
 			limit: 24
 	}) %}
 
-    {# eaher loading out #}
+    {# eager loading out #}
     {# ,
     with: [
         ['uvodniObrazek', {
@@ -161,9 +187,9 @@
                 {# <div>M3+m4+m5</div> #}
             </div>
             <div class="m-toolbar--item column shrink">
-                <a href="?displaytype=list" class="m-toolbar--button"><i class="fa fa-list"></i></a>
-                <a href="?displaytype=card" class="m-toolbar--button"><i class="fa fa-table"></i></a>
-                <a href="{{siteUrl}}{{ sortQueryString }}" class="m-toolbar--button"><i class="fa fa-sort"></i> seřadit</a>
+                <a href="{{ craft.request.url ~ listQueryString }}" class="m-toolbar--button"><i class="fa fa-list"></i></a>
+                <a href="{{ craft.request.url ~ cardQueryString }}" class="m-toolbar--button"><i class="fa fa-table"></i></a>
+                <a href="{{ craft.request.url ~ sortQueryString }}" class="m-toolbar--button"><i class="fa fa-sort"></i> seřadit</a>
             </div>
         </div>
     </div>
