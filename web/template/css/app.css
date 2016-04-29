@@ -4331,8 +4331,26 @@ label a {
   .menu-subsections .menu-item.empty-content .title {
     opacity: 0.6; }
 
-.menu.dropdown.menu-language a:after {
-  display: none; }
+.menu.dropdown.menu-language {
+  min-width: 120px; }
+  .menu.dropdown.menu-language a {
+    text-decoration: none; }
+    .menu.dropdown.menu-language a:hover {
+      color: #ee1523; }
+  .menu.dropdown.menu-language a:after {
+    display: none; }
+  .menu.dropdown.menu-language .is-dropdown-submenu-parent > a {
+    min-width: 120px;
+    text-decoration: none; }
+  .menu.dropdown.menu-language .is-dropdown-submenu-parent.is-down-arrow a {
+    padding-right: 0.8em;
+    position: relative; }
+  .menu.dropdown.menu-language .submenu {
+    background-color: transparent;
+    border-left: none;
+    border-right: none; }
+  .menu.dropdown.menu-language.menu:not(.vertical) .is-dropdown-submenu.first-sub {
+    min-width: 120px; }
 
 .koma-content .accordion-title:before {
   font-size: 24px;
@@ -5513,5 +5531,9 @@ button.pswp__button {
 .mm-closed [closable-close-button] i {
   transform: rotate(0deg);
   transition: transform 0.2s; }
+
+.language-align {
+  display: flex;
+  justify-content: flex-end; }
 
 /*# sourceMappingURL=app.css.map */
