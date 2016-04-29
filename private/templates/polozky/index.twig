@@ -5,20 +5,11 @@
 
 {% extends "/_partials/layout/_base.twig" %}
 
-{% if(craft.request.getParam("displaytype")) %}
-    {% set displayType = craft.request.getParam("displaytype") %}
-{% else %}
-    {% set displayType = 'list' %}
-{% endif %}
-
-{% if(craft.request.getParam("sort")) %}
-    {% set sortDirection = " desc" %}
-{% else %}
-    {% set sortDirection = "" %}
-{% endif %}
 {# nastavení numerických hodnot#}
 {% set numericFields = ['sirka', 'vyska', 'hloubka', 'vnitrniVyska', 'hmotnost', 'hmotnostNaPlochu'] %}
 {# analýza queryny #}
+{% set queryna = craft.request.getQueryStringWithoutPath() ?? "" %}
+{% set queryParams = craft.request.getQuery() %}
 {% set filterCat = [] %}
 {% set search = "" %}
 {% set sirkaq = [] %}
@@ -28,11 +19,35 @@
 {% set hmotnostq = [] %}
 {% set hmotnostNaPlochuq = [] %}
 {% set filterexists = false %}
-
 {# defaultní obrázky#}
 {% set defaultImage = craft.assets.filename('no_image-with-logo.png').first ?? null %}
 
+{# parametry #}
+{% if(craft.request.getParam("displaytype")) %}
+    {% set displayType = craft.request.getParam("displaytype") %}
+{% else %}
+    {% set displayType = 'list' %}
+{% endif %}
+
 {% block content %}
+{% if(craft.request.getParam("sort")) %}
+    {% set sortDirection = " " ~ craft.request.getParam("sort") %}
+    {% if sortDirection == " desc"%}
+        {% set queryParams = queryParams | without({ 'sort' : "desc" }) %}{# // Removes a param#}
+    {% else  %}
+        {% set queryParams = queryParams | merge({ 'sort' : "desc" }) %}{# // Adds a param #}
+    {% endif %}
+{% else %}
+    {% set sortDirection = " asc" %}
+    {% set queryParams = queryParams | merge({ 'sort' : "desc" }) %}
+{% endif %}
+
+{% set sortQueryString = '' %}{%autoescape%}
+{% for key, value in queryParams %}
+        {% set sortQueryString = loop.first ? '?' ~ key ~ '=' ~ value : sortQueryString ~ '&' ~ key ~ '=' ~ value %}
+{% endfor %}{%endautoescape%}
+
+
 	{% for catHandle in craft.categories.group('catLibraries') %} {# v cyklu projížím všechyn známe knihovny a hledám, zda je danýparametr v queryně #}
 
 		{% if catHandle.libraryHandle in numericFields %}
@@ -146,8 +161,8 @@
             </div>
             <div class="m-toolbar--item column shrink">
                 <a href="?displaytype=list" class="m-toolbar--button"><i class="fa fa-list"></i></a>
-                <a href="?displaytype=card" class="m-toolbar--button is-disabled"><i class="fa fa-table"></i></a>
-                <a href="#" class="m-toolbar--button is-disabled"><i class="fa fa-sort"></i> seřadit</a>
+                <a href="?displaytype=card" class="m-toolbar--button"><i class="fa fa-table"></i></a>
+                <a href="{{siteUrl}}{{ sortQueryString }}" class="m-toolbar--button"><i class="fa fa-sort"></i> seřadit</a>
             </div>
         </div>
     </div>
@@ -237,7 +252,6 @@
     {% set uptype = "paging" %}
     {% set next = "" %}
     {% set nexttitle = "Další strana" %}
-    {% set queryna = craft.request.getQueryStringWithoutPath() ?? "" %}
 
     {% set varsbottom = {
     "navPosition": "bottom",
