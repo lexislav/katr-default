@@ -14,9 +14,11 @@
                 <div class="row">
                     {% for i in jakSePrihlasit.imageInfos %}
                         <div class="columns medium-4 text-center">
-                            <div>
-                                <img src="{{i.infoImage.first.url}}" alt="" class="image-progress">
-                            </div>
+                            {% if i.infoImage.first %}
+                                <div>
+                                    <img src="{{i.infoImage.first.url}}" alt="" class="image-progress">
+                                </div>
+                            {% endif %}
                             {{i.infoBody}}
                         </div>
                     {% endfor %}

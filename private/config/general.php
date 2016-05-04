@@ -16,7 +16,7 @@ return array(
         'sendPoweredByHeader' => false,
         'allowAutoUpdates' => 'minor-only',
         'enableCsrfProtection' => true,
-        'loginPath' => 'admin',
+        'loginPath' => 'login',
         'testToEmailAddress' => 'lexislav@gmail.com',
         'generateTransformsBeforePageLoad' => true,
         'baseAssetPath' => './',

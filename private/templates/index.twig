@@ -5,35 +5,27 @@
 {% block content %}
 
     {# {% include '/_partials/base/_top-breadcrumbs.twig' %} #}
+    <article>
+        <div class="m-section">
+            <div class="row">
+                <div class="small-12 column text-center">
+                    <h1 class="s-hollow f-xxl" style="margin-bottom: 30px;">Vítejte v KATALOGu</h1>
+                    <h2 class="f-xl">KATALOG – Katalog technických řešení KOMA</h2>
+                </div>
 
-    {% if currentUser %}
-        <article>
-            <div class="m-section">
-                <div class="row">
-                    <div class="small-12 column text-center">
-                        <h1 class="s-hollow f-xxl" style="margin-bottom: 30px;">Vítejte v KATALOGu</h1>
-                        <h2 class="f-xl">KATALOG – Katalog technických řešení KOMA</h2>
-                    </div>
-
-                    <div class="small-12 column text-center mm-pad-top-half">
-                        <a href="/katalog" class="katalogmenu button large">Procházet katalog&nbsp;&nbsp;&rarr;</a>
-                    </div>
+                <div class="small-12 column text-center mm-pad-top-half">
+                    <a href="/katalog" class="katalogmenu button large">Procházet katalog&nbsp;&nbsp;&rarr;</a>
                 </div>
             </div>
+        </div>
 
-            {# úvodní nabídka na wellcome straně #}
-            {% include "/_partials/obsah/_wellcome-shorts.twig"%}
+        {# úvodní nabídka na wellcome straně #}
+        {% include "/_partials/obsah/_wellcome-shorts.twig"%}
 
-            {# taby na rozcestníku (úvodní stránce) #}
-            {% include "/_partials/obsah/_wellcome-tabs.twig"%}
+        {# taby na rozcestníku (úvodní stránce) #}
+        {% include "/_partials/obsah/_wellcome-tabs.twig"%}
 
-            {% include "/_partials/obsah/_obsah-upozorneni.twig" %}
+        {% include "/_partials/obsah/_obsah-upozorneni.twig" %}
         </article>
-    {% else %}
-        {% include "/_partials/headers/_header_login.twig" %}
-        {% include "/_partials/common/_section_info_centered_articles.twig" %}
-        {# {% include "/_partials/common/_section_info_jak_se_prihlasit.twig" %} #}
-        {# {% include "/_partials/forms/_form_zadost_pristup.twig" %} #}
-    {% endif %}
 
 {% endblock content %}

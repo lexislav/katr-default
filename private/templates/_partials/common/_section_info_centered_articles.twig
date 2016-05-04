@@ -1,3 +1,6 @@
+{% if craft.request.path == "login" %}
+    {% set entry = craft.entries.section('homepage').first() %}
+{% endif %}
 <section class="m-section">
 
     <div class="row">

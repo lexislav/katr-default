@@ -1,9 +1,8 @@
 {% block user_autenth %}
     {% if siteUrl != craft.request.getUrl %}
-        {# {% if not currentUser %}{% redirect "maintenance" 301%}{% endif %} #}
         {% requireLogin %}
-    {% else %}
-
+    {% elseif not currentUser %}
+        {% requireLogin %}
     {% endif %}
 {% endblock user_autenth %}
 
