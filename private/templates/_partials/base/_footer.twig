@@ -19,7 +19,12 @@
 
         <div class="row">
             <div class="medium-6 columns">
+                {% if currentUser %}
                 <div>{{footer.body}}</div>
+                {% else %}
+                <div><p>KOMA MODULAR je leader ve výrobě modulárních staveb.<br>
+                    Používáním katalogu souhlasíte s&nbsp;<a href="">Podmínkami užívání katalogu</a.</p></div>
+                {% endif %}
             </div>
             <div class="medium-6 columns text-right">
                 <a href="http://www.koma-modular.cz" title="KOMA Modular">KOMA Modular</a>
