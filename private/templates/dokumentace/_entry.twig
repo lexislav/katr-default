@@ -19,6 +19,7 @@
 	{% set uptype = "default" %}
     {% set next = "" %}
     {% set nexttitle = "" %}
+    {% set queryString = "" %}
 
     {% set navlink = craft.entries.positionedBefore(entry).first() %}
     {% if navlink %}
@@ -64,7 +65,8 @@
         "parentMessage": parentMessage,
 		"parentType": uptype,
         "nextlink": next,
-        "nexttitle": nexttitle
+        "nexttitle": nexttitle,
+        "queryString": ""
     } %}
 
     <article>
