@@ -1,30 +1,36 @@
-<div class="m-section bg-grey-light mm-mgr-bottom-tiny">
+
+{% set defaultImage = craft.assets.filename('no-image-related-product-with-filter.png').first ?? null %}
+
+<div class="m-section bg-grey-light mm-mgr-bottom-tiny mm-pad-top-tiny">
     <div class="row">
-        <div class="columns small-12 mm-pad-bottom-half">
+        <div class="columns small-12 mm-pad-bottom">
             <h3 class="f-xl f-800">Související položky</h3>
         </div>
     </div>
 
     <div class="row">
-        {% for i in 1..6 %}
+        {% for i in entry.souvisejiciPolozky %}
             <div class="columns small-6 ">
 
                 {# zacatek elementu#}
 
                 <div class="m-souvisejici-item bg-white">
-                    <a href="">
+                    <a href="{{i.linkLink}}">
                         {# nested grid pro obsah prvku#}
                         <div class="row align-middle">
                             <div class="columns small-3">
-                                {% if not loop.last %}
-                                <img src="http://lorempixel.com/300/300/"  alt="">
+                                {% if i.linkIcon|length > 0 %}
+                                    {% set image = i.linkIcon.first %}
+                                    <img src="{{ image.getUrl() }}"  alt="{{i.linkTitle}}">
+                                {% elseif defaultImage %}
+                                    <img src="{{ defaultImage.getUrl() }}"  alt="{{i.linkTitle}}">
                                 {% endif %}
                             </div>
 
                             <div class="columns small-7">
-                                <h3 class="f-400 f-xl">Název odkazu na filtr</h3>
+                                <h3 class="f-400 f-xl">{{i.linkTitle}}</h3>
                             </div>
-                            <div class="columns small-2 text-center">&rarr;</div>
+                            <div class="columns small-2 text-center">→</div>
                         </div>
                         {#konec nest gridu#}
                     </a>

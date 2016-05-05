@@ -52,8 +52,9 @@
         {% include "/_partials/base/_nav-top.twig" %}
 
     </article>
-
-    {% include "/_partials/obsa/_obsah-souvisejici.twig" %}
+    {% if entry.souvisejiciPolozky|length > 0 %}
+        {% include "/_partials/obsah/_obsah-souvisejici.twig" %}
+    {% endif %}
 
     {% include "/_partials/obsah/_obsah-upozorneni.twig" %}
 
