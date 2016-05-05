@@ -17,7 +17,6 @@ return array(
         'allowAutoUpdates' => 'minor-only',
         'enableCsrfProtection' => true,
         'loginPath' => 'login',
-        'logoutPath' => '',
         'testToEmailAddress' => 'lexislav@gmail.com',
         'generateTransformsBeforePageLoad' => true,
         'baseAssetPath' => './',
