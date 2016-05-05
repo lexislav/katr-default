@@ -1,8 +1,7 @@
-{# TODO: Šablonu používá pouze testovací strana obsahová, můžeme asi obojí smazat? #}
 <div class="m-section bg-grey-light mm-mgr-bottom-tiny">
     <div class="row">
         <div class="columns small-12 mm-pad-bottom-half">
-            <h3 class="f-xl f-800">KATALOG: Související položky</h3>
+            <h3 class="f-xl f-800">Související položky</h3>
         </div>
     </div>
 
@@ -17,8 +16,11 @@
                         {# nested grid pro obsah prvku#}
                         <div class="row align-middle">
                             <div class="columns small-3">
-                                <img src="http://lorempixel.com/300/200/" alt="">
+                                {% if not loop.last %}
+                                <img src="http://lorempixel.com/300/300/"  alt="">
+                                {% endif %}
                             </div>
+
                             <div class="columns small-7">
                                 <h3 class="f-400 f-xl">Název odkazu na filtr</h3>
                             </div>
