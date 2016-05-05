@@ -19,13 +19,13 @@
         {% include "/_partials/obsah/_obsah-body.twig" %}
 
         {# default gallery#}
-        {% include "/_partials/obsah/_obsah-fotogalerie.twig" %}
+        {# {% include "/_partials/obsah/_obsah-fotogalerie.twig" %} #}
 
         {# schemata #}
-        {% include "/_partials/obsah/_obsah-schema.twig" %}
+        {# {% include "/_partials/obsah/_obsah-schema.twig" %} #}
 
         {# subgallerie #}
-        {% include "/_partials/obsah/_obsah-subgalleries.twig" %}
+        {# {% include "/_partials/obsah/_obsah-subgalleries.twig" %} #}
 
         {# doplnkove informace #}
         {% if entry.doplnkoveInformace %}
@@ -35,8 +35,6 @@
         {% if entry.descendants|length > 0 %}
             {% include "/_partials/common/_subsections-nav.twig"%}
         {% endif %}
-
-        {% include "/_partials/obsah/_obsah-souvisejici.twig" %}
 
     </article>
 
