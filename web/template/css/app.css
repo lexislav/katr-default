@@ -4041,7 +4041,8 @@ label a {
     .off-canvas.position-left .row .row {
       width: auto; }
   .off-canvas .menu-icon {
-    vertical-align: inherit; }
+    vertical-align: inherit;
+    height: 20px; }
     .off-canvas .menu-icon:hover {
       color: white; }
     .off-canvas .menu-icon:after {
@@ -4141,6 +4142,8 @@ label a {
     color: #858585; }
   .top-bar-koma .menu-square {
     width: 77px; }
+    .top-bar-koma .menu-square button {
+      border-radius: 0; }
   .top-bar-koma .top-bar--left {
     height: 76px; }
     .top-bar-koma .top-bar--left .has-border {
