@@ -20,6 +20,7 @@
     {% set next = "" %}
     {% set nexttitle = "" %}
     {% set souvisejici = craft.entries.section('oznameni') %}
+    {% set queryString = "" %}
 
     {% if entry.getPrev(souvisejici) %}
         {% set prev = entry.getPrev(souvisejici).url %}
@@ -52,7 +53,8 @@
         "parentMessage": parentMessage,
 		"parentType": uptype,
         "nextlink": next,
-        "nexttitle": nexttitle
+        "nexttitle": nexttitle,
+        "queryString": ""
     } %}
 
     <article>
