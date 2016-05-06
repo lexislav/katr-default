@@ -1,0 +1,70 @@
+{# Formulář pro zaslání zapomenutého hesla #}
+
+{% extends "/_partials/layout/_base.twig" %}
+
+{% block user_autenth %}
+{% endblock user_autenth %}
+
+{% block bars %}
+    {% include "/_partials/base/_top-bar-reduced.twig" %}
+{% endblock bars %}
+
+{% block content %}
+<nav aria-label="Jste zde:" role="navigation" class="m-breadcrumbs mm-link-notunderline {{ class|default('') }}">
+    <ul class="breadcrumbs">
+        <li><a href="{{ siteUrl }}">KATALOG KOMA</a></li>
+        <li><a href="/podminky-uziti">Podmínky užití katalogu</a></li>
+    </ul>
+</nav>
+
+<article>
+    <header class="mm-mgr-bottom mm-pad-top">
+        <div class="row align-bottom">
+
+            <div class="columns small-8">
+                <h1 class="f-xxxl">{{ entry.title }}
+                    {% if entry.isEditable() %}
+                        <a href="{{ entry.cpEditUrl }}" title="Editovat stránku" alt="Editace stránky"><i class="fa f-xl fa-pencil"></i></a>
+                    {% endif %}
+                </h1>
+            </div>
+
+        </div>
+    </header>
+
+
+    <div class="row mm-pad-bottom">
+        {# {% include "/_partials/obsah/_obsah-textpage-body.twig" with { "type":"oznameni" } %} #}
+        <div class="columns small-12 large-9">
+            <div class="row">
+                <div class="columns small-12">
+                    <div class="m-body-copy"> {# tenhle wrapper sebou nese definici typografie pro detail#}
+
+                        {# obsah - text. #}
+                        {{ entry.body }}
+                        {# NOTE: možno načítat i článek z dokumentac, což by byla výhoda pouze jedněch podmínek. ALe nevím jak s jazyky, asi by se musel také použít výše zakomentovaný include #}
+                        {# {% set entry = craft.entries.section('dokumentace').id('354').first %}
+                        {% for block in entry.docsBody %}
+                            {% if block.type == "docsBody" %}
+                                {{ block.text }}
+                            {% else %}
+                                <figure>
+                                    <img src="{{block.figureImage.first.getUrl('fullfigure')}}" alt="">
+                                    <figcaption><strong>{{block.figureTitle}}:</strong> {{ block.figureDescription }}</figcaption>
+                                </figure>
+                            {% endif %}
+                        {% endfor %} #}
+                    </div>
+
+                    <div class="small-12 column text-left mm-pad-top-half">
+                        <a href="{{siteUrl}}" title="zpět" class="button large">&larr;&nbsp;&nbsp;Zpět</a>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+</article>
+
+{% endblock content %}

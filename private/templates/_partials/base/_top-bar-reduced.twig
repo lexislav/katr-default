@@ -1,0 +1,53 @@
+<div class="top-bar-koma mm-link-notunderline">
+
+    {# left #}
+    <div class="top-bar--left">
+
+        <ul class="menu">
+
+            <li class="menu-square has-border text-center">
+                {# <button type="button" data-open="offCanvasLeft">
+                    <img src="/template/assets/menu-burger.svg" alt="">
+                </button> #}
+            </li>
+
+            {# logo je v backgroundu a přepíná se pomocí mediaquery #}
+            <li class="menu-text has-border menu-logo">
+                <a href="{{ siteUrl }}" title="Úvodní strana" alt="Úvodní strana"></a>
+            </li>
+
+
+        </ul>
+    </div>
+
+    {# right#}
+    <div class="top-bar--right">
+        {# <ul class="menu menu-links">
+            {% for i in offCanvasMenu.menuItem|slice(0,3) %}
+
+                {% set id = '' %}
+                {% if i.menuID %}
+                    {% set id = i.menuID %}
+                {% endif %}
+
+                {% if i.menuLink is empty %}
+                    {% set menuLink = "#" %}
+                    {% set class = "disabled" %}
+                {% else %}
+                    {% set menuLink = i.menuLink %}
+                    {% set class = "" %}
+                {% endif %}
+
+                <li class="menu-text {{ class }}">
+                    <a href="{{ menuLink }}" class="{{ class }} {{ id }}">
+                        <i class="{{ i.menuIcon.value }}"></i><span>{{ i.menuTitle }}</span>
+                    </a>
+                </li>
+
+            {% endfor %}
+
+            <li class="menu-square has-border text-center mm-inverted-link-colors"><a href="/profile"><i class="fa fa-2x fa-user"></i></a></li>
+        </ul> #}
+    </div>
+
+</div>
