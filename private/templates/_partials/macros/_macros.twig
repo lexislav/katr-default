@@ -1,5 +1,5 @@
 {% macro dimensions( hloubka, vnitrniVyska, vyska, sirka, showvv ) %}
-<ul class="menu align-right dot-params">
+<ul class="menu align-right-flex dot-params">
     {% if hloubka %}<li><i title="Hloubka / délka" class="dot">H</i><span>{{ hloubka }} mm</span></li>{% endif %}
     {% if vnitrniVyska and showvv %}<li><i title="Světlá výška" class="dot">V<sub>v</sub></i><span>{{ vnitrniVyska }}</span></li>{% endif %}
     {% if vyska %}<li><i title="Výška" class="dot">V</i><span>{{ vyska }} mm</span></li>{% endif %}
