@@ -1,7 +1,5 @@
 {% header "Content-Type: application/json" %}
 
-{% cache globally for 1 hour %}
-
 {% set numericFields = ['sirka', 'vyska', 'hloubka', 'vnitrniVyska', 'hmotnost', 'hmotnostNaPlochu'] %}
 
 var FilterConfig = [
@@ -70,7 +68,7 @@ var FilterConfig = [
                 {% switch field.displayType %}
                     {% case "dropdown" %}
                         type: 'dropdown',
-                        value: null ,{% include "/_partials/filter/_fieldtype-dropdown.twig" %}
+                        value: '{{craft.request.getParam(libraryHandle)}}' ,{% include "/_partials/filter/_fieldtype-dropdown.twig" %}
                         default: null,
                     {% case "cloud" %}
                         type: 'cloud',
@@ -144,5 +142,3 @@ var FilterConfig = [
 
     {% endfor %}
 ];
-
-{% endcache %}
