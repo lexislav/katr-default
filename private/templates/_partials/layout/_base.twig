@@ -95,9 +95,9 @@
 
         </div>
         <!-- close wrapper, no more content after this -->
-        {{ craft.request.queryStringWithoutPath }}
+
     </div>
-    {{ craft.request.queryStringWithoutPath }}
+
 </div>
 <script src="/template/components/angular/angular.js"></script>
 <script src="/template/components/jquery/dist/jquery.js"></script>
@@ -107,8 +107,8 @@
 <script src="/template/components/photoswipe/dist/photoswipe.min.js"></script>
 <script src="/template/components/photoswipe/dist/photoswipe-ui-default.min.js"></script>
 <script src="/template/js/koma-drill-down.js"></script>
-{# <script src="/api/filter-config"></script> #}
-<script src="/api/filter-config{% if craft.request.queryStringWithoutPath %}?{{ craft.request.queryStringWithoutPath }}{% endif %}"></script>
+<script src="/api/filter-config"></script>
+{# <script src="/api/filter-config{% if craft.request.queryStringWithoutPath %}?{{ craft.request.queryStringWithoutPath }}{% endif %}"></script> #}
 <script src="/template/app/scripts/filter.js"></script>
 <script src="/template/components/angularjs-slider/dist/rzslider.js"></script>
 
