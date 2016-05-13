@@ -71,14 +71,16 @@
                 </div>
                 <div class="columns small-6">
                     {% if currentUser.isInGroup("users") %}
-                        {% set faqs = craft.entries.id(257).search('forEditors:unchecked').limit(10) %}
+                        {% set faqs = craft.entries.id(257).first() %}
+                        {# {% set faqs = craft.entries.section('dokumentace').relatedTo(257).first() %} #}
                     {% else %}
-                        {% set faqs = craft.entries.id(257).limit(10) %}
+                        {% set faqs = craft.entries.id(257).first() %}
+                        {# souvisejici = craft.entries.section('oznameni').limit(10).id('not ' ~ entry.id) #}
                     {% endif %}
 
                     {% if faqs %}
                     {% for entry in faqs.children %}
-                        {% if entry.forEditors and currentUser.groups != "users " %}
+                        {% if entry.forEditors and currentUser.isInGroup("users") == false %}
                         <article class=" mm-pad-bottom-half mm-pad-bottom-half">
                             <div class="row">
                                 <div class="column small-3">
@@ -89,7 +91,7 @@
                                 </div>
                             </div>
                         </article>
-                        {% else %}
+                        {% elseif entry.forEditors == false %}
                         <article class=" mm-pad-bottom-half mm-pad-bottom-half">
                             <div class="row">
                                 <div class="column small-3">
