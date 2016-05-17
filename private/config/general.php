@@ -25,7 +25,7 @@ return array(
     ),
 
     'koma-katalog.dev' => array(
-        'devMode' => true,
+            'devMode' => true,
         'siteUrl' => 'http://koma-katalog.dev/'
     ),
 
