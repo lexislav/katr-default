@@ -44,9 +44,9 @@
 
                         {% for pc in priorityCats %}
                             {% set catValues = attribute(entry,pc.libraryHandle) %}
-                            {# TODO: zvážit zda ponechat ochranou podmínku, editor pak neví, že uděl chybu #}
                             {% if catValues.first %}
-                                <li><span class="tag">{{ catValues.first }}</span></li>{% endif %}
+                                <li><span class="tag">{{ catValues.first }}</span></li>
+                            {% endif %}
                         {% endfor %}
 
                         {# výpis rozměrů #}
@@ -71,8 +71,8 @@
                 <div class="columns">
                     <ul class="menu align-right-flex box-params">
 
-                        {# NOTE: původní podoba dotazu, těžko říct, zda nový je výhodnější. má ale kratší zápis
-                        {% for pc in cats %}{% set catValues = craft.categories({ relatedTo: { sourceElement: entry, field:pc.libraryHandle }, limit: null }) %}
+                        {# NOTE: původní podoba dotazu, těžko říct, zda nový je výhodnější. má ale kratší zápis #}
+                        {# {% for pc in cats %}{% set catValues = craft.categories({ relatedTo: { sourceElement: entry, field:pc.libraryHandle }, limit: null }) %}
                             {% if catValues.first %}
                                 <li>
                                     {% if pc.shortTitle %}

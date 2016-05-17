@@ -270,7 +270,7 @@
 	{# získání ostatních taxonomií pro danou položku #}
 	{% set cats = structureHandle.ostatniKat %}
 
-
+        {#  TODO: toto je největší brzda. Zkusit zefektivnit cykly #}
         {% if (displayType == 'list') %}
             {% include "/_partials/common/_product-item-list.twig" %}
         {% else %}
