@@ -46,6 +46,7 @@
     {% set listParams = queryParams %}
     {% set cardParams = queryParams | merge({ 'displaytype' : "card" }) %}{# // Adds a param #}
 {% endif %}
+
 {% if(craft.request.getParam("sort")) %}
     {% set sortDirection = " " ~ craft.request.getParam("sort") %}
     {% if sortDirection == " desc"%}
@@ -57,21 +58,42 @@
     {% set sortDirection = " asc" %}
     {% set sortParams = queryParams | merge({ 'sort' : "desc" }) %}
 {% endif %}
+
 {% set sortQueryString = '' %}
 {% set listQueryString = '' %}
 {% set cardQueryString = '' %}
 {%autoescape%}
 {% for key, value in sortParams %}
-        {% set sortQueryString = loop.first ? '?' ~ key ~ '=' ~ value : sortQueryString ~ '&' ~ key ~ '=' ~ value %}
+        {% if value is iterable %}
+            {% set joinstring = "&" ~ key ~ "%5B%5D=" %}
+            {% set sortQueryString = loop.first ? '?' ~ key ~ '%5B%5D=' ~ value|join(joinstring) : sortQueryString ~ joinstring ~ value|join(joinstring) %}
+        {% else %}
+            {% set sortQueryString = loop.first ? '?' ~ key ~ '=' ~ value : sortQueryString ~ '&' ~ key ~ '=' ~ value %}
+        {% endif %}
 {% endfor %}
 {% for key, value in cardParams %}
-        {% set cardQueryString = loop.first ? '?' ~ key ~ '=' ~ value : cardQueryString ~ '&' ~ key ~ '=' ~ value %}
+        {% if value is iterable %}
+            {% set joinstring = "&" ~ key ~ "%5B%5D=" %}
+            {% set sortQueryString = loop.first ? '?' ~ key ~ '%5B%5D=' ~ value|join(joinstring) : sortQueryString ~ joinstring ~ value|join(joinstring) %}
+        {% else %}
+            {% set cardQueryString = loop.first ? '?' ~ key ~ '=' ~ value : cardQueryString ~ '&' ~ key ~ '=' ~ value %}
+        {% endif %}
 {% endfor %}
 {% for key, value in listParams %}
-        {% set listQueryString = loop.first ? '?' ~ key ~ '=' ~ value : listQueryString ~ '&' ~ key ~ '=' ~ value %}
+        {% if value is iterable %}
+            {% set joinstring = "&" ~ key ~ "%5B%5D=" %}
+            {% set sortQueryString = loop.first ? '?' ~ key ~ '%5B%5D=' ~ value|join(joinstring) : sortQueryString ~ joinstring ~ value|join(joinstring) %}
+        {% else %}
+            {% set listQueryString = loop.first ? '?' ~ key ~ '=' ~ value : listQueryString ~ '&' ~ key ~ '=' ~ value %}
+        {% endif %}
 {% endfor %}
 {% for key,value in queryParams %}
-        {% set currentFilter =  loop.first ? value ~ " (" ~ key ~ ")" : currentFilter ~ ' + ' ~ value ~ ' (' ~ (key) ~ ')' %}
+        {% if value is iterable %}
+            {% set joinstring = "&" ~ key ~ "%5B%5D=" %}
+            {% set sortQueryString = loop.first ? '?' ~ key ~ '%5B%5D=' ~ value|join(joinstring) : sortQueryString ~ joinstring ~ value|join(joinstring) %}
+        {% else %}
+            {% set currentFilter =  loop.first ? value ~ " (" ~ key ~ ")" : currentFilter ~ ' + ' ~ value ~ ' (' ~ (key) ~ ')' %}
+        {% endif %}
 {% endfor %}
 {%endautoescape%}
 
@@ -79,7 +101,8 @@
 
 {% block content %}
 
-	{% for catHandle in craft.categories.group('catLibraries') %} {# v cyklu projížím všechyn známe knihovny a hledám, zda je danýparametr v queryně #}
+    {# v cyklu projížím všechyn známe knihovny a hledám, zda je danýparametr v queryně #}
+	{% for catHandle in craft.categories.group('catLibraries') %}
 
 		{% if catHandle.libraryHandle in numericFields %}
 
@@ -138,7 +161,8 @@
 			{% set parameter = craft.request.getParam(catHandle.libraryHandle) ? craft.request.getParam(catHandle.libraryHandle) : "" %}
 		{% endif %}
 
-		{% if parameter is iterable %} {# parsing parametrů v poli #}
+        {# parsing parametrů v poli #}
+		{% if parameter is iterable %}
 			{% set partialsearch = "" %}
 			{% for onepiece in parameter %}
 				{% set partialsearch = partialsearch ~ onepiece %}
@@ -146,7 +170,8 @@
 			{% endfor %}
 			{% set search = search != "" ? search ~ " " ~ catHandle.libraryHandle ~ ":" ~ partialsearch : catHandle.libraryHandle ~ ":" ~ partialsearch %}
 
-		{% elseif parameter != "" %} {# sestavení filtru kategorií s jednou ozančením #}
+        {# sestavení filtru kategorií #}
+        {% elseif parameter != "" %}
 			{% if filterCat == [] %}{% set filterCat = ['and'] %}{% endif %}
 			{% set cat = craft.categories.group(catHandle.libraryHandle).title(parameter) %}
 			{% set filterCat = filterCat|merge(cat) %}
@@ -170,6 +195,11 @@
 			order: 'katalogoveCislo' ~ sortDirection,
 			limit: 24
 	}) %}
+
+    {# {% set polozky = craft.entries({
+		    section: 'polozky',
+			limit: 24
+	}) %} #}
 
     {# eager loading out #}
     {# ,
