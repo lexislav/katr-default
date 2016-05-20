@@ -122,13 +122,11 @@ app.directive('komaFilter', function () {
                 $scope.urlObject = null;
                 $scope.urlObject = $.parseParams(window.location.href);
 
-
                 $scope.displaytype = $scope.urlObject.displaytype;
                 $scope.sort = $scope.urlObject.sort;
 
 
                 $scope.parseGetQuery = function () {
-
                     $scope.config.forEach(function (section) {
                         section.fields.forEach(function (field) {
 
@@ -143,7 +141,6 @@ app.directive('komaFilter', function () {
                                         field.min = urlFieldValueMin;
                                     }
 
-
                                 } else if (field.type === 'slider') {
                                     var urlFieldValue = $scope.urlObject[field.id];
                                     if (urlFieldValue != null && urlFieldValue != '') {
@@ -157,7 +154,6 @@ app.directive('komaFilter', function () {
                                         field.value = urlFieldValue;
                                     }
                                 }
-
                             }
                         );
                     });
@@ -165,7 +161,6 @@ app.directive('komaFilter', function () {
 
                 // parse query and if found config field has url param set the value
                 $scope.parseGetQuery();
-
 
                 $scope.$watch(
                     function () {
