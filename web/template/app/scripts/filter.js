@@ -1,6 +1,99 @@
+// parse url with php arrays to JS object
+(function ($) {
+    //
+    var re = /([^&=]+)=?([^&]*)/g;
+    var decode = function (str) {
+        return decodeURIComponent(str.replace(/\+/g, ' '));
+    };
+    $.parseParams = function (query) {
+
+        // recursive function to construct the result object
+        function createElement(params, key, value) {
+            key = key + '';
+
+            // if the key is a property
+            if (key.indexOf('.') !== -1) {
+                // extract the first part with the name of the object
+                var list = key.split('.');
+
+                // the rest of the key
+                var new_key = key.split(/\.(.+)?/)[1];
+
+                // create the object if it doesnt exist
+                if (!params[list[0]]) params[list[0]] = {};
+
+                // if the key is not empty, create it in the object
+                if (new_key !== '') {
+                    createElement(params[list[0]], new_key, value);
+                } else console.warn('parseParams :: empty property in key "' + key + '"');
+            } else
+            // if the key is an array
+            if (key.indexOf('[') !== -1) {
+                // extract the array name
+                var list = key.split('[');
+                key = list[0];
+
+                // extract the index of the array
+                var list = list[1].split(']');
+                var index = list[0]
+
+                // if index is empty, just push the value at the end of the array
+                if (index == '') {
+                    if (!params) params = {};
+                    if (!params[key] || !$.isArray(params[key])) params[key] = [];
+                    params[key].push(value);
+                } else
+                // add the value at the index (must be an integer)
+                {
+                    if (!params) params = {};
+                    if (!params[key] || !$.isArray(params[key])) params[key] = [];
+                    params[key][parseInt(index)] = value;
+                }
+            } else
+            // just normal key
+            {
+                if (!params) params = {};
+                params[key] = value;
+            }
+        }
+
+        // be sure the query is a string
+        query = query + '';
+
+        if (query === '') query = window.location + '';
+
+        var params = {}, e;
+        if (query) {
+            // remove # from end of query
+            if (query.indexOf('#') !== -1) {
+                query = query.substr(0, query.indexOf('#'));
+            }
+
+            // remove ? at the begining of the query
+            if (query.indexOf('?') !== -1) {
+                query = query.substr(query.indexOf('?') + 1, query.length);
+            } else return {};
+
+            // empty parameters
+            if (query == '') return {};
+
+            // execute a createElement on every key and value
+            while (e = re.exec(query)) {
+                var key = decode(e[1]);
+                var value = decode(e[2]);
+                createElement(params, key, value);
+            }
+        }
+        return params;
+    };
+})(jQuery);
+
+
+// APP
 var app = angular.module('komaApp', ['rzModule']);
 
 app.directive('komaFilter', function () {
+
     return {
         replace: true,
         scope: {
@@ -11,8 +104,6 @@ app.directive('komaFilter', function () {
         controller: ['$scope', '$httpParamSerializer', '$http', '$timeout',
             function ($scope, $httpParamSerializer, $http, $timeout) {
 
-
-
                 $scope.queryUrl = 'http://' + window.location.host + '/polozky?';
                 $scope.query = null;
                 $scope.config = FilterConfig;
@@ -22,20 +113,59 @@ app.directive('komaFilter', function () {
                 $scope.first = false;
                 var timer = null;
 
+                if (!$scope.config) {
+                    console.error("Filter config is not defined");
+                    return;
+                }
 
-                $scope.getParameterByName = function(name, url) {
-                    if (!url) url = window.location.href;
+                // parse url to object
+                $scope.urlObject = null;
+                $scope.urlObject = $.parseParams(window.location.href);
 
-                    name = name.replace(/[\[\]]/g, "\\$&");
-                    var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
-                        results = regex.exec(url);
-                    if (!results) return null;
-                    if (!results[2]) return '';
-                    return decodeURIComponent(results[2].replace(/\+/g, " "));
+
+                $scope.displaytype = $scope.urlObject.displaytype;
+                $scope.sort = $scope.urlObject.sort;
+
+
+                $scope.parseGetQuery = function () {
+
+                    $scope.config.forEach(function (section) {
+                        section.fields.forEach(function (field) {
+
+                                if (field.type === 'range') {
+                                    var urlFieldValueMax = $scope.urlObject[field.id + '-max'];
+                                    var urlFieldValueMin = $scope.urlObject[field.id + '-min'];
+
+                                    if (urlFieldValueMax != null && urlFieldValueMax != '') {
+                                        field.max = urlFieldValueMax;
+                                    }
+                                    if (urlFieldValueMin != null && urlFieldValueMin != '') {
+                                        field.min = urlFieldValueMin;
+                                    }
+
+
+                                } else if (field.type === 'slider') {
+                                    var urlFieldValue = $scope.urlObject[field.id];
+                                    if (urlFieldValue != null && urlFieldValue != '') {
+                                        indexValue = field.options.stepsArray.indexOf(parseFloat(urlFieldValue));
+                                        field.value = indexValue;
+                                    }
+                                } else {
+
+                                    var urlFieldValue = $scope.urlObject[field.id];
+                                    if (urlFieldValue != null && urlFieldValue != '') {
+                                        field.value = urlFieldValue;
+                                    }
+                                }
+
+                            }
+                        );
+                    });
                 };
 
-                $scope.displaytype = $scope.getParameterByName('displaytype');
-                $scope.sort = $scope.getParameterByName('sort');
+                // parse query and if found config field has url param set the value
+                $scope.parseGetQuery();
+
 
                 $scope.$watch(
                     function () {
@@ -104,7 +234,7 @@ app.directive('komaFilter', function () {
                         });
 
                         // pass location and sort to query
-                        if($scope.sort) {
+                        if ($scope.sort) {
                             tQuery['sort'] = $scope.sort;
                         }
                         if ($scope.displaytype) {
