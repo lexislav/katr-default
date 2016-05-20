@@ -235,7 +235,7 @@
             <div class="columns small-12">
                 <h1 class="filtermenu">Výpis položek</h1>
                 {% if filterexists %}
-                    Výsledek filtru: {{ pageInfo.total }} | Použijte <a href="#" class="filtermenu">Nový filtr</a>{% if filterexists %} |
+                    Výsledek filtru: {{ pageInfo.total }} | Chcete-li. můžete <a href="#" class="filtermenu">Upravit stávající filtr</a>{% if filterexists %} |
                     <a href="/polozky">Zrušit filtr X</a>{% endif %}
                 {% else %}
                     <strong>Položek v katalogu:</strong> {{ pageInfo.total }} | Položky můžete odfiltrovat pomocí <a href="#" class="filtermenu">parametrického filtru</a>.
@@ -282,7 +282,7 @@
             <div class="m-section">
                 <div class="row">
                     <div class="small-12 column">
-                        <h1>Je nám líto,</h1>
+                        <h2>Je nám líto,</h2>
                         <p>ale tomuto nastavení neodpovídají žádné položky. Změňte nastavení filtru a zkuste to znovu, případně si vypiště
                             <a href="/polozky">všechny položky v katalogu.</a></p>
                     </div>
