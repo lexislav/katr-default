@@ -26,7 +26,7 @@
                         <a href="{{ entry.cpEditUrl }}" title="Editovat stránku" alt="Editace stránky"><i class="fa f-xl fa-pencil"></i></a>
                     {% endif %}
                 </h1>
-                <div><strong>Revize:</strong> {{ entry.dateUpdated|date("d.F Y") }}</div>
+                <div><strong>Revize:</strong> {{ entry.dateUpdated|date("d. F Y") }}</div>
                 {% if entry.section == "Položky" %}
                     {% include "/_partials/obsah/_obsah-header-meta.twig" %}
                 {% endif %}
@@ -49,7 +49,7 @@
                         <a href="{{ entry.cpEditUrl }}" title="Editovat stránku" alt="Editace stránky"><i class="fa f-xl fa-pencil"></i></a>
                     {% endif %}
                 </h1>
-                <div><strong>Revize:</strong> {{ entry.dateUpdated|date("d.F Y") }}</div>
+                <div><strong>Revize:</strong> {{ entry.dateUpdated|date("d. F Y") }}</div>
                 {% if entry.section == "Položky" %}
                     {% include "/_partials/obsah/_obsah-header-meta.twig" %}
                 {% endif %}
