@@ -328,9 +328,7 @@
 
 {# nalinkovat data katalogu do každé stránky, pokud je user zalogován #}
 {% if currentUser %}
-    {% cache %}
     {% include "/_partials/base/_katalog.twig" %}
-    {% endcache %}
 {% endif %}
 
 {# pswipe data #}
